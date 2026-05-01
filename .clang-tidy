@@ -1,6 +1,6 @@
 ---
 # Enable all checks for the strictest analysis
-Checks: '*'
+Checks: '*',-google-objc-function-naming
 
 # Treat all warnings as errors to enforce strict compliance
 WarningsAsErrors: '*'

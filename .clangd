@@ -1,2 +1,4 @@
 CompileFlags:
-  Add: [-xc-header, -std=c11]
+  Add: [-Iinclude]
+  Compiler: clang
+  CompilationDatabase: .
