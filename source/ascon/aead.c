@@ -77,6 +77,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t        key[4U],
     /**
      * @ref NIST SP 800-232 Section 3.2
      * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief 𝑝𝐶 Constant-Addition Layer
      */
     state[5U] = key[3U]^VERUM_ASCON_AEAD128_round_constants[0U];
 
@@ -89,6 +90,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t        key[4U],
     /**
      * @ref NIST SP 800-232 Section 3.3
      * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief 𝑝𝑆 Substitution Layer
      */
     state[0U] = state[0U] ^ state[8U];
     state[1U] = state[1U] ^ state[9U];
@@ -99,37 +101,32 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t        key[4U],
     state[8U] = state[8U] ^ state[6U];
     state[9U] = state[9U] ^ state[7U];
 
-    uint32_t state_buffer[10U];
+    /**
+     * @optimization
+     * - Less holder variables : 4 instead of 10 : Reduces the amount of stores needed to fill holder buffers and also reduces footprint on stack memory.
+     */
+    uint32_t state_holder[4U];
 
-    state_buffer[0U] = (state[0U] ^ 0xFFFFFFFFUL) & state[2U];
-    state_buffer[1U] = (state[1U] ^ 0xFFFFFFFFUL) & state[3U];
+    state_holder[0U] = state[0U];
+    state_holder[1U] = state[1U];
 
-    state_buffer[2U] = (state[2U] ^ 0xFFFFFFFFUL) & state[4U];
-    state_buffer[3U] = (state[3U] ^ 0xFFFFFFFFUL) & state[5U];
+    state_holder[2U] = state[2U];
+    state_holder[3U] = state[3U];
 
-    state_buffer[4U] = (state[4U] ^ 0xFFFFFFFFUL) & state[6U];
-    state_buffer[5U] = (state[5U] ^ 0xFFFFFFFFUL) & state[7U];
+    state[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
+    state[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
 
-    state_buffer[6U] = (state[6U] ^ 0xFFFFFFFFUL) & state[8U];
-    state_buffer[7U] = (state[7U] ^ 0xFFFFFFFFUL) & state[9U];
+    state[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]);
+    state[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]);
 
-    state_buffer[8U] = (state[8U] ^ 0xFFFFFFFFUL) & state[0U];
-    state_buffer[9U] = (state[9U] ^ 0xFFFFFFFFUL) & state[1U];
+    state[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
+    state[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
 
-    state[8U] = state[8U] ^ state_buffer[0U];
-    state[9U] = state[9U] ^ state_buffer[1U];
+    state[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state_holder[0U]);
+    state[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state_holder[1U]);
 
-    state[6U] = state[6U] ^ state_buffer[8U];
-    state[7U] = state[7U] ^ state_buffer[9U];
-
-    state[4U] = state[4U] ^ state_buffer[7U];
-    state[5U] = state[5U] ^ state_buffer[6U];
-
-    state[2U] = state[2U] ^ state_buffer[4U];
-    state[3U] = state[3U] ^ state_buffer[5U];
-
-    state[0U] = state[0U] ^ state_buffer[2U];
-    state[1U] = state[1U] ^ state_buffer[3U];
+    state[8U] = state[8U] ^ ((state_holder[0U] ^ 0xFFFFFFFFUL) & state_holder[2U]);
+    state[9U] = state[9U] ^ ((state_holder[1U] ^ 0xFFFFFFFFUL) & state_holder[3U]);
 
 
     state[6U] = state[6U] ^ state[4U];
