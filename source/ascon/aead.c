@@ -20,20 +20,21 @@
  */
 #include "verum/ascon/aead.h"
 #include "standard/types.h"
-#include <cstdint>
 
 /**
  * @ref NIST SP 800-232 Appendix B
  * @see https://doi.org/10.6028/NIST.SP.800-232
+ * @
  */
-static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {0x00001000UL, 0x808C0001UL};
-
-
+static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
+    0x00001000UL,
+    0x808C0001UL
+};
 
 /**
  * @ref NIST SP 800-232 Section 3.2 Table 5
  * @see https://doi.org/10.6028/NIST.SP.800-232
- * @details C[𝑖] = Const[16−𝑟𝑛𝑑+𝑖]
+ * @brief C[𝑖] = Const[16−𝑟𝑛𝑑+𝑖]
  */
 static const uint32_t VERUM_ASCON_AEAD128_round_constants[12U] = {
     0x000000F0UL, 0x000000E1UL, 0x000000D2UL, 0x000000C3UL,
@@ -41,33 +42,15 @@ static const uint32_t VERUM_ASCON_AEAD128_round_constants[12U] = {
     0x00000078UL, 0x00000069UL, 0x0000005AUL, 0x0000004BUL
 };
 
-
 /**
- * @ref NIST SP 800-232 Section 4.1.1
+ * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
  * @see https://doi.org/10.6028/NIST.SP.800-232
- * @brief Nonce-based AEAD encryption scheme, offering 128-bit security strength in the single-key setting.
- *
- *
- * @param[in] key 128-bit secret key, represented as an array of four 32-bit unsigned integers.
- * @param[in] nonce 128-bit public nonce, represented as an array of four 32-bit unsigned integers. Must be unique for each encryption operation with the same key to ensure security.
- * @param[in] state ASCON state, represented as a union of a structured format and a raw buffer.
- * @param[inout] data Pointer to the plaintext data to be encrypted and associated data. The plaintext data will be encrypted in-place, meaning that the ciphertext will overwrite the plaintext in memory. The associated data is authenticated but not encrypted, and it is processed separately from the plaintext.
- * @param[in] plaintext_size Size of the plaintext data in bytes. The encryption process will handle the plaintext in blocks, and any remaining bytes will be processed according to the ASCON specification for padding.
- * @param[in] associated_size Size of the associated data in bytes. The associated data is authenticated but not encrypted, and it is processed in blocks of 64 bits (8 bytes) during the authentication process. Any remaining bytes will be processed according to the ASCON specification for padding.
- * @param[out] authentication_tag 128-bit authentication tag, represented as an array of four 32-bit unsigned integers. This tag is generated during the encryption process and is used to verify the integrity and authenticity of both the plaintext and the associated data during decryption. The tag should be stored or transmitted alongside the ciphertext for later verification.
+ * @brief S ← 𝐼𝑉 ∥ 𝐾 ∥ 𝑁
  */
-void VERUM_ASCON_AEAD128_encrypt(const uint32_t        key[4U],
-                                 const uint32_t        nonce[4U],
-                                 uint32_t const   state[10U],
-                                 const uint8_t * const data,
-                                 const uint32_t plaintext_size,
-                                 const uint32_t associated_size,
-                                 uint32_t const authentication_tag[4U] )
+static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
+                                                        const uint32_t key[4U],
+                                                        const uint32_t nonce[4U])
 {
-    /**
-     * @ref NIST SP 800-232 Section 3.2.1
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     */
     state[0U] = VERUM_ASCON_AEAD128_initialization_vector[0U];
     state[1U] = VERUM_ASCON_AEAD128_initialization_vector[1U];
 
@@ -78,74 +61,242 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t        key[4U],
      * @ref NIST SP 800-232 Section 3.2
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief 𝑝𝐶 Constant-Addition Layer
+     * @optimization The constant addition layer is merged with the initialization of the state, reducing the number of load operations needed to set up the initial state for encryption.
      */
-    state[5U] = key[3U]^VERUM_ASCON_AEAD128_round_constants[0U];
+    state[5U] = key[3U] ^ VERUM_ASCON_AEAD128_round_constants[0U];
 
     state[6U] = nonce[0U];
     state[7U] = nonce[1U];
     state[8U] = nonce[2U];
     state[9U] = nonce[3U];
+}
 
+/**
+ * @ref NIST SP 800-232 Section 3.2
+ * @see https://doi.org/10.6028/NIST.SP.800-232
+ * @brief 𝑝𝐶 Constant-Addition Layer
+ */
+static inline void VERUM_ASCON_AEAD128_permute_constant_addition(uint32_t state[10U],
+                                                                 const uint32_t round_constant)
+{
+    state[5U] = state[5U] ^ round_constant;
+}
 
-    /**
-     * @ref NIST SP 800-232 Section 3.3
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief 𝑝𝑆 Substitution Layer
-     */
+/**
+ * @ref NIST SP 800-232 Section 3.3
+ * @see https://doi.org/10.6028/NIST.SP.800-232
+ * @brief 𝑝𝑆 Substitution Layer
+ * @optimization Uses 4 temporaries instead of 10, reducing memory traffic (fewer loads/stores), lowering stack usage, and easing register pressure for better overall efficiency.
+ */
+static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state[10U],
+                                                                  uint32_t *const state_holder)
+{
     state[0U] = state[0U] ^ state[8U];
     state[1U] = state[1U] ^ state[9U];
-
     state[4U] = state[4U] ^ state[2U];
     state[5U] = state[5U] ^ state[3U];
-
     state[8U] = state[8U] ^ state[6U];
     state[9U] = state[9U] ^ state[7U];
 
-    /**
-     * @optimization
-     * - Less holder variables : 4 instead of 10 : Reduces the amount of stores needed to fill holder buffers and also reduces footprint on stack memory.
-     */
-    uint32_t state_holder[4U];
-
     state_holder[0U] = state[0U];
     state_holder[1U] = state[1U];
-
     state_holder[2U] = state[2U];
     state_holder[3U] = state[3U];
 
     state[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
     state[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
-
     state[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]);
     state[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]);
-
     state[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
     state[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
-
     state[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state_holder[0U]);
     state[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state_holder[1U]);
-
     state[8U] = state[8U] ^ ((state_holder[0U] ^ 0xFFFFFFFFUL) & state_holder[2U]);
     state[9U] = state[9U] ^ ((state_holder[1U] ^ 0xFFFFFFFFUL) & state_holder[3U]);
 
-
     state[6U] = state[6U] ^ state[4U];
     state[7U] = state[7U] ^ state[5U];
-
     state[4U] = state[4U] ^ 0xFFFFFFFFUL;
     state[5U] = state[5U] ^ 0xFFFFFFFFUL;
-
     state[2U] = state[2U] ^ state[0U];
     state[3U] = state[3U] ^ state[1U];
-
     state[0U] = state[0U] ^ state[8U];
     state[1U] = state[1U] ^ state[9U];
+}
+
+/**
+ * @ref NIST SP 800-232 Section 3.4
+ * @see https://doi.org/10.6028/NIST.SP.800-232
+ * @brief 𝑝𝐿 Linear Diffusion Layer
+ */
+static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t state[10U],
+                                                                      uint32_t * const state_holder)
+{
+    *state_holder = state[0U];
+    state[0U] = state[0U] ^ ((state[0U]>>19U) | (state[1U]<<13U)) ^ ((state[0U]>>28U) | (state[1U]<<4U));
+    state[1U] = state[1U] ^ ((state[1U]>>19U) | (*state_holder<<13U)) ^ ((state[1U]>>28U) | (*state_holder<<4U));
+
+    *state_holder = state[2U];
+    state[2U] = state[2U] ^ ((state[2U]<<3U) | (state[3U]>>29U)) ^ ((state[2U]<<25U) | (state[3U]>>7U));
+    state[3U] = state[3U] ^ ((state[3U]<<3U) | (*state_holder>>29U)) ^ ((state[3U]<<25U) | (*state_holder>>7U));
+
+    *state_holder = state[4U];
+    state[4U] = state[4U] ^ ((state[4U] >>  1U) | (state[5U] << 31U)) ^ ((state[4U] >>  6U) | (state[5U] << 26U));
+    state[5U] = state[5U] ^ ((state[5U] >>  1U) | (*state_holder << 31U)) ^ ((state[5U] >>  6U) | (*state_holder << 26U));
+
+    *state_holder = state[6U];
+    state[6U] = state[6U] ^ ((state[6U] >> 10U) | (state[7U] << 22U)) ^ ((state[6U] >> 17U) | (state[7U] << 15U));
+    state[7U] = state[7U] ^ ((state[7U] >> 10U) | (*state_holder<< 22U)) ^ ((state[7U] >> 17U) | (*state_holder<< 15U));
+
+    *state_holder = state[8U];
+    state[8U] = state[8U] ^ ((state[8U] >>  7U) | (state[9U] << 25U)) ^ ((state[9U] >>  9U) | (state[8U] << 23U));
+    state[9U] = state[9U] ^ ((state[9U] >>  7U) | (*state_holder<< 25U)) ^ ((*state_holder<<  9U) | (state[9U] << 23U));
+}
+
+/**
+ * @ref NIST SP 800-232 Section 4.1.1
+ * @see                           https://doi.org/10.6028/NIST.SP.800-232
+ * @brief Nonce-based AEAD encryption scheme, offering 128-bit security strength in the single-key setting.
+ *
+ *
+ * @param[in]  key                128-bit secret key, represented as an array of four 32-bit unsigned integers.
+ * @param[in]  nonce              128-bit public nonce, represented as an array of four 32-bit unsigned integers. Must be unique for each encryption operation with the same key to ensure security.
+ * @param[in]  state              ASCON state, represented as a union of a structured format and a raw buffer.
+ * @param[inout] data Pointer to the plaintext data to be encrypted and associated data. The plaintext data will be encrypted in-place, meaning that the ciphertext will overwrite the plaintext in memory. The associated data is authenticated but not encrypted, and it is processed separately from the plaintext.
+ * @param[in]  plaintext_size     Size of the plaintext data in bytes. The encryption process will handle the plaintext in blocks, and any remaining bytes will be processed according to the ASCON specification for padding.
+ * @param[in]  associated_size    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF : Size of the associated data in bytes. The associated data is authenticated but not encrypted, and it is processed in blocks of 64 bits (8 bytes) during the authentication process. Any remaining bytes will be processed according to the ASCON specification for padding.
+ * @param[out] authentication_tag 128-bit authentication tag, represented as an array of four 32-bit unsigned integers. This tag is generated during the encryption process and is used to verify the integrity and authenticity of both the plaintext and the associated data during decryption. The tag should be stored or transmitted alongside the ciphertext for later verification.
+ */
+void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
+                                 const uint32_t nonce[4U],
+                                 uint32_t state[10U],
+                                 const uint8_t * const data,
+                                 const uint32_t plaintext_size,
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+                                 const uint32_t associated_size,
+#endif
+                                 uint32_t const authentication_tag[4U])
+{
+
+    /**
+     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     */
+    VERUM_ASCON_AEAD128_initialize_state(state, key, nonce);
+
+    /**
+     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     */
+    uint32_t state_holder[4U] = { 0U, 0U, 0U, 0U };
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+
+    /**
+     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     */
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+    /**
+     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     */
+    uint32_t round_index = 1U;
+    do
+    {
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[round_index]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+        ++round_index;
+    }
+    while (round_index < 12U);
+#else
+    /**
+     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     */
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[1U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[2U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[3U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+#endif
+
+    /**
+     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← S ⊕ (0^[192] ‖ 𝐾)
+     */
+    state[6U] = state[6U] ^ key[0U];
+    state[7U] = state[7U] ^ key[1U];
+    state[8U] = state[8U] ^ key[2U];
+    state[9U] = state[9U] ^ key[3U];
+
+
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    /**
+     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief
+     */
+    uint32_t associated_data_block[2U];
+    for (uint32_t i = 0U; i < associated_size / 8U; i++)
+    {
+
+    }
+#endif
 
 
 
 
 
-
-
-    
 }

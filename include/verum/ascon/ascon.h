@@ -3,10 +3,7 @@
 
 #include "standard/types.h"
 
-typedef union
-{
-    uint32_t buffer[10];
-}ASCON_state_t;
+
 
 
 #endif
