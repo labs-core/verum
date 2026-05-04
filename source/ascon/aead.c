@@ -162,17 +162,19 @@ static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t s
  * @param[in]  key                128-bit secret key, represented as an array of four 32-bit unsigned integers.
  * @param[in]  nonce              128-bit public nonce, represented as an array of four 32-bit unsigned integers. Must be unique for each encryption operation with the same key to ensure security.
  * @param[in]  state              ASCON state, represented as a union of a structured format and a raw buffer.
- * @param[inout] data Pointer to the plaintext data to be encrypted and associated data. The plaintext data will be encrypted in-place, meaning that the ciphertext will overwrite the plaintext in memory. The associated data is authenticated but not encrypted, and it is processed separately from the plaintext.
+ * @param[inout] plaintext        Pointer to the plaintext data to be encrypted and associated data. The plaintext data will be encrypted in-place, meaning that the ciphertext will overwrite the plaintext in memory. The associated data is authenticated but not encrypted, and it is processed separately from the plaintext.
  * @param[in]  plaintext_size     Size of the plaintext data in bytes. The encryption process will handle the plaintext in blocks, and any remaining bytes will be processed according to the ASCON specification for padding.
+ * @param[in]  associated_data    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF : Pointer to the associated data to be authenticated but not encrypted. The associated data can be of arbitrary length and is processed separately from the plaintext. 
  * @param[in]  associated_size    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF : Size of the associated data in bytes. The associated data is authenticated but not encrypted, and it is processed in blocks of 64 bits (8 bytes) during the authentication process. Any remaining bytes will be processed according to the ASCON specification for padding.
  * @param[out] authentication_tag 128-bit authentication tag, represented as an array of four 32-bit unsigned integers. This tag is generated during the encryption process and is used to verify the integrity and authenticity of both the plaintext and the associated data during decryption. The tag should be stored or transmitted alongside the ciphertext for later verification.
  */
 void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
                                  uint32_t state[10U],
-                                 const uint8_t * const data,
+                                 const uint8_t * const plaintext,
                                  const uint32_t plaintext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+                                 const uint8_t * const associated_data,
                                  const uint32_t associated_size,
 #endif
                                  uint32_t const authentication_tag[4U])
@@ -286,14 +288,127 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     /**
      * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
      * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[8]((S[0∶127] ⊕ 𝐴𝑖) ‖ S[128∶319])
      */
-    uint32_t associated_data_block[2U];
-    for (uint32_t i = 0U; i < associated_size / 8U; i++)
-    {
+    uint32_t block_counter    = associated_size >> 4U;
+    uint32_t last_block_index = associated_size & 0xFU;
 
-    }
+    for (; 0U < block_counter; --block_counter)
+    {
+        state[0U] ^= ((const uint32_t *)associated_data)[0U];
+        state[1U] ^= ((const uint32_t *)associated_data)[1U];
+        state[2U] ^= ((const uint32_t *)associated_data)[2U];
+        state[3U] ^= ((const uint32_t *)associated_data)[3U];
+        associated_data += 16U;
+
+#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+        round_index = 4U;
+        do
+        {
+            VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[round_index]);
+            VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+            VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+            ++round_index;
+        }
+        while (round_index < 12U);
+#else
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
 #endif
+    }
+
+
+
+    uint8_t last_block[16U] = { 0U };
+
+    last_block[last_block_index] = 0x80U;
+
+    for (; 0U < last_block_index; --last_block_index)
+    {
+        last_block[last_block_index] = associated_data[last_block_index];
+    }
+    
+
+    state[0U] ^= ((const uint32_t *)last_block)[0U];
+    state[1U] ^= ((const uint32_t *)last_block)[1U];
+    state[2U] ^= ((const uint32_t *)last_block)[2U];
+    state[3U] ^= ((const uint32_t *)last_block)[3U];
+
+#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+    round_index = 4U;
+    do
+    {
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[round_index]);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+        VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+        ++round_index;
+    }
+    while (round_index < 12U);
+#else
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+
+    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
+#endif
+
+#endif
+
 
 
 
