@@ -12,12 +12,12 @@
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
 */
-#ifndef VERUM_TYPES_H_
-#define VERUM_TYPES_H_
+#ifndef VERUM_STD_TYPES_H_
+#define VERUM_STD_TYPES_H_
 
 typedef unsigned char uint8_t;
 
 typedef int int32_t;
 typedef unsigned int uint32_t;
 
-#endif // VERUM_TYPES_H_
+#endif // VERUM_STD_TYPES_H_
