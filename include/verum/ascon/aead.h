@@ -11,7 +11,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                  const uint8_t * const associated_data,
                                  const uint32_t associated_size,
-#endif
+#endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                  uint32_t authentication_tag[4U]);
 
 #endif

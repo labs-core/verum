@@ -24,7 +24,7 @@
 /**
  * @ref NIST SP 800-232 Appendix B
  * @see https://doi.org/10.6028/NIST.SP.800-232
- * @
+ * @ 𝐼𝑉 ← 0x00001000808c0001 
  */
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
     0x00001000UL,
@@ -453,22 +453,19 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ← S[0∶127] ⊕ 𝑃𝑖
          */
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wcast-align"
-        state[0U] = state[0U] ^ ((const uint32_t *) plaintext)[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) plaintext)[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) plaintext)[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) plaintext)[3U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U];
         /**
-         * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-         * @see https://doi.org/10.6028/NIST.SP.800-232
-         * @brief 𝐶𝑖 ← S[0∶127]
-         */
-        ((uint32_t *) plaintext)[0U] = state[0U];
-        ((uint32_t *) plaintext)[1U] = state[1U];
-        ((uint32_t *) plaintext)[2U] = state[2U];
-        ((uint32_t *) plaintext)[3U] = state[3U];
-#pragma clang diagnostic pop
+        * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+        * @see https://doi.org/10.6028/NIST.SP.800-232
+        * @brief 𝐶𝑖 ← S[0∶127]
+        */
+        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U] = state[0U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U] = state[1U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U] = state[2U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U] = state[3U];
         plaintext += 16U;
 
 
