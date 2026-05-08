@@ -28,7 +28,7 @@
  * @internal
  * @ref NIST SP 800-232 Appendix B
  * @see https://doi.org/10.6028/NIST.SP.800-232
- * @ 𝐼𝑉 ← 0x00001000808c0001 
+ * @ 𝐼𝑉 ← 0x00001000808c0001
  */
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
     0x00001000UL,
@@ -48,7 +48,7 @@ static const uint32_t VERUM_ASCON_AEAD128_round_constants[12U] = {
 };
 
 /**
-* @internal
+ * @internal
  * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
  * @see https://doi.org/10.6028/NIST.SP.800-232
  * @brief S ← 𝐼𝑉 ∥ 𝐾 ∥ 𝑁
@@ -237,7 +237,7 @@ static void VERUM_ASCON_AEAD128_permute(uint32_t state[10U],
  * @warning  Nonce reuse under the same key breaks confidentiality and leaks
  *           key material. Uniqueness is the caller's responsibility.
  * @warning  The tag must be verified in constant time before any plaintext
- *           is released. This function produces the tag; 
+ *           is released. This function produces the tag;
  *
  * @param[in]     key                128-bit secret key as four 32-bit words.
  * @param[in]     nonce              128-bit nonce as four 32-bit words. Must be unique per (key, plaintext).
@@ -524,10 +524,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U];
         /**
          * @internal
-        * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-        * @see https://doi.org/10.6028/NIST.SP.800-232
-        * @brief 𝐶𝑖 ← S[0∶127]
-        */
+         * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @brief 𝐶𝑖 ← S[0∶127]
+         */
         ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U] = state[0U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U] = state[1U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U] = state[2U];

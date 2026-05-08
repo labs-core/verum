@@ -17,10 +17,11 @@
  * @param[in]  source       4-byte aligned source buffer of at least 16 bytes.
  */
 __attribute__((noinline))
-void VERUM_AUX_MEMORY_copy128(void * restrict destination, const void * restrict source)
+void VERUM_AUX_MEMORY_copy128(void * restrict destination,
+                              const void * restrict source)
 {
-    uint32_t *const d = (uint32_t *)__builtin_assume_aligned(destination, sizeof(uint32_t));
-    const uint32_t *const s = (const uint32_t *)__builtin_assume_aligned(source, sizeof(uint32_t)); 
+    uint32_t *const d = (uint32_t *) __builtin_assume_aligned(destination, sizeof(uint32_t));
+    const uint32_t *const s = (const uint32_t *) __builtin_assume_aligned(source, sizeof(uint32_t));
 
     d[0U] = s[0U];
     d[1U] = s[1U];
