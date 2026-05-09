@@ -3,8 +3,7 @@
  * @brief     Auxiliary memory operations.
  * @details   This header declares auxiliary memory operations to promote
  *            consistency and portability without depending on the
- *            C standard library. It also enables aliasing between types
- *            on other projects that may want to use VERUM.
+ *            C standard library.
  *
  * @copyright  (C) Core Labs
  *             All rights reserved.

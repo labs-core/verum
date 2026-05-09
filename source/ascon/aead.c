@@ -190,11 +190,11 @@ static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t s
 __attribute__((noinline))
 static void VERUM_ASCON_AEAD128_permute(uint32_t state[10U],
                                         uint32_t * const state_holder,
-                                        const uint32_t round_index)
+                                        uint32_t round_index)
 {
     do
     {
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, round_constants[round_index]);
+        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[round_index]);
         VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
         ++round_index;
@@ -334,10 +334,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
 
     VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
-    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
-
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
     VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
 

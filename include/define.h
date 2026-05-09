@@ -49,10 +49,9 @@
 
 /**
  * @def        VERUM_MEMORY_OPTIMIZED_DEF
- * @brief      Enable memory operation optimizations.
+ * @brief      Enable memory optimizations.
  *
  */
-#ifdef VERUM_MEMORY_OPTIMIZED_DEF
+#undef VERUM_MEMORY_OPTIMIZED_DEF
 
-#endif /* VERUM_MEMORY_OPTIMIZED_DEF */
 #endif /* VERUM_DEFINE_H_ */

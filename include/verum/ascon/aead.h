@@ -19,6 +19,7 @@
 #define VERUM_ASCON_AEAD_H_
 
 #include "standard/types.h"
+#include "define.h"
 
 /**
  * @brief      Ascon-AEAD128 authenticated encryption.
