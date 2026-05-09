@@ -25,7 +25,7 @@
  *             performance-critical and side-channel-sensitive paths where
  *             a function call boundary is not acceptable.
  */
-#define VERUM_INLINE (__attribute__((always_inline)))
+#define VERUM_INLINE __attribute__((always_inline))
 
 /**
  * @brief      Prevent the compiler from inlining the decorated function.
