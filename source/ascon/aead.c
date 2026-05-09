@@ -20,9 +20,10 @@
  */
 #include "verum/ascon/aead.h"
 #include "standard/types.h"
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#include "define.h"
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
 #include "auxiliary/memory.h"
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
 
 /**
  * @internal
@@ -53,6 +54,7 @@ static const uint32_t VERUM_ASCON_AEAD128_round_constants[12U] = {
  * @see https://doi.org/10.6028/NIST.SP.800-232
  * @brief S ← 𝐼𝑉 ∥ 𝐾 ∥ 𝑁
  */
+VERUM_INLINE
 static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
                                                         const uint32_t key[4U],
                                                         const uint32_t nonce[4U])
@@ -72,14 +74,14 @@ static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
      */
     state[5U] = key[3U] ^ VERUM_ASCON_AEAD128_round_constants[0U];
 
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
     VERUM_AUX_MEMORY_copy128(&state[6U], nonce);
 #else
     state[6U] = nonce[0U];
     state[7U] = nonce[1U];
     state[8U] = nonce[2U];
     state[9U] = nonce[3U];
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
 }
 
 /**
@@ -88,6 +90,7 @@ static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
  * @see https://doi.org/10.6028/NIST.SP.800-232
  * @brief 𝑝𝐶 Constant-Addition Layer
  */
+VERUM_INLINE
 static inline void VERUM_ASCON_AEAD128_permute_constant_addition(uint32_t state[10U],
                                                                  const uint32_t round_constant)
 {
@@ -101,6 +104,7 @@ static inline void VERUM_ASCON_AEAD128_permute_constant_addition(uint32_t state[
  * @brief 𝑝𝑆 Substitution Layer
  * @optimization Uses 4 temporaries instead of 10, reducing memory traffic (fewer loads/stores), lowering stack usage, and easing register pressure for better overall efficiency.
  */
+VERUM_INLINE
 static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state[10U],
                                                                   uint32_t *const state_holder)
 {
@@ -111,7 +115,7 @@ static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state
     state[8U] = state[8U] ^ state[6U];
     state[9U] = state[9U] ^ state[7U];
 
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
     VERUM_AUX_MEMORY_copy128(state_holder, state);
 #else
     state_holder[0U] = state[0U];
@@ -119,7 +123,7 @@ static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state
     state_holder[2U] = state[2U];
     state_holder[3U] = state[3U];
 
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
 
 
     state[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
@@ -149,6 +153,7 @@ static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state
  * @see https://doi.org/10.6028/NIST.SP.800-232
  * @brief 𝑝𝐿 Linear Diffusion Layer
  */
+VERUM_INLINE
 static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t state[10U],
                                                                       uint32_t * const state_holder)
 {
@@ -173,7 +178,7 @@ static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t s
     state[9U] = state[9U] ^ ((state[9U] >>  7U) | (*state_holder<< 25U)) ^ ((*state_holder<<  9U) | (state[9U] << 23U));
 }
 
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
 /**
  * @internal
  * @brief Permutes the ASCON state starting from a specified round.
@@ -197,7 +202,7 @@ static void VERUM_ASCON_AEAD128_permute(uint32_t state[10U],
     while (round_index < 12U);
 }
 
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
 
 
 
@@ -285,7 +290,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      */
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
 
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
     /**
      * @internal
      * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
@@ -393,7 +398,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[8]((S[0∶127] ⊕ 𝐴𝑖) ‖ S[128∶319])
          */
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
         VERUM_ASCON_AEAD128_permute(state, state_holder, 4U);
 #else
         VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
@@ -427,7 +432,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
         VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
     }
 
     /**
@@ -462,7 +467,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[8]((S[0∶127] ⊕ 𝐴𝑖) ‖ S[128∶319])
      */
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
     VERUM_ASCON_AEAD128_permute(state, state_holder, 4U);
 #else
     VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
@@ -496,7 +501,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
     VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
 
 #endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
@@ -542,7 +547,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[8](S)
          */
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
         VERUM_ASCON_AEAD128_permute(state, state_holder, 4U);
 #else
         VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
@@ -576,7 +581,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
         VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
     }
 
     /**
@@ -636,7 +641,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
-#ifdef VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#ifdef VERUM_MEMORY_OPTIMIZED_DEF
     VERUM_ASCON_AEAD128_permute(state, state_holder, 0U);
 #else
     VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[0U]);
@@ -687,7 +692,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
     VERUM_ASCON_AEAD128_permute_substitution_layer(state, state_holder);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, state_holder);
-#endif // VERUM_ASCON_AEAD128_MEMORY_OPTIMIZED_DEF
+#endif // VERUM_MEMORY_OPTIMIZED_DEF
 
     /**
      * @internal
