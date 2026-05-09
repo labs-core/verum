@@ -74,15 +74,15 @@
  * @pre        The nonce is used at most once for a given key.
  *
  */
-void VERUM_ASCON_AEAD128_encrypt(const uint32_t  key[4U],
-                                 const uint32_t  nonce[4U],
-                                 uint32_t        state[10U],
+void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
+                                 const uint32_t nonce[4U],
+                                 uint32_t state[10U],
                                  uint8_t        *plaintext,
-                                 const uint32_t  plaintext_size,
+                                 const uint32_t plaintext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                  const uint8_t  *const associated_data,
-                                 const uint32_t  associated_size,
+                                 const uint32_t associated_size,
 #endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
-                                 uint32_t        authentication_tag[4U]);
+                                 uint32_t authentication_tag[4U]);
 
 #endif /* VERUM_ASCON_AEAD_H_ */

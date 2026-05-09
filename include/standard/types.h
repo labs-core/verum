@@ -1,7 +1,7 @@
 /**
  * @file      types.h
  * @brief     Common type definitions.
- * @details   This header defines fundamental data types, structures, and aliases 
+ * @details   This header defines fundamental data types, structures, and aliases
  *            to promote consistency and portability. It also enables
  *            aliasing between types on another projects that may want touse VERUM.
  *
@@ -11,7 +11,7 @@
  * @author     Manoel Serafim
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
-*/
+ */
 #ifndef VERUM_STD_TYPES_H_
 #define VERUM_STD_TYPES_H_
 

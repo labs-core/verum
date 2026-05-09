@@ -1,5 +1,6 @@
 #include "auxiliary/memory.h"
 #include "standard/types.h"
+#include "define.h"
 
 /**
  * @internal
@@ -16,7 +17,7 @@
  * @param[out] destination  4-byte aligned target buffer of at least 16 bytes.
  * @param[in]  source       4-byte aligned source buffer of at least 16 bytes.
  */
-__attribute__((noinline))
+VERUM_NOINLINE
 void VERUM_AUX_MEMORY_copy128(void * restrict destination,
                               const void * restrict source)
 {
