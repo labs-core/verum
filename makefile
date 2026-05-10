@@ -52,7 +52,7 @@ WARNINGS := \
     -Wswitch-default -Wswitch-enum               \
     -Wundef -Wuninitialized                      \
     -Wunused-macros -Wunused-variable            \
-    -Wvla
+    -Wvla -g3
 
 # Release flags (default)
 CFLAGS := -O0 -I$(INCLUDE_DIR) $(WARNINGS)
