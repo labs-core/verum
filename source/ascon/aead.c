@@ -1,5 +1,5 @@
 /**
- * @file       aead.h
+ * @file       aead.c
  * @brief      NIST SP 800-232 ASCON AEAD-128A.
  * @details    Authenticated Encryption with Associated Data (AEAD) is a form of
  *             encryption that simultaneously guarantees confidentiality of the
@@ -243,6 +243,7 @@ static void VERUM_ASCON_AEAD128_permute(uint32_t state[10U],
  *           key material. Uniqueness is the caller's responsibility.
  * @warning  The tag must be verified in constant time before any plaintext
  *           is released. This function produces the tag;
+ * @warning  @p key should be sent as LE words
  *
  * @param[in]     key                128-bit secret key as four 32-bit words.
  * @param[in]     nonce              128-bit nonce as four 32-bit words. Must be unique per (key, plaintext).
@@ -508,7 +509,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← S ⊕ (0[319] ‖ 1)
      */
-    state[9U] = state[9U] ^ 0x00000001UL;
+    state[8U] = state[8U] ^ 0x80000000UL;
 
     block_counter = plaintext_size >> 4U;
 
@@ -589,7 +590,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      */
     last_block_byte_index = plaintext_size & 0xFU;
     uint32_t last_block_byte_index_holder = last_block_byte_index;
-    last_block[last_block_byte_index] = 0x80U;
+    last_block[last_block_byte_index] = 0x01U;
 
     while (0U < last_block_byte_index)
     {
@@ -603,10 +604,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[1U];
+    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[0U];
+    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[3U];
+    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[2U];
 
     /**
      * @internal
@@ -614,7 +615,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief 𝐶𝑛 ← S[0∶ℓ−1].
      */
-    const uint8_t * const state_bytes = (const uint8_t *) state;
+    const uint8_t * const state_bytes = (const uint8_t *) state[1];
     while (0U < last_block_byte_index_holder)
     {
         --last_block_byte_index_holder;
