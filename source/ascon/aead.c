@@ -174,8 +174,8 @@ static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t s
     state[7U] = state[7U] ^ ((state[7U] >> 10U) | (*state_holder << 22U)) ^ ((state[7U] >> 17U) | (*state_holder<< 15U));
 
     *state_holder = state[8U];
-    state[8U] = state[8U] ^ ((state[8U] >>  7U) | (state[9U] << 25U)) ^ ((state[8U] >>  9U) | (state[9U] << 23U));
-    state[9U] = state[9U] ^ ((state[9U] >>  7U) | (*state_holder << 25U)) ^ ((state[9U] >>  9U) | (*state_holder << 23U));
+    state[8U] = state[8U] ^ ((state[8U] >>  7U) | (state[9U] << 25U)) ^ ((state[8U] <<  23U) | (state[9U] >> 9U));
+    state[9U] = state[9U] ^ ((state[9U] >>  7U) | (*state_holder << 25U)) ^ ((state[9U] <<  23U) | (*state_holder >> 9U));
 }
 
 #ifdef VERUM_MEMORY_OPTIMIZED_DEF
@@ -259,7 +259,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  uint8_t *plaintext,
                                  const uint32_t plaintext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                 const uint8_t * const associated_data,
+                                 const uint8_t * associated_data,
                                  const uint32_t associated_size,
 #endif
                                  uint32_t authentication_tag[4U])
@@ -383,10 +383,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ⊕ 𝐴𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) associated_data)[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) associated_data)[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) associated_data)[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) associated_data)[3U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[1U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[2U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[3U];
         associated_data += 16U;
 
         /**
