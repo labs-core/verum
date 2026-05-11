@@ -591,7 +591,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     last_block_byte_index = plaintext_size & 0xFU;
     uint32_t last_block_byte_index_holder = last_block_byte_index;
     last_block[last_block_byte_index] = 0x01U;
-
+    // TR: opt 32_bit cpy if possible
     while (0U < last_block_byte_index)
     {
         --last_block_byte_index;
@@ -604,7 +604,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[1U];
+    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[1U];// TR : index
     state[1U] = state[1U] ^ ((const uint32_t *) last_block)[0U];
     state[2U] = state[2U] ^ ((const uint32_t *) last_block)[3U];
     state[3U] = state[3U] ^ ((const uint32_t *) last_block)[2U];
@@ -615,7 +615,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief 𝐶𝑛 ← S[0∶ℓ−1].
      */
-    const uint8_t * const state_bytes = (const uint8_t *) state[1];
+    const uint8_t * const state_bytes = (const uint8_t *) state;
     while (0U < last_block_byte_index_holder)
     {
         --last_block_byte_index_holder;
