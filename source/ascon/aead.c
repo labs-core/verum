@@ -59,12 +59,11 @@ static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
                                                         const uint32_t key[4U],
                                                         const uint32_t nonce[4U])
 {
-    state[0U] = VERUM_ASCON_AEAD128_initialization_vector[0U];
-    state[1U] = VERUM_ASCON_AEAD128_initialization_vector[1U];
+    state[0U] = VERUM_ASCON_AEAD128_initialization_vector[1U];
+    state[1U] = VERUM_ASCON_AEAD128_initialization_vector[0U];
 
-    state[2U] = key[0U];
-    state[3U] = key[1U];
-    state[4U] = key[2U];
+    state[2U] = key[1U];
+    state[3U] = key[0U];
     /**
      * @internal
      * @ref NIST SP 800-232 Section 3.2
@@ -72,15 +71,16 @@ static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
      * @brief 𝑝𝐶 Constant-Addition Layer
      * @optimization The constant addition layer is merged with the initialization of the state, reducing the number of load operations needed to set up the initial state for encryption.
      */
-    state[5U] = key[3U] ^ VERUM_ASCON_AEAD128_round_constants[0U];
+    state[4U] = key[3U] ^ VERUM_ASCON_AEAD128_round_constants[0U];
+    state[5U] = key[2U];
 
 #ifdef VERUM_MEMORY_OPTIMIZED_DEF
     VERUM_AUX_MEMORY_copy128(&state[6U], nonce);
 #else
-    state[6U] = nonce[0U];
-    state[7U] = nonce[1U];
-    state[8U] = nonce[2U];
-    state[9U] = nonce[3U];
+    state[6U] = nonce[1U];
+    state[7U] = nonce[0U];
+    state[8U] = nonce[3U];
+    state[9U] = nonce[2U];
 #endif // VERUM_MEMORY_OPTIMIZED_DEF
 }
 
@@ -94,7 +94,7 @@ VERUM_INLINE
 static inline void VERUM_ASCON_AEAD128_permute_constant_addition(uint32_t state[10U],
                                                                  const uint32_t round_constant)
 {
-    state[5U] = state[5U] ^ round_constant;
+    state[4U] = state[4U] ^ round_constant;
 }
 
 /**
@@ -359,10 +359,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← S ⊕ (0^[192] ‖ 𝐾)
      */
-    state[6U] = state[6U] ^ key[0U];
-    state[7U] = state[7U] ^ key[1U];
-    state[8U] = state[8U] ^ key[2U];
-    state[9U] = state[9U] ^ key[3U];
+    state[6U] = state[6U] ^ key[1U];
+    state[7U] = state[7U] ^ key[0U];
+    state[8U] = state[8U] ^ key[3U];
+    state[9U] = state[9U] ^ key[2U];
 
     uint8_t last_block[16U] = { 0U };
     uint32_t block_counter = 0U;
@@ -384,10 +384,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ⊕ 𝐴𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[3U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[1U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[0U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[3U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[2U];
         associated_data += 16U;
 
         /**
@@ -454,10 +454,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[1U];
+    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[0U];
+    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[3U];
+    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[2U];
 
     /**
      * @internal
@@ -509,7 +509,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← S ⊕ (0[319] ‖ 1)
      */
-    state[8U] = state[8U] ^ 0x80000000UL;
+    state[9U] = state[9U] ^ 0x80000000UL;
 
     block_counter = plaintext_size >> 4U;
 
@@ -521,17 +521,17 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ← S[0∶127] ⊕ 𝑃𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U];
         /**
          * @internal
          * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief 𝐶𝑖 ← S[0∶127]
          */
-        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U] = state[0U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U] = state[0U];// TR : index
         ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U] = state[1U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U] = state[2U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U] = state[3U];
@@ -604,10 +604,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[1U];// TR : index
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[0U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[3U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[2U];
+    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[0U];// TR : index
+    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[3U];
 
     /**
      * @internal
@@ -628,10 +628,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← S ⊕ (0^[128] ∥ 𝐾 ∥ 0^[64])
      */
-    state[4U] = state[4U] ^ key[0U];
-    state[5U] = state[5U] ^ key[1U];
-    state[6U] = state[6U] ^ key[2U];
-    state[7U] = state[7U] ^ key[3U];
+    state[4U] = state[4U] ^ key[1U];
+    state[5U] = state[5U] ^ key[0U];
+    state[6U] = state[6U] ^ key[3U];
+    state[7U] = state[7U] ^ key[2U];
 
     /**
      * @internal
@@ -698,9 +698,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief 𝑇 ← S[192∶319] ⊕ 𝐾
      */
-    authentication_tag[0U] = state[6U]^key[0U];
-    authentication_tag[1U] = state[7U]^key[1U];
-    authentication_tag[2U] = state[8U]^key[2U];
-    authentication_tag[3U] = state[9U]^key[3U];
+    authentication_tag[0U] = state[6U]^key[1U];
+    authentication_tag[1U] = state[7U]^key[0U];
+    authentication_tag[2U] = state[8U]^key[3U];
+    authentication_tag[3U] = state[9U]^key[2U];
 
 }

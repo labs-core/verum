@@ -199,9 +199,9 @@ const uint32_t nonce[4U] =
     printf("\n");
 
     /* Compare all 16 tag bytes (4 words × 4 bytes). */
-    TEST_ASSERT_EQUAL_HEX32_ARRAY(expected_tag,
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag,
                                   authentication_tag,
-                                  4U);
+                                  16U);
 }
 
 int run_aead_tests(void)
