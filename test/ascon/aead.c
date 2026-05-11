@@ -204,10 +204,84 @@ const uint32_t nonce[4U] =
                                   16U);
 }
 
+static void test_kat(void)
+{
+ const uint8_t key[16U] =
+{
+    0x00, 0x01, 0x02, 0x03,
+    0x04, 0x05, 0x06, 0x07,
+    0x08, 0x09, 0x0A, 0x0B,
+    0x0C, 0x0D, 0x0E, 0x0F
+};
+
+ const uint8_t nonce[16U] =
+{
+    0x00, 0x01, 0x02, 0x03,
+    0x04, 0x05, 0x06, 0x07,
+    0x08, 0x09, 0x0A, 0x0B,
+    0x0C, 0x0D, 0x0E, 0x0F
+};
+    uint8_t plaintext[16U];
+    const uint8_t expected_ciphertext[16U] =
+    {
+        0x44, 0x27, 0xD6, 0x4B, 0x8E, 0x1E, 0x14, 0x51,
+        0xFC, 0x44, 0x59, 0x60, 0xF0, 0x83, 0x9B, 0xB0
+    };
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    const uint8_t associated_data[32U] =
+    {
+        0x0aU, 0xf5U, 0xa7U, 0xf7U, 0x93U, 0x3fU, 0xa2U, 0x57U,
+        0xd3U, 0x05U, 0x19U, 0x4aU, 0x81U, 0x46U, 0x6bU, 0xe6U,
+        0x4dU, 0xdeU, 0xebU, 0x35U, 0x26U, 0x2dU, 0x59U, 0xa6U,
+        0x7bU, 0x76U, 0xfdU, 0xd3U, 0x85U, 0x74U, 0x5eU, 0xb0U
+    };
+#endif
+    uint32_t state[10U] = {0U};
+    uint32_t authentication_tag[4U] = {0U};
+
+    VERUM_ASCON_AEAD128_encrypt((const uint32_t*const)key,
+                                (const uint32_t* const)nonce,
+                                state,
+                                plaintext,
+                                16U,
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+                                associated_data,
+                                32U,
+#endif
+                                authentication_tag);
+
+    printf("\nCiphertext:\n");
+    for(uint32_t i = 0U; i < 16U; i++)
+    {
+        printf("%02X ", plaintext[i]);
+        if(((i + 1U) % 16U) == 0U)
+        {
+            printf("\n");
+        }
+    }
+    printf("\nExpected:\n");
+    for(uint32_t i = 0U; i < 16U; i++)
+    {
+        printf("%02X ", expected_ciphertext[i]);
+        if(((i + 1U) % 16U) == 0U)
+        {
+            printf("\n");
+        }
+    }
+    printf("\n");
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext,
+                                 plaintext,
+                                 16U);
+
+    
+}
+
 int run_aead_tests(void)
 {
     UNITY_BEGIN();
     RUN_TEST(test_VERUM_ASCON_AEAD128_encrypt);
     RUN_TEST(test_VERUM_ASCON_AEAD128_tag_empty_msg);
+    RUN_TEST(test_kat);
     return UNITY_END();
 }
