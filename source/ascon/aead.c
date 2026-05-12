@@ -1,15 +1,11 @@
 /**
  * @file       aead.c
- * @brief      NIST SP 800-232 ASCON AEAD-128A.
- * @details    Authenticated Encryption with Associated Data (AEAD) is a form of
- *             encryption that simultaneously guarantees confidentiality of the
- *             plaintext and authenticity of both the plaintext and the associated
- *             data. Associated data is authenticated but not encrypted,tamper-evident.
- *             ASCON-AEAD128 realises this construction through a
- *             duplex sponge operating over a 320-bit permutation state, binding a
- *             128-bit key and a 128-bit nonce to produce a ciphertext equal in
- *             length to the plaintext and a 128-bit authentication tag, as
- *             standardised in NIST SP 800-232.
+ * @brief      NIST SP 800-232 ASCON AEAD-128.
+ * @details    Authenticated Encryption with Associated Data (AEAD) implementation,
+ *             configurable for memory efficiency xor performance. Uses atomic 32-bit
+ *             operations while maintaining explicit state machines that operate on
+ *             64-bit state for compilation targets in 32-bit microprocessors. The 
+ *             compiler is not responsible to implement the state machine.
  *
  * @copyright  (C) Core Labs
  *             All rights reserved.
@@ -41,6 +37,7 @@ static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
  * @ref NIST SP 800-232 Section 3.2 Table 5
  * @see https://doi.org/10.6028/NIST.SP.800-232
  * @brief C[𝑖] = Const[16−𝑟𝑛𝑑+𝑖]
+ * @details Each of these are little endian; The XOR will be bounded to the most significant bit of the 5th word of the state.
  */
 static const uint32_t VERUM_ASCON_AEAD128_round_constants[12U] = {
     0x000000F0UL, 0x000000E1UL, 0x000000D2UL, 0x000000C3UL,

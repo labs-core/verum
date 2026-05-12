@@ -1,10 +1,15 @@
 /**
  * @file      ascon_aead.h
  * @brief     Ascon-AEAD128 authenticated encryption.
- * @details   This header declares the Ascon-AEAD128 authenticated encryption
- *            operation as specified in NIST SP 800-232. It provides
- *            confidentiality and integrity of plaintext and, when enabled,
- *            integrity of associated data without encrypting it.
+ * @details    Authenticated Encryption with Associated Data (AEAD) is a form of
+ *             encryption that simultaneously guarantees confidentiality of the
+ *             plaintext and authenticity of both the plaintext and the associated
+ *             data. Associated data is authenticated but not encrypted,tamper-evident.
+ *             ASCON-AEAD128 realises this construction through a
+ *             duplex sponge operating over a 320-bit permutation state, binding a
+ *             128-bit key and a 128-bit nonce to produce a ciphertext equal in
+ *             length to the plaintext and a 128-bit authentication tag, as
+ *             standardised in NIST SP 800-232.
  *
  * @see       https://doi.org/10.6028/NIST.SP.800-232
  *
