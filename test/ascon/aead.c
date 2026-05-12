@@ -565,6 +565,50 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_sixteen_byte_ad(void)
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
+static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_five_byte_ad(void)
+{
+    const uint8_t key[16U] =
+    {
+        0x8e,0xda,0x19,0x17,0xd0,0x67,0xb8,0x75,
+        0xb4,0x6f,0xa1,0x88,0xa9,0x01,0xba,0x78
+    };
+    const uint8_t nonce[16U] =
+    {
+        0x33,0xc0,0x2d,0x47,0xd8,0x07,0x5f,0xa7,
+        0xe7,0x24,0x4f,0x35,0xc0,0x1f,0xd6,0xa7
+    };
+    const uint8_t expected_tag[16U] =
+    {
+        0x61,0xad,0xdd,0x66,0x61,0x1c,0x94,0x38,
+        0x1b,0x1a,0xd8,0x41,0xf1,0x13,0x65,0xe3
+    };
+    uint8_t dummy[1U] = {0U};
+    uint32_t state[10U] = {0U};
+    uint32_t authentication_tag[4U] = {0U};
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    const uint8_t associated_data[5U] =
+    {
+        0x61,0x73,0x63,0x6f,0x6e
+    };
+#endif
+
+    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                dummy,
+                                0U,
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+                                associated_data,
+                                5,
+#endif
+                                authentication_tag);
+
+    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+}
+
 static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_one_byte_ad(void)
 {
     const uint8_t key[16U] =
@@ -850,8 +894,8 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_five_byte_ad(void)
     {
         0x1BU, 0x8BU, 0x77U, 0xD3U,
         0x67U, 0xC0U, 0xD8U, 0x6EU,
-        0x0CU, 0x55U, 0x7AU, 0x43U,
-        0x30U, 0x39U, 0xA0U, 0xA5U
+        0x05U, 0x57U, 0xA4U, 0x30U,
+        0x39U, 0xA0U, 0xA5U, 0x06U
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
@@ -900,6 +944,7 @@ int run_aead_tests(void)
         RUN_TEST(test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_empty_ad);
     #else
         RUN_TEST(test_VERUM_ASCON_AEAD128_encrypt_empty_pt_sixteen_byte_ad);
+        RUN_TEST(test_VERUM_ASCON_AEAD128_encrypt_empty_pt_five_byte_ad);
         RUN_TEST(test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_one_byte_ad);
         RUN_TEST(test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_ten_byte_ad);
         RUN_TEST(test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_sixteen_byte_ad);

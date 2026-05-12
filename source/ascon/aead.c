@@ -361,11 +361,13 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[8U] = state[8U] ^ key[2U];
     state[9U] = state[9U] ^ key[3U];
 
-    uint8_t last_block[16U] = { 0U };
     uint32_t block_counter = 0U;
     uint32_t last_block_byte_index = 0U;
+    uint8_t last_block_plaintext[16U] = { 0U };
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+
+    uint8_t last_block_associated_data[16U] = { 0U };
     /**
      * @internal
      * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
@@ -381,10 +383,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ⊕ 𝐴𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[1U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[0U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[3U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[2U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[1U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[2U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[3U];
         associated_data += 16U;
 
         /**
@@ -437,12 +439,12 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @brief pad(̃𝐴𝑚, 128)
      */
     last_block_byte_index = associated_size & 0xFU;
-    last_block[last_block_byte_index] = 0x80U;
+    last_block_associated_data[last_block_byte_index] = 0x01U;
 
     while (0U < last_block_byte_index)
     {
         --last_block_byte_index;
-        last_block[last_block_byte_index] = associated_data[last_block_byte_index];
+        last_block_associated_data[last_block_byte_index] = associated_data[last_block_byte_index];
     }
 
     /**
@@ -451,10 +453,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[1U];
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[0U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[3U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[2U];
+    state[0U] = state[0U] ^ ((const uint32_t *) last_block_associated_data)[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) last_block_associated_data)[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) last_block_associated_data)[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) last_block_associated_data)[3U];
 
     /**
      * @internal
@@ -587,12 +589,12 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      */
     last_block_byte_index = plaintext_size & 0xFU;
     uint32_t last_block_byte_index_holder = last_block_byte_index;
-    last_block[last_block_byte_index] = 0x01U;
+    last_block_plaintext[last_block_byte_index] = 0x01U;
     // TR: opt 32_bit cpy if possible
     while (0U < last_block_byte_index)
     {
         --last_block_byte_index;
-        last_block[last_block_byte_index] = plaintext[last_block_byte_index];
+        last_block_plaintext[last_block_byte_index] = plaintext[last_block_byte_index];
     }
 
     /**
@@ -601,10 +603,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block)[0U];// TR : index
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block)[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block)[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block)[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) last_block_plaintext)[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) last_block_plaintext)[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) last_block_plaintext)[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) last_block_plaintext)[3U];
 
     /**
      * @internal
