@@ -13,20 +13,19 @@ void tearDown(void)
 
 static void test_VERUM_ASCON_AEAD128_encrypt(void)
 {
-const uint32_t key[4U] =
+
+
+const uint8_t key[16U] =
 {
-    0xa2e760f3U,
-    0x1e8eb378U,
-    0x40f83598U,
-    0xa2a804d6U,
+    0x78U,0xb3U,0x8eU,0x1eU,
+    0xf3U,0x60U,0xe7U,0xa2U,
+    0xd6U,0x04U,0xa8U,0xa2U,
+    0x98U,0x35U,0xf8U,0x40U
 };
 
-const uint32_t nonce[4U] =
+const uint8_t nonce[16U] =
 {
-    0x0e29263bU,
-    0x4f1b2673U,
-    0x43baaf9dU,
-    0xae7323cfU,
+    0x73,0x26,0x1b,0x4f,0x3b,0x26,0x29,0x0e,0xcf,0x23,0x73,0xae,0x9d,0xaf,0xba,0x43
     
 };
     uint8_t plaintext[64U] =
@@ -54,8 +53,8 @@ const uint32_t nonce[4U] =
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
 
-    VERUM_ASCON_AEAD128_encrypt(key,
-                                nonce,
+    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 5U,
