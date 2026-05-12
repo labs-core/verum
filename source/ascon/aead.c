@@ -4,7 +4,7 @@
  * @details    Authenticated Encryption with Associated Data (AEAD) implementation,
  *             configurable for memory efficiency xor performance. Uses atomic 32-bit
  *             operations while maintaining explicit state machines that operate on
- *             64-bit state for compilation targets in 32-bit microprocessors. The 
+ *             64-bit state for compilation targets in 32-bit microprocessors. The
  *             compiler is not responsible to implement the state machine.
  *
  * @copyright  (C) Core Labs
@@ -257,7 +257,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  uint8_t *plaintext,
                                  const uint32_t plaintext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                 const uint8_t * associated_data,
+                                 const uint8_t *associated_data,
                                  const uint32_t associated_size,
 #endif
                                  uint32_t authentication_tag[4U])
