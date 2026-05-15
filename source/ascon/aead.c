@@ -695,10 +695,12 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[8U] = 0U;
     state[9U] = 0U;
 
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U] = 0U;
+#endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[1U] = 0U;
@@ -1201,10 +1203,12 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     state[8U] = 0U;
     state[9U] = 0U;
 
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U] = 0U;
+#endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[1U] = 0U;
