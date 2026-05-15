@@ -977,11 +977,11 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         state_holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[0U];
         ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[0U];
         state[0U] = state_holder[0U];
-        
+
         state_holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[1U];
         ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[1U];
         state[1U] = state_holder[0U];
-        
+
         state_holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[2U];
         ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[2U];
         state[2U] = state_holder[0U];
@@ -1001,7 +1001,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         ciphertext += 16U;
 
 
-        //@opt use cipher as state holder for next round chainit 
+        //@opt use cipher as state holder for next round chainit
         /**
          * @internal
          * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
@@ -1045,7 +1045,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #endif // VERUM_MEMORY_OPTIMIZED_DEF
     }
 
- 
+
     last_block_byte_index = ciphertext_size & 0xFU;
     uint32_t last_block_byte_index_holder = last_block_byte_index;
 
