@@ -19,13 +19,13 @@
  * @brief      Force the compiler to always inline the decorated function.
  *
  * @details    Unlike @c static @c inline, which is a hint the compiler may
- *             ignore, @c VERUM_INLINE mandates inlining and causes a
+ *             ignore, @c VERUM_ATTR_INLINE mandates inlining and causes a
  *             compile-time error if the function cannot be inlined (e.g.
  *             its address is taken or recursion is detected). Use for
  *             performance-critical and side-channel-sensitive paths where
  *             a function call boundary is not acceptable.
  */
-#define VERUM_INLINE __attribute__((always_inline))
+#define VERUM_ATTR_INLINE __attribute__((always_inline))
 
 /**
  * @brief      Prevent the compiler from inlining the decorated function.
@@ -35,7 +35,7 @@
  *             repeated inlining or to preserve a stable symbol for
  *             profiling and debugging.
  */
-#define VERUM_NOINLINE __attribute__((noinline))
+#define VERUM_ATTR_NOINLINE __attribute__((noinline))
 
 
 /**
@@ -48,11 +48,11 @@
  */
 
 /**
- * @def        VERUM_MEMORY_OPTIMIZED_DEF
+ * @def        VERUM_OPTIMIZATION_MEMORY_DEF
  * @brief      Enable memory optimizations.
  *
  */
-#undef VERUM_MEMORY_OPTIMIZED_DEF
+#undef VERUM_OPTIMIZATION_MEMORY_DEF
 
 
 #endif /* VERUM_DEFINE_H_ */

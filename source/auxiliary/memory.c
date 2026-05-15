@@ -17,7 +17,7 @@
  * @param[out] destination  4-byte aligned target buffer of at least 16 bytes.
  * @param[in]  source       4-byte aligned source buffer of at least 16 bytes.
  */
-VERUM_NOINLINE
+VERUM_ATTR_NOINLINE
 void VERUM_AUX_MEMORY_copy128(void * restrict destination,
                               const void * restrict source)
 {
