@@ -52,7 +52,7 @@
  * @brief      Enable memory optimizations.
  *
  */
-#define VERUM_OPTIMIZATION_MEMORY_DEF
+#undef VERUM_OPTIMIZATION_MEMORY_DEF
 
 #define VERUM_STANDARD_FIPS_140_3_DEF
 

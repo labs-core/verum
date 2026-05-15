@@ -107,41 +107,30 @@ static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state
 {
     state[0U] = state[0U] ^ state[8U];
     state[1U] = state[1U] ^ state[9U];
-    state[4U] = state[4U] ^ state[2U];
+    state[4U] = state[4U] ^ state[2U]; 
     state[5U] = state[5U] ^ state[3U];
     state[8U] = state[8U] ^ state[6U];
     state[9U] = state[9U] ^ state[7U];
 
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-    VERUM_AUX_MEMORY_copy128(holder, state);
-#else
-    holder[0U] = state[0U];
-    holder[1U] = state[1U];
-    holder[2U] = state[2U];
-    holder[3U] = state[3U];
-
-#endif // VERUM_OPTIMIZATION_MEMORY_DEF
-
-
-    state[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
-    state[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
-    state[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]);
-    state[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]);
+    holder[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
+    holder[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
+    holder[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]) ^ holder[0U];
+    holder[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]) ^ holder[1U];
     state[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
     state[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
-    state[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & holder[0U]);
-    state[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & holder[1U]);
-    state[8U] = state[8U] ^ ((holder[0U] ^ 0xFFFFFFFFUL) & holder[2U]);
-    state[9U] = state[9U] ^ ((holder[1U] ^ 0xFFFFFFFFUL) & holder[3U]);
+    state[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state[0U]) ^ state[4U];
+    state[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state[1U]) ^ state[5U];
+    state[8U] = state[8U] ^ ((state[0U] ^ 0xFFFFFFFFUL) & state[2U]);
+    state[9U] = state[9U] ^ ((state[1U] ^ 0xFFFFFFFFUL) & state[3U]);
 
-    state[6U] = state[6U] ^ state[4U];
-    state[7U] = state[7U] ^ state[5U];
     state[4U] = state[4U] ^ 0xFFFFFFFFUL;
     state[5U] = state[5U] ^ 0xFFFFFFFFUL;
-    state[2U] = state[2U] ^ state[0U];
-    state[3U] = state[3U] ^ state[1U];
-    state[0U] = state[0U] ^ state[8U];
-    state[1U] = state[1U] ^ state[9U];
+    
+    state[0U] = holder[0U] ^ state[8U];
+    state[1U] = holder[1U] ^ state[9U];
+
+    state[2U] = holder[2U];
+    state[3U] = holder[3U];
 }
 
 /**
@@ -277,9 +266,54 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[1U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
-    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
+    state[0U] = state[0U] ^ state[8U];
+    state[1U] = state[1U] ^ state[9U];
+    state[4U] = state[4U] ^ state[2U] ^ VERUM_ASCON_AEAD128_round_constants[1U];
+    state[5U] = state[5U] ^ state[3U];
+    state[8U] = state[8U] ^ state[6U];
+    state[9U] = state[9U] ^ state[7U];
+
+    holder[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
+    holder[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
+    holder[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]) ^ holder[0U];
+    holder[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]) ^ holder[1U];
+    state[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
+    state[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
+    state[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state[0U]) ^ state[4U];
+    state[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state[1U]) ^ state[5U];
+    //hol
+
+
+    state[8U] = state[8U] ^ ((state[0U] ^ 0xFFFFFFFFUL) & state[2U]);
+    state[9U] = state[9U] ^ ((state[1U] ^ 0xFFFFFFFFUL) & state[3U]);
+    
+    state[2U] = holder[2U] ^ ((holder[2U] << 3U) | (holder[3U] >> 29U)) ^ ((holder[2U] << 25U) | (holder[3U] >> 7U));
+    state[3U] = holder[3U] ^ ((holder[3U] << 3U) | (holder[2U] >> 29U)) ^ ((holder[3U] << 25U) | (holder[2U] >> 7U));
+
+
+    holder[0U] = holder[0U] ^ state[8U];
+    state[1U] = holder[1U] ^ state[9U];
+
+    state[0U] = holder[0U] ^ ((holder[0U] >> 19U) | (state[1U] << 13U)) ^ ((holder[0U] >> 28U) | (state[1U] << 4U));
+    state[1U] = state[1U] ^ ((state[1U] >> 19U) | (holder[0U] << 13U)) ^ ((state[1U] >> 28U) | (holder[0U] << 4U));
+
+
+
+    holder[2U] = state[4U] ^ 0xFFFFFFFFUL;
+    holder[3U] = state[5U] ^ 0xFFFFFFFFUL;
+    
+    state[4U] = holder[2U] ^ ((holder[2U] >>  1U) | (holder[3U] << 31U)) ^ ((holder[2U] >>  6U) | (holder[3U] << 26U));
+    state[5U] = holder[3U] ^ ((holder[3U] >>  1U) | (holder[2U] << 31U)) ^ ((holder[3U] >>  6U) | (holder[2U] << 26U));
+
+    holder[0] = state[6U];
+    state[6U] = state[6U] ^ ((state[6U] >> 10U) | (state[7U] << 22U)) ^ ((state[6U] >> 17U) | (state[7U] << 15U));
+    state[7U] = state[7U] ^ ((state[7U] >> 10U) | (holder[0] << 22U)) ^ ((state[7U] >> 17U) | (holder[0]<< 15U));
+
+
+    holder[0] = state[8U];
+    state[8U] = state[8U] ^ ((state[8U] >>  7U) | (state[9U] << 25U)) ^ ((state[8U] <<  23U) | (state[9U] >> 9U));
+    state[9U] = state[9U] ^ ((state[9U] >>  7U) | (holder[0] << 25U)) ^ ((state[9U] <<  23U) | (holder[0] >> 9U));
+
 
     VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[2U]);
     VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
