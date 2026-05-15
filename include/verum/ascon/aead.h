@@ -26,7 +26,7 @@
 #include "standard/types.h"
 #include "define.h"
 
-#define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+#undef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
 
 /**
