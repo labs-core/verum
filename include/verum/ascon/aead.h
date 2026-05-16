@@ -35,7 +35,7 @@
  * @def        VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
  * @brief      Enable associated data processing for ASCON-AEAD128.
  */
-#define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+#undef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
 /**
  * @brief      Ascon-AEAD128 authenticated encryption.
