@@ -68,7 +68,7 @@ static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
      * @brief 𝑝𝐶 Constant-Addition Layer
      * @optimization The constant addition layer is merged with the initialization of the state, reducing the number of load operations needed to set up the initial state for encryption.
      */
-    state[4U] = key[2U] ^ VERUM_ASCON_AEAD128_round_constants[0U];
+    state[4U] = key[2U];
     state[5U] = key[3U];
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -83,19 +83,6 @@ static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
 
 /**
  * @internal
- * @ref NIST SP 800-232 Section 3.2
- * @see https://doi.org/10.6028/NIST.SP.800-232
- * @brief 𝑝𝐶 Constant-Addition Layer
- */
-VERUM_ATTR_INLINE
-static inline void VERUM_ASCON_AEAD128_permute_constant_addition(uint32_t state[10U],
-                                                                 const uint32_t round_constant)
-{
-    state[4U] = state[4U] ^ round_constant;
-}
-
-/**
- * @internal
  * @ref NIST SP 800-232 Section 3.3
  * @see https://doi.org/10.6028/NIST.SP.800-232
  * @brief 𝑝𝑆 Substitution Layer
@@ -103,12 +90,20 @@ static inline void VERUM_ASCON_AEAD128_permute_constant_addition(uint32_t state[
  */
 VERUM_ATTR_INLINE
 static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state[10U],
-                                                                  uint32_t *const holder)
+                                                                  uint32_t holder[10U],
+                                                                  const uint32_t round_constant)
 {
     state[0U] = state[0U] ^ state[8U];
     state[1U] = state[1U] ^ state[9U];
-    state[4U] = state[4U] ^ state[2U]; 
+    /**
+     * @internal
+     * @ref NIST SP 800-232 Section 3.2
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief 𝑝𝐶 Constant-Addition Layer
+     */
+    state[4U] = state[4U] ^ state[2U] ^ round_constant;
     state[5U] = state[5U] ^ state[3U];
+
     state[8U] = state[8U] ^ state[6U];
     state[9U] = state[9U] ^ state[7U];
 
@@ -116,21 +111,18 @@ static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state
     holder[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
     holder[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]) ^ holder[0U];
     holder[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]) ^ holder[1U];
-    state[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
-    state[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
-    state[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state[0U]) ^ state[4U];
-    state[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state[1U]) ^ state[5U];
-    state[8U] = state[8U] ^ ((state[0U] ^ 0xFFFFFFFFUL) & state[2U]);
-    state[9U] = state[9U] ^ ((state[1U] ^ 0xFFFFFFFFUL) & state[3U]);
+    holder[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
+    holder[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
+    holder[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state[0U]) ^ holder[4U];
+    holder[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state[1U]) ^ holder[5U];
+    holder[8U] = state[8U] ^ ((state[0U] ^ 0xFFFFFFFFUL) & state[2U]);
+    holder[9U] = state[9U] ^ ((state[1U] ^ 0xFFFFFFFFUL) & state[3U]);
 
-    state[4U] = state[4U] ^ 0xFFFFFFFFUL;
-    state[5U] = state[5U] ^ 0xFFFFFFFFUL;
-    
-    state[0U] = holder[0U] ^ state[8U];
-    state[1U] = holder[1U] ^ state[9U];
 
-    state[2U] = holder[2U];
-    state[3U] = holder[3U];
+    holder[0U] = holder[0U] ^ holder[8U];
+    holder[1U] = holder[1U] ^ holder[9U];
+    holder[4U] = holder[4U] ^ 0xFFFFFFFFUL;
+    holder[5U] = holder[5U] ^ 0xFFFFFFFFUL;
 }
 
 /**
@@ -141,27 +133,22 @@ static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state
  */
 VERUM_ATTR_INLINE
 static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t state[10U],
-                                                                      uint32_t * const holder)
+                                                                      uint32_t holder[10U])
 {
-    *holder = state[0U];
-    state[0U] = state[0U] ^ ((state[0U] >> 19U) | (state[1U]<<13U)) ^ ((state[0U] >> 28U) | (state[1U] << 4U));
-    state[1U] = state[1U] ^ ((state[1U] >> 19U) | (*holder << 13U)) ^ ((state[1U] >> 28U) | (*holder<<4U));
+    state[0U] = holder[0U] ^ ((holder[0U] >> 19U) | (holder[1U] << 13U)) ^ ((holder[0U] >> 28U) | (holder[1U] << 4U));
+    state[1U] = holder[1U] ^ ((holder[1U] >> 19U) | (holder[0U] << 13U)) ^ ((holder[1U] >> 28U) | (holder[0U] << 4U));
 
-    *holder = state[2U];
-    state[2U] = state[2U] ^ ((state[2U] << 3U) | (state[3U] >> 29U)) ^ ((state[2U] << 25U) | (state[3U] >> 7U));
-    state[3U] = state[3U] ^ ((state[3U] << 3U) | (*holder >> 29U)) ^ ((state[3U] << 25U) | (*holder >> 7U));
+    state[2U] = holder[2U] ^ ((holder[2U] << 3U) | (holder[3U] >> 29U)) ^ ((holder[2U] << 25U) | (holder[3U] >> 7U));
+    state[3U] = holder[3U] ^ ((holder[3U] << 3U) | (holder[2U] >> 29U)) ^ ((holder[3U] << 25U) | (holder[2U] >> 7U));
 
-    *holder = state[4U];
-    state[4U] = state[4U] ^ ((state[4U] >>  1U) | (state[5U] << 31U)) ^ ((state[4U] >>  6U) | (state[5U] << 26U));
-    state[5U] = state[5U] ^ ((state[5U] >>  1U) | (*holder << 31U)) ^ ((state[5U] >>  6U) | (*holder << 26U));
+    state[4U] = holder[4U] ^ ((holder[4U] >>  1U) | (holder[5U] << 31U)) ^ ((holder[4U] >>  6U) | (holder[5U] << 26U));
+    state[5U] = holder[5U] ^ ((holder[5U] >>  1U) | (holder[4U] << 31U)) ^ ((holder[5U] >>  6U) | (holder[4U] << 26U));
 
-    *holder = state[6U];
-    state[6U] = state[6U] ^ ((state[6U] >> 10U) | (state[7U] << 22U)) ^ ((state[6U] >> 17U) | (state[7U] << 15U));
-    state[7U] = state[7U] ^ ((state[7U] >> 10U) | (*holder << 22U)) ^ ((state[7U] >> 17U) | (*holder<< 15U));
+    state[6U] = holder[6U] ^ ((holder[6U] >> 10U) | (holder[7U] << 22U)) ^ ((holder[6U] >> 17U) | (holder[7U] << 15U));
+    state[7U] = holder[7U] ^ ((holder[7U] >> 10U) | (holder[6U] << 22U)) ^ ((holder[7U] >> 17U) | (holder[6U]<< 15U));
 
-    *holder = state[8U];
-    state[8U] = state[8U] ^ ((state[8U] >>  7U) | (state[9U] << 25U)) ^ ((state[8U] <<  23U) | (state[9U] >> 9U));
-    state[9U] = state[9U] ^ ((state[9U] >>  7U) | (*holder << 25U)) ^ ((state[9U] <<  23U) | (*holder >> 9U));
+    state[8U] = holder[8U] ^ ((holder[8U] >>  7U) | (holder[9U] << 25U)) ^ ((holder[8U] <<  23U) | (holder[9U] >> 9U));
+    state[9U] = holder[9U] ^ ((holder[9U] >>  7U) | (holder[8U] << 25U)) ^ ((holder[9U] <<  23U) | (holder[8U] >> 9U));
 }
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -180,8 +167,7 @@ static void VERUM_ASCON_AEAD128_permute(uint32_t state[10U],
 {
     do
     {
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[round_index]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[round_index]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
         ++round_index;
     }
@@ -234,22 +220,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      */
     VERUM_ASCON_AEAD128_initialize_state(state, key, nonce);
 
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    uint32_t holder[4U] = { 0U, 0U, 0U, 0U };
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
 
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
+    uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     /**
@@ -258,7 +231,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
-    VERUM_ASCON_AEAD128_permute(state, holder, 1U);
+    VERUM_ASCON_AEAD128_permute(state, holder, 0U);
 #else
     /**
      * @internal
@@ -266,93 +239,40 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
-    state[0U] = state[0U] ^ state[8U];
-    state[1U] = state[1U] ^ state[9U];
-    state[4U] = state[4U] ^ state[2U] ^ VERUM_ASCON_AEAD128_round_constants[1U];
-    state[5U] = state[5U] ^ state[3U];
-    state[8U] = state[8U] ^ state[6U];
-    state[9U] = state[9U] ^ state[7U];
-
-    holder[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
-    holder[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
-    holder[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]) ^ holder[0U];
-    holder[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]) ^ holder[1U];
-    state[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
-    state[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
-    state[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state[0U]) ^ state[4U];
-    state[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state[1U]) ^ state[5U];
-    //hol
-
-
-    state[8U] = state[8U] ^ ((state[0U] ^ 0xFFFFFFFFUL) & state[2U]);
-    state[9U] = state[9U] ^ ((state[1U] ^ 0xFFFFFFFFUL) & state[3U]);
-    
-    state[2U] = holder[2U] ^ ((holder[2U] << 3U) | (holder[3U] >> 29U)) ^ ((holder[2U] << 25U) | (holder[3U] >> 7U));
-    state[3U] = holder[3U] ^ ((holder[3U] << 3U) | (holder[2U] >> 29U)) ^ ((holder[3U] << 25U) | (holder[2U] >> 7U));
-
-
-    holder[0U] = holder[0U] ^ state[8U];
-    state[1U] = holder[1U] ^ state[9U];
-
-    state[0U] = holder[0U] ^ ((holder[0U] >> 19U) | (state[1U] << 13U)) ^ ((holder[0U] >> 28U) | (state[1U] << 4U));
-    state[1U] = state[1U] ^ ((state[1U] >> 19U) | (holder[0U] << 13U)) ^ ((state[1U] >> 28U) | (holder[0U] << 4U));
-
-
-
-    holder[2U] = state[4U] ^ 0xFFFFFFFFUL;
-    holder[3U] = state[5U] ^ 0xFFFFFFFFUL;
-    
-    state[4U] = holder[2U] ^ ((holder[2U] >>  1U) | (holder[3U] << 31U)) ^ ((holder[2U] >>  6U) | (holder[3U] << 26U));
-    state[5U] = holder[3U] ^ ((holder[3U] >>  1U) | (holder[2U] << 31U)) ^ ((holder[3U] >>  6U) | (holder[2U] << 26U));
-
-    holder[0] = state[6U];
-    state[6U] = state[6U] ^ ((state[6U] >> 10U) | (state[7U] << 22U)) ^ ((state[6U] >> 17U) | (state[7U] << 15U));
-    state[7U] = state[7U] ^ ((state[7U] >> 10U) | (holder[0] << 22U)) ^ ((state[7U] >> 17U) | (holder[0]<< 15U));
-
-
-    holder[0] = state[8U];
-    state[8U] = state[8U] ^ ((state[8U] >>  7U) | (state[9U] << 25U)) ^ ((state[8U] <<  23U) | (state[9U] >> 9U));
-    state[9U] = state[9U] ^ ((state[9U] >>  7U) | (holder[0] << 25U)) ^ ((state[9U] <<  23U) | (holder[0] >> 9U));
-
-
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[2U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[0U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[3U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[1U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[2U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[3U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
+
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
+
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
 #endif
@@ -405,36 +325,28 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         VERUM_ASCON_AEAD128_permute(state, holder, 4U);
 #else
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
@@ -474,36 +386,28 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     VERUM_ASCON_AEAD128_permute(state, holder, 4U);
 #else
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
@@ -554,36 +458,28 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         VERUM_ASCON_AEAD128_permute(state, holder, 4U);
 #else
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
@@ -648,53 +544,40 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     VERUM_ASCON_AEAD128_permute(state, holder, 0U);
 #else
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[0U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[0U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[1U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[1U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[2U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[2U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[3U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[3U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
@@ -791,22 +674,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      */
     VERUM_ASCON_AEAD128_initialize_state(state, key, nonce);
 
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    uint32_t holder[4U] = { 0U, 0U, 0U, 0U };
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
-
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
+    uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     /**
@@ -823,50 +691,41 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[1U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[0U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[2U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[1U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[3U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[2U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[3U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
+    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif
 
     /**
@@ -915,36 +774,28 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         VERUM_ASCON_AEAD128_permute(state, holder, 4U);
 #else
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
@@ -984,36 +835,28 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     VERUM_ASCON_AEAD128_permute(state, holder, 4U);
 #else
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
@@ -1067,36 +910,28 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         VERUM_ASCON_AEAD128_permute(state, holder, 4U);
 #else
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-        VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+        VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
@@ -1157,52 +992,40 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     VERUM_ASCON_AEAD128_permute(state, holder, 0U);
 #else
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[0U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[0U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[1U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[1U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[2U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[2U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[3U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[3U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[4U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[4U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[5U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[5U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[6U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[6U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[7U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[7U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[8U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[8U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[9U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[9U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[10U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[10U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
-    VERUM_ASCON_AEAD128_permute_constant_addition(state, VERUM_ASCON_AEAD128_round_constants[11U]);
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[11U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
