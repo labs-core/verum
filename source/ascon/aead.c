@@ -223,22 +223,16 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     
-
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     /**
      * @internal
      * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     VERUM_ASCON_AEAD128_permute(state, holder, 0U);
 #else
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
+
     VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[0U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 
@@ -676,21 +670,15 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
+    /**
+     * @internal
+     * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    VERUM_ASCON_AEAD128_permute(state, holder, 1U);
+    VERUM_ASCON_AEAD128_permute(state, holder, 0U);
 #else
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
     VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[0U]);
     VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 

@@ -26,8 +26,16 @@
 #include "standard/types.h"
 #include "define.h"
 
-#undef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-
+/**
+ * @defgroup ASCON AEAD128 feature flags
+ * @{
+ *
+ */
+/**
+ * @def        VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ * @brief      Enable associated data processing for ASCON-AEAD128.
+ */
+#define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
 /**
  * @brief      Ascon-AEAD128 authenticated encryption.
@@ -42,16 +50,10 @@
  *             ciphertext of equal length. The original plaintext is
  *             overwritten and cannot be recovered from @p plaintext alone.
  *
- * @param[in]  key                128-bit secret key as four consecutive
- *                                32-bit words. Must remain valid for the
- *                                duration of the call.
- * @param[in]  nonce              128-bit public nonce as four consecutive
- *                                32-bit words. Must be unique per
- *                                (key, plaintext) pair.
- * @param[in,out] state           320-bit Ascon permutation state as ten
- *                                consecutive 32-bit words. Initialised
- *                                internally; caller storage must be
- *                                provided but need not be pre-filled.
+ * @param[in]  key                128-bit secret key.
+ * @param[in]  nonce              128-bit public nonce.
+ * @param[in,out] state           320-bit Ascon permutation state buffer as ten
+ *                                consecutive uninitiallized 32-bit words.
  * @param[in,out] plaintext       On entry: plaintext buffer of
  *                                @p plaintext_size bytes.
  *                                On return: ciphertext of equal length,
@@ -94,6 +96,54 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
                                  uint32_t authentication_tag[4U]);
 
+/**
+ * @brief      Ascon-AEAD128 authenticated decryption.
+ *
+ * @details    Decrypts @p ciphertext in place and verifies the 128-bit
+ *             authentication tag over the plaintext and, when
+ *             @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF is defined,
+ *             over @p associated_data as well. The operation follows
+ *             Algorithm 4 of NIST SP 800-232 Section 4.1.1.
+ *
+ *             On return, the buffer addressed by @p ciphertext holds the
+ *             plaintext of equal length. The original ciphertext is
+ *             overwritten and cannot be recovered from @p ciphertext alone.
+ *
+ * @param[in]  key                128-bit secret key.
+ * @param[in]  nonce              128-bit public nonce.
+ * @param[in,out] state           320-bit Ascon permutation state buffer as ten
+ *                                consecutive uninitialised 32-bit words.
+ * @param[in,out] ciphertext      On entry: ciphertext buffer of
+ *                                @p ciphertext_size bytes.
+ *                                On return: plaintext of equal length,
+ *                                written in place.
+ * @param[in]  ciphertext_size    Length of @p ciphertext in bytes.
+ *                                May be zero, in which case no ciphertext
+ *                                blocks are processed and the tag covers
+ *                                only associated data.
+ *
+ * @param[in]  associated_data    Pointer to associated data of
+ *                                @p associated_size bytes. Authenticated
+ *                                but not decrypted. Only present when
+ *                                @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ *                                is defined.
+ * @param[in]  associated_size    Length of @p associated_data in bytes.
+ *                                May be zero. Only present when
+ *                                @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ *                                is defined.
+ *
+ * @param[in]  authentication_tag 128-bit authentication tag to verify
+ *                                after finalisation, read as four
+ *                                consecutive 32-bit words.
+ *
+ * @pre        @p key, @p nonce, @p state, @p ciphertext and
+ *             @p authentication_tag are non-NULL.
+ * @pre        @p ciphertext points to a buffer of at least
+ *             @p ciphertext_size bytes.
+ * @pre        @p ciphertext and @p authentication_tag do not overlap.
+ * @pre        The nonce matches the one used during encryption.
+ *
+ */
 void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
                                  uint32_t state[10U],

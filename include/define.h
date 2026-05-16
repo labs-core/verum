@@ -41,19 +41,18 @@
 /**
  * @defgroup verum_feature_flags Optional feature flags
  * @{
- *
- * Define any of the following macros before including this header, or
- * pass them via the compiler command line (-DFLAG), to enable the
- * corresponding optional code paths.
  */
 
 /**
  * @def        VERUM_OPTIMIZATION_MEMORY_DEF
  * @brief      Enable memory optimizations.
- *
  */
-#undef VERUM_OPTIMIZATION_MEMORY_DEF
+#define VERUM_OPTIMIZATION_MEMORY_DEF
 
+/**
+ * @def        VERUM_STANDARD_FIPS_140_3_DEF
+ * @brief      Enable FIPS 140-3 compliance.
+ */
 #define VERUM_STANDARD_FIPS_140_3_DEF
 
 #endif /* VERUM_DEFINE_H_ */
