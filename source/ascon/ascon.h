@@ -22,16 +22,6 @@
 #include "auxiliary/memory.h"
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
-/**
- * @internal
- * @ref NIST SP 800-232 Appendix B
- * @see https://doi.org/10.6028/NIST.SP.800-232
- * @ 𝐼𝑉 ← 0x00001000808c0001
- */
-static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
-    0x00001000UL,
-    0x808C0001UL
-};
 
 /**
  * @internal
@@ -40,7 +30,7 @@ static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
  * @brief C[𝑖] = Const[16−𝑟𝑛𝑑+𝑖]
  * @details Each of these are little endian; The XOR will be bounded to the most significant bit of the 5th word of the state.
  */
-static const uint32_t VERUM_ASCON_AEAD128_round_constants[12U] = {
+static const uint32_t VERUM_ASCON_round_constants[12U] = {
     0x000000F0UL, 0x000000E1UL, 0x000000D2UL, 0x000000C3UL,
     0x000000B4UL, 0x000000A5UL, 0x00000096UL, 0x00000087UL,
     0x00000078UL, 0x00000069UL, 0x0000005AUL, 0x0000004BUL
@@ -180,11 +170,11 @@ static void VERUM_ASCON_AEAD128_permute(uint32_t state[10U],
                                         uint32_t * const holder,
                                         uint32_t round_index)
 {
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_AEAD128_round_constants[round_index]);
+    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[round_index]);
     ++round_index;
     do
     {
-        VERUM_ASCON_AEAD128_permute_merged(state, holder, VERUM_ASCON_AEAD128_round_constants[round_index]);
+        VERUM_ASCON_AEAD128_permute_merged(state, holder, VERUM_ASCON_round_constants[round_index]);
         ++round_index;
     }
     while (round_index < 12U);
