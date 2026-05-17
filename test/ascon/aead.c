@@ -266,12 +266,10 @@ static void test_VERUM_ASCON_AEAD128_encrypt_gigantic_pt_empty_ad(void)
         0x00U, 0x00U, 0x00U, 0x00U
     };
 #endif
-    uint32_t state[10U] = { 0U };
     uint32_t authentication_tag[4U] = { 0U };
 
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 2027U,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -286,7 +284,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_gigantic_pt_empty_ad(void)
 
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 2027U,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -345,13 +342,11 @@ static void test_VERUM_ASCON_AEAD128_base_encrypt(void)
         0x00U, 0x00U, 0x00U, 0x00U
     };
 #endif
-    uint32_t state[10U] = { 0U };
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 5U,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -371,7 +366,6 @@ static void test_VERUM_ASCON_AEAD128_base_encrypt(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 5U,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -413,13 +407,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_empty_ad(void)
         0xF0U, 0x83U, 0x9BU, 0xB0U
     };
     uint8_t dummy[1U] = { 0U };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 dummy,
                                 0U,
                                 authentication_tag);
@@ -432,7 +425,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_empty_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 dummy,
                                 0U,
                                 authentication_tag);
@@ -469,13 +461,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_empty_ad(void)
         0xD4U, 0x38U, 0xF8U, 0xE1U,
         0xDDU, 0x03U, 0xF1U, 0x47U
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 1U,
                                 authentication_tag);
@@ -491,7 +482,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_empty_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 1U,
                                 authentication_tag);
@@ -531,13 +521,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_empty_ad(void)
         0x02U, 0xEBU, 0x5FU, 0xBEU,
         0x6FU, 0x9DU, 0x7EU, 0x8DU
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 2U,
                                 authentication_tag);
@@ -553,7 +542,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_empty_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 2U,
                                 authentication_tag);
@@ -611,13 +599,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_empty_ad(void)
         0xF2U, 0x74U, 0x59U, 0x72U,
         0xF5U, 0xA7U, 0x84U, 0x11U
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 16U,
                                 authentication_tag);
@@ -633,7 +620,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_empty_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 16U,
                                 authentication_tag);
@@ -694,13 +680,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_empty_ad(void)
         0x10U, 0x38U, 0x17U, 0xB2U,
         0xD4U, 0x54U, 0x70U, 0x0DU
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 17U,
                                 authentication_tag);
@@ -716,7 +701,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_empty_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 17U,
                                 authentication_tag);
@@ -786,13 +770,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_empty_ad(void)
         0x08U, 0xB0U, 0x9EU, 0xFFU,
         0x93U, 0x30U, 0xBDU, 0x2BU
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 32U,
                                 authentication_tag);
@@ -808,7 +791,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_empty_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 32U,
                                 authentication_tag);
@@ -881,13 +863,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtythree_byte_pt_empty_ad(void)
         0xbdU, 0x6eU, 0xc2U, 0x02U,
         0xccU, 0xebU, 0x93U, 0xbcU
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 33U,
                                 authentication_tag);
@@ -903,7 +884,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtythree_byte_pt_empty_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 33U,
                                 authentication_tag);
@@ -947,13 +927,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_five_byte_ad(void)
         0xf1U, 0x13U, 0x65U, 0xe3U
     };
     uint8_t dummy[1U] = { 0U };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 dummy,
                                 0U,
                                 associated_data,
@@ -968,7 +947,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_five_byte_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 dummy,
                                 0U,
                                 associated_data,
@@ -1012,13 +990,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_sixteen_byte_ad(void)
         0x40U, 0x69U, 0x38U, 0xFDU
     };
     uint8_t dummy[1U] = { 0U };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 dummy,
                                 0U,
                                 associated_data,
@@ -1033,7 +1010,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_sixteen_byte_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 dummy,
                                 0U,
                                 associated_data,
@@ -1073,13 +1049,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_one_byte_ad(void)
         0xDCU, 0xBAU, 0x20U, 0xF6U,
         0x73U, 0x29U, 0x22U, 0x30U
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 1U,
                                 associated_data,
@@ -1097,7 +1072,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_one_byte_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 1U,
                                 associated_data,
@@ -1145,13 +1119,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_ten_byte_ad(void)
         0x62U, 0x80U, 0x1CU, 0xF8U,
         0xF9U, 0x9CU, 0x0FU, 0x68U
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 1U,
                                 associated_data,
@@ -1169,7 +1142,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_ten_byte_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 1U,
                                 associated_data,
@@ -1224,13 +1196,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_five_byte_ad(void)
         0x05U, 0x57U, 0xA4U, 0x30U,
         0x39U, 0xA0U, 0xA5U, 0x06U
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 5U,
                                 associated_data,
@@ -1248,7 +1219,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_five_byte_ad(void)
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 5U,
                                 associated_data,
@@ -1315,13 +1285,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_sixteen_byte_ad(voi
         0x9AU, 0xFDU, 0x05U, 0x82U,
         0x5BU, 0x01U, 0x3DU, 0x0DU
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 16U,
                                 associated_data,
@@ -1339,7 +1308,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_sixteen_byte_ad(voi
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 16U,
                                 associated_data,
@@ -1422,13 +1390,12 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirtytwo_byte_ad
         0x23U, 0x49U, 0xD6U, 0xA3U,
         0xB4U, 0x16U, 0x03U, 0x97U
     };
-    uint32_t state[10U] = { 0U };
+    
     uint32_t authentication_tag[4U] = { 0U };
 
     /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 32U,
                                 associated_data,
@@ -1446,7 +1413,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirtytwo_byte_ad
     /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t *) key,
                                 (const uint32_t *) nonce,
-                                state,
                                 plaintext,
                                 32U,
                                 associated_data,

@@ -96,10 +96,9 @@ set(PROJECT_WARNINGS
     -Wvla
 )
 
-# -DENABLE_G3=ON (default) → -g3   full macro debug info
-# -DENABLE_G3=OFF          → -g    standard debug info
-option(ENABLE_G3 "Use -g3 instead of -g" ON)
-set(DEBUG_INFO_FLAG $<IF:$<BOOL:${ENABLE_G3}>,-g3,-g>)
+# Debug build → -g3
+# All other builds → no debug info flag
+set(DEBUG_INFO_FLAG $<$<CONFIG:Debug>:-g3>)
 
 set(PROJECT_BASE_FLAGS  -O0 ${DEBUG_INFO_FLAG})
 set(SANITIZE_FLAGS      -fsanitize=address,undefined)

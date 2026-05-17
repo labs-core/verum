@@ -55,8 +55,6 @@
  *
  * @param[in]  key                128-bit secret key.
  * @param[in]  nonce              128-bit public nonce.
- * @param[in,out] state           320-bit Ascon permutation state buffer as ten
- *                                consecutive uninitiallized 32-bit words.
  * @param[in,out] plaintext       On entry: plaintext buffer of
  *                                @p plaintext_size bytes.
  *                                On return: ciphertext of equal length,
@@ -80,7 +78,7 @@
  *                                after finalisation, written as four
  *                                consecutive 32-bit words.
  *
- * @pre        @p key, @p nonce, @p state, @p plaintext and
+ * @pre        @p key, @p nonce, @p plaintext and
  *             @p authentication_tag are non-NULL.
  * @pre        @p plaintext points to a buffer of at least
  *             @p plaintext_size bytes.
@@ -90,7 +88,6 @@
  */
 void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
-                                 uint32_t state[10U],
                                  uint8_t        *plaintext,
                                  uint32_t plaintext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -114,8 +111,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  *
  * @param[in]  key                128-bit secret key.
  * @param[in]  nonce              128-bit public nonce.
- * @param[in,out] state           320-bit Ascon permutation state buffer as ten
- *                                consecutive uninitialised 32-bit words.
  * @param[in,out] ciphertext      On entry: ciphertext buffer of
  *                                @p ciphertext_size bytes.
  *                                On return: plaintext of equal length,
@@ -139,7 +134,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  *                                after finalisation, read as four
  *                                consecutive 32-bit words.
  *
- * @pre        @p key, @p nonce, @p state, @p ciphertext and
+ * @pre        @p key, @p nonce, @p ciphertext and
  *             @p authentication_tag are non-NULL.
  * @pre        @p ciphertext points to a buffer of at least
  *             @p ciphertext_size bytes.
@@ -149,7 +144,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  */
 void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
-                                 uint32_t state[10U],
                                  uint8_t *ciphertext,
                                  uint32_t ciphertext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF

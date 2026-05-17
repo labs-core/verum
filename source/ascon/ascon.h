@@ -46,41 +46,6 @@ static const uint32_t VERUM_ASCON_AEAD128_round_constants[12U] = {
     0x00000078UL, 0x00000069UL, 0x0000005AUL, 0x0000004BUL
 };
 
-
-/**
- * @internal
- * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
- * @see https://doi.org/10.6028/NIST.SP.800-232
- * @brief S ← 𝐼𝑉 ∥ 𝐾 ∥ 𝑁
- */
-VERUM_ATTR_INLINE
-static inline void VERUM_ASCON_AEAD128_initialize_state(uint32_t state[10U],
-                                                        const uint32_t key[4U],
-                                                        const uint32_t nonce[4U])
-{
-    state[0U] = VERUM_ASCON_AEAD128_initialization_vector[1U];
-    state[1U] = VERUM_ASCON_AEAD128_initialization_vector[0U];
-
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-    VERUM_AUX_MEMORY_16B_copy(&state[2U], key);
-#else
-    state[2U] = key[0U];
-    state[3U] = key[1U];
-    state[4U] = key[2U];
-    state[5U] = key[3U];
-#endif // VERUM_OPTIMIZATION_MEMORY_DEF
-
-
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-    VERUM_AUX_MEMORY_16B_copy(&state[6U], nonce);
-#else
-    state[6U] = nonce[0U];
-    state[7U] = nonce[1U];
-    state[8U] = nonce[2U];
-    state[9U] = nonce[3U];
-#endif // VERUM_OPTIMIZATION_MEMORY_DEF
-}
-
 /**
  * @internal
  * @ref NIST SP 800-232 Section 3.3

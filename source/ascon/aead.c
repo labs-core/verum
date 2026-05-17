@@ -35,7 +35,6 @@
  *
  * @param[in]     key                128-bit secret key as four 32-bit words.
  * @param[in]     nonce              128-bit nonce as four 32-bit words. Must be unique per (key, plaintext).
- * @param[in,out] state              320-bit Ascon permutation state as ten 32-bit words. Overwritten on entry.
  * @param[in,out] plaintext          Plaintext buffer. Overwritten in place with ciphertext.
  * @param[in]     plaintext_size     Byte length of @p plaintext. Zero is valid.
  * @param[in]     associated_data    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Associated data buffer. Authenticated but not encrypted.
@@ -44,7 +43,6 @@
  */
 void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
-                                 uint32_t state[10U],
                                  uint8_t *plaintext,
                                  const uint32_t plaintext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -53,7 +51,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #endif
                                  uint32_t authentication_tag[4U])
 {
-
     /**
      * @internal
      * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
@@ -61,9 +58,11 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    VERUM_ASCON_AEAD128_initialize_state(state, key, nonce);
-
-
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U], 
+                            VERUM_ASCON_AEAD128_initialization_vector[0U],  
+                            key[0U], key[1U], key[2U], key[3U],
+                            nonce[0U], nonce[1U], nonce[2U], nonce[3U]
+                        };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
@@ -104,11 +103,11 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     uint32_t block_counter = 0U;
     uint32_t last_block_byte_index = 0U;
-    uint8_t last_block_plaintext[16U] = { 0U };
+    uint8_t last_block_plaintext[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
-    uint8_t last_block_associated_data[16U] = { 0U };
+    uint8_t last_block_associated_data[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     /**
      * @internal
      * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
@@ -396,7 +395,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  *
  * @param[in]     key                128-bit secret key as four 32-bit words.
  * @param[in]     nonce              128-bit nonce as four 32-bit words. Must be unique per (key, plaintext).
- * @param[in,out] state              320-bit Ascon permutation state as ten 32-bit words. Overwritten on entry.
  * @param[in,out] ciphertext         Ciphertext buffer. Overwritten in place with plaintext.
  * @param[in]     ciphertext_size    Byte length of @p ciphertext. Zero is valid.
  * @param[in]     associated_data    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Associated data buffer. Authenticated but not encrypted.
@@ -405,7 +403,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  */
 void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
-                                 uint32_t state[10U],
                                  uint8_t *ciphertext,
                                  const uint32_t ciphertext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -414,7 +411,6 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #endif
                                  uint32_t authentication_tag[4U])
 {
-
     /**
      * @internal
      * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
@@ -422,7 +418,11 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    VERUM_ASCON_AEAD128_initialize_state(state, key, nonce);
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U], 
+                            VERUM_ASCON_AEAD128_initialization_vector[0U],  
+                            key[0U], key[1U], key[2U], key[3U],
+                            nonce[0U], nonce[1U], nonce[2U], nonce[3U]
+                        };
 
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
@@ -465,7 +465,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     uint32_t last_block_byte_index = 0U;
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
-    uint8_t last_block_associated_data[16U] = { 0U };
+    uint8_t last_block_associated_data[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     /**
      * @internal
      * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
@@ -639,7 +639,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[ℓ∶127] ← S[ℓ∶127] ⊕ (1||0^[127−ℓ])
      */
-    uint8_t last_block_ciphertext[16U] = { 0U };
+    uint8_t last_block_ciphertext[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     last_block_ciphertext[last_block_byte_index] = 0x01U;
     // TR: opt 32_bit cpy if possible
     while (0U < last_block_byte_index)
