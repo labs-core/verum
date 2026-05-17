@@ -1,0 +1,9 @@
+# ASCON — Lightweight Authenticated Encryption
+
+ASCON is a family of permutation-based cryptographic algorithms selected by NIST as the lightweight cryptography standard, comprising authenticated encryption with associated data (ASCON-128, ASCON-128a, ASCON-80pq), cryptographic hashing (ASCON-Hash), and extendable output functions (ASCON-XOF), all derived from the same core permutation, ASCON-p, an iterated transformation over a 320-bit state (five 64-bit words) built exclusively from XOR, AND, NOT, and fixed rotations, with no S-box tables, no key schedule, and no data-dependent memory accesses. The implementation is optimized for the minimal amount of storage necessary: the complete working set fits in 88 bytes, and the full family runs in under 2 KB of code with a RAM footprint below 100 bytes, delivering a memory-to-throughput ratio that outperforms software AES-GCM by one to two orders of magnitude on microcontrollers without hardware acceleration. This makes ASCON the correct primitive for high-assurance software under hard resource constraints, firmware and secure boot authentication, IoT sensor encryption, vehicle ECU message integrity, and medical device communication, wherever a NIST-aligned authenticated cipher, hash, or XOF must operate on 8-bit or 32-bit hardware with kilobytes of RAM. Its limitations are equally direct: ASCON provides 128-bit classical security only; ASCON-80pq offers bounded post-quantum margins via a 160-bit key but is not a full post-quantum construction; none of the variants substitute for a key agreement protocol; nonce reuse degrades confidentiality without catastrophic authentication key exposure; and the family is not intended for high-bandwidth bulk encryption on server-class hardware where AES-NI dominates.
+
+
+## References
+
+- https://doi.org/10.6028/NIST.SP.800-232
+- https://ascon.iaik.tugraz.at

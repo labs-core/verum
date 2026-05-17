@@ -233,7 +233,6 @@ if(CPPCHECK_EXE)
             --enable=all
             --addon=misra.py
             -I ${INCLUDE_DIR}
-            --checkers-report=${CMAKE_SOURCE_DIR}/cppcheck_report.xml
             ${SOURCES_C} ${HEADERS}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         COMMENT "Running cppcheck"
