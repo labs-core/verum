@@ -58,11 +58,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U], 
-                            VERUM_ASCON_AEAD128_initialization_vector[0U],  
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
+                            VERUM_ASCON_AEAD128_initialization_vector[0U],
                             key[0U], key[1U], key[2U], key[3U],
-                            nonce[0U], nonce[1U], nonce[2U], nonce[3U]
-                        };
+                            nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
@@ -418,11 +417,10 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U], 
-                            VERUM_ASCON_AEAD128_initialization_vector[0U],  
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
+                            VERUM_ASCON_AEAD128_initialization_vector[0U],
                             key[0U], key[1U], key[2U], key[3U],
-                            nonce[0U], nonce[1U], nonce[2U], nonce[3U]
-                        };
+                            nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
 
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 

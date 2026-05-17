@@ -31,9 +31,9 @@
  * @param[in]     message_size        Byte length of @p message .
  * @param[inout]  digest              256-bit message digest as eight 32-bit words.
  */
-void VERUM_ASCON_HASH256_digest( uint8_t *message,
-                                 const uint32_t message_size,
-                                 uint32_t digest[8U])
+void VERUM_ASCON_HASH256_digest(uint8_t *message,
+                                const uint32_t message_size,
+                                uint32_t digest[8U])
 {
     /**
      * @internal
@@ -53,11 +53,11 @@ void VERUM_ASCON_HASH256_digest( uint8_t *message,
         message += 8U;
 
         /**
-        * @internal
-        * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-        * @see https://doi.org/10.6028/NIST.SP.800-232
-        * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-        */
+         * @internal
+         * @ref NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+         */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         VERUM_ASCON_AEAD128_permute(state, holder, 0U);
 #else
@@ -76,7 +76,7 @@ void VERUM_ASCON_HASH256_digest( uint8_t *message,
         VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
-    
+
     uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t last_block_byte_index = message_size & 0x7U;
     last_block_message[last_block_byte_index] = 0x01U;
@@ -100,7 +100,7 @@ void VERUM_ASCON_HASH256_digest( uint8_t *message,
         digest[block_counter + 1U] = state[1U];
         block_counter = block_counter + 2U;
     }
-    while ( block_counter <= 6U);
+    while (block_counter <= 6U);
 
 
 #else
