@@ -1,5 +1,5 @@
 /**
- * @file      ascon_aead.h
+ * @file      aead.h
  * @brief     Ascon-AEAD128 authenticated encryption.
  * @details    Authenticated Encryption with Associated Data (AEAD) is a form of
  *             encryption that simultaneously guarantees confidentiality of the
@@ -89,10 +89,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
                                  uint32_t state[10U],
                                  uint8_t        *plaintext,
-                                 const uint32_t plaintext_size,
+                                 uint32_t plaintext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                  const uint8_t  * associated_data,
-                                 const uint32_t associated_size,
+                                 uint32_t associated_size,
 #endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
                                  uint32_t authentication_tag[4U]);
 
@@ -148,10 +148,10 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
                                  uint32_t state[10U],
                                  uint8_t *ciphertext,
-                                 const uint32_t ciphertext_size,
+                                 uint32_t ciphertext_size,
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                  const uint8_t *associated_data,
-                                 const uint32_t associated_size,
+                                 uint32_t associated_size,
 #endif
                                  uint32_t authentication_tag[4U]);
 

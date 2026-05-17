@@ -57,3 +57,5 @@ dkms.conf
 
 # format parameters
 *.uncrustify
+compile_commands.json
+build/*

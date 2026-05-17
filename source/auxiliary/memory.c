@@ -1,6 +1,10 @@
+/**
+ */
+
 #include "auxiliary/memory.h"
-#include "standard/types.h"
 #include "define.h"
+#include "standard/types.h"
+
 
 /**
  * @internal
@@ -18,14 +22,14 @@
  * @param[in]  source       4-byte aligned source buffer of at least 16 bytes.
  */
 VERUM_ATTR_NOINLINE
-void VERUM_AUX_MEMORY_copy128(void * restrict destination,
+void VERUM_AUX_MEMORY_16B_copy(void * restrict destination,
                               const void * restrict source)
 {
-    uint32_t *const d = (uint32_t *) __builtin_assume_aligned(destination, sizeof(uint32_t));
-    const uint32_t *const s = (const uint32_t *) __builtin_assume_aligned(source, sizeof(uint32_t));
+    uint32_t *const dest = (uint32_t *) __builtin_assume_aligned(destination, sizeof(uint32_t));
+    const uint32_t *const src = (const uint32_t *) __builtin_assume_aligned(source, sizeof(uint32_t));
 
-    d[0U] = s[0U];
-    d[1U] = s[1U];
-    d[2U] = s[2U];
-    d[3U] = s[3U];
+    dest[0U] = src[0U];
+    dest[1U] = src[1U];
+    dest[2U] = src[2U];
+    dest[3U] = src[3U];
 }

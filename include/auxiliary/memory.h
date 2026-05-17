@@ -15,8 +15,6 @@
 #ifndef VERUM_AUX_MEMORY_H_
 #define VERUM_AUX_MEMORY_H_
 
-#include "standard/types.h"
-
 /**
  * @brief      Copy exactly 128 bits (16 bytes) from @p source to @p destination.
  *
@@ -35,7 +33,7 @@
  * @pre        The regions [@p destination, @p destination + 16) and
  *             [@p source, @p source + 16) do not overlap.
  */
-void VERUM_AUX_MEMORY_copy128(void * restrict destination,
+void VERUM_AUX_MEMORY_16B_copy(void * restrict destination,
                               const void * restrict source);
 
 #endif /* VERUM_AUX_MEMORY_H_ */

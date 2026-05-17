@@ -9,6 +9,9 @@ TEST_DIR     := ./test
 TEST_OBJ_DIR := $(BUILD_DIR)/test
 UNITY_DIR    := $(TEST_DIR)/unity
 
+# After OBJECTS_DIR line:
+CCDB_DIR  := $(BUILD_DIR)/ccdb
+
 # =============================================================================
 # Sources, headers, and object derivation
 # =============================================================================
@@ -17,6 +20,7 @@ HEADERS   := $(shell find $(INCLUDE_DIR) -name "*.h")
 
 # Production objects → build/objects/<mirror of source/>
 OBJECTS   := $(patsubst $(SOURCE_DIR)/%.c, $(OBJECTS_DIR)/%.o, $(SOURCES_C))
+CCDB_FRAGS := $(patsubst $(SOURCE_DIR)/%.c, $(CCDB_DIR)/%.json, $(SOURCES_C))
 
 # Test objects (all .c under test/, including unity) → build/test/<mirror of test/>
 TEST_SRCS_C := $(shell find $(TEST_DIR) -name "*.c")
@@ -78,9 +82,10 @@ TEST_FLAGS := $(CFLAGS) -I$(UNITY_DIR)
 # =============================================================================
 all: $(OBJECTS)
 
+
 $(OBJECTS_DIR)/%.o: $(SOURCE_DIR)/%.c $(HEADERS)
-	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(@D) $(CCDB_DIR)/$(*D)
+	$(CC) $(CFLAGS) -MJ $(CCDB_DIR)/$*.json -c $< -o $@
 
 # =============================================================================
 # debug — rebuild production objects with debug flags
@@ -114,7 +119,16 @@ test-clean:
 # clean
 # =============================================================================
 clean:
-	rm -rf $(BUILD_DIR)
+	rm -rf $(BUILD_DIR) compile_commands.json
+
+# Add before or after the clean target:
+compile_commands.json: $(OBJECTS)
+	@printf '[\n' > $@
+	@cat $(CCDB_FRAGS) >> $@
+	@printf ']\n' >> $@
+
+compile_commands: compile_commands.json
+.PHONY: compile_commands
 
 # =============================================================================
 # Uncrustify

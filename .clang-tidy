@@ -1,6 +1,6 @@
 ---
 # Enable all checks for the strictest analysis
-Checks: '*',-google-objc-function-naming
+Checks: '*,-google-objc-function-naming,-cppcoreguidelines-avoid-magic-numbers,-readability-magic-numbers,-altera-unroll-loops'
 
 # Treat all warnings as errors to enforce strict compliance
 WarningsAsErrors: '*'
