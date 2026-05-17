@@ -625,7 +625,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief 𝑃𝑛 ← S[0∶ℓ−1] ⊕̃ 𝐶𝑛
      */
-    uint8_t * const state_bytes = (uint8_t *) state;
+    const uint8_t * const state_bytes = (const uint8_t *) state;
     while (0U < last_block_byte_index_holder)
     {
         --last_block_byte_index_holder;

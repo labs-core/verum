@@ -55,4 +55,6 @@
  */
 #define VERUM_STANDARD_FIPS_140_3_DEF
 
+/** @} */
+
 #endif /* VERUM_DEFINE_H_ */

@@ -1,9 +1,7 @@
 /**
  * @file      memory.h
  * @brief     Auxiliary memory operations.
- * @details   This header declares auxiliary memory operations to promote
- *            consistency and portability without depending on the
- *            C standard library.
+ * @details   This header declares auxiliary memory operations.
  *
  * @copyright  (C) Core Labs
  *             All rights reserved.
@@ -34,6 +32,6 @@
  *             [@p source, @p source + 16) do not overlap.
  */
 void VERUM_AUX_MEMORY_16B_copy(void * restrict destination,
-                              const void * restrict source);
+                               const void * restrict source);
 
 #endif /* VERUM_AUX_MEMORY_H_ */
