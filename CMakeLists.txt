@@ -1,57 +1,32 @@
 cmake_minimum_required(VERSION 3.25)
 
 # =============================================================================
-# VERUM — Cryptographic primitives suite.
-# Correctness-first. Constant-time. Formally verified.
-#
-#   cmake -B build -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-clang.cmake
-#   cmake -B build -DCMAKE_TOOLCHAIN_FILE=cmake/toolchain-clang.cmake \
-#                  -DCMAKE_BUILD_TYPE=Debug
-#
-#   cmake --build build              # compile production objects
-#   cmake --build build -t run_tests # build + run unit tests
-#   ctest --test-dir build -V        # same, via CTest
-#   cmake --build build -t uncrustify
-#   cmake --build build -t cppcheck
-#   rm -rf build
+# Force Clang before project()
 # =============================================================================
+
+set(CMAKE_C_COMPILER clang)
+
+find_program(LLVM_AR     NAMES llvm-ar)
+find_program(LLVM_RANLIB NAMES llvm-ranlib)
+find_program(LLVM_NM     NAMES llvm-nm)
+
+if(LLVM_AR)
+    set(CMAKE_AR "${LLVM_AR}")
+endif()
+
+if(LLVM_RANLIB)
+    set(CMAKE_RANLIB "${LLVM_RANLIB}")
+endif()
+
+if(LLVM_NM)
+    set(CMAKE_NM "${LLVM_NM}")
+endif()
 
 project(VERUM
     VERSION     0.1.0
     LANGUAGES   C
     DESCRIPTION "Cryptographic primitives suite for mission-critical and safety-critical software"
 )
-
-# =============================================================================
-# Language standard
-# =============================================================================
-
-set(CMAKE_C_STANDARD          11)
-set(CMAKE_C_STANDARD_REQUIRED ON)
-set(CMAKE_C_EXTENSIONS        OFF)   # -std=c11, not -std=gnu11
-
-# =============================================================================
-# compile_commands.json
-# =============================================================================
-
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
-# =============================================================================
-# Build type
-# =============================================================================
-
-if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-    message(STATUS "No build type specified — defaulting to Release")
-    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Release | Debug" FORCE)
-    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Release" "Debug")
-endif()
-
-# Strip CMake's default optimisation flags. We own every flag.
-foreach(_cfg IN ITEMS Release RelWithDebInfo MinSizeRel Debug)
-    set(CMAKE_C_FLAGS_${_cfg} "" CACHE STRING "" FORCE)
-endforeach()
-set(CMAKE_C_FLAGS "" CACHE STRING "" FORCE)
-
 # =============================================================================
 # Paths
 # =============================================================================
