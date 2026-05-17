@@ -11,6 +11,7 @@
  * @author Manoel Serafim
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 #include "auxiliary/memory.h"

@@ -1,7 +1,16 @@
 cmake_minimum_required(VERSION 3.25)
 
 # =============================================================================
-# Force Clang before project()
+#
+#   cmake -B build
+#   cmake -B build -DCMAKE_BUILD_TYPE=Debug
+#
+#   cmake --build build              # compile production objects
+#   cmake --build build -t run_tests # build + run unit tests
+#   ctest --test-dir build -V        # same, via CTest
+#   cmake --build build -t uncrustify
+#   cmake --build build -t cppcheck
+#   rm -rf build
 # =============================================================================
 
 set(CMAKE_C_COMPILER clang)
@@ -223,6 +232,7 @@ if(CPPCHECK_EXE)
             --force -q
             --check-level=exhaustive
             --enable=all
+            --addon=misra.py
             -I ${INCLUDE_DIR}
             --checkers-report=${CMAKE_SOURCE_DIR}/cppcheck_report.xml
             ${SOURCES_C} ${HEADERS}

@@ -11,6 +11,7 @@
  * @author     Manoel Serafim
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
+ * SPDX-License-Identifier: Apache-2.0
  */
 #ifndef VERUM_STD_TYPES_H_
 #define VERUM_STD_TYPES_H_

@@ -9,6 +9,7 @@
  * @author     Manoel Serafim
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
+ * SPDX-License-Identifier: Apache-2.0
  */
 #ifndef VERUM_AUX_MEMORY_H_
 #define VERUM_AUX_MEMORY_H_
