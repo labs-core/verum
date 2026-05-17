@@ -103,8 +103,6 @@ static void test_VERUM_ASCON_AEAD128_encrypt_gigantic_pt_empty_ad(void)
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 2027U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
-
-
 static void test_VERUM_ASCON_AEAD128_base_encrypt(void)
 {
     const uint8_t key[16U] =
@@ -120,6 +118,10 @@ static void test_VERUM_ASCON_AEAD128_base_encrypt(void)
         0x3BU, 0x26U, 0x29U, 0x0EU,
         0xCFU, 0x23U, 0x73U, 0xAEU,
         0x9DU, 0xAFU, 0xBAU, 0x43U
+    };
+    const uint8_t expected_plaintext[5U] =
+    {
+        0x61U, 0x73U, 0x63U, 0x6FU, 0x6EU
     };
     uint8_t plaintext[5U] =
     {
@@ -152,6 +154,7 @@ static void test_VERUM_ASCON_AEAD128_base_encrypt(void)
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
@@ -163,15 +166,15 @@ static void test_VERUM_ASCON_AEAD128_base_encrypt(void)
 #endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 5U);
+    print_hex("Ciphertext got:     ", plaintext, 5U);
     print_hex("Ciphertext expected:", expected_ciphertext, 5U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 5U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 
-
+    /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
@@ -183,10 +186,13 @@ static void test_VERUM_ASCON_AEAD128_base_encrypt(void)
 #endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 5U);
-    print_hex("Ciphertext expected:", expected_ciphertext, 5U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Plaintext got:      ", plaintext, 5U);
+    print_hex("Plaintext expected: ", expected_plaintext, 5U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 5U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
 static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_empty_ad(void)
@@ -215,23 +221,30 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_empty_ad(void)
     uint8_t dummy[1U] = {0U};
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0U};
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 dummy,
                                 0U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
                                 authentication_tag);
 
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:      ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected: ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                dummy,
+                                0U,
+                                authentication_tag);
+
+    print_hex("Tag got:      ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected: ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
@@ -252,6 +265,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_empty_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
+    const uint8_t expected_plaintext[1U] = {0x00U};
     uint8_t plaintext[1U] = {0x00U};
     const uint8_t expected_ciphertext[1U] = {0xE7U};
     const uint8_t expected_tag[16U] =
@@ -263,31 +277,39 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_empty_ad(void)
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0U};
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 1U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 1U);
+    print_hex("Ciphertext got:     ", plaintext, 1U);
     print_hex("Ciphertext expected:", expected_ciphertext, 1U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 1U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                1U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 1U);
+    print_hex("Plaintext expected: ", expected_plaintext, 1U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 1U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
-
-
 
 static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_empty_ad(void)
 {
@@ -305,6 +327,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_empty_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
+    const uint8_t expected_plaintext[2U] = {0x00U, 0x01U};
     uint8_t plaintext[2U] = {0x00U, 0x01U};
     const uint8_t expected_ciphertext[2U] = {0xE7U, 0x70U};
     const uint8_t expected_tag[16U] =
@@ -316,27 +339,37 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_empty_ad(void)
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0U};
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 2U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 2U);
+    print_hex("Ciphertext got:     ", plaintext, 2U);
     print_hex("Ciphertext expected:", expected_ciphertext, 2U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 2U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                2U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 2U);
+    print_hex("Plaintext expected: ", expected_plaintext, 2U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 2U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
@@ -350,6 +383,13 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_empty_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
     const uint8_t nonce[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t expected_plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -379,30 +419,122 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_empty_ad(void)
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0U};
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 16U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 16U);
+    print_hex("Ciphertext got:     ", plaintext, 16U);
     print_hex("Ciphertext expected:", expected_ciphertext, 16U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 16U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                16U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 16U);
+    print_hex("Plaintext expected: ", expected_plaintext, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 16U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
+static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_empty_ad(void)
+{
+    const uint8_t key[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t nonce[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t expected_plaintext[17U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU,
+        0x10U
+    };
+    uint8_t plaintext[17U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU,
+        0x10U
+    };
+    const uint8_t expected_ciphertext[17U] =
+    {
+        0xE7U, 0x70U, 0xD2U, 0x89U,
+        0xD2U, 0xA4U, 0x4AU, 0xEEU,
+        0x7CU, 0xD0U, 0xA4U, 0x8EU,
+        0xCEU, 0x52U, 0x74U, 0xE3U,
+        0x81U
+    };
+    const uint8_t expected_tag[16U] =
+    {
+        0xA6U, 0x13U, 0x2EU, 0x1DU,
+        0x1BU, 0x07U, 0x2BU, 0x1FU,
+        0x10U, 0x38U, 0x17U, 0xB2U,
+        0xD4U, 0x54U, 0x70U, 0x0DU
+    };
+    uint32_t state[10U] = {0U};
+    uint32_t authentication_tag[4U] = {0U};
+
+    /* --- Encrypt --- */
+    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                17U,
+                                authentication_tag);
+
+    print_hex("Ciphertext got:     ", plaintext, 17U);
+    print_hex("Ciphertext expected:", expected_ciphertext, 17U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 17U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                17U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 17U);
+    print_hex("Plaintext expected: ", expected_plaintext, 17U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 17U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+}
 
 static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_empty_ad(void)
 {
@@ -419,6 +551,17 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_empty_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t expected_plaintext[32U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU,
+        0x10U, 0x11U, 0x12U, 0x13U,
+        0x14U, 0x15U, 0x16U, 0x17U,
+        0x18U, 0x19U, 0x1AU, 0x1BU,
+        0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
     uint8_t plaintext[32U] =
     {
@@ -451,95 +594,37 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_empty_ad(void)
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0U};
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 32U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 32U);
+    print_hex("Ciphertext got:     ", plaintext, 32U);
     print_hex("Ciphertext expected:", expected_ciphertext, 32U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 32U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
-}
 
-
-
-
-static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_empty_ad(void)
-{
-    const uint8_t key[16U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU
-    };
-    const uint8_t nonce[16U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU
-    };
-    uint8_t plaintext[17U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU,
-        0x10U
-    };
-    const uint8_t expected_ciphertext[17U] =
-    {
-        0xE7U, 0x70U, 0xD2U, 0x89U,
-        0xD2U, 0xA4U, 0x4AU, 0xEEU,
-        0x7CU, 0xD0U, 0xA4U, 0x8EU,
-        0xCEU, 0x52U, 0x74U, 0xE3U,
-        0x81U
-    };
-    const uint8_t expected_tag[16U] =
-    {
-        0xA6U, 0x13U, 0x2EU, 0x1DU,
-        0x1BU, 0x07U, 0x2BU, 0x1FU,
-        0x10U, 0x38U, 0x17U, 0xB2U,
-        0xD4U, 0x54U, 0x70U, 0x0DU
-    };
-    uint32_t state[10U] = {0U};
-    uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0U};
-#endif
-
-    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
-                                17U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
+                                32U,
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 17U);
-    print_hex("Ciphertext expected:", expected_ciphertext, 17U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Plaintext got:      ", plaintext, 32U);
+    print_hex("Plaintext expected: ", expected_plaintext, 32U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
-    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 17U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 32U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
@@ -547,93 +632,161 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtythree_byte_pt_empty_ad(void)
 {
     const uint8_t key[16U] =
     {
-        0x7f,0x94,0x73,0x1a,0xcd,0x3d,0xe8,0x0a,
-        0x99,0xb6,0x23,0xef,0x49,0xb2,0x36,0x6c
+        0x7fU, 0x94U, 0x73U, 0x1aU,
+        0xcdU, 0x3dU, 0xe8U, 0x0aU,
+        0x99U, 0xb6U, 0x23U, 0xefU,
+        0x49U, 0xb2U, 0x36U, 0x6cU
     };
     const uint8_t nonce[16U] =
     {
-        0x5d,0x91,0x13,0xd6,0xe3,0xab,0xf3,0x7f,
-        0xde,0x99,0x4d,0x58,0x85,0x96,0xbd,0xe2
+        0x5dU, 0x91U, 0x13U, 0xd6U,
+        0xe3U, 0xabU, 0xf3U, 0x7fU,
+        0xdeU, 0x99U, 0x4dU, 0x58U,
+        0x85U, 0x96U, 0xbdU, 0xe2U
     };
-        uint8_t expected_plaintext[33U] =
+    const uint8_t expected_plaintext[33U] =
     {
-        0x53,0x69,0x6c,0x65,0x6e,0x74,0x4d,0x61,
-        0x63,0x68,0x69,0x6e,0x65,0x73,0x44,0x72,
-        0x65,0x61,0x6d,0x42,0x65,0x79,0x6f,0x6e,
-        0x64,0x54,0x68,0x65,0x4e,0x6f,0x69,0x73,
-        0x65
+        0x53U, 0x69U, 0x6cU, 0x65U,
+        0x6eU, 0x74U, 0x4dU, 0x61U,
+        0x63U, 0x68U, 0x69U, 0x6eU,
+        0x65U, 0x73U, 0x44U, 0x72U,
+        0x65U, 0x61U, 0x6dU, 0x42U,
+        0x65U, 0x79U, 0x6fU, 0x6eU,
+        0x64U, 0x54U, 0x68U, 0x65U,
+        0x4eU, 0x6fU, 0x69U, 0x73U,
+        0x65U
     };
     uint8_t plaintext[33U] =
     {
-        0x53,0x69,0x6c,0x65,0x6e,0x74,0x4d,0x61,
-        0x63,0x68,0x69,0x6e,0x65,0x73,0x44,0x72,
-        0x65,0x61,0x6d,0x42,0x65,0x79,0x6f,0x6e,
-        0x64,0x54,0x68,0x65,0x4e,0x6f,0x69,0x73,
-        0x65
+        0x53U, 0x69U, 0x6cU, 0x65U,
+        0x6eU, 0x74U, 0x4dU, 0x61U,
+        0x63U, 0x68U, 0x69U, 0x6eU,
+        0x65U, 0x73U, 0x44U, 0x72U,
+        0x65U, 0x61U, 0x6dU, 0x42U,
+        0x65U, 0x79U, 0x6fU, 0x6eU,
+        0x64U, 0x54U, 0x68U, 0x65U,
+        0x4eU, 0x6fU, 0x69U, 0x73U,
+        0x65U
     };
     const uint8_t expected_ciphertext[33U] =
     {
-        0x39,0xf0,0x50,0x37,0x5d,0xa8,0xab,0x43,
-        0x20,0x8e,0x53,0xcd,0x37,0x45,0x86,0x6d,
-        0xc0,0x54,0x9b,0x0e,0x8b,0x06,0xc9,0xe2,
-        0x81,0x01,0x97,0x6b,0x80,0xe7,0x1e,0xae,
-        0xdf
+        0x39U, 0xf0U, 0x50U, 0x37U,
+        0x5dU, 0xa8U, 0xabU, 0x43U,
+        0x20U, 0x8eU, 0x53U, 0xcdU,
+        0x37U, 0x45U, 0x86U, 0x6dU,
+        0xc0U, 0x54U, 0x9bU, 0x0eU,
+        0x8bU, 0x06U, 0xc9U, 0xe2U,
+        0x81U, 0x01U, 0x97U, 0x6bU,
+        0x80U, 0xe7U, 0x1eU, 0xaeU,
+        0xdfU
     };
     const uint8_t expected_tag[16U] =
     {
-        0xc0,0x6c,0x0c,0x32,0x68,0x7e,0xf6,0x0e,
-        0xbd,0x6e,0xc2,0x02,0xcc,0xeb,0x93,0xbc
+        0xc0U, 0x6cU, 0x0cU, 0x32U,
+        0x68U, 0x7eU, 0xf6U, 0x0eU,
+        0xbdU, 0x6eU, 0xc2U, 0x02U,
+        0xccU, 0xebU, 0x93U, 0xbcU
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0U};
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
-                                33,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
+                                33U,
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 33U);
+    print_hex("Ciphertext got:     ", plaintext, 33U);
     print_hex("Ciphertext expected:", expected_ciphertext, 33U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 33U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 
-    
+    /* --- Decrypt --- */
     VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
-                                33,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-                                associated_data,
-                                0U,
-#endif
+                                33U,
                                 authentication_tag);
 
-    print_hex("Plaintext got:", plaintext, 33U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Plaintext got:      ", plaintext, 33U);
+    print_hex("Plaintext expected: ", expected_plaintext, 33U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 33U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
+#else /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
+static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_five_byte_ad(void)
+{
+    const uint8_t key[16U] =
+    {
+        0x8eU, 0xdaU, 0x19U, 0x17U,
+        0xd0U, 0x67U, 0xb8U, 0x75U,
+        0xb4U, 0x6fU, 0xa1U, 0x88U,
+        0xa9U, 0x01U, 0xbaU, 0x78U
+    };
+    const uint8_t nonce[16U] =
+    {
+        0x33U, 0xc0U, 0x2dU, 0x47U,
+        0xd8U, 0x07U, 0x5fU, 0xa7U,
+        0xe7U, 0x24U, 0x4fU, 0x35U,
+        0xc0U, 0x1fU, 0xd6U, 0xa7U
+    };
+    const uint8_t associated_data[5U] =
+    {
+        0x61U, 0x73U, 0x63U, 0x6fU, 0x6eU
+    };
+    const uint8_t expected_tag[16U] =
+    {
+        0x61U, 0xadU, 0xddU, 0x66U,
+        0x61U, 0x1cU, 0x94U, 0x38U,
+        0x1bU, 0x1aU, 0xd8U, 0x41U,
+        0xf1U, 0x13U, 0x65U, 0xe3U
+    };
+    uint8_t dummy[1U] = {0U};
+    uint32_t state[10U] = {0U};
+    uint32_t authentication_tag[4U] = {0U};
 
+    /* --- Encrypt --- */
+    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                dummy,
+                                0U,
+                                associated_data,
+                                5U,
+                                authentication_tag);
 
+    print_hex("Tag got:      ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected: ", expected_tag, 16U);
 
-#else
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                dummy,
+                                0U,
+                                associated_data,
+                                5U,
+                                authentication_tag);
+
+    print_hex("Tag got:      ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected: ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+}
+
 static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_sixteen_byte_ad(void)
 {
     const uint8_t key[16U] =
@@ -650,6 +803,13 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_sixteen_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
+    const uint8_t associated_data[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
     const uint8_t expected_tag[16U] =
     {
         0xB7U, 0x47U, 0xD3U, 0x23U,
@@ -660,73 +820,34 @@ static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_sixteen_byte_ad(void)
     uint8_t dummy[1U] = {0U};
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[16U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU
-    };
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 dummy,
                                 0U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                 associated_data,
                                 16U,
-#endif
                                 authentication_tag);
 
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:      ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected: ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
-}
 
-static void test_VERUM_ASCON_AEAD128_encrypt_empty_pt_five_byte_ad(void)
-{
-    const uint8_t key[16U] =
-    {
-        0x8e,0xda,0x19,0x17,0xd0,0x67,0xb8,0x75,
-        0xb4,0x6f,0xa1,0x88,0xa9,0x01,0xba,0x78
-    };
-    const uint8_t nonce[16U] =
-    {
-        0x33,0xc0,0x2d,0x47,0xd8,0x07,0x5f,0xa7,
-        0xe7,0x24,0x4f,0x35,0xc0,0x1f,0xd6,0xa7
-    };
-    const uint8_t expected_tag[16U] =
-    {
-        0x61,0xad,0xdd,0x66,0x61,0x1c,0x94,0x38,
-        0x1b,0x1a,0xd8,0x41,0xf1,0x13,0x65,0xe3
-    };
-    uint8_t dummy[1U] = {0U};
-    uint32_t state[10U] = {0U};
-    uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[5U] =
-    {
-        0x61,0x73,0x63,0x6f,0x6e
-    };
-#endif
-
-    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 dummy,
                                 0U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                 associated_data,
-                                5,
-#endif
+                                16U,
                                 authentication_tag);
 
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:      ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected: ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
@@ -747,6 +868,8 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_one_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
+    const uint8_t associated_data[1U] = {0x00U};
+    const uint8_t expected_plaintext[1U] = {0x00U};
     uint8_t plaintext[1U] = {0x00U};
     const uint8_t expected_ciphertext[1U] = {0x25U};
     const uint8_t expected_tag[16U] =
@@ -758,27 +881,41 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_one_byte_ad(void)
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[1U] = {0x00U};
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 1U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                 associated_data,
                                 1U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 1U);
+    print_hex("Ciphertext got:     ", plaintext, 1U);
     print_hex("Ciphertext expected:", expected_ciphertext, 1U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 1U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                1U,
+                                associated_data,
+                                1U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 1U);
+    print_hex("Plaintext expected: ", expected_plaintext, 1U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 1U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
@@ -798,6 +935,13 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_ten_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
+    const uint8_t associated_data[10U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U
+    };
+    const uint8_t expected_plaintext[1U] = {0x00U};
     uint8_t plaintext[1U] = {0x00U};
     const uint8_t expected_ciphertext[1U] = {0xF2U};
     const uint8_t expected_tag[16U] =
@@ -809,32 +953,120 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_ten_byte_ad(void)
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[10U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U
-    };
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 1U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                 associated_data,
                                 10U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 1U);
+    print_hex("Ciphertext got:     ", plaintext, 1U);
     print_hex("Ciphertext expected:", expected_ciphertext, 1U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 1U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                1U,
+                                associated_data,
+                                10U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 1U);
+    print_hex("Plaintext expected: ", expected_plaintext, 1U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 1U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+}
+
+static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_five_byte_ad(void)
+{
+    const uint8_t key[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t nonce[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t associated_data[5U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U, 0x04U
+    };
+    const uint8_t expected_plaintext[5U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U, 0x04U
+    };
+    uint8_t plaintext[5U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U, 0x04U
+    };
+    const uint8_t expected_ciphertext[5U] =
+    {
+        0x1FU, 0x82U, 0x02U, 0x73U, 0xC6U
+    };
+    const uint8_t expected_tag[16U] =
+    {
+        0x1BU, 0x8BU, 0x77U, 0xD3U,
+        0x67U, 0xC0U, 0xD8U, 0x6EU,
+        0x05U, 0x57U, 0xA4U, 0x30U,
+        0x39U, 0xA0U, 0xA5U, 0x06U
+    };
+    uint32_t state[10U] = {0U};
+    uint32_t authentication_tag[4U] = {0U};
+
+    /* --- Encrypt --- */
+    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                5U,
+                                associated_data,
+                                5U,
+                                authentication_tag);
+
+    print_hex("Ciphertext got:     ", plaintext, 5U);
+    print_hex("Ciphertext expected:", expected_ciphertext, 5U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 5U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                5U,
+                                associated_data,
+                                5U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 5U);
+    print_hex("Plaintext expected: ", expected_plaintext, 5U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 5U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
@@ -848,6 +1080,20 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_sixteen_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
     const uint8_t nonce[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t associated_data[16U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t expected_plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -877,33 +1123,41 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_sixteen_byte_ad(voi
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[16U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU
-    };
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 16U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                 associated_data,
                                 16U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 16U);
+    print_hex("Ciphertext got:     ", plaintext, 16U);
     print_hex("Ciphertext expected:", expected_ciphertext, 16U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 16U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
+
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
+                                (const uint32_t*)nonce,
+                                state,
+                                plaintext,
+                                16U,
+                                associated_data,
+                                16U,
+                                authentication_tag);
+
+    print_hex("Plaintext got:      ", plaintext, 16U);
+    print_hex("Plaintext expected: ", expected_plaintext, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
+
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 16U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
 
@@ -922,6 +1176,28 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirtytwo_byte_ad
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
+    };
+    const uint8_t associated_data[32U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU,
+        0x10U, 0x11U, 0x12U, 0x13U,
+        0x14U, 0x15U, 0x16U, 0x17U,
+        0x18U, 0x19U, 0x1AU, 0x1BU,
+        0x1CU, 0x1DU, 0x1EU, 0x1FU
+    };
+    const uint8_t expected_plaintext[32U] =
+    {
+        0x00U, 0x01U, 0x02U, 0x03U,
+        0x04U, 0x05U, 0x06U, 0x07U,
+        0x08U, 0x09U, 0x0AU, 0x0BU,
+        0x0CU, 0x0DU, 0x0EU, 0x0FU,
+        0x10U, 0x11U, 0x12U, 0x13U,
+        0x14U, 0x15U, 0x16U, 0x17U,
+        0x18U, 0x19U, 0x1AU, 0x1BU,
+        0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
     uint8_t plaintext[32U] =
     {
@@ -954,101 +1230,45 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirtytwo_byte_ad
     };
     uint32_t state[10U] = {0U};
     uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[32U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU,
-        0x10U, 0x11U, 0x12U, 0x13U,
-        0x14U, 0x15U, 0x16U, 0x17U,
-        0x18U, 0x19U, 0x1AU, 0x1BU,
-        0x1CU, 0x1DU, 0x1EU, 0x1FU
-    };
-#endif
 
+    /* --- Encrypt --- */
     VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
                                 32U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                 associated_data,
                                 32U,
-#endif
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 32U);
+    print_hex("Ciphertext got:     ", plaintext, 32U);
     print_hex("Ciphertext expected:", expected_ciphertext, 32U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 32U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
-}
 
-static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_five_byte_ad(void)
-{
-    const uint8_t key[16U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU
-    };
-    const uint8_t nonce[16U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U,
-        0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU,
-        0x0CU, 0x0DU, 0x0EU, 0x0FU
-    };
-    uint8_t plaintext[5U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U, 0x04U
-    };
-    const uint8_t expected_ciphertext[5U] =
-    {
-        0x1FU, 0x82U, 0x02U, 0x73U, 0xC6U
-    };
-    const uint8_t expected_tag[16U] =
-    {
-        0x1BU, 0x8BU, 0x77U, 0xD3U,
-        0x67U, 0xC0U, 0xD8U, 0x6EU,
-        0x05U, 0x57U, 0xA4U, 0x30U,
-        0x39U, 0xA0U, 0xA5U, 0x06U
-    };
-    uint32_t state[10U] = {0U};
-    uint32_t authentication_tag[4U] = {0U};
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    const uint8_t associated_data[5U] =
-    {
-        0x00U, 0x01U, 0x02U, 0x03U, 0x04U
-    };
-#endif
-
-    VERUM_ASCON_AEAD128_encrypt((const uint32_t*)key,
+    /* --- Decrypt --- */
+    VERUM_ASCON_AEAD128_decrypt((const uint32_t*)key,
                                 (const uint32_t*)nonce,
                                 state,
                                 plaintext,
-                                5U,
-#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+                                32U,
                                 associated_data,
-                                5U,
-#endif
+                                32U,
                                 authentication_tag);
 
-    print_hex("Ciphertext got:", plaintext, 5U);
-    print_hex("Ciphertext expected:", expected_ciphertext, 5U);
-    print_hex("Tag got:", (uint8_t*)authentication_tag, 16U);
-    print_hex("Tag expected:", expected_tag, 16U);
+    print_hex("Plaintext got:      ", plaintext, 32U);
+    print_hex("Plaintext expected: ", expected_plaintext, 32U);
+    print_hex("Tag got:            ", (uint8_t*)authentication_tag, 16U);
+    print_hex("Tag expected:       ", expected_tag, 16U);
 
-    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_ciphertext, plaintext, 5U);
+    TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_plaintext, plaintext, 32U);
     TEST_ASSERT_EQUAL_HEX8_ARRAY(expected_tag, (uint8_t*)authentication_tag, 16U);
 }
-#endif
 
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
 
 
