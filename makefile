@@ -122,7 +122,7 @@ clean:
 .PHONY: uncrustify
 
 uncrustify:
-	uncrustify -c .uncrustify.cfg --replace --no-backup $(SOURCES_C) $(HEADERS)
+	uncrustify -c .uncrustify.cfg --replace --no-backup $(SOURCES_C) $(HEADERS) $(TEST_SRCS_C)
 
 # =============================================================================
 # Cppcheck
