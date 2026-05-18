@@ -44,7 +44,7 @@ static const uint32_t VERUM_ASCON_round_constants[12U] = {
  * @optimization Uses 4 temporaries instead of 10, reducing memory traffic (fewer loads/stores), lowering stack usage, and easing register pressure for better overall efficiency.
  */
 VERUM_ATTR_INLINE
-static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state[10U],
+static inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                                                   uint32_t holder[10U],
                                                                   const uint32_t round_constant)
 {
@@ -87,7 +87,7 @@ static inline void VERUM_ASCON_AEAD128_permute_substitution_layer(uint32_t state
  * @brief 𝑝𝐿 Linear Diffusion Layer
  */
 VERUM_ATTR_INLINE
-static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t state[10U],
+static inline void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                                       const uint32_t holder[10U])
 {
     state[0U] = holder[0U] ^ ((holder[0U] >> 19U) | (holder[1U] << 13U)) ^ ((holder[0U] >> 28U) | (holder[1U] << 4U));
@@ -114,7 +114,7 @@ static inline void VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(uint32_t s
  * @optimization The linear diffusion layer is merged with the next round's initial permutation step, reducing the number of intermediate state stores and loads, which can improve performance by minimizing memory access overhead.
  */
 VERUM_ATTR_INLINE
-static inline void VERUM_ASCON_AEAD128_permute_merged(uint32_t state[10U],
+static inline void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                                       uint32_t holder[10U],
                                                       const uint32_t round_constant)
 {
@@ -166,19 +166,19 @@ static inline void VERUM_ASCON_AEAD128_permute_merged(uint32_t state[10U],
  * @optimization This function allows for a more compact implementation of the permutation rounds by reducing code duplication and improving instruction cache utilization.
  */
 VERUM_ATTR_NOINLINE
-static void VERUM_ASCON_AEAD128_permute(uint32_t state[10U],
+static void VERUM_ASCON_permute(uint32_t state[10U],
                                         uint32_t * const holder,
                                         uint32_t round_index)
 {
-    VERUM_ASCON_AEAD128_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[round_index]);
+    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[round_index]);
     ++round_index;
     do
     {
-        VERUM_ASCON_AEAD128_permute_merged(state, holder, VERUM_ASCON_round_constants[round_index]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[round_index]);
         ++round_index;
     }
     while (round_index < 12U);
-    VERUM_ASCON_AEAD128_permute_linear_diffusion_layer(state, holder);
+    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
 }
 
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
