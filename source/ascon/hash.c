@@ -13,7 +13,7 @@
  * @author Manoel Serafim
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
- * SPDX-License-Identifier: Apache-2.0
+ * SPDX-License-Identifier: GPL-3.0
  */
 
 #include "verum/ascon/hash.h"
@@ -23,14 +23,12 @@
  * @internal
  * @ref NIST SP 800-232 Appendix B
  * @see https://doi.org/10.6028/NIST.SP.800-232
- * @ 𝐼𝑉 ← 0x00001000808c0001
+ * @ 𝐼𝑉 ← 0x0000080100cc0002
  */
 static const uint32_t VERUM_ASCON_HASH256_initialization_vector[2U] = {
     0x00000801UL,
     0x00cc0002UL
 };
-
-
 
 /**
  * @internal
