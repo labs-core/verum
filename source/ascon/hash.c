@@ -2,10 +2,6 @@
  * @file       hash.c
  * @brief      NIST SP 800-232 ASCON HASH256.
  * @details    Hash function implementation for ASCON.
- *             configurable for memory efficiency xor performance. Uses atomic 32-bit
- *             operations while maintaining explicit state machines that operate on
- *             64-bit state for compilation targets in 32-bit microprocessors. The
- *             compiler is not responsible to implement the state machine.
  *
  * @copyright  (C) Core Labs
  *             All rights reserved.
@@ -26,8 +22,8 @@
  * @ 𝐼𝑉 ← 0x0000080100cc0002
  */
 static const uint32_t VERUM_ASCON_HASH256_initialization_vector[2U] = {
-    0x00000801UL,
-    0x00cc0002UL
+    0x00cc0002UL,
+    0x00000801UL
 };
 
 /**
@@ -48,10 +44,10 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
      * @internal
      * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
      * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @brief 𝐼𝑉 ← 0x0000080100cc0002; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    uint32_t state[10U] = { VERUM_ASCON_HASH256_initialization_vector[1U], VERUM_ASCON_HASH256_initialization_vector[0U], 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    uint32_t state[10U] = { VERUM_ASCON_HASH256_initialization_vector[0U], VERUM_ASCON_HASH256_initialization_vector[1U], 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**

@@ -1,11 +1,7 @@
 /**
  * @file       aead.c
  * @brief      NIST SP 800-232 ASCON AEAD-128.
- * @details    Authenticated Encryption with Associated Data (AEAD) implementation,
- *             configurable for memory efficiency xor performance. Uses atomic 32-bit
- *             operations while maintaining explicit state machines that operate on
- *             64-bit state for compilation targets in 32-bit microprocessors. The
- *             compiler is not responsible to implement the state machine.
+ * @details    Authenticated Encryption with Associated Data (AEAD)
  *
  * @copyright  (C) Core Labs
  *             All rights reserved.
@@ -26,8 +22,8 @@
  * @ 𝐼𝑉 ← 0x00001000808c0001
  */
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
-    0x00001000UL,
-    0x808C0001UL
+    0x808C0001UL,
+    0x00001000UL
 };
 
 
@@ -68,8 +64,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
-                            VERUM_ASCON_AEAD128_initialization_vector[0U],
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[0U],
+                            VERUM_ASCON_AEAD128_initialization_vector[1U],
                             key[0U], key[1U], key[2U], key[3U],
                             nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
@@ -427,8 +423,8 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
-                            VERUM_ASCON_AEAD128_initialization_vector[0U],
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[0U],
+                            VERUM_ASCON_AEAD128_initialization_vector[1U],
                             key[0U], key[1U], key[2U], key[3U],
                             nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
 
