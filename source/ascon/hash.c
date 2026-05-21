@@ -130,8 +130,9 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
     {
         VERUM_ASCON_permute(state, holder, 0U);
         digest[block_counter] = state[0U];
-        digest[block_counter + 1U] = state[1U];
-        block_counter = block_counter + 2U;
+        ++block_counter;
+        digest[block_counter] = state[1U];
+        ++block_counter;
     }
     while (block_counter <= 6U);
 

@@ -18,6 +18,7 @@
 
 #include "verum/ascon/xof.h"
 #include "ascon.h"
+#include <stdint.h>
 
 /**
  * @internal
@@ -35,30 +36,30 @@ static const uint32_t VERUM_ASCON_XOF128_initialization_vector[2U] = {
  * @internal
  * @ref NIST SP 800-232 Section 5.2
  * @see https://doi.org/10.6028/NIST.SP.800-232
- * @brief Ascon-XOF128(𝑀)
+ * @brief Ascon-XOF128(𝑀, 𝐿)
  *
  * @param[in]     message             Input message buffer.
  * @param[in]     message_size        Byte length of @p message .
+ * @param[in]     digest_size         Size of the output @p digest in bytes.
  * @param[inout]  digest              256-bit message digest as eight 32-bit words.
  */
 void VERUM_ASCON_XOF128_digest(uint8_t *message,
                                 uint32_t message_size,
                                 uint32_t* digest,
-                                const uint32_t digest_size_in_bits)
+                                const uint32_t digest_size)
 {
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    uint32_t state[10U] = { VERUM_ASCON_HASH256_initialization_vector[1U], VERUM_ASCON_HASH256_initialization_vector[0U], 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    uint32_t state[10U] = { VERUM_ASCON_XOF128_initialization_vector[1U], VERUM_ASCON_XOF128_initialization_vector[0U], 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
@@ -126,16 +127,23 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
     state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, _Alignof(uint32_t)))[1U];
 
 
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-    block_counter = 0U;
-    do
-    {
+    /**
+    * @internal
+    * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+    * @see https://doi.org/10.6028/NIST.SP.800-232
+    * @brief ℎ ← ⌈𝐿/64⌉ − 1
+    */
+    block_counter = digest_size>>3U;
+    uint32_t digest_block_index = 0U;
+
+    do{
         VERUM_ASCON_permute(state, holder, 0U);
-        digest[block_counter] = state[0U];
-        digest[block_counter + 1U] = state[1U];
-        block_counter = block_counter + 2U;
-    }
-    while (block_counter <= 6U);
+        digest[digest_block_index] = state[0U];
+        ++digest_block_index;
+        digest[digest_block_index] = state[1U];
+        ++digest_block_index;
+    } while (digest_block_index < block_counter);
+    
 
 #else
     /**
