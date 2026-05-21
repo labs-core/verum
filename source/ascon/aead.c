@@ -180,10 +180,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block_associated_data)[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block_associated_data)[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block_associated_data)[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block_associated_data)[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U];
 
     /**
      * @internal
@@ -286,10 +286,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block_plaintext)[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block_plaintext)[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block_plaintext)[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block_plaintext)[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[3U];
 
     /**
      * @internal
@@ -537,10 +537,10 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block_associated_data)[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block_associated_data)[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block_associated_data)[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block_associated_data)[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U];
 
     /**
      * @internal
@@ -655,10 +655,10 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         --last_block_byte_index;
         last_block_ciphertext[last_block_byte_index] = ciphertext[last_block_byte_index];
     }
-    state[0U] = state[0U] ^ ((const uint32_t *) last_block_ciphertext)[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) last_block_ciphertext)[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) last_block_ciphertext)[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) last_block_ciphertext)[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[3U];
 
     /**
      * @internal

@@ -75,7 +75,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_empty_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -129,7 +129,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_empty_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -183,7 +183,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_empty_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -237,7 +237,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_empty_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -292,7 +292,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_empty_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -349,7 +349,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_empty_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -406,7 +406,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_empty_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -463,7 +463,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_empty_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -521,7 +521,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_empty_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -581,7 +581,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_empty_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -641,7 +641,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_empty_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -701,7 +701,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_empty_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -762,7 +762,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_empty_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -825,7 +825,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_empty_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -888,7 +888,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_empty_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -951,7 +951,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_empty_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1015,7 +1015,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_empty_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1081,7 +1081,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_empty_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1147,7 +1147,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_empty_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1213,7 +1213,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_empty_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1280,7 +1280,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_empty_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1349,7 +1349,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_empty_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1418,7 +1418,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_empty_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1487,7 +1487,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_empty_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1557,7 +1557,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_empty_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1629,7 +1629,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_empty_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1701,7 +1701,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_empty_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1773,7 +1773,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_empty_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1846,7 +1846,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_empty_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1921,7 +1921,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_empty_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -1996,7 +1996,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_empty_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -2071,7 +2071,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_empty_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -3825,7 +3825,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_one_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -3887,7 +3887,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_two_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -3949,7 +3949,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_three_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4011,7 +4011,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_four_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4074,7 +4074,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_five_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4137,7 +4137,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_six_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4200,7 +4200,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_seven_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4263,7 +4263,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_eight_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4327,7 +4327,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_nine_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4391,7 +4391,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_ten_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4455,7 +4455,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_eleven_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4519,7 +4519,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twelve_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4584,7 +4584,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_thirteen_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4649,7 +4649,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_fourteen_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4714,7 +4714,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_fifteen_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4779,7 +4779,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_sixteen_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4845,7 +4845,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_seventeen_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4911,7 +4911,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_eighteen_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -4977,7 +4977,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_nineteen_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5043,7 +5043,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twenty_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5110,7 +5110,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentyone_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5177,7 +5177,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentytwo_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5244,7 +5244,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentythree_byte_ad(voi
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5311,7 +5311,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentyfour_byte_ad(void
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5379,7 +5379,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentyfive_byte_ad(void
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5447,7 +5447,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentysix_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5515,7 +5515,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentyseven_byte_ad(voi
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5583,7 +5583,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentyeight_byte_ad(voi
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5652,7 +5652,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_twentynine_byte_ad(void
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5721,7 +5721,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_thirty_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5790,7 +5790,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_thirtyone_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5859,7 +5859,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_one_byte_pt_thirtytwo_byte_ad(void)
     {
         0x00U
     };
-     uint8_t plaintext[1U] =
+    uint8_t plaintext[1U] =
     {
         0x00U
     };
@@ -5921,7 +5921,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_one_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -5983,7 +5983,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_two_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6045,7 +6045,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_three_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6107,7 +6107,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_four_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6170,7 +6170,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_five_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6233,7 +6233,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_six_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6296,7 +6296,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_seven_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6359,7 +6359,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_eight_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6423,7 +6423,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_nine_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6487,7 +6487,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_ten_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6551,7 +6551,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_eleven_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6615,7 +6615,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twelve_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6680,7 +6680,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_thirteen_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6745,7 +6745,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_fourteen_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6810,7 +6810,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_fifteen_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6875,7 +6875,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_sixteen_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -6941,7 +6941,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_seventeen_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7007,7 +7007,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_eighteen_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7073,7 +7073,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_nineteen_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7139,7 +7139,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twenty_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7206,7 +7206,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentyone_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7273,7 +7273,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentytwo_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7340,7 +7340,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentythree_byte_ad(voi
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7407,7 +7407,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentyfour_byte_ad(void
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7475,7 +7475,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentyfive_byte_ad(void
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7543,7 +7543,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentysix_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7611,7 +7611,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentyseven_byte_ad(voi
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7679,7 +7679,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentyeight_byte_ad(voi
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7748,7 +7748,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_twentynine_byte_ad(void
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7817,7 +7817,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_thirty_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7886,7 +7886,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_thirtyone_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -7955,7 +7955,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_two_byte_pt_thirtytwo_byte_ad(void)
     {
         0x00U, 0x01U
     };
-     uint8_t plaintext[2U] =
+    uint8_t plaintext[2U] =
     {
         0x00U, 0x01U
     };
@@ -8017,7 +8017,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_one_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8079,7 +8079,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_two_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8141,7 +8141,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_three_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8203,7 +8203,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_four_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8266,7 +8266,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_five_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8329,7 +8329,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_six_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8392,7 +8392,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_seven_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8455,7 +8455,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_eight_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8519,7 +8519,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_nine_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8583,7 +8583,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_ten_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8647,7 +8647,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_eleven_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8711,7 +8711,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twelve_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8776,7 +8776,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_thirteen_byte_ad(void
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8841,7 +8841,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_fourteen_byte_ad(void
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8906,7 +8906,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_fifteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -8971,7 +8971,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_sixteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9037,7 +9037,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_seventeen_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9103,7 +9103,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_eighteen_byte_ad(void
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9169,7 +9169,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_nineteen_byte_ad(void
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9235,7 +9235,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twenty_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9302,7 +9302,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentyone_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9369,7 +9369,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentytwo_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9436,7 +9436,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentythree_byte_ad(v
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9503,7 +9503,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentyfour_byte_ad(vo
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9571,7 +9571,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentyfive_byte_ad(vo
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9639,7 +9639,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentysix_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9707,7 +9707,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentyseven_byte_ad(v
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9775,7 +9775,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentyeight_byte_ad(v
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9844,7 +9844,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_twentynine_byte_ad(vo
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9913,7 +9913,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_thirty_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -9982,7 +9982,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_thirtyone_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -10051,7 +10051,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_three_byte_pt_thirtytwo_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U
     };
-     uint8_t plaintext[3U] =
+    uint8_t plaintext[3U] =
     {
         0x00U, 0x01U, 0x02U
     };
@@ -10113,7 +10113,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_one_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10175,7 +10175,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_two_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10237,7 +10237,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_three_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10299,7 +10299,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_four_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10362,7 +10362,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_five_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10425,7 +10425,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_six_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10488,7 +10488,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_seven_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10551,7 +10551,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_eight_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10615,7 +10615,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_nine_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10679,7 +10679,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_ten_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10743,7 +10743,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_eleven_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10807,7 +10807,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twelve_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10872,7 +10872,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_thirteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -10937,7 +10937,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_fourteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11002,7 +11002,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_fifteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11067,7 +11067,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_sixteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11133,7 +11133,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_seventeen_byte_ad(void
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11199,7 +11199,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_eighteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11265,7 +11265,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_nineteen_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11331,7 +11331,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twenty_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11398,7 +11398,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentyone_byte_ad(void
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11465,7 +11465,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentytwo_byte_ad(void
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11532,7 +11532,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentythree_byte_ad(vo
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11599,7 +11599,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentyfour_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11667,7 +11667,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentyfive_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11735,7 +11735,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentysix_byte_ad(void
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11803,7 +11803,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentyseven_byte_ad(vo
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11871,7 +11871,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentyeight_byte_ad(vo
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -11940,7 +11940,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_twentynine_byte_ad(voi
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -12009,7 +12009,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_thirty_byte_ad(void)
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -12078,7 +12078,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_thirtyone_byte_ad(void
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -12147,7 +12147,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_four_byte_pt_thirtytwo_byte_ad(void
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-     uint8_t plaintext[4U] =
+    uint8_t plaintext[4U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U
     };
@@ -12210,7 +12210,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_one_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12275,7 +12275,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_two_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12340,7 +12340,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_three_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12405,7 +12405,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_four_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12471,7 +12471,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_five_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12537,7 +12537,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_six_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12603,7 +12603,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_seven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12669,7 +12669,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_eight_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12736,7 +12736,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_nine_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12803,7 +12803,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_ten_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12870,7 +12870,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_eleven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -12937,7 +12937,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twelve_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13005,7 +13005,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_thirteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13073,7 +13073,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_fourteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13141,7 +13141,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_fifteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13209,7 +13209,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_sixteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13278,7 +13278,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_seventeen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13347,7 +13347,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_eighteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13416,7 +13416,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_nineteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13485,7 +13485,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twenty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13555,7 +13555,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentyone_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13625,7 +13625,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentytwo_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13695,7 +13695,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentythree_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13765,7 +13765,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentyfour_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13836,7 +13836,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentyfive_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13907,7 +13907,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentysix_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -13978,7 +13978,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentyseven_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -14049,7 +14049,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentyeight_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -14121,7 +14121,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_twentynine_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -14193,7 +14193,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_thirty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -14265,7 +14265,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_thirtyone_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -14337,7 +14337,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_five_byte_pt_thirtytwo_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
     };
-     uint8_t plaintext[5U] =
+    uint8_t plaintext[5U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U
@@ -14402,7 +14402,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_one_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14467,7 +14467,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_two_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14532,7 +14532,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_three_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14597,7 +14597,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_four_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14663,7 +14663,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_five_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14729,7 +14729,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_six_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14795,7 +14795,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_seven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14861,7 +14861,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_eight_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14928,7 +14928,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_nine_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -14995,7 +14995,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_ten_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15062,7 +15062,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_eleven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15129,7 +15129,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twelve_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15197,7 +15197,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_thirteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15265,7 +15265,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_fourteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15333,7 +15333,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_fifteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15401,7 +15401,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_sixteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15470,7 +15470,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_seventeen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15539,7 +15539,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_eighteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15608,7 +15608,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_nineteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15677,7 +15677,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twenty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15747,7 +15747,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentyone_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15817,7 +15817,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentytwo_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15887,7 +15887,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentythree_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -15957,7 +15957,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentyfour_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16028,7 +16028,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentyfive_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16099,7 +16099,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentysix_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16170,7 +16170,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentyseven_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16241,7 +16241,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentyeight_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16313,7 +16313,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_twentynine_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16385,7 +16385,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_thirty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16457,7 +16457,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_thirtyone_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16529,7 +16529,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_six_byte_pt_thirtytwo_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
     };
-     uint8_t plaintext[6U] =
+    uint8_t plaintext[6U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U
@@ -16594,7 +16594,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_one_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -16659,7 +16659,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_two_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -16724,7 +16724,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_three_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -16789,7 +16789,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_four_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -16855,7 +16855,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_five_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -16921,7 +16921,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_six_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -16987,7 +16987,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_seven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17053,7 +17053,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_eight_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17120,7 +17120,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_nine_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17187,7 +17187,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_ten_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17254,7 +17254,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_eleven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17321,7 +17321,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twelve_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17389,7 +17389,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_thirteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17457,7 +17457,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_fourteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17525,7 +17525,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_fifteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17593,7 +17593,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_sixteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17662,7 +17662,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_seventeen_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17731,7 +17731,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_eighteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17800,7 +17800,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_nineteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17869,7 +17869,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twenty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -17939,7 +17939,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentyone_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18009,7 +18009,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentytwo_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18079,7 +18079,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentythree_byte_ad(v
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18149,7 +18149,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentyfour_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18220,7 +18220,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentyfive_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18291,7 +18291,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentysix_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18362,7 +18362,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentyseven_byte_ad(v
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18433,7 +18433,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentyeight_byte_ad(v
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18505,7 +18505,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_twentynine_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18577,7 +18577,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_thirty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18649,7 +18649,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_thirtyone_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18721,7 +18721,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seven_byte_pt_thirtytwo_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
     };
-     uint8_t plaintext[7U] =
+    uint8_t plaintext[7U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U
@@ -18786,7 +18786,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_one_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -18851,7 +18851,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_two_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -18916,7 +18916,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_three_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -18981,7 +18981,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_four_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19047,7 +19047,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_five_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19113,7 +19113,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_six_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19179,7 +19179,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_seven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19245,7 +19245,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_eight_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19312,7 +19312,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_nine_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19379,7 +19379,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_ten_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19446,7 +19446,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_eleven_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19513,7 +19513,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twelve_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19581,7 +19581,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_thirteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19649,7 +19649,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_fourteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19717,7 +19717,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_fifteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19785,7 +19785,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_sixteen_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19854,7 +19854,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_seventeen_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19923,7 +19923,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_eighteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -19992,7 +19992,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_nineteen_byte_ad(void
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20061,7 +20061,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twenty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20131,7 +20131,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentyone_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20201,7 +20201,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentytwo_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20271,7 +20271,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentythree_byte_ad(v
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20341,7 +20341,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentyfour_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20412,7 +20412,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentyfive_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20483,7 +20483,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentysix_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20554,7 +20554,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentyseven_byte_ad(v
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20625,7 +20625,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentyeight_byte_ad(v
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20697,7 +20697,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_twentynine_byte_ad(vo
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20769,7 +20769,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_thirty_byte_ad(void)
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20841,7 +20841,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_thirtyone_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20913,7 +20913,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eight_byte_pt_thirtytwo_byte_ad(voi
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
     };
-     uint8_t plaintext[8U] =
+    uint8_t plaintext[8U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U
@@ -20979,7 +20979,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_one_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21047,7 +21047,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_two_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21115,7 +21115,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_three_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21183,7 +21183,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_four_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21252,7 +21252,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_five_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21321,7 +21321,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_six_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21390,7 +21390,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_seven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21459,7 +21459,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_eight_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21529,7 +21529,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_nine_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21599,7 +21599,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_ten_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21669,7 +21669,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_eleven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21739,7 +21739,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twelve_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21810,7 +21810,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_thirteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21881,7 +21881,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_fourteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -21952,7 +21952,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_fifteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22023,7 +22023,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_sixteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22095,7 +22095,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_seventeen_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22167,7 +22167,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_eighteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22239,7 +22239,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_nineteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22311,7 +22311,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twenty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22384,7 +22384,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentyone_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22457,7 +22457,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentytwo_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22530,7 +22530,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentythree_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22603,7 +22603,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentyfour_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22677,7 +22677,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentyfive_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22751,7 +22751,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentysix_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22825,7 +22825,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentyseven_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22899,7 +22899,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentyeight_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -22974,7 +22974,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_twentynine_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23049,7 +23049,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_thirty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23124,7 +23124,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_thirtyone_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23199,7 +23199,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nine_byte_pt_thirtytwo_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-     uint8_t plaintext[9U] =
+    uint8_t plaintext[9U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23267,7 +23267,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_one_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23335,7 +23335,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_two_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23403,7 +23403,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_three_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23471,7 +23471,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_four_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23540,7 +23540,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_five_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23609,7 +23609,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_six_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23678,7 +23678,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_seven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23747,7 +23747,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_eight_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23817,7 +23817,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_nine_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23887,7 +23887,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_ten_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -23957,7 +23957,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_eleven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24027,7 +24027,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twelve_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24098,7 +24098,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_thirteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24169,7 +24169,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_fourteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24240,7 +24240,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_fifteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24311,7 +24311,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_sixteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24383,7 +24383,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_seventeen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24455,7 +24455,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_eighteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24527,7 +24527,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_nineteen_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24599,7 +24599,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twenty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24672,7 +24672,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentyone_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24745,7 +24745,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentytwo_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24818,7 +24818,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentythree_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24891,7 +24891,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentyfour_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -24965,7 +24965,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentyfive_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25039,7 +25039,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentysix_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25113,7 +25113,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentyseven_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25187,7 +25187,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentyeight_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25262,7 +25262,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_twentynine_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25337,7 +25337,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_thirty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25412,7 +25412,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_thirtyone_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25487,7 +25487,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_ten_byte_pt_thirtytwo_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-     uint8_t plaintext[10U] =
+    uint8_t plaintext[10U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25555,7 +25555,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_one_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25623,7 +25623,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_two_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25691,7 +25691,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_three_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25759,7 +25759,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_four_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25828,7 +25828,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_five_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25897,7 +25897,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_six_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -25966,7 +25966,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_seven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26035,7 +26035,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_eight_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26105,7 +26105,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_nine_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26175,7 +26175,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_ten_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26245,7 +26245,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_eleven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26315,7 +26315,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twelve_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26386,7 +26386,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_thirteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26457,7 +26457,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_fourteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26528,7 +26528,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_fifteen_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26599,7 +26599,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_sixteen_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26671,7 +26671,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_seventeen_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26743,7 +26743,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_eighteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26815,7 +26815,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_nineteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26887,7 +26887,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twenty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -26960,7 +26960,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentyone_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27033,7 +27033,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentytwo_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27106,7 +27106,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentythree_byte_ad(
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27179,7 +27179,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentyfour_byte_ad(v
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27253,7 +27253,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentyfive_byte_ad(v
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27327,7 +27327,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentysix_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27401,7 +27401,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentyseven_byte_ad(
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27475,7 +27475,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentyeight_byte_ad(
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27550,7 +27550,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_twentynine_byte_ad(v
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27625,7 +27625,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_thirty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27700,7 +27700,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_thirtyone_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27775,7 +27775,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eleven_byte_pt_thirtytwo_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-     uint8_t plaintext[11U] =
+    uint8_t plaintext[11U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27843,7 +27843,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_one_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27911,7 +27911,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_two_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -27979,7 +27979,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_three_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28047,7 +28047,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_four_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28116,7 +28116,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_five_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28185,7 +28185,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_six_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28254,7 +28254,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_seven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28323,7 +28323,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_eight_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28393,7 +28393,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_nine_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28463,7 +28463,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_ten_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28533,7 +28533,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_eleven_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28603,7 +28603,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twelve_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28674,7 +28674,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_thirteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28745,7 +28745,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_fourteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28816,7 +28816,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_fifteen_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28887,7 +28887,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_sixteen_byte_ad(void
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -28959,7 +28959,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_seventeen_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29031,7 +29031,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_eighteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29103,7 +29103,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_nineteen_byte_ad(voi
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29175,7 +29175,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twenty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29248,7 +29248,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentyone_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29321,7 +29321,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentytwo_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29394,7 +29394,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentythree_byte_ad(
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29467,7 +29467,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentyfour_byte_ad(v
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29541,7 +29541,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentyfive_byte_ad(v
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29615,7 +29615,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentysix_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29689,7 +29689,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentyseven_byte_ad(
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29763,7 +29763,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentyeight_byte_ad(
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29838,7 +29838,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_twentynine_byte_ad(v
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29913,7 +29913,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_thirty_byte_ad(void)
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -29988,7 +29988,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_thirtyone_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30063,7 +30063,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twelve_byte_pt_thirtytwo_byte_ad(vo
         0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-     uint8_t plaintext[12U] =
+    uint8_t plaintext[12U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30132,7 +30132,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_one_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30203,7 +30203,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_two_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30274,7 +30274,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_three_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30345,7 +30345,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_four_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30417,7 +30417,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_five_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30489,7 +30489,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_six_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30561,7 +30561,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_seven_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30633,7 +30633,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_eight_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30706,7 +30706,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_nine_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30779,7 +30779,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_ten_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30852,7 +30852,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_eleven_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30925,7 +30925,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twelve_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -30999,7 +30999,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_thirteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31073,7 +31073,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_fourteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31147,7 +31147,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_fifteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31221,7 +31221,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_sixteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31296,7 +31296,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_seventeen_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31371,7 +31371,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_eighteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31446,7 +31446,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_nineteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31521,7 +31521,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twenty_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31597,7 +31597,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentyone_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31673,7 +31673,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentytwo_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31749,7 +31749,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentythree_byte_a
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31825,7 +31825,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentyfour_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31902,7 +31902,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentyfive_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -31979,7 +31979,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentysix_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32056,7 +32056,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentyseven_byte_a
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32133,7 +32133,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentyeight_byte_a
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32211,7 +32211,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_twentynine_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32289,7 +32289,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_thirty_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32367,7 +32367,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_thirtyone_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32445,7 +32445,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirteen_byte_pt_thirtytwo_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU
     };
-     uint8_t plaintext[13U] =
+    uint8_t plaintext[13U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32516,7 +32516,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_one_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32587,7 +32587,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_two_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32658,7 +32658,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_three_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32729,7 +32729,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_four_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32801,7 +32801,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_five_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32873,7 +32873,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_six_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -32945,7 +32945,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_seven_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33017,7 +33017,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_eight_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33090,7 +33090,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_nine_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33163,7 +33163,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_ten_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33236,7 +33236,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_eleven_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33309,7 +33309,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twelve_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33383,7 +33383,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_thirteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33457,7 +33457,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_fourteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33531,7 +33531,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_fifteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33605,7 +33605,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_sixteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33680,7 +33680,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_seventeen_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33755,7 +33755,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_eighteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33830,7 +33830,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_nineteen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33905,7 +33905,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twenty_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -33981,7 +33981,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentyone_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34057,7 +34057,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentytwo_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34133,7 +34133,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentythree_byte_a
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34209,7 +34209,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentyfour_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34286,7 +34286,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentyfive_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34363,7 +34363,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentysix_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34440,7 +34440,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentyseven_byte_a
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34517,7 +34517,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentyeight_byte_a
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34595,7 +34595,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_twentynine_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34673,7 +34673,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_thirty_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34751,7 +34751,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_thirtyone_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34829,7 +34829,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fourteen_byte_pt_thirtytwo_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU
     };
-     uint8_t plaintext[14U] =
+    uint8_t plaintext[14U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34900,7 +34900,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_one_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -34971,7 +34971,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_two_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35042,7 +35042,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_three_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35113,7 +35113,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_four_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35185,7 +35185,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_five_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35257,7 +35257,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_six_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35329,7 +35329,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_seven_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35401,7 +35401,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_eight_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35474,7 +35474,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_nine_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35547,7 +35547,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_ten_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35620,7 +35620,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_eleven_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35693,7 +35693,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twelve_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35767,7 +35767,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_thirteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35841,7 +35841,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_fourteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35915,7 +35915,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_fifteen_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -35989,7 +35989,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_sixteen_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36064,7 +36064,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_seventeen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36139,7 +36139,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_eighteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36214,7 +36214,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_nineteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36289,7 +36289,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twenty_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36365,7 +36365,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentyone_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36441,7 +36441,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentytwo_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36517,7 +36517,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentythree_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36593,7 +36593,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentyfour_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36670,7 +36670,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentyfive_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36747,7 +36747,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentysix_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36824,7 +36824,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentyseven_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36901,7 +36901,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentyeight_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -36979,7 +36979,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_twentynine_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37057,7 +37057,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_thirty_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37135,7 +37135,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_thirtyone_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37213,7 +37213,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_fifteen_byte_pt_thirtytwo_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU
     };
-     uint8_t plaintext[15U] =
+    uint8_t plaintext[15U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37284,7 +37284,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_one_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37355,7 +37355,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_two_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37426,7 +37426,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_three_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37497,7 +37497,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_four_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37569,7 +37569,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_five_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37641,7 +37641,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_six_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37713,7 +37713,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_seven_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37785,7 +37785,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_eight_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37858,7 +37858,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_nine_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -37931,7 +37931,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_ten_byte_ad(void)
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38004,7 +38004,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_eleven_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38077,7 +38077,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twelve_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38151,7 +38151,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_thirteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38225,7 +38225,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_fourteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38299,7 +38299,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_fifteen_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38373,7 +38373,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_sixteen_byte_ad(voi
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38448,7 +38448,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_seventeen_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38523,7 +38523,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_eighteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38598,7 +38598,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_nineteen_byte_ad(vo
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38673,7 +38673,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twenty_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38749,7 +38749,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentyone_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38825,7 +38825,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentytwo_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38901,7 +38901,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentythree_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -38977,7 +38977,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentyfour_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39054,7 +39054,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentyfive_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39131,7 +39131,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentysix_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39208,7 +39208,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentyseven_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39285,7 +39285,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentyeight_byte_ad
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39363,7 +39363,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_twentynine_byte_ad(
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39441,7 +39441,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_thirty_byte_ad(void
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39519,7 +39519,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_thirtyone_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39597,7 +39597,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_sixteen_byte_pt_thirtytwo_byte_ad(v
         0x08U, 0x09U, 0x0AU, 0x0BU,
         0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-     uint8_t plaintext[16U] =
+    uint8_t plaintext[16U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39669,7 +39669,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_one_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39743,7 +39743,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_two_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39817,7 +39817,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_three_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39891,7 +39891,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_four_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -39966,7 +39966,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_five_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40041,7 +40041,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_six_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40116,7 +40116,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_seven_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40191,7 +40191,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_eight_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40267,7 +40267,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_nine_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40343,7 +40343,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_ten_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40419,7 +40419,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_eleven_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40495,7 +40495,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twelve_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40572,7 +40572,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_thirteen_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40649,7 +40649,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_fourteen_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40726,7 +40726,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_fifteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40803,7 +40803,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_sixteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40881,7 +40881,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_seventeen_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -40959,7 +40959,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_eighteen_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41037,7 +41037,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_nineteen_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41115,7 +41115,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twenty_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41194,7 +41194,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentyone_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41273,7 +41273,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentytwo_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41352,7 +41352,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentythree_byte_
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41431,7 +41431,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentyfour_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41511,7 +41511,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentyfive_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41591,7 +41591,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentysix_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41671,7 +41671,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentyseven_byte_
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41751,7 +41751,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentyeight_byte_
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41832,7 +41832,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_twentynine_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41913,7 +41913,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_thirty_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -41994,7 +41994,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_thirtyone_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42075,7 +42075,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_seventeen_byte_pt_thirtytwo_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-     uint8_t plaintext[17U] =
+    uint8_t plaintext[17U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42149,7 +42149,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_one_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42223,7 +42223,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_two_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42297,7 +42297,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_three_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42371,7 +42371,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_four_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42446,7 +42446,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_five_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42521,7 +42521,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_six_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42596,7 +42596,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_seven_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42671,7 +42671,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_eight_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42747,7 +42747,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_nine_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42823,7 +42823,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_ten_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42899,7 +42899,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_eleven_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -42975,7 +42975,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twelve_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43052,7 +43052,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_thirteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43129,7 +43129,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_fourteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43206,7 +43206,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_fifteen_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43283,7 +43283,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_sixteen_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43361,7 +43361,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_seventeen_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43439,7 +43439,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_eighteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43517,7 +43517,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_nineteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43595,7 +43595,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twenty_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43674,7 +43674,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentyone_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43753,7 +43753,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentytwo_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43832,7 +43832,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentythree_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43911,7 +43911,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentyfour_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -43991,7 +43991,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentyfive_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44071,7 +44071,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentysix_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44151,7 +44151,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentyseven_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44231,7 +44231,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentyeight_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44312,7 +44312,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_twentynine_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44393,7 +44393,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_thirty_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44474,7 +44474,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_thirtyone_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44555,7 +44555,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_eighteen_byte_pt_thirtytwo_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-     uint8_t plaintext[18U] =
+    uint8_t plaintext[18U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44629,7 +44629,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_one_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44703,7 +44703,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_two_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44777,7 +44777,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_three_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44851,7 +44851,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_four_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -44926,7 +44926,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_five_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45001,7 +45001,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_six_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45076,7 +45076,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_seven_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45151,7 +45151,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_eight_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45227,7 +45227,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_nine_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45303,7 +45303,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_ten_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45379,7 +45379,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_eleven_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45455,7 +45455,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twelve_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45532,7 +45532,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_thirteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45609,7 +45609,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_fourteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45686,7 +45686,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_fifteen_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45763,7 +45763,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_sixteen_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45841,7 +45841,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_seventeen_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45919,7 +45919,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_eighteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -45997,7 +45997,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_nineteen_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46075,7 +46075,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twenty_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46154,7 +46154,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentyone_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46233,7 +46233,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentytwo_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46312,7 +46312,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentythree_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46391,7 +46391,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentyfour_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46471,7 +46471,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentyfive_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46551,7 +46551,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentysix_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46631,7 +46631,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentyseven_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46711,7 +46711,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentyeight_byte_a
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46792,7 +46792,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_twentynine_byte_ad
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46873,7 +46873,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_thirty_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -46954,7 +46954,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_thirtyone_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47035,7 +47035,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_nineteen_byte_pt_thirtytwo_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-     uint8_t plaintext[19U] =
+    uint8_t plaintext[19U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47109,7 +47109,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_one_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47183,7 +47183,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_two_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47257,7 +47257,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_three_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47331,7 +47331,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_four_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47406,7 +47406,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_five_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47481,7 +47481,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_six_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47556,7 +47556,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_seven_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47631,7 +47631,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_eight_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47707,7 +47707,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_nine_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47783,7 +47783,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_ten_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47859,7 +47859,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_eleven_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -47935,7 +47935,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twelve_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48012,7 +48012,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_thirteen_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48089,7 +48089,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_fourteen_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48166,7 +48166,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_fifteen_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48243,7 +48243,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_sixteen_byte_ad(void
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48321,7 +48321,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_seventeen_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48399,7 +48399,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_eighteen_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48477,7 +48477,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_nineteen_byte_ad(voi
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48555,7 +48555,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twenty_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48634,7 +48634,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentyone_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48713,7 +48713,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentytwo_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48792,7 +48792,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentythree_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48871,7 +48871,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentyfour_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -48951,7 +48951,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentyfive_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49031,7 +49031,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentysix_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49111,7 +49111,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentyseven_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49191,7 +49191,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentyeight_byte_ad(
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49272,7 +49272,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_twentynine_byte_ad(v
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49353,7 +49353,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_thirty_byte_ad(void)
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49434,7 +49434,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_thirtyone_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49515,7 +49515,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twenty_byte_pt_thirtytwo_byte_ad(vo
         0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-     uint8_t plaintext[20U] =
+    uint8_t plaintext[20U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49590,7 +49590,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_one_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49667,7 +49667,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_two_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49744,7 +49744,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_three_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49821,7 +49821,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_four_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49899,7 +49899,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_five_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -49977,7 +49977,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_six_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50055,7 +50055,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_seven_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50133,7 +50133,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_eight_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50212,7 +50212,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_nine_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50291,7 +50291,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_ten_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50370,7 +50370,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_eleven_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50449,7 +50449,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twelve_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50529,7 +50529,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_thirteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50609,7 +50609,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_fourteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50689,7 +50689,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_fifteen_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50769,7 +50769,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_sixteen_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50850,7 +50850,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_seventeen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -50931,7 +50931,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_eighteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51012,7 +51012,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_nineteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51093,7 +51093,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twenty_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51175,7 +51175,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentyone_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51257,7 +51257,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentytwo_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51339,7 +51339,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentythree_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51421,7 +51421,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentyfour_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51504,7 +51504,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentyfive_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51587,7 +51587,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentysix_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51670,7 +51670,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentyseven_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51753,7 +51753,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentyeight_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51837,7 +51837,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_twentynine_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -51921,7 +51921,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_thirty_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52005,7 +52005,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_thirtyone_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52089,7 +52089,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyone_byte_pt_thirtytwo_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U
     };
-     uint8_t plaintext[21U] =
+    uint8_t plaintext[21U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52166,7 +52166,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_one_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52243,7 +52243,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_two_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52320,7 +52320,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_three_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52397,7 +52397,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_four_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52475,7 +52475,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_five_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52553,7 +52553,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_six_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52631,7 +52631,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_seven_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52709,7 +52709,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_eight_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52788,7 +52788,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_nine_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52867,7 +52867,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_ten_byte_ad(void)
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -52946,7 +52946,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_eleven_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53025,7 +53025,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twelve_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53105,7 +53105,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_thirteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53185,7 +53185,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_fourteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53265,7 +53265,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_fifteen_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53345,7 +53345,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_sixteen_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53426,7 +53426,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_seventeen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53507,7 +53507,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_eighteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53588,7 +53588,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_nineteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53669,7 +53669,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twenty_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53751,7 +53751,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentyone_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53833,7 +53833,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentytwo_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53915,7 +53915,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentythree_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -53997,7 +53997,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentyfour_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54080,7 +54080,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentyfive_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54163,7 +54163,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentysix_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54246,7 +54246,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentyseven_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54329,7 +54329,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentyeight_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54413,7 +54413,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_twentynine_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54497,7 +54497,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_thirty_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54581,7 +54581,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_thirtyone_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54665,7 +54665,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentytwo_byte_pt_thirtytwo_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U
     };
-     uint8_t plaintext[22U] =
+    uint8_t plaintext[22U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54742,7 +54742,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_one_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54819,7 +54819,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_two_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54896,7 +54896,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_three_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -54973,7 +54973,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_four_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55051,7 +55051,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_five_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55129,7 +55129,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_six_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55207,7 +55207,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_seven_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55285,7 +55285,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_eight_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55364,7 +55364,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_nine_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55443,7 +55443,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_ten_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55522,7 +55522,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_eleven_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55601,7 +55601,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twelve_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55681,7 +55681,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_thirteen_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55761,7 +55761,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_fourteen_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55841,7 +55841,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_fifteen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -55921,7 +55921,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_sixteen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56002,7 +56002,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_seventeen_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56083,7 +56083,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_eighteen_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56164,7 +56164,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_nineteen_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56245,7 +56245,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twenty_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56327,7 +56327,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentyone_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56409,7 +56409,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentytwo_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56491,7 +56491,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentythree_byt
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56573,7 +56573,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentyfour_byte
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56656,7 +56656,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentyfive_byte
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56739,7 +56739,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentysix_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56822,7 +56822,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentyseven_byt
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56905,7 +56905,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentyeight_byt
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -56989,7 +56989,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_twentynine_byte
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57073,7 +57073,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_thirty_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57157,7 +57157,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_thirtyone_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57241,7 +57241,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentythree_byte_pt_thirtytwo_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U
     };
-     uint8_t plaintext[23U] =
+    uint8_t plaintext[23U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57318,7 +57318,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_one_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57395,7 +57395,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_two_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57472,7 +57472,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_three_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57549,7 +57549,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_four_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57627,7 +57627,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_five_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57705,7 +57705,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_six_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57783,7 +57783,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_seven_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57861,7 +57861,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_eight_byte_ad(vo
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -57940,7 +57940,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_nine_byte_ad(voi
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58019,7 +58019,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_ten_byte_ad(void
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58098,7 +58098,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_eleven_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58177,7 +58177,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twelve_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58257,7 +58257,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_thirteen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58337,7 +58337,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_fourteen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58417,7 +58417,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_fifteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58497,7 +58497,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_sixteen_byte_ad(
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58578,7 +58578,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_seventeen_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58659,7 +58659,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_eighteen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58740,7 +58740,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_nineteen_byte_ad
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58821,7 +58821,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twenty_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58903,7 +58903,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentyone_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -58985,7 +58985,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentytwo_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59067,7 +59067,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentythree_byte
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59149,7 +59149,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentyfour_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59232,7 +59232,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentyfive_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59315,7 +59315,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentysix_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59398,7 +59398,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentyseven_byte
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59481,7 +59481,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentyeight_byte
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59565,7 +59565,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_twentynine_byte_
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59649,7 +59649,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_thirty_byte_ad(v
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59733,7 +59733,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_thirtyone_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59817,7 +59817,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfour_byte_pt_thirtytwo_byte_a
         0x10U, 0x11U, 0x12U, 0x13U,
         0x14U, 0x15U, 0x16U, 0x17U
     };
-     uint8_t plaintext[24U] =
+    uint8_t plaintext[24U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59895,7 +59895,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_one_byte_ad(void
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -59975,7 +59975,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_two_byte_ad(void
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60055,7 +60055,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_three_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60135,7 +60135,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_four_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60216,7 +60216,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_five_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60297,7 +60297,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_six_byte_ad(void
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60378,7 +60378,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_seven_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60459,7 +60459,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_eight_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60541,7 +60541,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_nine_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60623,7 +60623,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_ten_byte_ad(void
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60705,7 +60705,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_eleven_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60787,7 +60787,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twelve_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60870,7 +60870,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_thirteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -60953,7 +60953,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_fourteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61036,7 +61036,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_fifteen_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61119,7 +61119,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_sixteen_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61203,7 +61203,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_seventeen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61287,7 +61287,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_eighteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61371,7 +61371,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_nineteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61455,7 +61455,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twenty_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61540,7 +61540,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentyone_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61625,7 +61625,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentytwo_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61710,7 +61710,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentythree_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61795,7 +61795,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentyfour_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61881,7 +61881,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentyfive_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -61967,7 +61967,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentysix_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62053,7 +62053,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentyseven_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62139,7 +62139,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentyeight_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62226,7 +62226,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_twentynine_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62313,7 +62313,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_thirty_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62400,7 +62400,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_thirtyone_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62487,7 +62487,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyfive_byte_pt_thirtytwo_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-     uint8_t plaintext[25U] =
+    uint8_t plaintext[25U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62567,7 +62567,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_one_byte_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62647,7 +62647,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_two_byte_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62727,7 +62727,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_three_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62807,7 +62807,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_four_byte_ad(void
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62888,7 +62888,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_five_byte_ad(void
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -62969,7 +62969,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_six_byte_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63050,7 +63050,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_seven_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63131,7 +63131,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_eight_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63213,7 +63213,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_nine_byte_ad(void
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63295,7 +63295,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_ten_byte_ad(void)
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63377,7 +63377,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_eleven_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63459,7 +63459,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twelve_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63542,7 +63542,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_thirteen_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63625,7 +63625,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_fourteen_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63708,7 +63708,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_fifteen_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63791,7 +63791,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_sixteen_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63875,7 +63875,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_seventeen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -63959,7 +63959,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_eighteen_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64043,7 +64043,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_nineteen_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64127,7 +64127,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twenty_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64212,7 +64212,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentyone_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64297,7 +64297,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentytwo_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64382,7 +64382,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentythree_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64467,7 +64467,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentyfour_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64553,7 +64553,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentyfive_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64639,7 +64639,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentysix_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64725,7 +64725,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentyseven_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64811,7 +64811,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentyeight_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64898,7 +64898,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_twentynine_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -64985,7 +64985,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_thirty_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65072,7 +65072,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_thirtyone_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65159,7 +65159,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentysix_byte_pt_thirtytwo_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-     uint8_t plaintext[26U] =
+    uint8_t plaintext[26U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65239,7 +65239,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_one_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65319,7 +65319,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_two_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65399,7 +65399,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_three_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65479,7 +65479,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_four_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65560,7 +65560,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_five_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65641,7 +65641,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_six_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65722,7 +65722,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_seven_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65803,7 +65803,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_eight_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65885,7 +65885,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_nine_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -65967,7 +65967,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_ten_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66049,7 +66049,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_eleven_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66131,7 +66131,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twelve_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66214,7 +66214,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_thirteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66297,7 +66297,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_fourteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66380,7 +66380,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_fifteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66463,7 +66463,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_sixteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66547,7 +66547,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_seventeen_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66631,7 +66631,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_eighteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66715,7 +66715,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_nineteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66799,7 +66799,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twenty_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66884,7 +66884,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentyone_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -66969,7 +66969,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentytwo_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67054,7 +67054,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentythree_byt
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67139,7 +67139,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentyfour_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67225,7 +67225,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentyfive_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67311,7 +67311,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentysix_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67397,7 +67397,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentyseven_byt
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67483,7 +67483,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentyeight_byt
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67570,7 +67570,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_twentynine_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67657,7 +67657,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_thirty_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67744,7 +67744,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_thirtyone_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67831,7 +67831,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyseven_byte_pt_thirtytwo_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-     uint8_t plaintext[27U] =
+    uint8_t plaintext[27U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67911,7 +67911,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_one_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -67991,7 +67991,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_two_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68071,7 +68071,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_three_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68151,7 +68151,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_four_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68232,7 +68232,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_five_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68313,7 +68313,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_six_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68394,7 +68394,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_seven_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68475,7 +68475,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_eight_byte_ad(v
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68557,7 +68557,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_nine_byte_ad(vo
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68639,7 +68639,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_ten_byte_ad(voi
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68721,7 +68721,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_eleven_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68803,7 +68803,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twelve_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68886,7 +68886,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_thirteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -68969,7 +68969,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_fourteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69052,7 +69052,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_fifteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69135,7 +69135,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_sixteen_byte_ad
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69219,7 +69219,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_seventeen_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69303,7 +69303,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_eighteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69387,7 +69387,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_nineteen_byte_a
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69471,7 +69471,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twenty_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69556,7 +69556,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentyone_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69641,7 +69641,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentytwo_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69726,7 +69726,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentythree_byt
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69811,7 +69811,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentyfour_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69897,7 +69897,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentyfive_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -69983,7 +69983,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentysix_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70069,7 +70069,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentyseven_byt
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70155,7 +70155,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentyeight_byt
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70242,7 +70242,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_twentynine_byte
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70329,7 +70329,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_thirty_byte_ad(
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70416,7 +70416,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_thirtyone_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70503,7 +70503,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentyeight_byte_pt_thirtytwo_byte_
         0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-     uint8_t plaintext[28U] =
+    uint8_t plaintext[28U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70584,7 +70584,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_one_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70667,7 +70667,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_two_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70750,7 +70750,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_three_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70833,7 +70833,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_four_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -70917,7 +70917,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_five_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71001,7 +71001,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_six_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71085,7 +71085,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_seven_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71169,7 +71169,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_eight_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71254,7 +71254,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_nine_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71339,7 +71339,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_ten_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71424,7 +71424,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_eleven_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71509,7 +71509,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twelve_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71595,7 +71595,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_thirteen_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71681,7 +71681,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_fourteen_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71767,7 +71767,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_fifteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71853,7 +71853,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_sixteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -71940,7 +71940,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_seventeen_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72027,7 +72027,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_eighteen_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72114,7 +72114,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_nineteen_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72201,7 +72201,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twenty_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72289,7 +72289,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentyone_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72377,7 +72377,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentytwo_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72465,7 +72465,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentythree_byte
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72553,7 +72553,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentyfour_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72642,7 +72642,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentyfive_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72731,7 +72731,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentysix_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72820,7 +72820,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentyseven_byte
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72909,7 +72909,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentyeight_byte
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -72999,7 +72999,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_twentynine_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73089,7 +73089,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_thirty_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73179,7 +73179,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_thirtyone_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73269,7 +73269,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_twentynine_byte_pt_thirtytwo_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU
     };
-     uint8_t plaintext[29U] =
+    uint8_t plaintext[29U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73352,7 +73352,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_one_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73435,7 +73435,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_two_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73518,7 +73518,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_three_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73601,7 +73601,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_four_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73685,7 +73685,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_five_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73769,7 +73769,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_six_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73853,7 +73853,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_seven_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -73937,7 +73937,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_eight_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74022,7 +74022,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_nine_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74107,7 +74107,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_ten_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74192,7 +74192,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_eleven_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74277,7 +74277,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twelve_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74363,7 +74363,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_thirteen_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74449,7 +74449,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_fourteen_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74535,7 +74535,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_fifteen_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74621,7 +74621,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_sixteen_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74708,7 +74708,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_seventeen_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74795,7 +74795,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_eighteen_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74882,7 +74882,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_nineteen_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -74969,7 +74969,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twenty_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75057,7 +75057,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentyone_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75145,7 +75145,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentytwo_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75233,7 +75233,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentythree_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75321,7 +75321,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentyfour_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75410,7 +75410,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentyfive_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75499,7 +75499,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentysix_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75588,7 +75588,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentyseven_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75677,7 +75677,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentyeight_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75767,7 +75767,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_twentynine_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75857,7 +75857,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_thirty_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -75947,7 +75947,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_thirtyone_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76037,7 +76037,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirty_byte_pt_thirtytwo_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU
     };
-     uint8_t plaintext[30U] =
+    uint8_t plaintext[30U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76120,7 +76120,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_one_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76203,7 +76203,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_two_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76286,7 +76286,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_three_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76369,7 +76369,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_four_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76453,7 +76453,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_five_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76537,7 +76537,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_six_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76621,7 +76621,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_seven_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76705,7 +76705,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_eight_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76790,7 +76790,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_nine_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76875,7 +76875,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_ten_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -76960,7 +76960,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_eleven_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77045,7 +77045,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twelve_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77131,7 +77131,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_thirteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77217,7 +77217,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_fourteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77303,7 +77303,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_fifteen_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77389,7 +77389,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_sixteen_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77476,7 +77476,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_seventeen_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77563,7 +77563,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_eighteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77650,7 +77650,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_nineteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77737,7 +77737,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twenty_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77825,7 +77825,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentyone_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -77913,7 +77913,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentytwo_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78001,7 +78001,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentythree_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78089,7 +78089,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentyfour_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78178,7 +78178,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentyfive_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78267,7 +78267,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentysix_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78356,7 +78356,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentyseven_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78445,7 +78445,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentyeight_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78535,7 +78535,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_twentynine_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78625,7 +78625,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_thirty_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78715,7 +78715,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_thirtyone_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78805,7 +78805,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtyone_byte_pt_thirtytwo_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU
     };
-     uint8_t plaintext[31U] =
+    uint8_t plaintext[31U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78888,7 +78888,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_one_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -78971,7 +78971,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_two_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79054,7 +79054,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_three_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79137,7 +79137,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_four_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79221,7 +79221,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_five_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79305,7 +79305,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_six_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79389,7 +79389,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_seven_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79473,7 +79473,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_eight_byte_ad(voi
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79558,7 +79558,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_nine_byte_ad(void
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79643,7 +79643,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_ten_byte_ad(void)
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79728,7 +79728,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_eleven_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79813,7 +79813,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twelve_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79899,7 +79899,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -79985,7 +79985,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_fourteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80071,7 +80071,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_fifteen_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80157,7 +80157,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_sixteen_byte_ad(v
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80244,7 +80244,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_seventeen_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80331,7 +80331,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_eighteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80418,7 +80418,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_nineteen_byte_ad(
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80505,7 +80505,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twenty_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80593,7 +80593,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentyone_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80681,7 +80681,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentytwo_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80769,7 +80769,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentythree_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80857,7 +80857,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentyfour_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -80946,7 +80946,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentyfive_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -81035,7 +81035,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentysix_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -81124,7 +81124,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentyseven_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -81213,7 +81213,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentyeight_byte_
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -81303,7 +81303,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_twentynine_byte_a
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -81393,7 +81393,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirty_byte_ad(vo
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -81483,7 +81483,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirtyone_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,
@@ -81573,7 +81573,7 @@ static void test_VERUM_ASCON_AEAD128_encrypt_thirtytwo_byte_pt_thirtytwo_byte_ad
         0x18U, 0x19U, 0x1AU, 0x1BU,
         0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-     uint8_t plaintext[32U] =
+    uint8_t plaintext[32U] =
     {
         0x00U, 0x01U, 0x02U, 0x03U,
         0x04U, 0x05U, 0x06U, 0x07U,

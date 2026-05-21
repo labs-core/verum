@@ -6,33 +6,40 @@
 #define LINE_BUF_SIZE 1024
 
 static char s_buf[LINE_BUF_SIZE];
-static int  s_pos = 0;
+static int s_pos = 0;
 
 void runner_putchar(int c)
 {
-    if (c == '\n') {
+    if (c == '\n')
+    {
         s_buf[s_pos] = '\0';
 
         int print_it =
-            (strstr(s_buf, ":FAIL")   != NULL) ||
+            (strstr(s_buf, ":FAIL") != NULL) ||
             (strstr(s_buf, ":IGNORE") != NULL) ||
             (strstr(s_buf, " Tests ") != NULL) ||
-            (strcmp(s_buf, "OK")      == 0)    ||
-            (strcmp(s_buf, "FAIL")    == 0);
+            (strcmp(s_buf, "OK") == 0) ||
+            (strcmp(s_buf, "FAIL") == 0);
 
-        if (print_it) {
+        if (print_it)
+        {
             puts(s_buf);
             fflush(stdout);
         }
 
         s_pos = 0;
-    } else {
+    }
+    else
+    {
         if (s_pos < LINE_BUF_SIZE - 1)
-            s_buf[s_pos++] = (char)c;
+        {
+            s_buf[s_pos++] = (char) c;
+        }
     }
 }
 
-static int run_suite(const char *name, int (*suite)(void))
+static int run_suite(const char *name,
+                     int (*suite)(void))
 {
     printf("\n=== %-40s ===\n", name);
     fflush(stdout);
@@ -42,8 +49,12 @@ static int run_suite(const char *name, int (*suite)(void))
     return result;
 }
 
-void setUp(void)    {}
-void tearDown(void) {}
+void setUp(void)
+{
+}
+void tearDown(void)
+{
+}
 
 int main(void)
 {
