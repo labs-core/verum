@@ -92,7 +92,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
 #endif
 
     /**
