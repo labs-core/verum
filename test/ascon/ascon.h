@@ -3,6 +3,7 @@
  
 int run_aead_tests(void);
 int run_hash256_tests(void);
+int run_xof128_tests(void);
  
 #endif /* TEST_ASCON_AEAD_H_ */
  

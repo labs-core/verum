@@ -43,9 +43,9 @@ static const uint32_t VERUM_ASCON_XOF128_initialization_vector[2U] = {
  * @param[inout]  digest              256-bit message digest as eight 32-bit words.
  */
 void VERUM_ASCON_XOF128_digest(uint8_t *message,
-                                uint32_t message_size,
-                                uint32_t* digest,
-                                const uint32_t digest_size)
+                               uint32_t message_size,
+                               uint32_t *digest,
+                               const uint32_t digest_size)
 {
     /**
      * @internal
@@ -133,17 +133,18 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 
 
     /**
-    * @internal
-    * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-    * @see https://doi.org/10.6028/NIST.SP.800-232
-    * @brief ℎ ← ⌈(𝐿*8)/64⌉ − 1
-    * @note This implementation uses bytes to define size of the output digest.
-    */
-    block_counter = digest_size>>3U;
+     * @internal
+     * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @brief ℎ ← ⌈(𝐿*8)/64⌉ − 1
+     * @note This implementation uses bytes to define size of the output digest.
+     * @note Because we reference 2 32-bit states the actual division is done by 32 and not 64.
+     */
+    block_counter = digest_size >> 2U;
     uint32_t digest_block_index = 0U;
 
-
-    do{
+    do
+    {
         /**
          * @internal
          * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
@@ -168,25 +169,21 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-        do
-        {
-            digest[digest_block_index] = state[i];
-            ++digest_block_index;
-        }while (digest_block_index & 0x3U != 0U);
-
-#else
+        /**
+         * @internal
+         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @brief 𝐻𝑖 ← S[0∶63]
+         */
         digest[digest_block_index] = state[0U];
         ++digest_block_index;
         digest[digest_block_index] = state[1U];
         ++digest_block_index;
-        digest[digest_block_index] = state[2U];
-        ++digest_block_index;
-        digest[digest_block_index] = state[3U];
-        ++digest_block_index;
-#endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
-        
-    } while (digest_block_index < block_counter);
+    }
+    while (digest_block_index < block_counter-2U);
+
+
+
 
 }

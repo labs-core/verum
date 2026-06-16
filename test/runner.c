@@ -62,6 +62,7 @@ int main(void)
 
     failures += run_suite("ASCON AEAD128",  run_aead_tests);
     failures += run_suite("ASCON HASH-256", run_hash256_tests);
+    failures += run_suite("ASCON XOF-128",  run_xof128_tests);
     /* failures += run_suite("Memory",      run_memory_tests); */
 
     printf("\n%s\n", failures == 0 ? "ALL SUITES PASSED" : "SOME SUITES FAILED");
