@@ -83,13 +83,19 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
     uint32_t block_counter = message_size>>3U;
     for (; 0U < block_counter; --block_counter)
     {
+        /**
+         * @internal
+         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @brief S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
+         */
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, _Alignof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, _Alignof(uint32_t)))[1U];
         message += 8U;
 
         /**
          * @internal
-         * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
          */
@@ -128,114 +134,59 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 
     /**
     * @internal
-    * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+    * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
     * @see https://doi.org/10.6028/NIST.SP.800-232
-    * @brief ℎ ← ⌈𝐿/64⌉ − 1
+    * @brief ℎ ← ⌈(𝐿*8)/64⌉ − 1
+    * @note This implementation uses bytes to define size of the output digest.
     */
     block_counter = digest_size>>3U;
     uint32_t digest_block_index = 0U;
 
+
     do{
+        /**
+         * @internal
+         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+         */
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         VERUM_ASCON_permute(state, holder, 0U);
+#else
+        VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
+        VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
+#endif // VERUM_OPTIMIZATION_MEMORY_DEF
+
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+        do
+        {
+            digest[digest_block_index] = state[i];
+            ++digest_block_index;
+        }while (digest_block_index & 0x3U != 0U);
+
+#else
         digest[digest_block_index] = state[0U];
         ++digest_block_index;
         digest[digest_block_index] = state[1U];
         ++digest_block_index;
-    } while (digest_block_index < block_counter);
-    
-
-#else
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[0U] = state[0U];
-    digest[1U] = state[1U];
-
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[2U] = state[0U];
-    digest[3U] = state[1U];
-
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[4U] = state[0U];
-    digest[5U] = state[1U];
-
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[6U] = state[0U];
-    digest[7U] = state[1U];
+        digest[digest_block_index] = state[2U];
+        ++digest_block_index;
+        digest[digest_block_index] = state[3U];
+        ++digest_block_index;
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
+
+        
+    } while (digest_block_index < block_counter);
 
 }
