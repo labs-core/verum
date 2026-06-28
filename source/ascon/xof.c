@@ -39,13 +39,13 @@ static const uint32_t VERUM_ASCON_XOF128_initialization_vector[2U] = {
  *
  * @param[in]     message             Input message buffer.
  * @param[in]     message_size        Byte length of @p message .
- * @param[in]     digest_size         Size of the output @p digest in bytes.
- * @param[inout]  digest              256-bit message digest as eight 32-bit words.
+ * @param[in]     digest_size         Byte length of output @p digest.
+ * @param[inout]  digest              Pointer to the output buffer for the extendable output function.
  */
 void VERUM_ASCON_XOF128_digest(uint8_t *message,
                                uint32_t message_size,
-                               uint32_t *digest,
-                               const uint32_t digest_size)
+                               uint8_t *digest,
+                               uint32_t digest_size)
 {
     /**
      * @internal
@@ -136,14 +136,14 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
      * @internal
      * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
      * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief ℎ ← ⌈(𝐿*8)/64⌉ − 1
+     * @brief ℎ ← ⌈(𝐿)/8⌉
      * @note This implementation uses bytes to define size of the output digest.
-     * @note Because we reference 2 32-bit states the actual division is done by 32 and not 64.
+     * @nonconformity SP-800-232
      */
-    block_counter = digest_size >> 2U;
-    uint32_t digest_block_index = 0U;
+    uint32_t digest_block_index = (digest_size >> 3U);
+    block_counter = digest_block_index;
 
-    do
+    while ( 0U < block_counter)
     {
         /**
          * @internal
@@ -175,15 +175,46 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief 𝐻𝑖 ← S[0∶63]
          */
-        digest[digest_block_index] = state[0U];
-        ++digest_block_index;
-        digest[digest_block_index] = state[1U];
-        ++digest_block_index;
-
+        ((uint32_t *) __builtin_assume_aligned(digest, _Alignof(uint32_t)))[0U] = state[0U];
+        ((uint32_t *) __builtin_assume_aligned(digest, _Alignof(uint32_t)))[1U] = state[1U];
+        digest += 8U;
+        --block_counter;
     }
-    while (digest_block_index < block_counter-2U);
+    
+    uint32_t digest_byte_index = digest_size & 0x3U;
 
+    if (0U < digest_byte_index)
+    {
+        /**
+         * @internal
+         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+         */
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+        VERUM_ASCON_permute(state, holder, 0U);
+#else
+        VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
+        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
+        VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
+#endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
-
+        do
+        {
+            --digest_byte_index;
+            digest[digest_byte_index] = ((const uint8_t *) state)[digest_byte_index];
+            
+        } while (0U < digest_byte_index);
+    }
 
 }

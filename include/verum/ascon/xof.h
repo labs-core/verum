@@ -34,7 +34,7 @@
  */
 void VERUM_ASCON_XOF128_digest(uint8_t *message,
                                uint32_t message_size,
-                               uint32_t *digest,
+                               uint8_t *digest,
                                uint32_t digest_size);
 
 
