@@ -23,9 +23,7 @@
  *             with no branching or runtime alignment probing.
  *
  * @param[out] destination  Target buffer.  Must be 4-byte aligned.
- *                          Must not overlap @p source.
  * @param[in]  source       Source buffer.  Must be 4-byte aligned.
- *                          Must not overlap @p destination.
  *
  * @pre        @p destination and @p source are non-NULL.
  * @pre        Both pointers are aligned to @c sizeof(uint32_t).

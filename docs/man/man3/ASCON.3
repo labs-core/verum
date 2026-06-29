@@ -1,0 +1,37 @@
+.TH "ASCON" 3 "Version 0.1.0" "VERUM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ASCON \- AEAD128 feature flags
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBVERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF\fP"
+.br
+.RI "Enable associated-data processing in Ascon-AEAD128\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF"
+
+.PP
+\fR#include <\fBverum/ascon/aead\&.h\fP>\fP
+.PP
+Enable associated-data processing in Ascon-AEAD128\&. When defined, the \fRVERUM_ASCON_AEAD128_encrypt\fP and \fRVERUM_ASCON_AEAD128_decrypt\fP functions accept two additional parameters — \fRassociated_data\fP and \fRassociated_size\fP — and authenticate that data as part of tag generation\&. The associated data is not encrypted\&.
+
+.PP
+When left undefined, the associated-data parameters are omitted from the function signatures and the associated-data absorption phase is skipped entirely, reducing code size on targets that do not require AD support\&. 
+.PP
+Definition at line \fB51\fP of file \fBaead\&.h\fP\&.
+.PP
+Referenced by \fBVERUM_ASCON_AEAD128_decrypt()\fP, and \fBVERUM_ASCON_AEAD128_encrypt()\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VERUM from the source code\&.

@@ -1,0 +1,215 @@
+#---------------------------------------------------------------------------
+# Project identity
+#---------------------------------------------------------------------------
+
+PROJECT_NAME           = "VERUM"
+PROJECT_NUMBER         = "0.1.0"
+PROJECT_BRIEF          = "Cryptographic primitives suite for mission-critical software"
+PROJECT_LOGO           =
+OUTPUT_DIRECTORY       = docs
+
+#---------------------------------------------------------------------------
+# Custom command aliases
+#
+# @email and @github are not standard Doxygen commands.
+# They are mapped here so they render as labelled paragraphs in every
+# output format rather than being silently dropped.
+#---------------------------------------------------------------------------
+
+ALIASES  = "email{1}=\par E-mail:\n\1"
+ALIASES += "github{1}=\par GitHub:\n<a href=\"\1\">\1</a>"
+
+#---------------------------------------------------------------------------
+# Input
+#---------------------------------------------------------------------------
+
+INPUT                  = include \
+                         source \
+                         test/suite
+INPUT_ENCODING         = UTF-8
+FILE_PATTERNS          = *.h *.c
+RECURSIVE              = YES
+EXCLUDE                = build \
+                         test/unity \
+                         test/generators
+EXCLUDE_PATTERNS       = */.cache/* \
+                         */build/*
+STRIP_FROM_PATH        = .
+STRIP_FROM_INC_PATH    = include
+
+#---------------------------------------------------------------------------
+# Source browsing
+#---------------------------------------------------------------------------
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+VERBATIM_HEADERS       = YES
+
+#---------------------------------------------------------------------------
+# Build options
+#---------------------------------------------------------------------------
+
+EXTRACT_ALL            = NO
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+EXTRACT_LOCAL_METHODS  = NO
+HIDE_UNDOC_MEMBERS     = YES
+HIDE_UNDOC_CLASSES     = YES
+HIDE_IN_BODY_DOCS      = NO
+INTERNAL_DOCS          = NO
+CASE_SENSE_NAMES       = YES
+SHOW_INCLUDE_FILES     = YES
+SHOW_GROUPED_MEMB_INC  = YES
+FORCE_LOCAL_INCLUDES   = NO
+SORT_MEMBER_DOCS       = NO
+SORT_BRIEF_DOCS        = NO
+SORT_BY_SCOPE_NAME     = NO
+GENERATE_TODOLIST      = YES
+GENERATE_TESTLIST      = YES
+GENERATE_BUGLIST       = YES
+GENERATE_DEPRECATEDLIST= YES
+ENABLED_SECTIONS       =
+MAX_INITIALIZER_LINES  = 0
+SHOW_FILES             = YES
+SHOW_NAMESPACES        = NO
+
+#---------------------------------------------------------------------------
+# Warning and error control
+#---------------------------------------------------------------------------
+
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = YES
+WARN_AS_ERROR          = NO
+WARN_FORMAT            = "$file:$line: $text"
+WARN_LOGFILE           =
+
+#---------------------------------------------------------------------------
+# Preprocessing
+#
+# Doxygen must see all conditional compilation branches so that
+# feature-flag-gated APIs (VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF,
+# VERUM_STANDARD_FIPS_140_3_DEF, etc.) are documented regardless of
+# whether the flag is set in define.h.
+#---------------------------------------------------------------------------
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+EXPAND_ONLY_PREDEF     = NO
+SEARCH_INCLUDES        = YES
+INCLUDE_PATH           = include
+PREDEFINED             = VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF \
+                         VERUM_STANDARD_FIPS_140_3_DEF \
+                         VERUM_OPTIMIZATION_MEMORY_DEF \
+                         VERUM_SECURITY_ZEROIZE_DEF \
+                         VERUM_SECURITY_MASKING_DEF \
+                         VERUM_SECURITY_REDUNDANCY_DEF \
+                         VERUM_CERT_ASSERTIONS_DEF \
+                         VERUM_CERT_COVERAGE_DEF \
+                         VERUM_PLATFORM_BIG_ENDIAN_DEF \
+                         VERUM_SECURITY_CONSTANT_TIME_VERIFY_DEF
+SKIP_FUNCTION_MACROS   = YES
+
+#---------------------------------------------------------------------------
+# HTML output
+#---------------------------------------------------------------------------
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+HTML_HEADER            =
+HTML_FOOTER            =
+HTML_STYLESHEET        =
+HTML_EXTRA_STYLESHEET  =
+HTML_EXTRA_FILES       =
+HTML_COLORSTYLE        = AUTO_DARK
+HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 80
+HTML_COLORSTYLE_GAMMA  = 80
+HTML_TIMESTAMP         = NO
+HTML_DYNAMIC_MENUS     = YES
+HTML_DYNAMIC_SECTIONS  = YES
+HTML_INDEX_NUM_ENTRIES = 100
+GENERATE_DOCSET        = NO
+GENERATE_HTMLHELP      = NO
+GENERATE_QHP           = NO
+GENERATE_ECLIPSEHELP   = NO
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = YES
+FULL_SIDEBAR           = NO
+ENUM_VALUES_PER_LINE   = 4
+TREEVIEW_WIDTH         = 280
+EXT_LINKS_IN_WINDOW    = NO
+FORMULA_FONTSIZE       = 10
+FORMULA_TRANSPARENT    = YES
+USE_MATHJAX            = NO
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+
+#---------------------------------------------------------------------------
+# LaTeX output  (disabled — use HTML and man pages for the project)
+#---------------------------------------------------------------------------
+
+GENERATE_LATEX         = NO
+
+#---------------------------------------------------------------------------
+# Man page output
+#---------------------------------------------------------------------------
+
+GENERATE_MAN           = YES
+MAN_OUTPUT             = man
+MAN_EXTENSION          = .3
+MAN_SUBDIR             =
+MAN_LINKS              = YES
+
+#---------------------------------------------------------------------------
+# XML output  (enables integration with Sphinx, Breathe, or SARIF tools)
+#---------------------------------------------------------------------------
+
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+XML_PROGRAMLISTING     = YES
+XML_NS_MEMB_FILE_SCOPE = NO
+
+#---------------------------------------------------------------------------
+# Dot / graph generation
+#---------------------------------------------------------------------------
+
+HAVE_DOT               = YES
+DOT_NUM_THREADS        = 0
+DOT_FONTNAME           = Helvetica
+DOT_FONTSIZE           = 10
+DOT_FONTPATH           =
+CLASS_GRAPH            = YES
+COLLABORATION_GRAPH    = YES
+GROUP_GRAPHS           = YES
+UML_LOOK               = NO
+TEMPLATE_RELATIONS     = NO
+INCLUDE_GRAPH          = YES
+INCLUDED_BY_GRAPH      = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+DOT_IMAGE_FORMAT       = svg
+INTERACTIVE_SVG        = YES
+DOT_PATH               =
+DOTFILE_DIRS           =
+DOT_GRAPH_MAX_NODES    = 100
+MAX_DOT_GRAPH_DEPTH    = 0
+DOT_TRANSPARENT        = YES
+DOT_MULTI_TARGETS      = YES
+GENERATE_LEGEND        = YES
+DOT_CLEANUP            = YES
+
+#---------------------------------------------------------------------------
+# Index and cross-reference
+#---------------------------------------------------------------------------
+
+ALPHABETICAL_INDEX     = YES
+IGNORE_PREFIX          = VERUM_ \
+                         verum_

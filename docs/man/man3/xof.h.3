@@ -1,0 +1,92 @@
+.TH "include/verum/ascon/xof.h" 3 "Version 0.1.0" "VERUM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/verum/ascon/xof.h \- Ascon-XOF128 extendable-output function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'standard/types\&.h'\fP
+.br
+\fR#include 'define\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBVERUM_ASCON_XOF128_digest\fP (uint8_t *message, uint32_t message_size, uint8_t *digest, uint32_t digest_size)"
+.br
+.RI "Ascon-XOF128 extendable-output digest\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Ascon-XOF128 extendable-output function\&. 
+
+An extendable-output function (XOF) generalises a hash function by allowing the caller to request a digest of any desired byte length rather than a fixed-size output\&. ASCON-XOF128 realises this construction through a sponge operating over a 320-bit permutation state, absorbing the padded message in 64-bit rate blocks and squeezing an arbitrary number of output bytes through repeated applications of the Ascon-p permutation, as standardised in NIST SP 800-232\&.
+
+.PP
+\fBSee also\fP
+.RS 4
+https://doi.org/10.6028/NIST.SP.800-232
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+(C) Core Labs All rights reserved\&.
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Manoel Serafim @email manoel.serafim@proton.me @github https://github.com/manoel-serafim SPDX-License-Identifier: GPL-3\&.0 
+.RE
+.PP
+
+.PP
+Definition in file \fBxof\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void VERUM_ASCON_XOF128_digest (uint8_t * message, uint32_t message_size, uint8_t * digest, uint32_t digest_size)"
+
+.PP
+Ascon-XOF128 extendable-output digest\&. Computes \fRdigest_size\fP bytes of output from \fRmessage\fP using the Ascon-XOF128 sponge construction defined in Algorithm 9 of NIST SP 800-232 Section 5\&.2\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP Input message buffer\&. May be \fRNULL\fP if and only if \fRmessage_size\fP is zero, in which case the XOF output over the empty string is produced\&. 
+.br
+\fImessage_size\fP Byte length of \fRmessage\fP\&. May be zero\&. 
+.br
+\fIdigest\fP Destination buffer for the output digest\&. The caller is responsible for providing a buffer of at least \fRdigest_size\fP bytes\&. 
+.br
+\fIdigest_size\fP Desired output length in bytes\&. Must be greater than zero\&.
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+\fRdigest\fP is non-NULL\&. 
+
+.PP
+\fRmessage\fP is non-NULL when \fRmessage_size\fP is greater than zero\&. 
+
+.PP
+\fRmessage\fP points to a readable buffer of at least \fRmessage_size\fP bytes\&. 
+
+.PP
+\fRdigest\fP points to a writable buffer of at least \fRdigest_size\fP bytes\&. 
+
+.PP
+\fRdigest_size\fP is greater than zero\&. 
+
+.PP
+\fRmessage\fP and \fRdigest\fP do not overlap\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB45\fP of file \fBxof\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VERUM from the source code\&.

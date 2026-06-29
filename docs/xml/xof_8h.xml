@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="xof_8h" kind="file" language="C++">
+    <compoundname>xof.h</compoundname>
+    <includes refid="types_8h" local="yes">standard/types.h</includes>
+    <includes refid="define_8h" local="yes">define.h</includes>
+    <includedby refid="source_2ascon_2xof_8c" local="yes">source/ascon/xof.c</includedby>
+    <includedby refid="test_2suite_2ascon_2xof_8c" local="yes">test/suite/ascon/xof.c</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>define.h</label>
+        <link refid="define_8h"/>
+      </node>
+      <node id="2">
+        <label>standard/types.h</label>
+        <link refid="types_8h"/>
+      </node>
+      <node id="1">
+        <label>include/verum/ascon/xof.h</label>
+        <link refid="xof_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/verum/ascon/xof.h</label>
+        <link refid="xof_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>source/ascon/xof.c</label>
+        <link refid="source_2ascon_2xof_8c"/>
+      </node>
+      <node id="3">
+        <label>test/suite/ascon/xof.c</label>
+        <link refid="test_2suite_2ascon_2xof_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="xof_8h_1a867994803f4af02fb786a813e2bd21ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VERUM_ASCON_XOF128_digest</definition>
+        <argsstring>(uint8_t *message, uint32_t message_size, uint8_t *digest, uint32_t digest_size)</argsstring>
+        <name>VERUM_ASCON_XOF128_digest</name>
+        <param>
+          <type>uint8_t *</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>message_size</declname>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>digest</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>digest_size</declname>
+        </param>
+        <briefdescription>
+<para>Ascon-XOF128 extendable-output digest. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Computes <computeroutput>digest_size</computeroutput> bytes of output from <computeroutput>message</computeroutput> using the Ascon-XOF128 sponge construction defined in Algorithm 9 of NIST SP 800-232 Section 5.2.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">message</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Input message buffer. May be <computeroutput>NULL</computeroutput> if and only if <computeroutput>message_size</computeroutput> is zero, in which case the XOF output over the empty string is produced. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">message_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Byte length of <computeroutput>message</computeroutput>. May be zero. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">digest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination buffer for the output digest. The caller is responsible for providing a buffer of at least <computeroutput>digest_size</computeroutput> bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">digest_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Desired output length in bytes. Must be greater than zero.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>digest</computeroutput> is non-NULL. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>message</computeroutput> is non-NULL when <computeroutput>message_size</computeroutput> is greater than zero. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>message</computeroutput> points to a readable buffer of at least <computeroutput>message_size</computeroutput> bytes. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>digest</computeroutput> points to a writable buffer of at least <computeroutput>digest_size</computeroutput> bytes. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>digest_size</computeroutput> is greater than zero. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>message</computeroutput> and <computeroutput>digest</computeroutput> do not overlap. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/verum/ascon/xof.h" line="54" column="6" bodyfile="source/ascon/xof.c" bodystart="45" bodyend="221" declfile="include/verum/ascon/xof.h" declline="54" declcolumn="6"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Ascon-XOF128 extendable-output function. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>An extendable-output function (XOF) generalises a hash function by allowing the caller to request a digest of any desired byte length rather than a fixed-size output. ASCON-XOF128 realises this construction through a sponge operating over a 320-bit permutation state, absorbing the padded message in 64-bit rate blocks and squeezing an arbitrary number of output bytes through repeated applications of the Ascon-p permutation, as standardised in NIST SP 800-232.</para>
+<para><simplesect kind="see"><para><ulink url="https://doi.org/10.6028/NIST.SP.800-232">https://doi.org/10.6028/NIST.SP.800-232</ulink></para>
+</simplesect>
+<simplesect kind="copyright"><para>(C) Core Labs All rights reserved.</para>
+</simplesect>
+<simplesect kind="author"><para>Manoel Serafim @email <ulink url="mailto:manoel.serafim@proton.me">manoel.serafim@proton.me</ulink> @github <ulink url="https://github.com/manoel-serafim">https://github.com/manoel-serafim</ulink> SPDX-License-Identifier: GPL-3.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>VERUM_ASCON_XOF_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VERUM_ASCON_XOF_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="types_8h" kindref="compound">standard/types.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="define_8h" kindref="compound">define.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="xof_8h_1a867994803f4af02fb786a813e2bd21ff" kindref="member">VERUM_ASCON_XOF128_digest</ref>(uint8_t<sp/><sp/>*message,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/>message_size,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><sp/>*digest,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/><sp/>digest_size);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>VERUM_ASCON_XOF_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="include/verum/ascon/xof.h"/>
+  </compounddef>
+</doxygen>

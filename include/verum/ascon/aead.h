@@ -4,7 +4,8 @@
  * @details    Authenticated Encryption with Associated Data (AEAD) is a form of
  *             encryption that simultaneously guarantees confidentiality of the
  *             plaintext and authenticity of both the plaintext and the associated
- *             data. Associated data is authenticated but not encrypted,tamper-evident.
+ *             data. Associated data is authenticated but not encrypted, it is
+ *             tamper-evident.
  *             ASCON-AEAD128 realises this construction through a
  *             duplex sponge operating over a 320-bit permutation state, binding a
  *             128-bit key and a 128-bit nonce to produce a ciphertext equal in
@@ -32,9 +33,20 @@
  * @{
  *
  */
+
 /**
  * @def        VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- * @brief      Enable associated data processing for ASCON-AEAD128.
+ * @brief      Enable associated-data processing in Ascon-AEAD128.
+ * @details    When defined, the @c VERUM_ASCON_AEAD128_encrypt and
+ *             @c VERUM_ASCON_AEAD128_decrypt functions accept two additional
+ *             parameters — @p associated_data and @p associated_size — and
+ *             authenticate that data as part of tag generation. The associated
+ *             data is not encrypted.
+ *
+ *             When left undefined, the associated-data parameters are omitted
+ *             from the function signatures and the associated-data absorption
+ *             phase is skipped entirely, reducing code size on targets that do
+ *             not require AD support.
  */
 #define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
@@ -78,10 +90,8 @@
  *                                after finalisation, written as four
  *                                consecutive 32-bit words.
  *
- * @pre        @p key, @p nonce, @p plaintext and
- *             @p authentication_tag are non-NULL.
- * @pre        @p plaintext points to a buffer of at least
- *             @p plaintext_size bytes.
+ * @pre        @p key, @p nonce, @p plaintext and @p authentication_tag are non-NULL.
+ * @pre        @p plaintext points to a buffer of at least @p plaintext_size bytes.
  * @pre        @p plaintext and @p authentication_tag do not overlap.
  * @pre        The nonce is used at most once for a given key.
  *

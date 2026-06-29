@@ -1,0 +1,761 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="source_2ascon_2aead_8c" kind="file" language="C++">
+    <compoundname>aead.c</compoundname>
+    <includes refid="aead_8h" local="yes">verum/ascon/aead.h</includes>
+    <includes refid="source_2ascon_2ascon_8h" local="yes">ascon.h</includes>
+    <includes refid="define_8h" local="yes">define.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>auxiliary/memory.h</label>
+        <link refid="memory_8h"/>
+      </node>
+      <node id="4">
+        <label>define.h</label>
+        <link refid="define_8h"/>
+      </node>
+      <node id="3">
+        <label>standard/types.h</label>
+        <link refid="types_8h"/>
+      </node>
+      <node id="2">
+        <label>verum/ascon/aead.h</label>
+        <link refid="aead_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>source/ascon/aead.c</label>
+        <link refid="source_2ascon_2aead_8c"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ascon.h</label>
+        <link refid="source_2ascon_2ascon_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="source_2ascon_2aead_8c_1a827a1e984ed0af7a4353126ce0ec1cbf" prot="public" static="yes" mutable="no">
+        <type>const uint32_t</type>
+        <definition>const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U]</definition>
+        <argsstring>[2U]</argsstring>
+        <name>VERUM_ASCON_AEAD128_initialization_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="source/ascon/aead.c" line="24" column="23" bodyfile="source/ascon/aead.c" bodystart="24" bodyend="27"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="source_2ascon_2aead_8c_1a7490ce3a7a0400a2c915f987f3bb951c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VERUM_ASCON_AEAD128_encrypt</definition>
+        <argsstring>(const uint32_t key[4U], const uint32_t nonce[4U], uint8_t *plaintext, const uint32_t plaintext_size, const uint8_t *associated_data, const uint32_t associated_size, uint32_t authentication_tag[4U])</argsstring>
+        <name>VERUM_ASCON_AEAD128_encrypt</name>
+        <param>
+          <type>const uint32_t</type>
+          <declname>key</declname>
+          <array>[4U]</array>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>nonce</declname>
+          <array>[4U]</array>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>plaintext</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>plaintext_size</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>associated_data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>associated_size</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>authentication_tag</declname>
+          <array>[4U]</array>
+        </param>
+        <briefdescription>
+<para>Ascon-AEAD128 authenticated encryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Encrypts <computeroutput>plaintext</computeroutput> in place and produces a 128-bit authentication tag over the ciphertext and, when <computeroutput>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</computeroutput> is defined, over <computeroutput>associated_data</computeroutput> as well. The operation follows Algorithm 3 of NIST SP 800-232 Section 4.1.1.</para>
+<para>On return, the buffer addressed by <computeroutput>plaintext</computeroutput> holds the ciphertext of equal length. The original plaintext is overwritten and cannot be recovered from <computeroutput>plaintext</computeroutput> alone.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>128-bit secret key. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nonce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>128-bit public nonce. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">plaintext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>On entry: plaintext buffer of <computeroutput>plaintext_size</computeroutput> bytes. On return: ciphertext of equal length, written in place. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">plaintext_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of <computeroutput>plaintext</computeroutput> in bytes. May be zero, in which case no plaintext blocks are processed and the tag covers only associated data.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">associated_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to associated data of <computeroutput>associated_size</computeroutput> bytes. Authenticated but not encrypted. Only present when <computeroutput>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</computeroutput> is defined. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">associated_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of <computeroutput>associated_data</computeroutput> in bytes. May be zero. Only present when <computeroutput>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</computeroutput> is defined.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">authentication_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>128-bit authentication tag produced after finalisation, written as four consecutive 32-bit words.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>key</computeroutput>, <computeroutput>nonce</computeroutput>, <computeroutput>plaintext</computeroutput> and <computeroutput>authentication_tag</computeroutput> are non-NULL. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>plaintext</computeroutput> points to a buffer of at least <computeroutput>plaintext_size</computeroutput> bytes. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>plaintext</computeroutput> and <computeroutput>authentication_tag</computeroutput> do not overlap. </para>
+</simplesect>
+<simplesect kind="pre"><para>The nonce is used at most once for a given key. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="source/ascon/aead.c" line="50" column="6" bodyfile="source/ascon/aead.c" bodystart="50" bodyend="387"/>
+        <references refid="group__ASCON_1ga7e50e982c46df3172bc53c702744ed68" compoundref="aead_8h" startline="51">VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</references>
+      </memberdef>
+      <memberdef kind="function" id="source_2ascon_2aead_8c_1aff375334e22613164f41ee2be326d79b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void VERUM_ASCON_AEAD128_decrypt</definition>
+        <argsstring>(const uint32_t key[4U], const uint32_t nonce[4U], uint8_t *ciphertext, const uint32_t ciphertext_size, const uint8_t *associated_data, const uint32_t associated_size, uint32_t authentication_tag[4U])</argsstring>
+        <name>VERUM_ASCON_AEAD128_decrypt</name>
+        <param>
+          <type>const uint32_t</type>
+          <declname>key</declname>
+          <array>[4U]</array>
+        </param>
+        <param>
+          <type>const uint32_t</type>
+          <declname>nonce</declname>
+          <array>[4U]</array>
+        </param>
+        <param>
+          <type>uint8_t *</type>
+          <declname>ciphertext</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>ciphertext_size</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>associated_data</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>associated_size</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>authentication_tag</declname>
+          <array>[4U]</array>
+        </param>
+        <briefdescription>
+<para>Ascon-AEAD128 authenticated decryption. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Decrypts <computeroutput>ciphertext</computeroutput> in place and verifies the 128-bit authentication tag over the plaintext and, when <computeroutput>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</computeroutput> is defined, over <computeroutput>associated_data</computeroutput> as well. The operation follows Algorithm 4 of NIST SP 800-232 Section 4.1.1.</para>
+<para>On return, the buffer addressed by <computeroutput>ciphertext</computeroutput> holds the plaintext of equal length. The original ciphertext is overwritten and cannot be recovered from <computeroutput>ciphertext</computeroutput> alone.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>128-bit secret key. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">nonce</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>128-bit public nonce. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">ciphertext</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>On entry: ciphertext buffer of <computeroutput>ciphertext_size</computeroutput> bytes. On return: plaintext of equal length, written in place. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">ciphertext_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of <computeroutput>ciphertext</computeroutput> in bytes. May be zero, in which case no ciphertext blocks are processed and the tag covers only associated data.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">associated_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to associated data of <computeroutput>associated_size</computeroutput> bytes. Authenticated but not decrypted. Only present when <computeroutput>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</computeroutput> is defined. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">associated_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of <computeroutput>associated_data</computeroutput> in bytes. May be zero. Only present when <computeroutput>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</computeroutput> is defined.</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">authentication_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>128-bit authentication tag to verify after finalisation, read as four consecutive 32-bit words.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="pre"><para><computeroutput>key</computeroutput>, <computeroutput>nonce</computeroutput>, <computeroutput>ciphertext</computeroutput> and <computeroutput>authentication_tag</computeroutput> are non-NULL. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>ciphertext</computeroutput> points to a buffer of at least <computeroutput>ciphertext_size</computeroutput> bytes. </para>
+</simplesect>
+<simplesect kind="pre"><para><computeroutput>ciphertext</computeroutput> and <computeroutput>authentication_tag</computeroutput> do not overlap. </para>
+</simplesect>
+<simplesect kind="pre"><para>The nonce matches the one used during encryption. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="source/ascon/aead.c" line="408" column="6" bodyfile="source/ascon/aead.c" bodystart="408" bodyend="742"/>
+        <references refid="group__ASCON_1ga7e50e982c46df3172bc53c702744ed68" compoundref="aead_8h" startline="51">VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>NIST SP 800-232 ASCON AEAD-128. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Authenticated Encryption with Associated Data (AEAD)</para>
+<para><simplesect kind="copyright"><para>(C) Core Labs All rights reserved.</para>
+</simplesect>
+<simplesect kind="author"><para>Manoel Serafim @email <ulink url="mailto:manoel.serafim@proton.me">manoel.serafim@proton.me</ulink> @github <ulink url="https://github.com/manoel-serafim">https://github.com/manoel-serafim</ulink> SPDX-License-Identifier: GPL-3.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="aead_8h" kindref="compound">verum/ascon/aead.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="source_2ascon_2ascon_8h" kindref="compound">ascon.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="define_8h" kindref="compound">define.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>VERUM_ASCON_AEAD128_initialization_vector[2U]<sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>0x00001000UL,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>0x808C0001UL</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="aead_8h_1ad4dbec2785645eff9a6892a0499bbf5a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="source_2ascon_2aead_8c_1a7490ce3a7a0400a2c915f987f3bb951c" kindref="member">VERUM_ASCON_AEAD128_encrypt</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>key[4U],</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>nonce[4U],</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*plaintext,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>plaintext_size,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">#ifdef<sp/><ref refid="group__ASCON_1ga7e50e982c46df3172bc53c702744ed68" kindref="member">VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</ref></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*associated_data,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>associated_size,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">#endif</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>authentication_tag[4U])</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>state[10U]<sp/>=<sp/>{<sp/>VERUM_ASCON_AEAD128_initialization_vector[1U],</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_AEAD128_initialization_vector[0U],</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>key[0U],<sp/>key[1U],<sp/>key[2U],<sp/>key[3U],</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nonce[0U],<sp/>nonce[1U],<sp/>nonce[2U],<sp/>nonce[3U]<sp/>};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>holder[10U]<sp/>=<sp/>{<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U<sp/>};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>0U);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[0U]);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[1U]);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[2U]);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[3U]);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>state[6U]<sp/>=<sp/>state[6U]<sp/>^<sp/>key[0U];</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>state[7U]<sp/>=<sp/>state[7U]<sp/>^<sp/>key[1U];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>state[8U]<sp/>=<sp/>state[8U]<sp/>^<sp/>key[2U];</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>state[9U]<sp/>=<sp/>state[9U]<sp/>^<sp/>key[3U];</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>block_counter<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>last_block_byte_index<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>last_block_plaintext[16U]<sp/>=<sp/>{<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U<sp/>};</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>last_block_associated_data[16U]<sp/>=<sp/>{<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U<sp/>};</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>block_counter<sp/>=<sp/>associated_size<sp/>&gt;&gt;<sp/>4U;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>0U<sp/>&lt;<sp/>block_counter;<sp/>--block_counter)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>associated_data<sp/>+=<sp/>16U;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>4U);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_byte_index<sp/>=<sp/>associated_size<sp/>&amp;<sp/>0xFU;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_associated_data[last_block_byte_index]<sp/>=<sp/>0x01U;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(0U<sp/>&lt;<sp/>last_block_byte_index)</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--last_block_byte_index;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_block_associated_data[last_block_byte_index]<sp/>=<sp/>associated_data[last_block_byte_index];</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>4U);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/>state[9U]<sp/>=<sp/>state[9U]<sp/>^<sp/>0x80000000UL;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/>block_counter<sp/>=<sp/>plaintext_size<sp/>&gt;&gt;<sp/>4U;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>0U<sp/>&lt;<sp/>block_counter;<sp/>--block_counter)</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[0U]<sp/>=<sp/>state[0U];</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[1U]<sp/>=<sp/>state[1U];</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[2U]<sp/>=<sp/>state[2U];</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(plaintext,<sp/>_Alignof(uint32_t)))[3U]<sp/>=<sp/>state[3U];</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plaintext<sp/>+=<sp/>16U;</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>4U);</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_byte_index<sp/>=<sp/>plaintext_size<sp/>&amp;<sp/>0xFU;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>last_block_byte_index_holder<sp/>=<sp/>last_block_byte_index;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_plaintext[last_block_byte_index]<sp/>=<sp/>0x01U;</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TR:<sp/>opt<sp/>32_bit<sp/>cpy<sp/>if<sp/>possible</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(0U<sp/>&lt;<sp/>last_block_byte_index)</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--last_block_byte_index;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_block_plaintext[last_block_byte_index]<sp/>=<sp/>plaintext[last_block_byte_index];</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>state_bytes<sp/>=<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*)<sp/>state;</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(0U<sp/>&lt;<sp/>last_block_byte_index_holder)</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--last_block_byte_index_holder;</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>plaintext[last_block_byte_index_holder]<sp/>=<sp/>state_bytes[last_block_byte_index_holder];</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>state[4U]<sp/>=<sp/>state[4U]<sp/>^<sp/>key[0U];</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>state[5U]<sp/>=<sp/>state[5U]<sp/>^<sp/>key[1U];</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"><sp/><sp/><sp/><sp/>state[6U]<sp/>=<sp/>state[6U]<sp/>^<sp/>key[2U];</highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/>state[7U]<sp/>=<sp/>state[7U]<sp/>^<sp/>key[3U];</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>0U);</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[0U]);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[1U]);</highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[2U]);</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[3U]);</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="336"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[0U]<sp/>=<sp/>state[6U]^key[0U];</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[1U]<sp/>=<sp/>state[7U]^key[1U];</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[2U]<sp/>=<sp/>state[8U]^key[2U];</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[3U]<sp/>=<sp/>state[9U]^key[3U];</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"></highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_STANDARD_FIPS_140_3_DEF</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="357"><highlight class="normal"><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="358"><highlight class="normal"><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="359"><highlight class="normal"><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="360"><highlight class="normal"><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="361"><highlight class="normal"><sp/><sp/><sp/><sp/>state[4U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="362"><highlight class="normal"><sp/><sp/><sp/><sp/>state[5U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="363"><highlight class="normal"><sp/><sp/><sp/><sp/>state[6U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="364"><highlight class="normal"><sp/><sp/><sp/><sp/>state[7U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"><sp/><sp/><sp/><sp/>state[8U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="366"><highlight class="normal"><sp/><sp/><sp/><sp/>state[9U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="370"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="371"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="372"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="373"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="376"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="377"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="378"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_plaintext,<sp/>_Alignof(uint32_t)))[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="381"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"></highlight></codeline>
+<codeline lineno="385"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_STANDARD_FIPS_140_3_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="386"><highlight class="normal"></highlight></codeline>
+<codeline lineno="387"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"></highlight></codeline>
+<codeline lineno="389"><highlight class="normal"></highlight></codeline>
+<codeline lineno="408" refid="aead_8h_1a7ab18ba8cac3cbde97b6bd4882fa5ae7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="source_2ascon_2aead_8c_1aff375334e22613164f41ee2be326d79b" kindref="member">VERUM_ASCON_AEAD128_decrypt</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>key[4U],</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>nonce[4U],</highlight></codeline>
+<codeline lineno="410"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/>*ciphertext,</highlight></codeline>
+<codeline lineno="411"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>ciphertext_size,</highlight></codeline>
+<codeline lineno="412"><highlight class="normal">#ifdef<sp/><ref refid="group__ASCON_1ga7e50e982c46df3172bc53c702744ed68" kindref="member">VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</ref></highlight></codeline>
+<codeline lineno="413"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*associated_data,</highlight></codeline>
+<codeline lineno="414"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>associated_size,</highlight></codeline>
+<codeline lineno="415"><highlight class="normal">#endif</highlight></codeline>
+<codeline lineno="416"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>authentication_tag[4U])</highlight></codeline>
+<codeline lineno="417"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="425"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>state[10U]<sp/>=<sp/>{<sp/>VERUM_ASCON_AEAD128_initialization_vector[1U],</highlight></codeline>
+<codeline lineno="426"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_AEAD128_initialization_vector[0U],</highlight></codeline>
+<codeline lineno="427"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>key[0U],<sp/>key[1U],<sp/>key[2U],<sp/>key[3U],</highlight></codeline>
+<codeline lineno="428"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nonce[0U],<sp/>nonce[1U],<sp/>nonce[2U],<sp/>nonce[3U]<sp/>};</highlight></codeline>
+<codeline lineno="429"><highlight class="normal"></highlight></codeline>
+<codeline lineno="430"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>holder[10U]<sp/>=<sp/>{<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U<sp/>};</highlight></codeline>
+<codeline lineno="431"><highlight class="normal"></highlight></codeline>
+<codeline lineno="438"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="439"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>0U);</highlight></codeline>
+<codeline lineno="440"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="441"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[0U]);</highlight></codeline>
+<codeline lineno="442"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[1U]);</highlight></codeline>
+<codeline lineno="443"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[2U]);</highlight></codeline>
+<codeline lineno="444"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[3U]);</highlight></codeline>
+<codeline lineno="445"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="446"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="447"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="448"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="449"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="450"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="451"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="452"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="453"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="454"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="455"><highlight class="normal"></highlight></codeline>
+<codeline lineno="462"><highlight class="normal"><sp/><sp/><sp/><sp/>state[6U]<sp/>=<sp/>state[6U]<sp/>^<sp/>key[0U];</highlight></codeline>
+<codeline lineno="463"><highlight class="normal"><sp/><sp/><sp/><sp/>state[7U]<sp/>=<sp/>state[7U]<sp/>^<sp/>key[1U];</highlight></codeline>
+<codeline lineno="464"><highlight class="normal"><sp/><sp/><sp/><sp/>state[8U]<sp/>=<sp/>state[8U]<sp/>^<sp/>key[2U];</highlight></codeline>
+<codeline lineno="465"><highlight class="normal"><sp/><sp/><sp/><sp/>state[9U]<sp/>=<sp/>state[9U]<sp/>^<sp/>key[3U];</highlight></codeline>
+<codeline lineno="466"><highlight class="normal"></highlight></codeline>
+<codeline lineno="467"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>block_counter<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="468"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>last_block_byte_index<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="469"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="470"><highlight class="normal"></highlight></codeline>
+<codeline lineno="471"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>last_block_associated_data[16U]<sp/>=<sp/>{<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U<sp/>};</highlight></codeline>
+<codeline lineno="478"><highlight class="normal"><sp/><sp/><sp/><sp/>block_counter<sp/>=<sp/>associated_size<sp/>&gt;&gt;<sp/>4U;</highlight></codeline>
+<codeline lineno="479"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>0U<sp/>&lt;<sp/>block_counter;<sp/>--block_counter)</highlight></codeline>
+<codeline lineno="480"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="487"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="488"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="489"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="490"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(associated_data,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="491"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>associated_data<sp/>+=<sp/>16U;</highlight></codeline>
+<codeline lineno="492"><highlight class="normal"></highlight></codeline>
+<codeline lineno="499"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="500"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>4U);</highlight></codeline>
+<codeline lineno="501"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="502"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="503"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="504"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="505"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="506"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="507"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="508"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="509"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="510"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="511"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="512"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="513"><highlight class="normal"></highlight></codeline>
+<codeline lineno="520"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_byte_index<sp/>=<sp/>associated_size<sp/>&amp;<sp/>0xFU;</highlight></codeline>
+<codeline lineno="521"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_associated_data[last_block_byte_index]<sp/>=<sp/>0x01U;</highlight></codeline>
+<codeline lineno="522"><highlight class="normal"></highlight></codeline>
+<codeline lineno="523"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(0U<sp/>&lt;<sp/>last_block_byte_index)</highlight></codeline>
+<codeline lineno="524"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="525"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--last_block_byte_index;</highlight></codeline>
+<codeline lineno="526"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_block_associated_data[last_block_byte_index]<sp/>=<sp/>associated_data[last_block_byte_index];</highlight></codeline>
+<codeline lineno="527"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="528"><highlight class="normal"></highlight></codeline>
+<codeline lineno="535"><highlight class="normal"><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="536"><highlight class="normal"><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="537"><highlight class="normal"><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="538"><highlight class="normal"><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="539"><highlight class="normal"></highlight></codeline>
+<codeline lineno="546"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="547"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>4U);</highlight></codeline>
+<codeline lineno="548"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="549"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="550"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="551"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="552"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="553"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="554"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="555"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="556"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="557"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="558"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="559"><highlight class="normal"></highlight></codeline>
+<codeline lineno="560"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="561"><highlight class="normal"></highlight></codeline>
+<codeline lineno="568"><highlight class="normal"><sp/><sp/><sp/><sp/>state[9U]<sp/>=<sp/>state[9U]<sp/>^<sp/>0x80000000UL;</highlight></codeline>
+<codeline lineno="569"><highlight class="normal"></highlight></codeline>
+<codeline lineno="570"><highlight class="normal"><sp/><sp/><sp/><sp/>block_counter<sp/>=<sp/>ciphertext_size<sp/>&gt;&gt;<sp/>4U;</highlight></codeline>
+<codeline lineno="571"><highlight class="normal"></highlight></codeline>
+<codeline lineno="572"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(;<sp/>0U<sp/>&lt;<sp/>block_counter;<sp/>--block_counter)</highlight></codeline>
+<codeline lineno="573"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="581"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>holder[0U]<sp/>=<sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="582"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="583"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>holder[0U];</highlight></codeline>
+<codeline lineno="584"><highlight class="normal"></highlight></codeline>
+<codeline lineno="585"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>holder[0U]<sp/>=<sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="586"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="587"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>holder[0U];</highlight></codeline>
+<codeline lineno="588"><highlight class="normal"></highlight></codeline>
+<codeline lineno="589"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>holder[0U]<sp/>=<sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="590"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="591"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>holder[0U];</highlight></codeline>
+<codeline lineno="592"><highlight class="normal"></highlight></codeline>
+<codeline lineno="593"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>holder[0U]<sp/>=<sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="594"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(ciphertext,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="595"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>holder[0U];</highlight></codeline>
+<codeline lineno="596"><highlight class="normal"></highlight></codeline>
+<codeline lineno="597"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ciphertext<sp/>+=<sp/>16U;</highlight></codeline>
+<codeline lineno="598"><highlight class="normal"></highlight></codeline>
+<codeline lineno="599"><highlight class="normal"></highlight></codeline>
+<codeline lineno="600"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//@opt<sp/>use<sp/>cipher<sp/>as<sp/>state<sp/>holder<sp/>for<sp/>next<sp/>round<sp/>chainit</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="607"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="608"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>4U);</highlight></codeline>
+<codeline lineno="609"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="610"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="611"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="612"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="613"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="614"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="615"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="616"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="617"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="618"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="619"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="620"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="621"><highlight class="normal"></highlight></codeline>
+<codeline lineno="622"><highlight class="normal"></highlight></codeline>
+<codeline lineno="623"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_byte_index<sp/>=<sp/>ciphertext_size<sp/>&amp;<sp/>0xFU;</highlight></codeline>
+<codeline lineno="624"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/>last_block_byte_index_holder<sp/>=<sp/>last_block_byte_index;</highlight></codeline>
+<codeline lineno="625"><highlight class="normal"></highlight></codeline>
+<codeline lineno="632"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>state_bytes<sp/>=<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*)<sp/>state;</highlight></codeline>
+<codeline lineno="633"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(0U<sp/>&lt;<sp/>last_block_byte_index_holder)</highlight></codeline>
+<codeline lineno="634"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="635"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--last_block_byte_index_holder;</highlight></codeline>
+<codeline lineno="636"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ciphertext[last_block_byte_index_holder]<sp/>=<sp/>state_bytes[last_block_byte_index_holder]^ciphertext[last_block_byte_index_holder];</highlight></codeline>
+<codeline lineno="637"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="638"><highlight class="normal"></highlight></codeline>
+<codeline lineno="645"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/>last_block_ciphertext[16U]<sp/>=<sp/>{<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U,<sp/>0U<sp/>};</highlight></codeline>
+<codeline lineno="646"><highlight class="normal"><sp/><sp/><sp/><sp/>last_block_ciphertext[last_block_byte_index]<sp/>=<sp/>0x01U;</highlight></codeline>
+<codeline lineno="647"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TR:<sp/>opt<sp/>32_bit<sp/>cpy<sp/>if<sp/>possible</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="648"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(0U<sp/>&lt;<sp/>last_block_byte_index)</highlight></codeline>
+<codeline lineno="649"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="650"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>--last_block_byte_index;</highlight></codeline>
+<codeline lineno="651"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>last_block_ciphertext[last_block_byte_index]<sp/>=<sp/>ciphertext[last_block_byte_index];</highlight></codeline>
+<codeline lineno="652"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="653"><highlight class="normal"><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>state[0U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[0U];</highlight></codeline>
+<codeline lineno="654"><highlight class="normal"><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>state[1U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[1U];</highlight></codeline>
+<codeline lineno="655"><highlight class="normal"><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>state[2U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[2U];</highlight></codeline>
+<codeline lineno="656"><highlight class="normal"><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>state[3U]<sp/>^<sp/>((</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[3U];</highlight></codeline>
+<codeline lineno="657"><highlight class="normal"></highlight></codeline>
+<codeline lineno="664"><highlight class="normal"><sp/><sp/><sp/><sp/>state[4U]<sp/>=<sp/>state[4U]<sp/>^<sp/>key[0U];</highlight></codeline>
+<codeline lineno="665"><highlight class="normal"><sp/><sp/><sp/><sp/>state[5U]<sp/>=<sp/>state[5U]<sp/>^<sp/>key[1U];</highlight></codeline>
+<codeline lineno="666"><highlight class="normal"><sp/><sp/><sp/><sp/>state[6U]<sp/>=<sp/>state[6U]<sp/>^<sp/>key[2U];</highlight></codeline>
+<codeline lineno="667"><highlight class="normal"><sp/><sp/><sp/><sp/>state[7U]<sp/>=<sp/>state[7U]<sp/>^<sp/>key[3U];</highlight></codeline>
+<codeline lineno="668"><highlight class="normal"></highlight></codeline>
+<codeline lineno="675"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="676"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute(state,<sp/>holder,<sp/>0U);</highlight></codeline>
+<codeline lineno="677"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="678"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_substitution_layer(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[0U]);</highlight></codeline>
+<codeline lineno="679"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[1U]);</highlight></codeline>
+<codeline lineno="680"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[2U]);</highlight></codeline>
+<codeline lineno="681"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[3U]);</highlight></codeline>
+<codeline lineno="682"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[4U]);</highlight></codeline>
+<codeline lineno="683"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[5U]);</highlight></codeline>
+<codeline lineno="684"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[6U]);</highlight></codeline>
+<codeline lineno="685"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[7U]);</highlight></codeline>
+<codeline lineno="686"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[8U]);</highlight></codeline>
+<codeline lineno="687"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[9U]);</highlight></codeline>
+<codeline lineno="688"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[10U]);</highlight></codeline>
+<codeline lineno="689"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_merged(state,<sp/>holder,<sp/>VERUM_ASCON_round_constants[11U]);</highlight></codeline>
+<codeline lineno="690"><highlight class="normal"><sp/><sp/><sp/><sp/>VERUM_ASCON_permute_linear_diffusion_layer(state,<sp/>holder);</highlight></codeline>
+<codeline lineno="691"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_OPTIMIZATION_MEMORY_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="692"><highlight class="normal"></highlight></codeline>
+<codeline lineno="699"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[0U]<sp/>=<sp/>state[6U]^key[0U];</highlight></codeline>
+<codeline lineno="700"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[1U]<sp/>=<sp/>state[7U]^key[1U];</highlight></codeline>
+<codeline lineno="701"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[2U]<sp/>=<sp/>state[8U]^key[2U];</highlight></codeline>
+<codeline lineno="702"><highlight class="normal"><sp/><sp/><sp/><sp/>authentication_tag[3U]<sp/>=<sp/>state[9U]^key[3U];</highlight></codeline>
+<codeline lineno="703"><highlight class="normal"></highlight></codeline>
+<codeline lineno="704"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_STANDARD_FIPS_140_3_DEF</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="713"><highlight class="normal"><sp/><sp/><sp/><sp/>state[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="714"><highlight class="normal"><sp/><sp/><sp/><sp/>state[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="715"><highlight class="normal"><sp/><sp/><sp/><sp/>state[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="716"><highlight class="normal"><sp/><sp/><sp/><sp/>state[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="717"><highlight class="normal"><sp/><sp/><sp/><sp/>state[4U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="718"><highlight class="normal"><sp/><sp/><sp/><sp/>state[5U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="719"><highlight class="normal"><sp/><sp/><sp/><sp/>state[6U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="720"><highlight class="normal"><sp/><sp/><sp/><sp/>state[7U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="721"><highlight class="normal"><sp/><sp/><sp/><sp/>state[8U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="722"><highlight class="normal"><sp/><sp/><sp/><sp/>state[9U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="723"><highlight class="normal"></highlight></codeline>
+<codeline lineno="724"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="725"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="726"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="727"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="728"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_associated_data,<sp/>_Alignof(uint32_t)))[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="729"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="730"><highlight class="normal"></highlight></codeline>
+<codeline lineno="731"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="732"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="733"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="734"><highlight class="normal"><sp/><sp/><sp/><sp/>((uint32_t<sp/>*)<sp/>__builtin_assume_aligned(last_block_ciphertext,<sp/>_Alignof(uint32_t)))[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="735"><highlight class="normal"></highlight></codeline>
+<codeline lineno="736"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[0U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="737"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[1U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="738"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[2U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="739"><highlight class="normal"><sp/><sp/><sp/><sp/>holder[3U]<sp/>=<sp/>0U;</highlight></codeline>
+<codeline lineno="740"><highlight class="normal"></highlight></codeline>
+<codeline lineno="741"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">//<sp/>VERUM_STANDARD_FIPS_140_3_DEF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="742"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="source/ascon/aead.c"/>
+  </compounddef>
+</doxygen>

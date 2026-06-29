@@ -1,0 +1,84 @@
+.TH "include/verum/ascon/hash.h" 3 "Version 0.1.0" "VERUM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+include/verum/ascon/hash.h \- Ascon-Hash256 cryptographic hash function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'standard/types\&.h'\fP
+.br
+\fR#include 'define\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBVERUM_ASCON_HASH256_digest\fP (uint8_t *message, uint32_t message_size, uint32_t digest[8U])"
+.br
+.RI "Ascon-Hash256 message digest\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Ascon-Hash256 cryptographic hash function\&. 
+
+A cryptographic hash function maps an arbitrary-length message to a fixed-length digest in a deterministic and collision-resistant manner\&. ASCON-Hash256 realises this construction through a sponge operating over a 320-bit permutation state, absorbing the padded message in 64-bit rate blocks and squeezing a 256-bit digest, as standardised in NIST SP 800-232\&.
+
+.PP
+\fBSee also\fP
+.RS 4
+https://doi.org/10.6028/NIST.SP.800-232
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+(C) Core Labs All rights reserved\&.
+.RE
+.PP
+\fBAuthor\fP
+.RS 4
+Manoel Serafim @email manoel.serafim@proton.me @github https://github.com/manoel-serafim SPDX-License-Identifier: GPL-3\&.0 
+.RE
+.PP
+
+.PP
+Definition in file \fBhash\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void VERUM_ASCON_HASH256_digest (uint8_t * message, uint32_t message_size, uint32_t digest[8U])"
+
+.PP
+Ascon-Hash256 message digest\&. Computes the 256-bit digest of \fRmessage\fP using the Ascon-Hash256 sponge construction defined in Algorithm 7 of NIST SP 800-232 Section 5\&.1\&.
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImessage\fP Input message buffer\&. May be \fRNULL\fP if and only if \fRmessage_size\fP is zero, in which case the hash of the empty string is computed\&. 
+.br
+\fImessage_size\fP Byte length of \fRmessage\fP\&. May be zero\&. 
+.br
+\fIdigest\fP Destination buffer for the 256-bit digest, written as eight consecutive 32-bit words\&. The caller is responsible for providing a buffer of at least eight words\&.
+.RE
+.PP
+\fBPrecondition\fP
+.RS 4
+\fRdigest\fP is non-NULL\&. 
+
+.PP
+\fRmessage\fP is non-NULL when \fRmessage_size\fP is greater than zero\&. 
+
+.PP
+\fRmessage\fP points to a readable buffer of at least \fRmessage_size\fP bytes\&. 
+
+.PP
+\fRmessage\fP and \fRdigest\fP do not overlap\&. 
+.RE
+.PP
+
+.PP
+Definition at line \fB39\fP of file \fBhash\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VERUM from the source code\&.

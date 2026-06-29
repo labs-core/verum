@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="dir_53d125d70395d3f8cdb6eb380708797b" kind="dir">
+    <compoundname>source/ascon</compoundname>
+    <innerfile refid="source_2ascon_2aead_8c">aead.c</innerfile>
+    <innerfile refid="source_2ascon_2ascon_8h">ascon.h</innerfile>
+    <innerfile refid="source_2ascon_2hash_8c">hash.c</innerfile>
+    <innerfile refid="source_2ascon_2xof_8c">xof.c</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="source/ascon/"/>
+  </compounddef>
+</doxygen>

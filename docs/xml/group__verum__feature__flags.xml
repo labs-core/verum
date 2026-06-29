@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="group__verum__feature__flags" kind="group">
+    <compoundname>verum_feature_flags</compoundname>
+    <title>Optional feature flags</title>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="group__verum__feature__flags_1ga73c6de58dd0b55da19bf7f93a3194703" prot="public" static="no">
+        <name>VERUM_STANDARD_FIPS_140_3_DEF</name>
+        <briefdescription>
+<para>Enable FIPS 140-3 compliance mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>When defined, activates the full set of controls mandated by FIPS 140-3 (ISO/IEC 19790:2012) for a software cryptographic module. The following requirements are enforced:</para>
+<para>[TODO]<itemizedlist>
+<listitem><para>Power-on self-tests (Section 9.5). On every cold initialisation the module executes the Known-Answer Tests for each enabled primitive (AEAD128, Hash256, XOF128). A failure places the module in a permanent error state from which no cryptographic output is produced and <computeroutput>VERUM_FAULT_HANDLER</computeroutput> is invoked. [TODO]</para>
+</listitem><listitem><para>Conditional self-tests (Section 9.6). A pair-wise consistency check is performed on each key prior to its first use in an encrypt or decrypt operation. If the check fails the key is rejected and <computeroutput>VERUM_FAULT_HANDLER</computeroutput> is invoked. [DONE]</para>
+</listitem><listitem><para>Zeroization of sensitive data (Section 9.7). All cryptographic variables — key copies, the Ascon permutation state, authentication tag intermediates, and XOF squeeze buffers — are overwritten with zeroes before the enclosing function returns. Stores are issued through <computeroutput>VERUM_ATTR_VOLATILE</computeroutput> pointers to prevent the optimiser from eliding them as dead stores.</para>
+</listitem></itemizedlist>
+</para>
+<para>Enabling this flag increases code size, startup latency, and per-call overhead. <computeroutput>VERUM_FAULT_HANDLER</computeroutput> must be defined when this flag is active. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/define.h" line="107" column="9" bodyfile="include/define.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

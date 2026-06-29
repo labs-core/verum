@@ -1,7 +1,8 @@
 /**
  * @file      ascon.h
  * @brief     Ascon shared primitives.
- * @details   This header defines shared constants, types, and internal helper functions for the Ascon family of authenticated encryption algorithms.
+ * @details   This header defines shared constants, types, and internal helper functions 
+ *            for the Ascon family of authenticated encryption algorithms.
  *
  * @see       https://doi.org/10.6028/NIST.SP.800-232
  *
@@ -13,11 +14,13 @@
  * @github     https://github.com/manoel-serafim
  * SPDX-License-Identifier: GPL-3.0
  */
+
 #ifndef VERUM_ASCON_H_
 #define VERUM_ASCON_H_
 
 #include "standard/types.h"
 #include "define.h"
+
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
 #include "auxiliary/memory.h"
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="endian_8h" kind="file" language="C++">
+    <compoundname>endian.h</compoundname>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="endian_8h_1aa41e27c39c8d6c13d8750233de18b74d" prot="public" static="no">
+        <name>VERUM_AUX_ENDIAN_STATIC_LE_ARRAY_REF</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/auxiliary/endian.h" line="17" column="9" bodyfile="include/auxiliary/endian.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="copyright"><para>(C) Core Labs All rights reserved.</para>
+</simplesect>
+<simplesect kind="author"><para>Manoel Serafim @email <ulink url="mailto:manoel.serafim@proton.me">manoel.serafim@proton.me</ulink> @github <ulink url="https://github.com/manoel-serafim">https://github.com/manoel-serafim</ulink> SPDX-License-Identifier: GPL-3.0 </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>VERUM_AUX_ENDIAN_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VERUM_AUX_ENDIAN_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VERUM_AUX_ENDIAN_STATIC_LE_ARRAY_REF</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>VERUM_AUX_ENDIAN_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="include/auxiliary/endian.h"/>
+  </compounddef>
+</doxygen>

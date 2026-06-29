@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.15.0" xml:lang="en-US">
+  <compounddef id="test_2suite_2ascon_2ascon_8h" kind="file" language="C++">
+    <compoundname>ascon.h</compoundname>
+    <includedby refid="test_2suite_2ascon_2aead_8c" local="yes">test/suite/ascon/aead.c</includedby>
+    <includedby refid="test_2suite_2ascon_2hash_8c" local="yes">test/suite/ascon/hash.c</includedby>
+    <includedby refid="test_2suite_2ascon_2xof_8c" local="yes">test/suite/ascon/xof.c</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>test/suite/ascon/aead.c</label>
+        <link refid="test_2suite_2ascon_2aead_8c"/>
+      </node>
+      <node id="1">
+        <label>test/suite/ascon/ascon.h</label>
+        <link refid="test_2suite_2ascon_2ascon_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>test/suite/ascon/hash.c</label>
+        <link refid="test_2suite_2ascon_2hash_8c"/>
+      </node>
+      <node id="4">
+        <label>test/suite/ascon/xof.c</label>
+        <link refid="test_2suite_2ascon_2xof_8c"/>
+      </node>
+    </invincdepgraph>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="test_2suite_2ascon_2ascon_8h_1a1115c3370087dcecd5ae565af9d3bb68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int run_aead_tests</definition>
+        <argsstring>(void)</argsstring>
+        <name>run_aead_tests</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/suite/ascon/ascon.h" line="4" column="5" bodyfile="test/suite/ascon/aead.c" bodystart="61345" bodyend="62441" declfile="test/suite/ascon/ascon.h" declline="4" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test_2suite_2ascon_2ascon_8h_1ac6241178daef9ba4e6eedd87666f7cef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int run_hash256_tests</definition>
+        <argsstring>(void)</argsstring>
+        <name>run_hash256_tests</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/suite/ascon/ascon.h" line="5" column="5" bodyfile="test/suite/ascon/hash.c" bodystart="84518" bodyend="85547" declfile="test/suite/ascon/ascon.h" declline="5" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="test_2suite_2ascon_2ascon_8h_1a912664d6588e7316e8151053f2e894e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int run_xof128_tests</definition>
+        <argsstring>(void)</argsstring>
+        <name>run_xof128_tests</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test/suite/ascon/ascon.h" line="6" column="5" bodyfile="test/suite/ascon/xof.c" bodystart="85013" bodyend="86042" declfile="test/suite/ascon/ascon.h" declline="6" declcolumn="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>TEST_ASCON_AEAD_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>TEST_ASCON_AEAD_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>run_aead_tests(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>run_hash256_tests(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>run_xof128_tests(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>TEST_ASCON_AEAD_H_<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/></highlight></codeline>
+    </programlisting>
+    <location file="test/suite/ascon/ascon.h"/>
+  </compounddef>
+</doxygen>
