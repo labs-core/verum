@@ -181,7 +181,7 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         --block_counter;
     }
     
-    uint32_t digest_byte_index = digest_size & 0x3U;
+    uint32_t digest_byte_index = digest_size & 0x7U;
 
     if (0U < digest_byte_index)
     {
