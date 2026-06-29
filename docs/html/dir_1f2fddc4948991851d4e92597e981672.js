@@ -1,4 +1,0 @@
-var dir_1f2fddc4948991851d4e92597e981672 =
-[
-    [ "ascon", "dir_5b949987cd895e7c2a338e1e85b08579.html", "dir_5b949987cd895e7c2a338e1e85b08579" ]
-];
