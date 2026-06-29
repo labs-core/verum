@@ -143,7 +143,7 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
     uint32_t digest_block_index = (digest_size >> 3U);
     block_counter = digest_block_index;
 
-    while ( 0U < block_counter)
+    while (0U < block_counter)
     {
         /**
          * @internal
@@ -180,7 +180,7 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         digest += 8U;
         --block_counter;
     }
-    
+
     uint32_t digest_byte_index = digest_size & 0x7U;
 
     if (0U < digest_byte_index)
@@ -213,8 +213,9 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         {
             --digest_byte_index;
             digest[digest_byte_index] = ((const uint8_t *) state)[digest_byte_index];
-            
-        } while (0U < digest_byte_index);
+
+        }
+        while (0U < digest_byte_index);
     }
 
 }
