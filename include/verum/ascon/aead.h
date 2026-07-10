@@ -27,30 +27,9 @@
 
 #include "standard/types.h"
 #include "define.h"
+#include "set.h"
 
-/**
- * @defgroup ASCON AEAD128 feature flags
- * @{
- *
- */
 
-/**
- * @def        VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- * @brief      Enable associated-data processing in Ascon-AEAD128.
- * @details    When defined, the @c VERUM_ASCON_AEAD128_encrypt and
- *             @c VERUM_ASCON_AEAD128_decrypt functions accept two additional
- *             parameters — @p associated_data and @p associated_size — and
- *             authenticate that data as part of tag generation. The associated
- *             data is not encrypted.
- *
- *             When left undefined, the associated-data parameters are omitted
- *             from the function signatures and the associated-data absorption
- *             phase is skipped entirely, reducing code size on targets that do
- *             not require AD support.
- */
-#define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-
-/** @} */
 
 /**
  * @brief      Ascon-AEAD128 authenticated encryption.
