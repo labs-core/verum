@@ -68,7 +68,7 @@
  * @pre        @p identifier, @p public_key_candidate, @p message, and @p signature
  *             are non-NULL.
  * @pre        @p signature_size matches the length implied by
- *             ::VERUM_LEIGHTON_MICALI_OTS_TYPE. 
+ *             ::VERUM_LEIGHTON_MICALI_OTS_TYPE.
  *
  * @see       https://www.rfc-editor.org/rfc/rfc8554
  * @see       https://www.rfc-editor.org/rfc/rfc9858
@@ -76,13 +76,13 @@
  *
  */
 void VERUM_LEIGHTON_MICALI_OTS_verify(const uint8_t identifier[16U],
-                                               uint32_t leaf_index,
-                                               const uint8_t *public_key_candidate,
-                                               const uint8_t *message,
-                                               uint32_t message_size,
-                                               const uint8_t *signature,
-                                               uint32_t signature_size
-                                               );
+                                      uint32_t leaf_index,
+                                      const uint8_t *public_key_candidate,
+                                      const uint8_t *message,
+                                      uint32_t message_size,
+                                      const uint8_t *signature,
+                                      uint32_t signature_size
+                                      );
 
 
 #endif /* VERUM_LEIGHTON_MICALI_OTS_VERIFY_H_ */

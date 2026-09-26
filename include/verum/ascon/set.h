@@ -1,4 +1,3 @@
-
 /**
  * @file      set.h
  * @brief     Ascon feature-selection configuration macros.

@@ -17,7 +17,7 @@
 #define VERUM_STD_TYPES_H_
 
 typedef unsigned char uint8_t;
-typedef signed int    int32_t;
-typedef unsigned int  uint32_t;
+typedef signed int int32_t;
+typedef unsigned int uint32_t;
 
 #endif // VERUM_STD_TYPES_H_

@@ -4,7 +4,7 @@
  * @details   Defines compiler attribute wrappers and optional feature flags
  *            consumed throughout the VERUM codebase. This header must be
  *            included before any other VERUM header. All feature flags default
- *            to their disabled state and must be explicitly defined 
+ *            to their disabled state and must be explicitly defined
  *            here to activate the corresponding behaviour.
  *
  * @copyright (C) Core Labs

@@ -116,6 +116,15 @@ SKIP_FUNCTION_MACROS   = YES
 
 #---------------------------------------------------------------------------
 # HTML output
+#
+# Uses the doxygen-awesome-css theme (https://github.com/jothepro/doxygen-awesome-css)
+# for a modern sidebar layout with a light/dark toggle. Fetch it once with:
+#
+#   git submodule add https://github.com/jothepro/doxygen-awesome-css.git docs/doxygen-awesome-css
+#
+# HTML_COLORSTYLE must stay LIGHT — the theme's own CSS variables and the
+# toggle script handle dark mode, and doxygen's built-in AUTO_DARK/DARK
+# styling would fight with it.
 #---------------------------------------------------------------------------
 
 GENERATE_HTML          = YES
@@ -124,16 +133,20 @@ HTML_FILE_EXTENSION    = .html
 HTML_HEADER            =
 HTML_FOOTER            =
 HTML_STYLESHEET        =
-HTML_EXTRA_STYLESHEET  =
-HTML_EXTRA_FILES       =
-HTML_COLORSTYLE        = AUTO_DARK
-HTML_COLORSTYLE_HUE    = 220
-HTML_COLORSTYLE_SAT    = 80
-HTML_COLORSTYLE_GAMMA  = 80
+HTML_EXTRA_STYLESHEET  = docs/doxygen-awesome-css/doxygen-awesome.css \
+                         docs/doxygen-awesome-css/doxygen-awesome-sidebar-only.css \
+                         docs/doxygen-awesome-css/doxygen-awesome-sidebar-only-darkmode-toggle.css
+HTML_EXTRA_FILES       = docs/doxygen-awesome-css/doxygen-awesome-darkmode-toggle.js \
+                         docs/doxygen-awesome-css/doxygen-awesome-fragment-copy-button.js \
+                         docs/doxygen-awesome-css/doxygen-awesome-paragraph-link.js \
+                         docs/doxygen-awesome-css/doxygen-awesome-interactive-toc.js
+HTML_COLORSTYLE        = LIGHT
 HTML_TIMESTAMP         = NO
 HTML_DYNAMIC_MENUS     = YES
 HTML_DYNAMIC_SECTIONS  = YES
 HTML_INDEX_NUM_ENTRIES = 100
+HTML_CODE_FOLDING      = YES
+HTML_COPY_CLIPBOARD    = NO
 GENERATE_DOCSET        = NO
 GENERATE_HTMLHELP      = NO
 GENERATE_QHP           = NO
@@ -142,8 +155,9 @@ DISABLE_INDEX          = NO
 GENERATE_TREEVIEW      = YES
 FULL_SIDEBAR           = NO
 ENUM_VALUES_PER_LINE   = 4
-TREEVIEW_WIDTH         = 280
+TREEVIEW_WIDTH         = 290
 EXT_LINKS_IN_WINDOW    = NO
+OBFUSCATE_EMAILS       = YES
 FORMULA_FONTSIZE       = 10
 FORMULA_TRANSPARENT    = YES
 USE_MATHJAX            = NO
@@ -160,7 +174,7 @@ GENERATE_LATEX         = NO
 # Man page output
 #---------------------------------------------------------------------------
 
-GENERATE_MAN           = YES
+GENERATE_MAN           = NO
 MAN_OUTPUT             = man
 MAN_EXTENSION          = .3
 MAN_SUBDIR             =
@@ -170,7 +184,7 @@ MAN_LINKS              = YES
 # XML output  (enables integration with Sphinx, Breathe, or SARIF tools)
 #---------------------------------------------------------------------------
 
-GENERATE_XML           = YES
+GENERATE_XML           = NO
 XML_OUTPUT             = xml
 XML_PROGRAMLISTING     = YES
 XML_NS_MEMB_FILE_SCOPE = NO

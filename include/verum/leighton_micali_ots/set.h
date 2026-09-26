@@ -34,7 +34,8 @@
  * @see     https://www.rfc-editor.org/rfc/rfc8554#section-9.1
  * @see     https://www.iana.org/assignments/leighton-micali-signatures/
  */
-typedef enum {
+typedef enum
+{
     VERUM_LEIGHTON_MICALI_OTS_SHA256_N32_W1   = 0x00000001U,  /**< SHA256, n=32, w=1  */
     VERUM_LEIGHTON_MICALI_OTS_SHA256_N32_W2   = 0x00000002U,  /**< SHA256, n=32, w=2  */
     VERUM_LEIGHTON_MICALI_OTS_SHA256_N32_W4   = 0x00000004U,  /**< SHA256, n=32, w=4  */
