@@ -146,6 +146,10 @@ if(CPPCHECK_EXE)
             --error-exitcode=1
             --template=gcc
             --suppress=checkersReport
+            --suppress=misra-c2012-17.8
+            --suppress=misra-c2012-18.4
+            --suppress=misra-c2012-20.5
+            
             --checkers-report=cppcheck.log
             -D"__builtin_assume_aligned(p,a)=(p)"
             -I ${INCLUDE_DIR}

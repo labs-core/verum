@@ -44,6 +44,8 @@
  *
  * @pre        @p digest is non-NULL.
  * @pre        @p message is non-NULL when @p message_size is greater than zero.
+ * @pre        @p message is 4-byte aligned when @p message_size is at least eight bytes.
+ * @pre        @p digest is 4-byte aligned when @p digest_size is at least eight bytes.
  * @pre        @p message points to a readable buffer of at least @p message_size bytes.
  * @pre        @p digest points to a writable buffer of at least @p digest_size bytes.
  * @pre        @p digest_size is greater than zero.

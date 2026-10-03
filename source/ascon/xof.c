@@ -90,8 +90,10 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
          */
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        // cppcheck-suppress-end misra-c2012-11.3
         message += 8U;
 
         /**
@@ -119,7 +121,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
 
-    uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
+    _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t last_block_byte_index = message_size & 0x7U;
     last_block_message[last_block_byte_index] = 0x01U;
 
@@ -129,8 +132,10 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         last_block_message[last_block_byte_index] = message[last_block_byte_index];
     }
 
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
+    // cppcheck-suppress-end misra-c2012-11.3
 
 
     /**
@@ -176,8 +181,10 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief 𝐻𝑖 ← S[0∶63]
          */
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[0U] = state[0U];
         ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[1U] = state[1U];
+        // cppcheck-suppress-end misra-c2012-11.3
         digest += 8U;
         --block_counter;
     }

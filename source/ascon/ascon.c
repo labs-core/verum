@@ -38,6 +38,9 @@ const uint32_t VERUM_ASCON_round_constants[12U] = {
  * @optimization Uses 4 temporaries instead of 10, reducing memory traffic (fewer loads/stores), lowering stack usage, and easing register pressure for better overall efficiency.
  */
 VERUM_ATTR_INLINE
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+static
+#endif // VERUM_OPTIMIZATION_MEMORY_DEF
 inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                                                   uint32_t holder[10U],
                                                                   const uint32_t round_constant)
@@ -81,6 +84,9 @@ inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
  * @brief 𝑝𝐿 Linear Diffusion Layer
  */
 VERUM_ATTR_INLINE
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+static
+#endif // VERUM_OPTIMIZATION_MEMORY_DEF
 inline void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                                       const uint32_t holder[10U])
 {
@@ -108,6 +114,9 @@ inline void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
  * @optimization The linear diffusion layer is merged with the next round's initial permutation step, reducing the number of intermediate state stores and loads, which can improve performance by minimizing memory access overhead.
  */
 VERUM_ATTR_INLINE
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+static
+#endif // VERUM_OPTIMIZATION_MEMORY_DEF
 inline void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                                       uint32_t holder[10U],
                                                       const uint32_t round_constant)
