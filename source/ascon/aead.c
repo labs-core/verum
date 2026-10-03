@@ -48,6 +48,8 @@ static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
  * @param[in]     associated_size    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Byte length of @p associated_data. Zero is valid.
  * @param[out]    authentication_tag 128-bit authentication tag as four 32-bit words. Store and transmit alongside the ciphertext.
  */
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
                                  uint8_t *plaintext,
@@ -422,6 +424,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  * @param[in]     associated_size    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Byte length of @p associated_data. Zero is valid.
  * @param[out]    authentication_tag 128-bit authentication tag as four 32-bit words. Store and transmit alongside the ciphertext.
  */
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
                                  uint8_t *ciphertext,

@@ -32,6 +32,8 @@
  * @param[in]     digest_size         Byte length of output @p digest.
  * @param[inout]  digest              Pointer to the output buffer for the extendable output function.
  */
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_XOF128_digest(uint8_t *message,
                                uint32_t message_size,
                                uint8_t *digest,

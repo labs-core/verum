@@ -35,6 +35,8 @@
  */
 VERUM_ATTR_NOINLINE
 // cppcheck-suppress-begin misra-c2012-8.14 ; DEV-005: API precondition requires source and destination 16-byte regions not to overlap.
+// cppcheck-suppress unusedFunction ; DEV-X
+// cppcheck-suppress misra-c2012-8.7 ; DEV-X
 void VERUM_AUX_MEMORY_16B_copy(void * restrict destination,
                                const void * restrict source)
 {
