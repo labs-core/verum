@@ -37,6 +37,7 @@ static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
  *           key material. Uniqueness is the caller's responsibility.
  * @warning  The tag must be verified in constant time before any plaintext
  *           is released. This function produces the @p authentication_tag.
+ * @warning  The @p @authentication_tag must be alligned to uint32_t boundaries.
  * @warning  @p key should be sent as LE words
  *
  * @param[in]     key                128-bit secret key as four 32-bit words.
@@ -127,10 +128,12 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ⊕ 𝐴𝑖
          */
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
         state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
         state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
+        // cppcheck-suppress-end misra-c2012-11.3
         associated_data += 16U;
 
         /**
@@ -175,10 +178,12 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
     state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U];
+    // cppcheck-suppress-end misra-c2012-11.3
 
     /**
      * @internal
@@ -220,6 +225,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ← S[0∶127] ⊕ 𝑃𝑖
          */
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U];
         state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U];
@@ -234,6 +240,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U] = state[1U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U] = state[2U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U] = state[3U];
+        // cppcheck-suppress-end misra-c2012-11.3
         plaintext += 16U;
 
 
@@ -281,10 +288,12 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U];
     state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[3U];
+    // cppcheck-suppress-end misra-c2012-11.3
 
     /**
      * @internal
@@ -367,16 +376,20 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[9U] = 0U;
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
 #endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[1U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[3U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
 
     holder[0U] = 0U;
     holder[1U] = 0U;
@@ -486,10 +499,12 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ⊕ 𝐴𝑖
          */
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
         state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
         state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
+        // cppcheck-suppress-end misra-c2012-11.3
         associated_data += 16U;
 
         /**
@@ -534,10 +549,12 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
     state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U];
+    // cppcheck-suppress-end misra-c2012-11.3
 
     /**
      * @internal
@@ -580,6 +597,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
          * @brief 𝑃𝑖 ← S[0∶127] ⊕ 𝐶𝑖; S[0∶127] ← 𝐶𝑖
          * @feature allows for in-place decryption, but requires temporary state storage to avoid overwriting the ciphertext before it is used in the decryption calculation
          */
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
         holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
         ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
         state[0U] = holder[0U];
@@ -595,6 +613,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U];
         ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U];
         state[3U] = holder[0U];
+        // cppcheck-suppress-end misra-c2012-11.3
 
         ciphertext += 16U;
 
@@ -652,10 +671,12 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         --last_block_byte_index;
         last_block_ciphertext[last_block_byte_index] = ciphertext[last_block_byte_index];
     }
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U];
     state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[3U];
+    // cppcheck-suppress-end misra-c2012-11.3
 
     /**
      * @internal
@@ -725,16 +746,20 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     state[9U] = 0U;
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
 #endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: the API requires 4-byte-aligned byte buffers for intentional 32-bit word accesses.
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[1U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[3U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
 
     holder[0U] = 0U;
     holder[1U] = 0U;

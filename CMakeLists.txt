@@ -147,6 +147,7 @@ if(CPPCHECK_EXE)
             --template=gcc
             --suppress=checkersReport
             --checkers-report=cppcheck.log
+            -D"__builtin_assume_aligned(p,a)=(p)"
             -I ${INCLUDE_DIR}
             ${SOURCES_C}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}

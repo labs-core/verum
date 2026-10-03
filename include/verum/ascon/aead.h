@@ -70,8 +70,13 @@
  *
  * @pre        @p key, @p nonce, @p plaintext and @p authentication_tag are non-NULL.
  * @pre        @p plaintext points to a buffer of at least @p plaintext_size bytes.
+ * @pre        @p plaintext is 4-byte aligned for the implementation's 32-bit word accesses.
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ * @pre        A non-NULL @p associated_data is 4-byte aligned for 32-bit word accesses.
+#endif
  * @pre        @p plaintext and @p authentication_tag do not overlap.
  * @pre        The nonce is used at most once for a given key.
+ * @pre        The @p authentication_tag is 4-byte aligned and points to a buffer of at least 16 bytes.
  *
  */
 void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
@@ -126,9 +131,13 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  *             @p authentication_tag are non-NULL.
  * @pre        @p ciphertext points to a buffer of at least
  *             @p ciphertext_size bytes.
+ * @pre        @p ciphertext is 4-byte aligned for the implementation's 32-bit word accesses.
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ * @pre        A non-NULL @p associated_data is 4-byte aligned for 32-bit word accesses.
+#endif
  * @pre        @p ciphertext and @p authentication_tag do not overlap.
  * @pre        The nonce matches the one used during encryption.
- *
+ * @pre        The @p authentication_tag is 4-byte aligned and points to a buffer of at least 16 bytes.
  */
 void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
