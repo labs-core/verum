@@ -14,6 +14,7 @@
 
 #include "verum/ascon/hash.h"
 #include "ascon.h"
+#include "define.h"
 
 /**
  * @internal

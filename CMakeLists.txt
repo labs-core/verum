@@ -136,14 +136,22 @@ find_program(CPPCHECK_EXE NAMES cppcheck)
 if(CPPCHECK_EXE)
     add_custom_target(cppcheck
         COMMAND ${CPPCHECK_EXE}
+            --language=c --std=c11
             --force -q
             --check-level=exhaustive
             --enable=all
+            --inconclusive
             --addon=misra.py
+            --inline-suppr
+            --error-exitcode=1
+            --template=gcc
+            --suppress=checkersReport
+            --checkers-report=cppcheck.log
             -I ${INCLUDE_DIR}
-            ${SOURCES_C} ${HEADERS}
+            ${SOURCES_C}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         COMMENT "Running cppcheck"
+        USES_TERMINAL
         VERBATIM
     )
 else()

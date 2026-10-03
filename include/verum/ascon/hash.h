@@ -23,7 +23,6 @@
 #define VERUM_ASCON_HASH_H_
 
 #include "standard/types.h"
-#include "define.h"
 
 /**
  * @brief      Ascon-Hash256 message digest.

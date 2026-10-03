@@ -51,7 +51,7 @@
  * @details    When defined, the implementation trades computational throughput
  *             for reduced static and stack memory usage and data footprint outweigh cycle count.
  */
-#undef VERUM_OPTIMIZATION_MEMORY_DEF
+#define VERUM_OPTIMIZATION_MEMORY_DEF
 
 /**
  * @def        VERUM_FAULT_HANDLER

@@ -18,6 +18,7 @@
 
 #include "verum/ascon/xof.h"
 #include "ascon.h"
+#include "define.h"
 
 /**
  * @internal

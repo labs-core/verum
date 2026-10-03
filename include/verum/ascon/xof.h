@@ -24,7 +24,6 @@
 #define VERUM_ASCON_XOF_H_
 
 #include "standard/types.h"
-#include "define.h"
 
 /**
  * @brief      Ascon-XOF128 extendable-output digest.
