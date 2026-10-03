@@ -127,10 +127,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ⊕ 𝐴𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[3U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
         associated_data += 16U;
 
         /**
@@ -175,10 +175,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U];
 
     /**
      * @internal
@@ -220,20 +220,20 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ← S[0∶127] ⊕ 𝑃𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U];
         /**
          * @internal
          * @ref NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief 𝐶𝑖 ← S[0∶127]
          */
-        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[0U] = state[0U];
-        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[1U] = state[1U];
-        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[2U] = state[2U];
-        ((uint32_t *) __builtin_assume_aligned(plaintext, _Alignof(uint32_t)))[3U] = state[3U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U] = state[0U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U] = state[1U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U] = state[2U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U] = state[3U];
         plaintext += 16U;
 
 
@@ -281,10 +281,10 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[3U];
 
     /**
      * @internal
@@ -354,6 +354,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.FIPS.140-3
      * @brief Zeroize permutation state to destroy residual key-dependent material
      */
+    // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
     state[0U] = 0U;
     state[1U] = 0U;
     state[2U] = 0U;
@@ -366,21 +367,22 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[9U] = 0U;
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U] = 0U;
 #endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
-    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[0U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[1U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[2U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, _Alignof(uint32_t)))[3U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[1U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[3U] = 0U;
 
     holder[0U] = 0U;
     holder[1U] = 0U;
     holder[2U] = 0U;
     holder[3U] = 0U;
+    // cppcheck-suppress-end unreadVariable
 
 #endif // VERUM_STANDARD_FIPS_140_3_DEF
 
@@ -484,10 +486,10 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶127] ⊕ 𝐴𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, _Alignof(uint32_t)))[3U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
+        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
+        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
         associated_data += 16U;
 
         /**
@@ -532,10 +534,10 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S[0∶127] ⊕ 𝐴𝑖
      */
-    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U];
 
     /**
      * @internal
@@ -578,20 +580,20 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
          * @brief 𝑃𝑖 ← S[0∶127] ⊕ 𝐶𝑖; S[0∶127] ← 𝐶𝑖
          * @feature allows for in-place decryption, but requires temporary state storage to avoid overwriting the ciphertext before it is used in the decryption calculation
          */
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[0U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[0U];
+        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
         state[0U] = holder[0U];
 
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[1U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[1U];
+        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U];
         state[1U] = holder[0U];
 
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[2U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[2U];
+        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U];
         state[2U] = holder[0U];
 
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[3U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, _Alignof(uint32_t)))[3U];
+        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U];
         state[3U] = holder[0U];
 
         ciphertext += 16U;
@@ -650,10 +652,10 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         --last_block_byte_index;
         last_block_ciphertext[last_block_byte_index] = ciphertext[last_block_byte_index];
     }
-    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[1U];
-    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[2U];
-    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[3U];
+    state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[1U];
+    state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U];
+    state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[3U];
 
     /**
      * @internal
@@ -710,6 +712,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @see https://doi.org/10.6028/NIST.FIPS.140-3
      * @brief Zeroize permutation state to destroy residual key-dependent material
      */
+    // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
     state[0U] = 0U;
     state[1U] = 0U;
     state[2U] = 0U;
@@ -722,21 +725,22 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     state[9U] = 0U;
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[0U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[1U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[2U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, _Alignof(uint32_t)))[3U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U] = 0U;
 #endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
-    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[0U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[1U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[2U] = 0U;
-    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, _Alignof(uint32_t)))[3U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[1U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[3U] = 0U;
 
     holder[0U] = 0U;
     holder[1U] = 0U;
     holder[2U] = 0U;
     holder[3U] = 0U;
+    // cppcheck-suppress-end unreadVariable
 
 #endif // VERUM_STANDARD_FIPS_140_3_DEF
 }

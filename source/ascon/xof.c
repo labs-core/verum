@@ -90,8 +90,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
          */
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, _Alignof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, _Alignof(uint32_t)))[1U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
         message += 8U;
 
         /**
@@ -129,8 +129,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         last_block_message[last_block_byte_index] = message[last_block_byte_index];
     }
 
-    state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, _Alignof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, _Alignof(uint32_t)))[1U];
+    state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
 
 
     /**
@@ -176,8 +176,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
          * @see https://doi.org/10.6028/NIST.SP.800-232
          * @brief 𝐻𝑖 ← S[0∶63]
          */
-        ((uint32_t *) __builtin_assume_aligned(digest, _Alignof(uint32_t)))[0U] = state[0U];
-        ((uint32_t *) __builtin_assume_aligned(digest, _Alignof(uint32_t)))[1U] = state[1U];
+        ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[0U] = state[0U];
+        ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[1U] = state[1U];
         digest += 8U;
         --block_counter;
     }

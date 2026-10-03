@@ -78,8 +78,8 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
     uint32_t block_counter = message_size>>3U;
     for (; 0U < block_counter; --block_counter)
     {
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, _Alignof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, _Alignof(uint32_t)))[1U];
+        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
+        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
         message += 8U;
 
         /**
@@ -117,8 +117,8 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
         last_block_message[last_block_byte_index] = message[last_block_byte_index];
     }
 
-    state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, _Alignof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, _Alignof(uint32_t)))[1U];
+    state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
+    state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
 
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
