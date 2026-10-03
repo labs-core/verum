@@ -1,14 +1,18 @@
 cmake_minimum_required(VERSION 3.25)
 
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 project(VERUM
     VERSION     0.1.0
     LANGUAGES   C
     DESCRIPTION "Cryptographic primitives suite for mission-critical and safety-critical software"
 )
 
-set(CMAKE_C_COMPILER clang)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_C_EXTENSIONS OFF)  
+
 
 find_program(LLVM_AR     NAMES llvm-ar)
 find_program(LLVM_RANLIB NAMES llvm-ranlib)
@@ -97,8 +101,14 @@ target_compile_definitions(test_runner PRIVATE $<$<CONFIG:Debug>:DEBUG>)
 target_link_libraries(test_runner PRIVATE verum)
 target_link_options(test_runner PRIVATE $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>)
 
+if(WIN32)
+    set(RUN_TESTS_ASAN_OPTIONS "abort_on_error=1")
+else()
+    set(RUN_TESTS_ASAN_OPTIONS "detect_leaks=1:abort_on_error=1")
+endif()
+
 add_custom_target(run_tests
-    COMMAND ${CMAKE_COMMAND} -E env ASAN_OPTIONS=detect_leaks=1:abort_on_error=1
+    COMMAND ${CMAKE_COMMAND} -E env ASAN_OPTIONS=${RUN_TESTS_ASAN_OPTIONS}
         $<TARGET_FILE:test_runner>
     DEPENDS test_runner
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}

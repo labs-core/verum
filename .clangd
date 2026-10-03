@@ -1,3 +1,4 @@
 CompileFlags:
-  Add: [-Iinclude]
+  CompilationDatabase: build
   Compiler: clang
+  Add: [-I../include]
