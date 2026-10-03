@@ -34,11 +34,15 @@
  * @param[in]  source       4-byte aligned source buffer of at least 16 bytes.
  */
 VERUM_ATTR_NOINLINE
+// cppcheck-suppress-begin misra-c2012-8.14 ; DEV-005: API precondition requires source and destination 16-byte regions not to overlap.
 void VERUM_AUX_MEMORY_16B_copy(void * restrict destination,
                                const void * restrict source)
 {
+    // cppcheck-suppress-end misra-c2012-8.14
+    // cppcheck-suppress-begin misra-c2012-11.5 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
     uint32_t *const dest = (uint32_t *) __builtin_assume_aligned(destination, sizeof(uint32_t));
     const uint32_t *const src = (const uint32_t *) __builtin_assume_aligned(source, sizeof(uint32_t));
+    // cppcheck-suppress-end misra-c2012-11.5
 
     dest[0U] = src[0U];
     dest[1U] = src[1U];

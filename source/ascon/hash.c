@@ -18,17 +18,6 @@
 
 /**
  * @internal
- * @ref NIST SP 800-232 Appendix B
- * @see https://doi.org/10.6028/NIST.SP.800-232
- * @ 𝐼𝑉 ← 0x0000080100cc0002
- */
-static const uint32_t VERUM_ASCON_HASH256_initialization_vector[2U] = {
-    0x00000801UL,
-    0x00cc0002UL
-};
-
-/**
- * @internal
  * @ref NIST SP 800-232 Section 5.1
  * @see https://doi.org/10.6028/NIST.SP.800-232
  * @brief Ascon-Hash256(𝑀)
@@ -41,6 +30,17 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
                                 const uint32_t message_size,
                                 uint32_t digest[8U])
 {
+    /**
+     * @internal
+     * @ref NIST SP 800-232 Appendix B
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @ 𝐼𝑉 ← 0x0000080100cc0002
+     */
+    const uint32_t VERUM_ASCON_HASH256_initialization_vector[2U] = {
+        0x00000801UL,
+        0x00cc0002UL
+    };
+
     /**
      * @internal
      * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)

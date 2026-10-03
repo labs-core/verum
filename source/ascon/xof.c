@@ -20,17 +20,6 @@
 #include "ascon.h"
 #include "define.h"
 
-/**
- * @internal
- * @ref NIST SP 800-232 Appendix B
- * @see https://doi.org/10.6028/NIST.SP.800-232
- * @ 𝐼𝑉 ← 0x0000080100cc0003
- */
-static const uint32_t VERUM_ASCON_XOF128_initialization_vector[2U] = {
-    0x00000800UL,
-    0x00cc0003UL
-};
-
 
 /**
  * @internal
@@ -48,6 +37,17 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
                                uint8_t *digest,
                                uint32_t digest_size)
 {
+    /**
+     * @internal
+     * @ref NIST SP 800-232 Appendix B
+     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @ 𝐼𝑉 ← 0x0000080100cc0003
+     */
+    const uint32_t VERUM_ASCON_XOF128_initialization_vector[2U] = {
+        0x00000800UL,
+        0x00cc0003UL
+    };    
+
     /**
      * @internal
      * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)

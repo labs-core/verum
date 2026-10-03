@@ -30,7 +30,9 @@
  * @pre        The regions [@p destination, @p destination + 16) and
  *             [@p source, @p source + 16) do not overlap.
  */
+// cppcheck-suppress-begin misra-c2012-8.14 ; DEV-005: API precondition requires source and destination 16-byte regions not to overlap.
 void VERUM_AUX_MEMORY_16B_copy(void * restrict destination,
                                const void * restrict source);
+// cppcheck-suppress-end misra-c2012-8.14
 
 #endif /* VERUM_AUX_MEMORY_H_ */
