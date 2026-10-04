@@ -65,7 +65,6 @@ set(PROJECT_WARNINGS
     -Wnull-dereference
     -Wpointer-arith
     -Wreserved-identifier
-    -Wshadow
     -Wsign-compare
     -Wstrict-aliasing
     -Wstrict-overflow=2
@@ -77,6 +76,48 @@ set(PROJECT_WARNINGS
     -Wunused-macros
     -Wunused-variable
     -Wvla
+    -Wfloat-equal
+    -Wcomma
+    -Wassign-enum
+    -Wshadow-all
+    -Wunreachable-code-aggressive
+    -Wunreachable-code
+    -Wcast-function-type
+    -Wmissing-noreturn
+    -Wold-style-definition
+    -Wdisabled-macro-expansion
+    -Wextra-semi
+    -Wnewline-eof
+    -Wshift-sign-overflow
+    -Wloop-analysis
+)
+
+
+set(PROJECT_COMPILE_OPTIONS
+    -std=c11
+    -fno-gnu-keywords
+    -fsigned-char
+    -fno-short-enums
+    -fno-strict-aliasing
+    -fwrapv
+    -fno-delete-null-pointer-checks
+    -fno-strict-overflow
+    -ffp-contract=off
+    -fno-fast-math
+    -fno-finite-math-only
+    -fno-unsafe-math-optimizations
+    -fno-associative-math
+    -fno-reciprocal-math
+    -fsigned-zeros
+    -ftrapping-math
+    -frounding-math
+    -fno-common
+    -fno-exceptions
+    -fno-unwind-tables
+    -fno-asynchronous-unwind-tables
+    -fdiagnostics-show-option
+    -ferror-limit=0
+    -fmacro-backtrace-limit=0
 )
 
 set(PROJECT_BASE_FLAGS -O0 $<$<CONFIG:Debug>:-g3>)
