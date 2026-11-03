@@ -28,8 +28,14 @@
  * @brief      Ascon-Hash256 message digest.
  *
  * @details    Computes the 256-bit digest of @p message using the Ascon-Hash256
- *             sponge construction defined in Algorithm 7 of NIST SP 800-232
+ *             sponge construction defined in Algorithm 5 of NIST SP 800-232
  *             Section 5.1.
+ *
+ * @warning    @p message (when @p message_size >= 8) and @p digest must be
+ *             aligned to @c uint32_t (4-byte) boundaries.
+ * @warning    @p digest words are written in little-endian word order.
+ * @warning    NIST SP 800-232 specifies message length in bits; this interface
+ *             accepts byte length (@p message_size).
  *
  * @param[in]  message         Input message buffer. May be @c NULL if and only
  *                             if @p message_size is zero, in which case the hash
@@ -40,15 +46,14 @@
  *                             responsible for providing a buffer of at least
  *                             eight words.
  *
- * @pre        @p digest is non-NULL.
+ * @pre        @p digest is non-NULL and 4-byte aligned.
  * @pre        @p message is non-NULL when @p message_size is greater than zero.
  * @pre        @p message is 4-byte aligned when @p message_size is at least eight bytes.
  * @pre        @p message points to a readable buffer of at least @p message_size bytes.
  * @pre        @p message and @p digest do not overlap.
- *
  */
 
-void VERUM_ASCON_HASH256_digest(uint8_t *message,
+void VERUM_ASCON_HASH256_digest(const uint8_t *message,
                                 uint32_t message_size,
                                 uint32_t digest[8U]);
 

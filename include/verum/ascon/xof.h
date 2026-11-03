@@ -29,8 +29,16 @@
  * @brief      Ascon-XOF128 extendable-output digest.
  *
  * @details    Computes @p digest_size bytes of output from @p message using the
- *             Ascon-XOF128 sponge construction defined in Algorithm 9 of NIST
+ *             Ascon-XOF128 sponge construction defined in Algorithm 6 of NIST
  *             SP 800-232 Section 5.2.
+ *
+ * @warning    @p message (when @p message_size >= 8) and @p digest (when
+ *             @p digest_size >= 8) must be aligned to @c uint32_t (4-byte)
+ *             boundaries.
+ * @warning    Full 64-bit output blocks in @p digest are written as pairs of
+ *             little-endian 32-bit words.
+ * @warning    NIST SP 800-232 specifies input and output lengths in bits; this
+ *             interface accepts byte lengths (@p message_size, @p digest_size).
  *
  * @param[in]  message         Input message buffer. May be @c NULL if and only
  *                             if @p message_size is zero, in which case the XOF
@@ -50,9 +58,8 @@
  * @pre        @p digest points to a writable buffer of at least @p digest_size bytes.
  * @pre        @p digest_size is greater than zero.
  * @pre        @p message and @p digest do not overlap.
- *
  */
-void VERUM_ASCON_XOF128_digest(uint8_t  *message,
+void VERUM_ASCON_XOF128_digest(const uint8_t  *message,
                                uint32_t message_size,
                                uint8_t  *digest,
                                uint32_t digest_size);

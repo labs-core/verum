@@ -1,16 +1,18 @@
 /**
  * @file       xof.c
  * @brief      NIST SP 800-232 ASCON XOF.
- * @details    Extendable-Output Function implementation for ASCON.
+ * @details    Extendable-Output Function implementation for ASCON,
  *             configurable for memory efficiency xor performance. Uses atomic 32-bit
  *             operations while maintaining explicit state machines that operate on
  *             64-bit state for compilation targets in 32-bit microprocessors. The
  *             compiler is not responsible to implement the state machine.
  *
+ * @see        https://doi.org/10.6028/NIST.SP.800-232
+ *
  * @copyright  (C) Core Labs
  *             All rights reserved.
  *
- * @author Manoel Serafim
+ * @author     Manoel Serafim
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
  * SPDX-License-Identifier: GPL-3.0
@@ -23,14 +25,19 @@
 
 /**
  * @internal
- * @ref NIST SP 800-232 Section 5.2
- * @see https://doi.org/10.6028/NIST.SP.800-232
- * @brief Ascon-XOF128(𝑀, 𝐿)
+ * @ref        NIST SP 800-232 Section 5.2
+ * @see        https://doi.org/10.6028/NIST.SP.800-232
+ * @brief      Ascon-XOF128(𝑀, 𝐿)
  *
- * @param[in]     message             Input message buffer.
- * @param[in]     message_size        Byte length of @p message .
- * @param[in]     digest_size         Byte length of output @p digest.
- * @param[inout]  digest              Pointer to the output buffer for the extendable output function.
+ * @warning    @p message (when @p message_size >= 8) and @p digest (when
+ *             @p digest_size >= 8) must be aligned to @c uint32_t boundaries.
+ * @warning    Full 64-bit output blocks in @p digest are written as pairs of
+ *             little-endian 32-bit words.
+ *
+ * @param[in]  message      Input message buffer.
+ * @param[in]  message_size Byte length of @p message. Zero is valid.
+ * @param[out] digest       Pointer to the output buffer for the extendable output function.
+ * @param[in]  digest_size  Byte length of output @p digest.
  */
 // cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
 // cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
@@ -41,9 +48,9 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 {
     /**
      * @internal
-     * @ref NIST SP 800-232 Appendix B
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @ 𝐼𝑉 ← 0x0000080100cc0003
+     * @ref   NIST SP 800-232 Appendix B
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief 𝐼𝑉 ← 0x0000080000cc0003
      */
     const uint32_t VERUM_ASCON_XOF128_initialization_vector[2U] = {
         0x00000800UL,
@@ -52,17 +59,18 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief 𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @ref     NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+     * @see     https://doi.org/10.6028/NIST.SP.800-232
+     * @brief   𝐼𝑉 ← 0x0000080000cc0003; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @details The 320-bit internal state is initialized as the concatenation of 𝐼𝑉 and 0^[256].
      */
     uint32_t state[10U] = { VERUM_ASCON_XOF128_initialization_vector[1U], VERUM_ASCON_XOF128_initialization_vector[0U], 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
+     * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -88,8 +96,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
     {
         /**
          * @internal
-         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
          * @brief S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
@@ -100,8 +108,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 
         /**
          * @internal
-         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
          */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -123,6 +131,12 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
 
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief pad(̃𝑀𝑚, 64)
+     */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t last_block_byte_index = message_size & 0x7U;
@@ -134,6 +148,12 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         last_block_message[last_block_byte_index] = message[last_block_byte_index];
     }
 
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S[0∶63] ← S[0∶63] ⊕ pad(̃𝑀𝑚, 64)
+     */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
@@ -142,10 +162,10 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief ℎ ← ⌈(𝐿)/8⌉
-     * @note This implementation uses bytes to define size of the output digest.
+     * @ref           NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+     * @see           https://doi.org/10.6028/NIST.SP.800-232
+     * @brief         ℎ ← ⌈(𝐿)/8⌉
+     * @note          This implementation uses bytes to define size of the output digest.
      * @nonconformity SP-800-232
      */
     uint32_t digest_block_index = (digest_size >> 3U);
@@ -155,8 +175,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
     {
         /**
          * @internal
-         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
          */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -179,8 +199,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
 
         /**
          * @internal
-         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
          * @brief 𝐻𝑖 ← S[0∶63]
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
@@ -197,8 +217,8 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
     {
         /**
          * @internal
-         * @ref NIST SP 800-232 Section 5.1 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
-         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
          */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -219,6 +239,12 @@ void VERUM_ASCON_XOF128_digest(uint8_t *message,
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
+        /**
+         * @internal
+         * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
+         * @brief 𝐻ℎ ← S[0∶ℓ−1]
+         */
         do
         {
             --digest_byte_index;

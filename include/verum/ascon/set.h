@@ -17,9 +17,8 @@
 #define VERUM_ASCON_SET_H_
 
 /**
- * @defgroup VERUM_ASCON_AEAD128_feature_flags
+ * @defgroup VERUM_ASCON_AEAD128_feature_flags Ascon-AEAD128 Feature Flags
  * @{
- *
  */
 
 /**
@@ -35,6 +34,11 @@
  *             from the function signatures and the associated-data absorption
  *             phase is skipped entirely, reducing code size on targets that do
  *             not require AD support.
+ *
+ * @warning    When this macro is defined, the associated-data absorption and
+ *             padding phase is unconditionally executed; @p associated_size
+ *             must be greater than zero. Undefine this macro when operating
+ *             without associated data.
  */
 #define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 

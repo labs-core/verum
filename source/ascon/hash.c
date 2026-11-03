@@ -1,12 +1,18 @@
 /**
  * @file       hash.c
  * @brief      NIST SP 800-232 ASCON HASH256.
- * @details    Hash function implementation for ASCON.
+ * @details    Hash function implementation for ASCON,
+ *             configurable for memory efficiency xor performance. Uses atomic 32-bit
+ *             operations while maintaining explicit state machines that operate on
+ *             64-bit state for compilation targets in 32-bit microprocessors. The
+ *             compiler is not responsible to implement the state machine.
+ *
+ * @see        https://doi.org/10.6028/NIST.SP.800-232
  *
  * @copyright  (C) Core Labs
  *             All rights reserved.
  *
- * @author Manoel Serafim
+ * @author     Manoel Serafim
  * @email      manoel.serafim@proton.me
  * @github     https://github.com/manoel-serafim
  * SPDX-License-Identifier: GPL-3.0
@@ -18,13 +24,17 @@
 
 /**
  * @internal
- * @ref NIST SP 800-232 Section 5.1
- * @see https://doi.org/10.6028/NIST.SP.800-232
- * @brief Ascon-Hash256(𝑀)
+ * @ref        NIST SP 800-232 Section 5.1
+ * @see        https://doi.org/10.6028/NIST.SP.800-232
+ * @brief      Ascon-Hash256(𝑀)
  *
- * @param[in]     message             Input message buffer.
- * @param[in]     message_size        Byte length of @p message .
- * @param[inout]  digest              256-bit message digest as eight 32-bit words.
+ * @warning    @p message (when @p message_size >= 8) and @p digest must be
+ *             aligned to @c uint32_t boundaries.
+ * @warning    @p digest words are written in little-endian word order.
+ *
+ * @param[in]  message      Input message buffer.
+ * @param[in]  message_size Byte length of @p message. Zero is valid.
+ * @param[out] digest       256-bit message digest as eight 32-bit words.
  */
 // cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
 // cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
@@ -34,33 +44,31 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 {
     /**
      * @internal
-     * @ref NIST SP 800-232 Appendix B
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @ 𝐼𝑉 ← 0x0000080100cc0002
-     */
-    /**
-     * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief 𝐼𝑉 ← 0x0000080100cc0002; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
+     * @ref   NIST SP 800-232 Appendix B
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief 𝐼𝑉 ← 0x0000080100cc0002
      */
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     * @ details The 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁, and then permuted with 12 rounds of the Ascon permutation. 
-     *   The state does not depend on the message or key, and is therefore a fixed constant for all invocations of the hash function.
+     * @ref     NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see     https://doi.org/10.6028/NIST.SP.800-232
+     * @brief   𝐼𝑉 ← 0x0000080100cc0002; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @details The 320-bit internal state is initialized as the concatenation of 𝐼𝑉 and 0^[256], and then permuted with 12 rounds of the Ascon permutation.
+     *          The state does not depend on the message, and is therefore a fixed constant for all invocations of the hash function.
      */
-
     uint32_t state[10] = { 0xe934d681, 0x9b1e5494, 0x333751d2, 0x4bc3a01e, 0x6b34b81a, 0xae65396c, 0xd56a4db3, 0x3c7fd4a4, 0x06c5976d, 0x1a5c4649};
 
     uint32_t block_counter = message_size>>3U;
     for (; 0U < block_counter; --block_counter)
     {
+        /**
+         * @internal
+         * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
+         * @brief S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
+         */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
@@ -69,8 +77,8 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 
         /**
          * @internal
-         * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-         * @see https://doi.org/10.6028/NIST.SP.800-232
+         * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+         * @see   https://doi.org/10.6028/NIST.SP.800-232
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
          */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -92,6 +100,12 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
     }
 
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief pad(̃𝑀𝑚, 64)
+     */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t last_block_byte_index = message_size & 0x7U;
@@ -103,6 +117,12 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
         last_block_message[last_block_byte_index] = message[last_block_byte_index];
     }
 
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S[0∶63] ← S[0∶63] ⊕ pad(̃𝑀𝑚, 64)
+     */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
@@ -110,6 +130,12 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻𝑖 ← S[0∶63]
+     */
     block_counter = 0U;
     do
     {
@@ -124,9 +150,9 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 #else
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻1 ← S[0∶63]
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
@@ -147,9 +173,9 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻2 ← S[0∶63]
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
@@ -170,9 +196,9 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻3 ← S[0∶63]
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
@@ -193,9 +219,9 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
 
     /**
      * @internal
-     * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @see https://doi.org/10.6028/NIST.SP.800-232
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @see   https://doi.org/10.6028/NIST.SP.800-232
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻4 ← S[0∶63]
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
