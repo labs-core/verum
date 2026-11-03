@@ -32,9 +32,6 @@
  *                over the ciphertext and, when @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
  *                is defined, @p associated_data. Overwrites @p plaintext with ciphertext
  *                of equal byte length.
- * @optimization  Operates in place on @p plaintext and transfers full 128-bit rate blocks
- *                as 4-byte-aligned 32-bit words, avoiding separate output buffers and
- *                byte-packing overhead.
  *
  * @warning       Nonce reuse under the same key breaks confidentiality and leaks key
  *                material; uniqueness per (key, plaintext) is the caller's responsibility.
@@ -75,9 +72,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  *                @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF is defined, @p associated_data.
  *                Overwrites @p ciphertext with plaintext of equal byte length and writes
  *                the recomputed tag to @p authentication_tag.
- * @optimization  Operates in place on @p ciphertext using 4-byte-aligned 32-bit word
- *                transfers and reuses internal scratch storage, avoiding separate output
- *                buffers.
  *
  * @warning       Outputs the recomputed candidate @p authentication_tag without comparing
  *                it; the caller must verify @p authentication_tag against the received tag

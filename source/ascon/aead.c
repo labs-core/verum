@@ -22,10 +22,9 @@
 
 /**
  * @internal
- * @ref          NIST SP 800-232 Appendix B
- * @brief        𝐼𝑉 ← 0x00001000808c0001
- * @optimization Stored as two 32-bit static const words in .rodata for direct word-pair
- *               state initialization.
+ * @ref   NIST SP 800-232 Appendix B
+ * @see   https://doi.org/10.6028/NIST.SP.800-232
+ * @brief 𝐼𝑉 ← 0x00001000808c0001
  */
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
     0x00001000UL,
@@ -38,10 +37,6 @@ static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
  * @ref           NIST SP 800-232 Section 4.1.1 Algorithm 3
  * @see           https://doi.org/10.6028/NIST.SP.800-232
  * @brief         Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
- * @optimization  Encrypts @p plaintext in place over an 88-byte core state/scratch working
- *                set and switches at compile time between compact loop-based permutation
- *                calls (@c VERUM_OPTIMIZATION_MEMORY_DEF) and fully unrolled inline round
- *                chains.
  *
  * @warning       Nonce reuse under the same key breaks confidentiality and leaks key
  *                material; uniqueness is the caller's responsibility.
@@ -73,10 +68,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 {
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
-     * @details      Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
-     * @optimization Populates state[0U..9U] directly from 32-bit word arguments without byte-level marshalling.
+     * @ref     NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief   𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
+     * @details Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
      */
     uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
                             VERUM_ASCON_AEAD128_initialization_vector[0U],
@@ -130,19 +124,16 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     _Alignas(uint32_t) uint8_t last_block_associated_data[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        𝐴1 ... 𝐴𝑚−1 full 128-bit associated-data block count.
-     * @optimization Uses bit-shift (>> 4U) for division by 16 and decrements to zero to
-     *               leverage condition-code flags without an explicit compare instruction.
+     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief 𝐴1 ... 𝐴𝑚−1 full 128-bit associated-data block count.
      */
     block_counter = associated_size >> 4U;
     for (; 0U < block_counter; --block_counter)
     {
         /**
          * @internal
-         * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-         * @brief        S[0∶127] ← S[0∶127] ⊕ 𝐴𝑖
-         * @optimization Absorbs 128-bit AD block via four 4-byte-aligned 32-bit word XORs.
+         * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+         * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑖
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
@@ -174,10 +165,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        𝐴𝑚 ← pad(̃𝐴𝑚, 128)
-     * @optimization Uses bit-mask (& 0xFU) for modulo-16 tail length into a 4-byte-aligned
-     *               staging buffer so padding and absorption execute as four 32-bit word XORs.
+     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief 𝐴𝑚 ← pad(̃𝐴𝑚, 128)
      */
     last_block_byte_index = associated_size & 0xFU;
     last_block_associated_data[last_block_byte_index] = 0x01U;
@@ -190,9 +179,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        S[0∶127] ← S[0∶127] ⊕ 𝐴𝑚
-     * @optimization Absorbs the 16-byte aligned staging buffer as four 32-bit words.
+     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑚
      */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
@@ -224,9 +212,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        S ← S ⊕ (0^[319] ‖ 1)
-     * @optimization Applies the 320-bit domain-separation constant as a single MSB XOR on state[9U].
+     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief S ← S ⊕ (0^[319] ‖ 1)
      */
     state[9U] = state[9U] ^ 0x80000000UL;
 
@@ -236,9 +223,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     {
         /**
          * @internal
-         * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-         * @brief        S[0∶127] ← S[0∶127] ⊕ 𝑃𝑖
-         * @optimization Absorbs 128-bit plaintext block via four 4-byte-aligned 32-bit word XORs.
+         * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+         * @brief S[0∶127] ← S[0∶127] ⊕ 𝑃𝑖
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U];
@@ -247,9 +233,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U];
         /**
          * @internal
-         * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-         * @brief        𝐶𝑖 ← S[0∶127]
-         * @optimization Overwrites @p plaintext in place with four 32-bit word stores.
+         * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+         * @brief 𝐶𝑖 ← S[0∶127]
          */
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U] = state[0U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U] = state[1U];
@@ -282,9 +267,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        pad(̃𝑃𝑛, 128)
-     * @optimization Uses bit-mask (& 0xFU) for tail byte count into the 4-byte-aligned staging buffer.
+     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief pad(̃𝑃𝑛, 128)
      */
     last_block_byte_index = plaintext_size & 0xFU;
     uint32_t last_block_byte_index_holder = last_block_byte_index;
@@ -298,9 +282,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
-     * @optimization Absorbs the padded 16-byte staging buffer via four 32-bit word XORs.
+     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
      */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U];
@@ -311,9 +294,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief        𝐶𝑛 ← S[0∶ℓ−1]
-     * @optimization Reads tail ciphertext bytes directly from the little-endian state byte view.
+     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief 𝐶𝑛 ← S[0∶ℓ−1]
      */
     const uint8_t * const state_bytes = (const uint8_t *) state;
     while (0U < last_block_byte_index_holder)
@@ -368,12 +350,11 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
     /**
      * @internal
-     * @ref          ISO/IEC 19790:2012 Section 7.9.7 Zeroization
-     * @ref          FIPS 140-3 IG
-     * @see          https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
-     * @see          https://doi.org/10.6028/NIST.FIPS.140-3
-     * @brief        Zeroize permutation state and staging buffers to destroy residual SSP material.
-     * @optimization Zeroizes 16-byte staging arrays via four 32-bit word stores instead of 16 byte stores.
+     * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+     * @ref   FIPS 140-3 IG
+     * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+     * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+     * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
      */
     // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
     state[0U] = 0U;
@@ -419,10 +400,6 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  * @ref           NIST SP 800-232 Section 4.1.2 Algorithm 4
  * @see           https://doi.org/10.6028/NIST.SP.800-232
  * @brief         Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
- * @optimization  Decrypts @p ciphertext in place over an 88-byte core state/scratch working
- *                set and switches at compile time between compact loop-based permutation
- *                calls (@c VERUM_OPTIMIZATION_MEMORY_DEF) and fully unrolled inline round
- *                chains.
  *
  * @warning       Outputs the recomputed candidate @p authentication_tag; the caller must
  *                verify @p authentication_tag in constant time before any plaintext is
@@ -453,10 +430,9 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 {
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief        𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
-     * @details      Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
-     * @optimization Populates state[0U..9U] directly from 32-bit word arguments without byte-level marshalling.
+     * @ref     NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief   𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
+     * @details Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
      */
     uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
                             VERUM_ASCON_AEAD128_initialization_vector[0U],
@@ -508,19 +484,16 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     _Alignas(uint32_t) uint8_t last_block_associated_data[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief        𝐴1 ... 𝐴𝑚−1 full 128-bit associated-data block count.
-     * @optimization Uses bit-shift (>> 4U) for division by 16 and decrements to zero to
-     *               leverage condition-code flags without an explicit compare instruction.
+     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief 𝐴1 ... 𝐴𝑚−1 full 128-bit associated-data block count.
      */
     block_counter = associated_size >> 4U;
     for (; 0U < block_counter; --block_counter)
     {
         /**
          * @internal
-         * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-         * @brief        S[0∶127] ← S[0∶127] ⊕ 𝐴𝑖
-         * @optimization Absorbs 128-bit AD block via four 4-byte-aligned 32-bit word XORs.
+         * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+         * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑖
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
@@ -552,10 +525,8 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief        𝐴𝑚 ← pad(̃𝐴𝑚, 128)
-     * @optimization Uses bit-mask (& 0xFU) for modulo-16 tail length into a 4-byte-aligned
-     *               staging buffer so padding and absorption execute as four 32-bit word XORs.
+     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief 𝐴𝑚 ← pad(̃𝐴𝑚, 128)
      */
     last_block_byte_index = associated_size & 0xFU;
     last_block_associated_data[last_block_byte_index] = 0x01U;
@@ -568,9 +539,8 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief        S[0∶127] ← S[0∶127] ⊕ 𝐴𝑚
-     * @optimization Absorbs the 16-byte aligned staging buffer as four 32-bit words.
+     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑚
      */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
@@ -602,9 +572,8 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief        S ← S ⊕ (0^[319] ‖ 1)
-     * @optimization Applies the 320-bit domain-separation constant as a single MSB XOR on state[9U].
+     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief S ← S ⊕ (0^[319] ‖ 1)
      */
     state[9U] = state[9U] ^ 0x80000000UL;
 
@@ -618,8 +587,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
          * @brief        𝑃𝑖 ← S[0∶127] ⊕ 𝐶𝑖; S[0∶127] ← 𝐶𝑖
          * @feature      In-place decryption preserving 𝐶𝑖 for sponge state replacement.
          * @optimization Reuses holder[0U] as the single-word swap register across all four
-         *               rate words, avoiding extra stack allocation outside the 88-byte
-         *               working set.
+         *               rate words, avoiding extra stack allocation.
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
@@ -669,11 +637,8 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief        𝑃𝑛 ← S[0∶ℓ−1] ⊕ ̃𝐶𝑛
-     * @optimization Decrypts tail bytes in place directly against the little-endian byte
-     *               view of state[0U..3U] so the resulting plaintext bytes can be XORed back
-     *               to cancel S[0∶ℓ−1] into ̃𝐶𝑛.
+     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief 𝑃𝑛 ← S[0∶ℓ−1] ⊕ ̃𝐶𝑛
      */
     const uint8_t * const state_bytes = (const uint8_t *) state;
     while (0U < last_block_byte_index_holder)
@@ -687,8 +652,8 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
      * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
      * @brief        S[0∶127] ← ̃𝐶𝑛 ‖ (S[ℓ∶127] ⊕ (1 ‖ 0^[127−ℓ]))
      * @optimization Stages the decrypted tail 𝑃𝑛 with the 0x01 padding byte in a
-     *               4-byte-aligned buffer so S ^ pad(𝑃𝑛) = (S ^ 𝑃𝑛) || (S ^ 1) = ̃𝐶𝑛 || (S ^ 1)
-     *               is computed in four 32-bit word XORs.
+     *               4-byte-aligned buffer so S ^ pad(𝑃𝑛) = ̃𝐶𝑛 || (S[ℓ:127] ^ (1 || 0))
+     *               is computed in a single word-XOR pass.
      */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_ciphertext[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
@@ -752,12 +717,11 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
     /**
      * @internal
-     * @ref          ISO/IEC 19790:2012 Section 7.9.7 Zeroization
-     * @ref          FIPS 140-3 IG
-     * @see          https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
-     * @see          https://doi.org/10.6028/NIST.FIPS.140-3
-     * @brief        Zeroize permutation state and staging buffers to destroy residual SSP material.
-     * @optimization Zeroizes 16-byte staging arrays via four 32-bit word stores instead of 16 byte stores.
+     * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+     * @ref   FIPS 140-3 IG
+     * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+     * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+     * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
      */
     // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
     state[0U] = 0U;

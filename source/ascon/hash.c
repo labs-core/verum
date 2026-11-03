@@ -23,20 +23,16 @@
 
 /**
  * @internal
- * @ref          NIST SP 800-232 Section 5.1 Algorithm 5
- * @see          https://doi.org/10.6028/NIST.SP.800-232
- * @brief        Ascon-Hash256(𝑀)
- * @optimization Seeds the sponge with the precomputed post-Ascon-p[12] constant state and
- *               switches at compile time between compact looped squeezing
- *               (@c VERUM_OPTIMIZATION_MEMORY_DEF) and four fully unrolled 12-round
- *               squeeze permutations.
+ * @ref        NIST SP 800-232 Section 5.1 Algorithm 5
+ * @see        https://doi.org/10.6028/NIST.SP.800-232
+ * @brief      Ascon-Hash256(𝑀)
  *
- * @warning      @p message (when @p message_size >= 8) and @p digest must be aligned to
- *               @c uint32_t boundaries; @p digest words are written in little-endian order.
+ * @warning    @p message (when @p message_size >= 8) and @p digest must be aligned to
+ *             @c uint32_t boundaries; @p digest words are written in little-endian order.
  *
- * @param[in]    message      Input message buffer.
- * @param[in]    message_size Byte length of @p message (0 is valid).
- * @param[out]   digest       256-bit message digest (eight 32-bit LE words).
+ * @param[in]  message      Input message buffer.
+ * @param[in]  message_size Byte length of @p message (0 is valid).
+ * @param[out] digest       256-bit message digest (eight 32-bit LE words).
  */
 // cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
 // cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
@@ -58,10 +54,8 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief        S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
-     * @optimization Uses bit-shift (>> 3U) for 8-byte block count, decrements to zero, and
-     *               absorbs each 64-bit block via two 4-byte-aligned 32-bit word XORs.
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
      */
     uint32_t block_counter = message_size>>3U;
     for (; 0U < block_counter; --block_counter)
@@ -98,10 +92,8 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 
     /**
      * @internal
-     * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief        𝑀𝑚 ← pad(̃𝑀𝑚, 64); S[0∶63] ← S[0∶63] ⊕ 𝑀𝑚
-     * @optimization Uses bit-mask (& 0x7U) for modulo-8 tail length into a 4-byte-aligned
-     *               8-byte staging buffer and absorbs it via two 32-bit word XORs.
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief 𝑀𝑚 ← pad(̃𝑀𝑚, 64); S[0∶63] ← S[0∶63] ⊕ 𝑀𝑚
      */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };

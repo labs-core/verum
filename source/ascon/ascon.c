@@ -20,6 +20,7 @@
 /**
  * @internal
  * @ref          NIST SP 800-232 Section 3.2 Table 5
+ * @see          https://doi.org/10.6028/NIST.SP.800-232
  * @brief        C[𝑖] = Const[16−𝑟𝑛𝑑+𝑖]
  * @details      Little-endian 32-bit round constants XORed into the lower word of S2 (state[4U]).
  * @optimization Stored as 32-bit words rather than 64-bit words because bits [8:63] of every
@@ -35,14 +36,15 @@ const uint32_t VERUM_ASCON_round_constants[12U] = {
 /**
  * @internal
  * @ref           NIST SP 800-232 Sections 3.2 and 3.3
+ * @see           https://doi.org/10.6028/NIST.SP.800-232
  * @brief         𝑝𝐶 Constant-Addition Layer; 𝑝𝑆 Substitution Layer
  * @param[in,out] state          320-bit state as ten 32-bit words.
  * @param[out]    holder         320-bit scratch buffer receiving post-S-box words.
  * @param[in]     round_constant Round constant C[i] for the initial round.
  * @optimization  Fuses p_C (state[4U] ^= round_constant) into the first S-box XOR and
  *                evaluates the 5-bit S-box in 32-bit bit-sliced form directly into
- *                holder[0U..9U] without look-up tables (constant-time) or intermediate
- *                state copies.
+ *                holder[0U..9U] without additional temporaries, reducing stack usage,
+ *                register pressure, and memory traffic.
  */
 VERUM_ATTR_INLINE
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -87,14 +89,11 @@ inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
 
 /**
  * @internal
- * @ref          NIST SP 800-232 Section 3.4
- * @brief        𝑝𝐿 Linear Diffusion Layer
- * @param[out]   state  320-bit state receiving diffused words.
- * @param[in]    holder 320-bit scratch buffer holding post-substitution words.
- * @optimization Decomposes 64-bit rotations ROTR64(x, r) into paired 32-bit shifts
- *               ((lo >> r) | (hi << (32 - r))) reading from holder and writing directly
- *               to state, mapping to 32-bit barrel-shifter instructions without
- *               post-diffusion copying.
+ * @ref        NIST SP 800-232 Section 3.4
+ * @see        https://doi.org/10.6028/NIST.SP.800-232
+ * @brief      𝑝𝐿 Linear Diffusion Layer
+ * @param[out] state  320-bit state receiving diffused words.
+ * @param[in]  holder 320-bit scratch buffer holding post-substitution words.
  */
 VERUM_ATTR_INLINE
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -122,6 +121,7 @@ inline void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
 /**
  * @internal
  * @ref           NIST SP 800-232 Sections 3.2, 3.3, and 3.4
+ * @see           https://doi.org/10.6028/NIST.SP.800-232
  * @brief         𝑝𝐿 Linear Diffusion Layer; 𝑝𝐶 Constant-Addition Layer; 𝑝𝑆 Substitution Layer
  * @param[out]    state          320-bit state buffer.
  * @param[in,out] holder         320-bit scratch buffer updated across merged rounds.
@@ -181,6 +181,7 @@ inline void VERUM_ASCON_permute_merged(uint32_t state[10U],
 /**
  * @internal
  * @ref           NIST SP 800-232 Section 3
+ * @see           https://doi.org/10.6028/NIST.SP.800-232
  * @brief         Permutes the 320-bit ASCON state from @p round_index through round 11.
  * @param[in,out] state       320-bit state as ten 32-bit words.
  * @param[out]    holder      320-bit scratch buffer for intermediate post-S-box values.

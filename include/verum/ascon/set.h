@@ -22,17 +22,14 @@
  */
 
 /**
- * @def          VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- * @brief        Enable associated-data authentication in Ascon-AEAD128.
- * @details      When defined, @c VERUM_ASCON_AEAD128_encrypt and @c VERUM_ASCON_AEAD128_decrypt
- *               accept @p associated_data and @p associated_size and authenticate that data
- *               (unencrypted) during tag generation. When undefined, both parameters and the
- *               associated-data absorption phase are omitted.
- * @optimization Undefining this macro strips the 16-byte AD staging buffer and the Ascon-p[8]
- *               AD absorption phase at compile time, reducing stack and .text footprint on
- *               targets that do not require AD support.
- * @warning      When defined, the AD absorption and padding phase executes unconditionally;
- *               undefine this macro when operating without associated data.
+ * @def     VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ * @brief   Enable associated-data authentication in Ascon-AEAD128.
+ * @details When defined, @c VERUM_ASCON_AEAD128_encrypt and @c VERUM_ASCON_AEAD128_decrypt
+ *          accept @p associated_data and @p associated_size and authenticate that data
+ *          (unencrypted) during tag generation. When undefined, both parameters, the
+ *          16-byte AD staging buffer, and the Ascon-p[8] AD absorption phase are omitted.
+ * @warning When defined, the AD absorption and padding phase executes unconditionally;
+ *          undefine this macro when operating without associated data.
  */
 #define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
