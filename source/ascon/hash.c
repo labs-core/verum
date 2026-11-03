@@ -38,7 +38,7 @@
  */
 // cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
 // cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
-void VERUM_ASCON_HASH256_digest(uint8_t *message,
+void VERUM_ASCON_HASH256_digest(const uint8_t *message,
                                 const uint32_t message_size,
                                 uint32_t digest[8U])
 {
