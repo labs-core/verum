@@ -38,11 +38,6 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @ 𝐼𝑉 ← 0x0000080100cc0002
      */
-    const uint32_t VERUM_ASCON_HASH256_initialization_vector[2U] = {
-        0x00000801UL,
-        0x00cc0002UL
-    };
-
     /**
      * @internal
      * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
@@ -50,7 +45,6 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
      * @brief 𝐼𝑉 ← 0x0000080100cc0002; S ← 𝐼𝑉 ‖ 0^[256]; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
      * @details Given a 128-bit 𝐾 and 128-bit 𝑁, the 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁
      */
-    uint32_t state[10U] = { VERUM_ASCON_HASH256_initialization_vector[1U], VERUM_ASCON_HASH256_initialization_vector[0U], 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
@@ -58,24 +52,11 @@ void VERUM_ASCON_HASH256_digest(uint8_t *message,
      * @ref NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
      * @see https://doi.org/10.6028/NIST.SP.800-232
      * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @ details The 320-bit internal state is initialized as the concatenation of 𝐼𝑉, 𝐾, and 𝑁, and then permuted with 12 rounds of the Ascon permutation. 
+     *   The state does not depend on the message or key, and is therefore a fixed constant for all invocations of the hash function.
      */
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-    VERUM_ASCON_permute(state, holder, 0U);
-#else
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#endif // VERUM_OPTIMIZATION_MEMORY_DEF
+
+    uint32_t state[10] = { 0xe934d681, 0x9b1e5494, 0x333751d2, 0x4bc3a01e, 0x6b34b81a, 0xae65396c, 0xd56a4db3, 0x3c7fd4a4, 0x06c5976d, 0x1a5c4649};
 
     uint32_t block_counter = message_size>>3U;
     for (; 0U < block_counter; --block_counter)
