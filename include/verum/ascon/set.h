@@ -1,7 +1,7 @@
 /**
  * @file      set.h
  * @brief     Ascon feature-selection configuration macros.
- * @details   Declares optional feature-selection macros for the Ascon public interfaces.
+ * @details   Compile-time configuration switches for Ascon public interfaces (NIST SP 800-232).
  *
  * @see       https://doi.org/10.6028/NIST.SP.800-232
  *
@@ -22,23 +22,17 @@
  */
 
 /**
- * @def        VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- * @brief      Enable associated-data processing in Ascon-AEAD128.
- * @details    When defined, the @c VERUM_ASCON_AEAD128_encrypt and
- *             @c VERUM_ASCON_AEAD128_decrypt functions accept two additional
- *             parameters — @p associated_data and @p associated_size — and
- *             authenticate that data as part of tag generation. The associated
- *             data is not encrypted.
- *
- *             When left undefined, the associated-data parameters are omitted
- *             from the function signatures and the associated-data absorption
- *             phase is skipped entirely, reducing code size on targets that do
- *             not require AD support.
- *
- * @warning    When this macro is defined, the associated-data absorption and
- *             padding phase is unconditionally executed; @p associated_size
- *             must be greater than zero. Undefine this macro when operating
- *             without associated data.
+ * @def          VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ * @brief        Enable associated-data authentication in Ascon-AEAD128.
+ * @details      When defined, @c VERUM_ASCON_AEAD128_encrypt and @c VERUM_ASCON_AEAD128_decrypt
+ *               accept @p associated_data and @p associated_size and authenticate that data
+ *               (unencrypted) during tag generation. When undefined, both parameters and the
+ *               associated-data absorption phase are omitted.
+ * @optimization Undefining this macro strips the 16-byte AD staging buffer and the Ascon-p[8]
+ *               AD absorption phase at compile time, reducing stack and .text footprint on
+ *               targets that do not require AD support.
+ * @warning      When defined, the AD absorption and padding phase executes unconditionally;
+ *               undefine this macro when operating without associated data.
  */
 #define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 

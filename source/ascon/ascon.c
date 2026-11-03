@@ -1,8 +1,8 @@
 /**
  * @file      ascon.c
- * @brief     Ascon shared primitives.
- * @details   This file implements shared constants, types, and internal helper functions
- *            for the Ascon family of cryptographic algorithms.
+ * @brief     Ascon shared permutation primitives.
+ * @details   Implements shared round constants and 320-bit Ascon-p permutation layers
+ *            using explicit 32-bit word-pair operations (NIST SP 800-232 Section 3).
  *
  * @see       https://doi.org/10.6028/NIST.SP.800-232
  *
@@ -19,10 +19,12 @@
 
 /**
  * @internal
- * @ref     NIST SP 800-232 Section 3.2 Table 5
- * @see     https://doi.org/10.6028/NIST.SP.800-232
- * @brief   C[𝑖] = Const[16−𝑟𝑛𝑑+𝑖]
- * @details Each of these are little endian; The XOR will be bounded to the most significant bit of the 5th word of the state.
+ * @ref          NIST SP 800-232 Section 3.2 Table 5
+ * @brief        C[𝑖] = Const[16−𝑟𝑛𝑑+𝑖]
+ * @details      Little-endian 32-bit round constants XORed into the lower word of S2 (state[4U]).
+ * @optimization Stored as 32-bit words rather than 64-bit words because bits [8:63] of every
+ *               round constant are zero, halving .rodata footprint (48 B vs. 96 B) and eliding
+ *               upper-word XORs on state[5U].
  */
 const uint32_t VERUM_ASCON_round_constants[12U] = {
     0x000000F0UL, 0x000000E1UL, 0x000000D2UL, 0x000000C3UL,
@@ -32,13 +34,15 @@ const uint32_t VERUM_ASCON_round_constants[12U] = {
 
 /**
  * @internal
- * @ref           NIST SP 800-232 Section 3.3
- * @see           https://doi.org/10.6028/NIST.SP.800-232
- * @brief         𝑝𝑆 Substitution Layer
- * @param[in,out] state          The ASCON state to be permuted.
- * @param[out]    holder         A buffer to hold intermediate state values.
- * @param[in]     round_constant The round constant for the current round.
- * @optimization  Uses 4 temporaries instead of 10, reducing memory traffic (fewer loads/stores), lowering stack usage, and easing register pressure for better overall efficiency.
+ * @ref           NIST SP 800-232 Sections 3.2 and 3.3
+ * @brief         𝑝𝐶 Constant-Addition Layer; 𝑝𝑆 Substitution Layer
+ * @param[in,out] state          320-bit state as ten 32-bit words.
+ * @param[out]    holder         320-bit scratch buffer receiving post-S-box words.
+ * @param[in]     round_constant Round constant C[i] for the initial round.
+ * @optimization  Fuses p_C (state[4U] ^= round_constant) into the first S-box XOR and
+ *                evaluates the 5-bit S-box in 32-bit bit-sliced form directly into
+ *                holder[0U..9U] without look-up tables (constant-time) or intermediate
+ *                state copies.
  */
 VERUM_ATTR_INLINE
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -52,9 +56,10 @@ inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
     state[1U] = state[1U] ^ state[9U];
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 3.2
-     * @see   https://doi.org/10.6028/NIST.SP.800-232
-     * @brief 𝑝𝐶 Constant-Addition Layer
+     * @ref          NIST SP 800-232 Section 3.2
+     * @brief        𝑝𝐶 Constant-Addition Layer: S2 ← S2 ⊕ C[𝑖]
+     * @optimization Merged into the S2 ^= S1 linear pre-mixing step to save a separate
+     *               read-modify-write on state[4U].
      */
     state[4U] = state[4U] ^ state[2U] ^ round_constant;
     state[5U] = state[5U] ^ state[3U];
@@ -82,11 +87,14 @@ inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
 
 /**
  * @internal
- * @ref        NIST SP 800-232 Section 3.4
- * @see        https://doi.org/10.6028/NIST.SP.800-232
- * @brief      𝑝𝐿 Linear Diffusion Layer
- * @param[out] state  The ASCON state receiving diffused values.
- * @param[in]  holder A buffer holding intermediate post-substitution values.
+ * @ref          NIST SP 800-232 Section 3.4
+ * @brief        𝑝𝐿 Linear Diffusion Layer
+ * @param[out]   state  320-bit state receiving diffused words.
+ * @param[in]    holder 320-bit scratch buffer holding post-substitution words.
+ * @optimization Decomposes 64-bit rotations ROTR64(x, r) into paired 32-bit shifts
+ *               ((lo >> r) | (hi << (32 - r))) reading from holder and writing directly
+ *               to state, mapping to 32-bit barrel-shifter instructions without
+ *               post-diffusion copying.
  */
 VERUM_ATTR_INLINE
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -113,13 +121,15 @@ inline void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
 
 /**
  * @internal
- * @ref           NIST SP 800-232 Section 3.4
- * @see           https://doi.org/10.6028/NIST.SP.800-232
- * @brief         𝑝𝐿 Linear Diffusion Layer; 𝑝𝑆 Substitution Layer; 𝑝𝐶 Constant-Addition Layer
- * @param[out]    state          The ASCON state buffer.
- * @param[in,out] holder         A buffer holding intermediate state values across merged rounds.
- * @param[in]     round_constant The round constant for the current round.
- * @optimization  The linear diffusion layer is merged with the next round's initial permutation step, reducing the number of intermediate state stores and loads, which can improve performance by minimizing memory access overhead.
+ * @ref           NIST SP 800-232 Sections 3.2, 3.3, and 3.4
+ * @brief         𝑝𝐿 Linear Diffusion Layer; 𝑝𝐶 Constant-Addition Layer; 𝑝𝑆 Substitution Layer
+ * @param[out]    state          320-bit state buffer.
+ * @param[in,out] holder         320-bit scratch buffer updated across merged rounds.
+ * @param[in]     round_constant Round constant C[i] for the next round.
+ * @optimization  Fuses p_L of round i-1 with p_C and p_S of round i, scheduling diffusion
+ *                of S4 (state[8U..9U]) and S2 (state[4U..5U]) ahead of S0 and S3 so the
+ *                initial S-box XORs (S0 ^= S4, S2 ^= S1 ^ C[i], S4 ^= S3) fold directly
+ *                into diffusion stores, eliminating inter-round state loads and stores.
  */
 VERUM_ATTR_INLINE
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -171,12 +181,14 @@ inline void VERUM_ASCON_permute_merged(uint32_t state[10U],
 /**
  * @internal
  * @ref           NIST SP 800-232 Section 3
- * @see           https://doi.org/10.6028/NIST.SP.800-232
- * @brief         Permutes the ASCON state starting from a specified round.
- * @param[in,out] state       The ASCON state to be permuted.
- * @param[out]    holder      A buffer to hold intermediate state values.
- * @param[in]     round_index The index of the current round.
- * @optimization  This function allows for a more compact implementation of the permutation rounds by reducing code duplication and improving instruction cache utilization.
+ * @brief         Permutes the 320-bit ASCON state from @p round_index through round 11.
+ * @param[in,out] state       320-bit state as ten 32-bit words.
+ * @param[out]    holder      320-bit scratch buffer for intermediate post-S-box values.
+ * @param[in]     round_index Starting round index (0 for Ascon-p[12], 4 for Ascon-p[8]).
+ * @optimization  Marked noinline and shared across p[12] and p[8]; peels the initial
+ *                substitution layer and final linear diffusion layer outside the loop so
+ *                the body executes only fused p_L+p_C+p_S rounds, minimizing .text
+ *                footprint and instruction-cache pressure.
  */
 VERUM_ATTR_NOINLINE
 void VERUM_ASCON_permute(uint32_t state[10U],

@@ -1,16 +1,12 @@
 /**
  * @file      aead.h
  * @brief     Ascon-AEAD128 authenticated encryption.
- * @details   Authenticated Encryption with Associated Data (AEAD) is a form of
- *            encryption that simultaneously guarantees confidentiality of the
- *            plaintext and authenticity of both the plaintext and the associated
- *            data. Associated data is authenticated but not encrypted, it is
- *            tamper-evident.
- *            ASCON-AEAD128 realises this construction through a
- *            duplex sponge operating over a 320-bit permutation state, binding a
- *            128-bit key and a 128-bit nonce to produce a ciphertext equal in
- *            length to the plaintext and a 128-bit authentication tag, as
- *            standardised in NIST SP 800-232.
+ * @details   Authenticated Encryption with Associated Data (AEAD) guarantees plaintext
+ *            confidentiality and tamper-evident authenticity of both plaintext and
+ *            unencrypted associated data. Ascon-AEAD128 realises this via a 320-bit
+ *            duplex sponge (128-bit rate, 128-bit key, 128-bit nonce) producing
+ *            in-place ciphertext of equal length and a 128-bit authentication tag per
+ *            NIST SP 800-232 Section 4.1.
  *
  * @see       https://doi.org/10.6028/NIST.SP.800-232
  *
@@ -31,66 +27,36 @@
 
 
 /**
- * @brief         Ascon-AEAD128 authenticated encryption.
+ * @brief         Ascon-AEAD128 authenticated encryption (NIST SP 800-232 Section 4.1.1, Algorithm 3).
+ * @details       Encrypts @p plaintext in place and computes a 128-bit authentication tag
+ *                over the ciphertext and, when @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+ *                is defined, @p associated_data. Overwrites @p plaintext with ciphertext
+ *                of equal byte length.
+ * @optimization  Operates in place on @p plaintext and transfers full 128-bit rate blocks
+ *                as 4-byte-aligned 32-bit words, avoiding separate output buffers and
+ *                byte-packing overhead.
  *
- * @details       Encrypts @p plaintext in place and produces a 128-bit
- *                authentication tag over the ciphertext and, when
- *                @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF is defined,
- *                over @p associated_data as well. The operation follows
- *                Algorithm 3 of NIST SP 800-232 Section 4.1.1.
+ * @warning       Nonce reuse under the same key breaks confidentiality and leaks key
+ *                material; uniqueness per (key, plaintext) is the caller's responsibility.
+ * @warning       The produced @p authentication_tag must be verified in constant time
+ *                during decryption before any plaintext is released.
+ * @warning       @p key, @p nonce, and @p authentication_tag must be little-endian 32-bit
+ *                words; @p plaintext and @p associated_data must be 4-byte aligned.
+ * @warning       Lengths (@p plaintext_size, @p associated_size) are in bytes rather than
+ *                bits (@nonconformity NIST SP 800-232).
  *
- *                On return, the buffer addressed by @p plaintext holds the
- *                ciphertext of equal length. The original plaintext is
- *                overwritten and cannot be recovered from @p plaintext alone.
+ * @param[in]     key                128-bit secret key (four 32-bit LE words).
+ * @param[in]     nonce              128-bit public nonce (four 32-bit LE words).
+ * @param[in,out] plaintext          Entry: plaintext (@p plaintext_size bytes). Return: ciphertext in place.
+ * @param[in]     plaintext_size     Byte length of @p plaintext (0 is valid; tag covers AD only).
+ * @param[in]     associated_data    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Authenticated unencrypted AD buffer.
+ * @param[in]     associated_size    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Byte length of @p associated_data.
+ * @param[out]    authentication_tag 128-bit authentication tag (four 32-bit LE words, 16 bytes).
  *
- * @warning       Nonce reuse under the same key breaks confidentiality and
- *                leaks key material. Uniqueness is the caller's responsibility.
- * @warning       The produced @p authentication_tag must be verified in
- *                constant time during decryption before any plaintext is
- *                released.
- * @warning       @p plaintext, @p associated_data, and @p authentication_tag
- *                must be aligned to @c uint32_t (4-byte) boundaries.
- * @warning       @p key, @p nonce, and @p authentication_tag words must be
- *                provided in little-endian word order.
- * @warning       NIST SP 800-232 specifies input lengths in bits; this
- *                interface accepts byte lengths (@p plaintext_size,
- *                @p associated_size).
- *
- * @param[in]     key                128-bit secret key as four 32-bit words.
- * @param[in]     nonce              128-bit public nonce as four 32-bit words.
- *                                   Must be unique per (key, plaintext) pair.
- * @param[in,out] plaintext          On entry: plaintext buffer of
- *                                   @p plaintext_size bytes.
- *                                   On return: ciphertext of equal length,
- *                                   written in place.
- * @param[in]     plaintext_size     Length of @p plaintext in bytes.
- *                                   May be zero, in which case no plaintext
- *                                   blocks are processed and the tag covers
- *                                   only associated data.
- * @param[in]     associated_data    Pointer to associated data of
- *                                   @p associated_size bytes. Authenticated
- *                                   but not encrypted. Only present when
- *                                   @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- *                                   is defined.
- * @param[in]     associated_size    Length of @p associated_data in bytes.
- *                                   Only present when
- *                                   @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- *                                   is defined.
- * @param[out]    authentication_tag 128-bit authentication tag produced
- *                                   after finalisation, written as four
- *                                   consecutive 32-bit words. Store and
- *                                   transmit alongside the ciphertext.
- *
- * @pre           @p key, @p nonce, @p plaintext, and @p authentication_tag are
- *                non-NULL.
- * @pre           @p plaintext points to a buffer of at least @p plaintext_size
- *                bytes and is 4-byte aligned for 32-bit word accesses.
- * @pre           When associated data is enabled, any non-NULL
- *                @p associated_data is 4-byte aligned for 32-bit word accesses.
- * @pre           @p plaintext and @p authentication_tag do not overlap.
- * @pre           The nonce is used at most once for a given key.
- * @pre           @p authentication_tag is 4-byte aligned and points to a
- *                buffer of at least 16 bytes.
+ * @pre           @p key, @p nonce, @p plaintext, and @p authentication_tag are non-NULL and 4-byte aligned.
+ * @pre           @p plaintext addresses at least @p plaintext_size writable bytes and does not overlap @p authentication_tag.
+ * @pre           When AD is enabled, any non-NULL @p associated_data is 4-byte aligned.
+ * @pre           @p nonce has not been previously used with @p key.
  */
 void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
@@ -103,66 +69,36 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                                  uint32_t authentication_tag[4U]);
 
 /**
- * @brief         Ascon-AEAD128 authenticated decryption.
+ * @brief         Ascon-AEAD128 authenticated decryption (NIST SP 800-232 Section 4.1.2, Algorithm 4).
+ * @details       Decrypts @p ciphertext in place and computes the candidate 128-bit
+ *                authentication tag over the plaintext and, when
+ *                @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF is defined, @p associated_data.
+ *                Overwrites @p ciphertext with plaintext of equal byte length and writes
+ *                the recomputed tag to @p authentication_tag.
+ * @optimization  Operates in place on @p ciphertext using 4-byte-aligned 32-bit word
+ *                transfers and reuses internal scratch storage, avoiding separate output
+ *                buffers.
  *
- * @details       Decrypts @p ciphertext in place and computes the candidate
- *                128-bit authentication tag over the plaintext and, when
- *                @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF is defined,
- *                over @p associated_data as well. The operation follows
- *                Algorithm 4 of NIST SP 800-232 Section 4.1.2.
+ * @warning       Outputs the recomputed candidate @p authentication_tag without comparing
+ *                it; the caller must verify @p authentication_tag against the received tag
+ *                in constant time before releasing or acting upon decrypted @p ciphertext.
+ * @warning       @p key, @p nonce, and @p authentication_tag must be little-endian 32-bit
+ *                words; @p ciphertext and @p associated_data must be 4-byte aligned.
+ * @warning       Lengths (@p ciphertext_size, @p associated_size) are in bytes rather than
+ *                bits (@nonconformity NIST SP 800-232).
  *
- *                On return, the buffer addressed by @p ciphertext holds the
- *                decrypted plaintext of equal length, and
- *                @p authentication_tag holds the recomputed 128-bit tag. The
- *                original ciphertext is overwritten and cannot be recovered
- *                from @p ciphertext alone.
+ * @param[in]     key                128-bit secret key (four 32-bit LE words).
+ * @param[in]     nonce              128-bit public nonce matching encryption (four 32-bit LE words).
+ * @param[in,out] ciphertext         Entry: ciphertext (@p ciphertext_size bytes). Return: plaintext in place.
+ * @param[in]     ciphertext_size    Byte length of @p ciphertext (0 is valid; tag covers AD only).
+ * @param[in]     associated_data    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Authenticated unencrypted AD buffer.
+ * @param[in]     associated_size    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Byte length of @p associated_data.
+ * @param[out]    authentication_tag Recomputed 128-bit candidate tag (four 32-bit LE words, 16 bytes).
  *
- * @warning       The recomputed @p authentication_tag must be verified in
- *                constant time against the received tag before any decrypted
- *                plaintext is released or acted upon.
- * @warning       @p ciphertext, @p associated_data, and @p authentication_tag
- *                must be aligned to @c uint32_t (4-byte) boundaries.
- * @warning       @p key, @p nonce, and @p authentication_tag words must be
- *                provided in little-endian word order.
- * @warning       NIST SP 800-232 specifies input lengths in bits; this
- *                interface accepts byte lengths (@p ciphertext_size,
- *                @p associated_size).
- *
- * @param[in]     key                128-bit secret key as four 32-bit words.
- * @param[in]     nonce              128-bit public nonce as four 32-bit words.
- * @param[in,out] ciphertext         On entry: ciphertext buffer of
- *                                   @p ciphertext_size bytes.
- *                                   On return: plaintext of equal length,
- *                                   written in place.
- * @param[in]     ciphertext_size    Length of @p ciphertext in bytes.
- *                                   May be zero, in which case no ciphertext
- *                                   blocks are processed and the tag covers
- *                                   only associated data.
- * @param[in]     associated_data    Pointer to associated data of
- *                                   @p associated_size bytes. Authenticated
- *                                   but not decrypted. Only present when
- *                                   @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- *                                   is defined.
- * @param[in]     associated_size    Length of @p associated_data in bytes.
- *                                   Only present when
- *                                   @c VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
- *                                   is defined.
- * @param[out]    authentication_tag 128-bit candidate authentication tag
- *                                   produced after finalisation, written as
- *                                   four consecutive 32-bit words for
- *                                   constant-time verification by the caller.
- *
- * @pre           @p key, @p nonce, @p ciphertext, and @p authentication_tag
- *                are non-NULL.
- * @pre           @p ciphertext points to a buffer of at least
- *                @p ciphertext_size bytes and is 4-byte aligned for 32-bit
- *                word accesses.
- * @pre           When associated data is enabled, any non-NULL
- *                @p associated_data is 4-byte aligned for 32-bit word accesses.
- * @pre           @p ciphertext and @p authentication_tag do not overlap.
- * @pre           The nonce matches the one used during encryption.
- * @pre           @p authentication_tag is 4-byte aligned and points to a
- *                buffer of at least 16 bytes.
+ * @pre           @p key, @p nonce, @p ciphertext, and @p authentication_tag are non-NULL and 4-byte aligned.
+ * @pre           @p ciphertext addresses at least @p ciphertext_size writable bytes and does not overlap @p authentication_tag.
+ * @pre           When AD is enabled, any non-NULL @p associated_data is 4-byte aligned.
+ * @pre           @p nonce matches the nonce used during encryption.
  */
 void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  const uint32_t nonce[4U],
