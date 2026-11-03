@@ -40,8 +40,6 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
                                 const uint32_t message_size,
                                 uint32_t digest[8U])
 {
-    uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
-
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 and Appendix B
@@ -50,7 +48,8 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
      * @optimization Precomputes 𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256]) at compile time, eliminating the
      *               64-bit IV array and 12 permutation rounds per digest call.
      */
-    uint32_t state[10] = { 0xe934d681, 0x9b1e5494, 0x333751d2, 0x4bc3a01e, 0x6b34b81a, 0xae65396c, 0xd56a4db3, 0x3c7fd4a4, 0x06c5976d, 0x1a5c4649};
+    uint32_t state[10U] = { 0xe934d681U, 0x9b1e5494U, 0x333751d2U, 0x4bc3a01eU, 0x6b34b81aU, 0xae65396cU, 0xd56a4db3U, 0x3c7fd4a4U, 0x06c5976dU, 0x1a5c4649U };
+    uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
      * @internal
