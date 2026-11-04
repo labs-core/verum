@@ -30,10 +30,10 @@ Yes  CheckBufferOverrun::negativeArraySize
 Yes  CheckBufferOverrun::objectIndex
 Yes  CheckBufferOverrun::pointerArithmetic
 Yes  CheckBufferOverrun::stringNotZeroTerminated
+Yes  CheckClass::analyseWholeProgram
 No   CheckClass::checkConst                                    require:style,inconclusive
 No   CheckClass::checkConstructors                             require:style,warning
 No   CheckClass::checkCopyConstructors                         require:warning
-Yes  CheckClass::checkCtuOneDefinitionRule
 No   CheckClass::checkDuplInheritedMembers                     require:warning
 No   CheckClass::checkExplicitConstructors                     require:style
 No   CheckClass::checkMemset
@@ -85,7 +85,6 @@ Yes  CheckFunctions::useStandardLibrary
 No   CheckIO::checkCoutCerrMisusage                            require:c
 Yes  CheckIO::checkFileUsage
 Yes  CheckIO::checkWrongPrintfScanfArguments
-Yes  CheckIO::checkWrongfeofUsage
 Yes  CheckIO::invalidScanf
 Yes  CheckLeakAutoVar::check
 No   CheckMemoryLeakInClass::check
@@ -129,7 +128,6 @@ Yes  CheckOther::checkSuspiciousCaseInSwitch
 Yes  CheckOther::checkSuspiciousSemicolon
 Yes  CheckOther::checkUnionZeroInit
 Yes  CheckOther::checkUnreachableCode
-Yes  CheckOther::checkUnreachableSwitchCase
 Yes  CheckOther::checkUnusedLabel
 Yes  CheckOther::checkVarFuncNullUB
 Yes  CheckOther::checkVariableScope
@@ -151,7 +149,6 @@ Yes  CheckSizeof::sizeofFunction
 Yes  CheckSizeof::sizeofVoid
 Yes  CheckSizeof::sizeofsizeof
 Yes  CheckSizeof::suspiciousSizeofCalculation
-No   CheckStl::algorithmOutOfBounds
 No   CheckStl::checkDereferenceInvalidIterator                 require:warning
 No   CheckStl::checkDereferenceInvalidIterator2
 No   CheckStl::checkFindInsert                                 require:performance

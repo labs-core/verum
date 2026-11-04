@@ -43,8 +43,8 @@ const uint32_t VERUM_ASCON_round_constants[12U] = {
  * @param[in]     round_constant Round constant C[i] for the initial round.
  * @optimization  Fuses p_C (state[4U] ^= round_constant) into the first S-box XOR and
  *                evaluates the 5-bit S-box in 32-bit bit-sliced form directly into
- *                holder[0U..9U] without additional temporaries, reducing stack usage,
- *                register pressure, and memory traffic.
+ *                holder[0U..9U] using bitwise NOT-AND (~x & y) and ~x without additional
+ *                temporaries, reducing stack usage, register pressure, and memory traffic.
  */
 VERUM_ATTR_INLINE
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -69,22 +69,30 @@ inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
     state[8U] = state[8U] ^ state[6U];
     state[9U] = state[9U] ^ state[7U];
 
-    holder[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
-    holder[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
-    holder[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]) ^ holder[0U];
-    holder[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]) ^ holder[1U];
-    holder[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
-    holder[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
-    holder[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state[0U]) ^ holder[4U];
-    holder[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state[1U]) ^ holder[5U];
-    holder[8U] = state[8U] ^ ((state[0U] ^ 0xFFFFFFFFUL) & state[2U]);
-    holder[9U] = state[9U] ^ ((state[1U] ^ 0xFFFFFFFFUL) & state[3U]);
+    /**
+     * @internal
+     * @ref          NIST SP 800-232 Section 3.3
+     * @brief        𝑝𝑆 Substitution Layer
+     * @optimization Replaces (x ^ 0xFFFFFFFFUL) & y and x ^ 0xFFFFFFFFUL with (~x) & y
+     *               and ~x, mapping directly to single-cycle bitwise NOT-AND (BIC/ANDN)
+     *               and NOT instructions and eliminating 12 immediate-XOR operations per round.
+     */
+    holder[0U] = state[0U] ^ ((~state[2U]) & state[4U]);
+    holder[1U] = state[1U] ^ ((~state[3U]) & state[5U]);
+    holder[2U] = state[2U] ^ ((~state[4U]) & state[6U]) ^ holder[0U];
+    holder[3U] = state[3U] ^ ((~state[5U]) & state[7U]) ^ holder[1U];
+    holder[4U] = state[4U] ^ ((~state[6U]) & state[8U]);
+    holder[5U] = state[5U] ^ ((~state[7U]) & state[9U]);
+    holder[6U] = state[6U] ^ ((~state[8U]) & state[0U]) ^ holder[4U];
+    holder[7U] = state[7U] ^ ((~state[9U]) & state[1U]) ^ holder[5U];
+    holder[8U] = state[8U] ^ ((~state[0U]) & state[2U]);
+    holder[9U] = state[9U] ^ ((~state[1U]) & state[3U]);
 
 
     holder[0U] = holder[0U] ^ holder[8U];
     holder[1U] = holder[1U] ^ holder[9U];
-    holder[4U] = holder[4U] ^ 0xFFFFFFFFUL;
-    holder[5U] = holder[5U] ^ 0xFFFFFFFFUL;
+    holder[4U] = ~holder[4U];
+    holder[5U] = ~holder[5U];
 }
 
 /**
@@ -158,22 +166,30 @@ inline void VERUM_ASCON_permute_merged(uint32_t state[10U],
     state[8U] = state[8U] ^ state[6U];
     state[9U] = state[9U] ^ state[7U];
 
-    holder[0U] = state[0U] ^ ((state[2U] ^ 0xFFFFFFFFUL) & state[4U]);
-    holder[1U] = state[1U] ^ ((state[3U] ^ 0xFFFFFFFFUL) & state[5U]);
-    holder[2U] = state[2U] ^ ((state[4U] ^ 0xFFFFFFFFUL) & state[6U]) ^ holder[0U];
-    holder[3U] = state[3U] ^ ((state[5U] ^ 0xFFFFFFFFUL) & state[7U]) ^ holder[1U];
-    holder[4U] = state[4U] ^ ((state[6U] ^ 0xFFFFFFFFUL) & state[8U]);
-    holder[5U] = state[5U] ^ ((state[7U] ^ 0xFFFFFFFFUL) & state[9U]);
-    holder[6U] = state[6U] ^ ((state[8U] ^ 0xFFFFFFFFUL) & state[0U]) ^ holder[4U];
-    holder[7U] = state[7U] ^ ((state[9U] ^ 0xFFFFFFFFUL) & state[1U]) ^ holder[5U];
-    holder[8U] = state[8U] ^ ((state[0U] ^ 0xFFFFFFFFUL) & state[2U]);
-    holder[9U] = state[9U] ^ ((state[1U] ^ 0xFFFFFFFFUL) & state[3U]);
+    /**
+     * @internal
+     * @ref          NIST SP 800-232 Section 3.3
+     * @brief        𝑝𝑆 Substitution Layer
+     * @optimization Replaces (x ^ 0xFFFFFFFFUL) & y and x ^ 0xFFFFFFFFUL with (~x) & y
+     *               and ~x, mapping directly to single-cycle bitwise NOT-AND (BIC/ANDN)
+     *               and NOT instructions and eliminating 12 immediate-XOR operations per round.
+     */
+    holder[0U] = state[0U] ^ ((~state[2U]) & state[4U]);
+    holder[1U] = state[1U] ^ ((~state[3U]) & state[5U]);
+    holder[2U] = state[2U] ^ ((~state[4U]) & state[6U]) ^ holder[0U];
+    holder[3U] = state[3U] ^ ((~state[5U]) & state[7U]) ^ holder[1U];
+    holder[4U] = state[4U] ^ ((~state[6U]) & state[8U]);
+    holder[5U] = state[5U] ^ ((~state[7U]) & state[9U]);
+    holder[6U] = state[6U] ^ ((~state[8U]) & state[0U]) ^ holder[4U];
+    holder[7U] = state[7U] ^ ((~state[9U]) & state[1U]) ^ holder[5U];
+    holder[8U] = state[8U] ^ ((~state[0U]) & state[2U]);
+    holder[9U] = state[9U] ^ ((~state[1U]) & state[3U]);
 
 
     holder[0U] = holder[0U] ^ holder[8U];
     holder[1U] = holder[1U] ^ holder[9U];
-    holder[4U] = holder[4U] ^ 0xFFFFFFFFUL;
-    holder[5U] = holder[5U] ^ 0xFFFFFFFFUL;
+    holder[4U] = ~holder[4U];
+    holder[5U] = ~holder[5U];
 }
 
 

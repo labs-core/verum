@@ -66,8 +66,8 @@ void VERUM_ASCON_permute(uint32_t state[10U],
  * @param[in]     round_constant Round constant C[i] for the initial round.
  * @optimization  Fuses p_C (state[4U] ^= round_constant) into the first S-box XOR and
  *                evaluates the 5-bit S-box in 32-bit bit-sliced form directly into
- *                holder[0U..9U] without additional temporaries, reducing stack usage,
- *                register pressure, and memory traffic.
+ *                holder[0U..9U] using bitwise NOT-AND (~x & y) and ~x without additional
+ *                temporaries, reducing stack usage, register pressure, and memory traffic.
  */
 inline void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                                                   uint32_t holder[10U],

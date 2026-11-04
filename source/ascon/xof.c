@@ -52,7 +52,7 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
      * @optimization Precomputes 𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256]) at compile time, eliminating the
      *               64-bit IV array and 12 permutation rounds per digest call.
      */
-    uint32_t state[10] = { 0x8d9447ebU, 0xda82ce76U, 0x5f1ef969U, 0xcc7ce6c7U, 0x80085631U, 0xe7508fd7U, 0x416b58ccU, 0x0ee0ea53U,0xdb6f0bdeU, 0xe0547524U};
+    uint32_t state[10U] = { 0x8d9447ebU, 0xda82ce76U, 0x5f1ef969U, 0xcc7ce6c7U, 0x80085631U, 0xe7508fd7U, 0x416b58ccU, 0x0ee0ea53U, 0xdb6f0bdeU, 0xe0547524U };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     uint32_t block_counter = message_size>>3U;
