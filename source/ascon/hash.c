@@ -3,8 +3,8 @@
  * @brief      NIST SP 800-232 ASCON HASH256.
  * @details    Sponge hash implementation for ASCON, configurable for memory efficiency
  *             xor performance via explicit 32-bit operations over the 320-bit (five
- *             64-bit word) state machine on 32-bit targets without compiler-synthesized
- *             64-bit arithmetic.
+ *             64-bit word) bit-interleaved state machine [OPT-A_0] on 32-bit targets
+ *             without compiler-synthesized 64-bit arithmetic.
  *
  * @see        https://doi.org/10.6028/NIST.SP.800-232
  *
@@ -45,24 +45,33 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 and Appendix B
      * @brief        𝐼𝑉 ← 0x0000080100cc0002; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256])
      * @details      The initial state depends only on 𝐼𝑉 ‖ 0^[256] and is invariant across invocations.
-     * @optimization Precomputes 𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256]) at compile time, eliminating the
-     *               64-bit IV array and 12 permutation rounds per digest call.
+     *               Bit-interleaved state [OPT-A_0]: state[2w] = E_w (even bits of S_w),
+     *               state[2w+1] = O_w (odd bits of S_w).
+     *               Little-endian (𝐿, 𝐻) source words: 0xe934d681, 0x9b1e5494, 0x333751d2,
+     *               0x4bc3a01e, 0x6b34b81a, 0xae65396c, 0xd56a4db3, 0x3c7fd4a4, 0x06c5976d,
+     *               0x1a5c4649.
+     * @optimization [OPT-A_8] Precomputes π(𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256])) at compile time,
+     *               eliminating the IV, 12 permutation rounds, and 5 π conversions per call.
      */
-    uint32_t state[10U] = { 0xe934d681U, 0x9b1e5494U, 0x333751d2U, 0x4bc3a01eU, 0x6b34b81aU, 0xae65396cU, 0xd56a4db3U, 0x3c7fd4a4U, 0x06c5976dU, 0x1a5c4649U };
+    uint32_t state[10U] = { 0x56E696E1UL, 0xB308E498UL, 0x990657DCUL, 0x39C35509UL, 0x2B5A9644UL, 0xF46674E3UL, 0x6FE2F8B5UL, 0x678C872DUL, 0x4EA92B7BUL, 0x32121896UL };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief S[0∶63] ← S[0∶63] ⊕ 𝑀𝑖
+     * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief        S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑖)
+     * @optimization [OPT-A_12] holder (dead between permutations) stages π(𝑀𝑖); no extra stack.
      */
     uint32_t block_counter = message_size>>3U;
     for (; 0U < block_counter; --block_counter)
     {
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        holder[0U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
+        holder[1U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
         // cppcheck-suppress-end misra-c2012-11.3
+        VERUM_ASCON_interleave(holder);
+        state[0U] = state[0U] ^ holder[0U];
+        state[1U] = state[1U] ^ holder[1U];
         message += 8U;
 
         /**
@@ -91,8 +100,9 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief 𝑀𝑚 ← pad(̃𝑀𝑚, 64); S[0∶63] ← S[0∶63] ⊕ 𝑀𝑚
+     * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief        𝑀𝑚 ← pad(̃𝑀𝑚, 64); S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑚)
+     * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
      */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
@@ -106,6 +116,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     }
 
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    VERUM_ASCON_interleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
     state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
     // cppcheck-suppress-end misra-c2012-11.3
@@ -115,18 +126,19 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻𝑖 ← S[0∶63] (𝑖 = 1..4)
-     * @optimization Reuses block_counter as the word index into digest[0U..7U] across four
-     *               64-bit squeeze iterations, minimizing code size and local stack variables.
+     * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻𝑖 ← π⁻¹(S[0∶63]) (𝑖 = 1..4)
+     * @optimization [OPT-A_9] Reuses block_counter as the word index into digest[0U..7U]
+     *               across four 64-bit squeeze iterations, minimizing code size and stack.
+     *               [OPT-A_12] π⁻¹ applied in place on the digest words; no staging copy.
      */
     block_counter = 0U;
     do
     {
         VERUM_ASCON_permute(state, holder, 0U);
         digest[block_counter] = state[0U];
-        ++block_counter;
-        digest[block_counter] = state[1U];
-        ++block_counter;
+        digest[block_counter + 1U] = state[1U];
+        VERUM_ASCON_deinterleave(&digest[block_counter]);
+        block_counter += 2U;
     }
     while (block_counter <= 6U);
 
@@ -134,9 +146,10 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻1 ← S[0∶63]
-     * @optimization Unrolls all four 64-bit squeeze blocks with constant digest indices,
-     *               eliminating loop-counter updates and branch overhead.
+     * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻1 ← π⁻¹(S[0∶63])
+     * @optimization [OPT-A_10] Unrolls all four 64-bit squeeze blocks with constant digest
+     *               indices, eliminating loop-counter updates and branch overhead.
+     *               [OPT-A_12] π⁻¹ applied in place on the digest words; no staging copy.
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
@@ -154,11 +167,12 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 
     digest[0U] = state[0U];
     digest[1U] = state[1U];
+    VERUM_ASCON_deinterleave(&digest[0U]);
 
     /**
      * @internal
      * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻2 ← S[0∶63]
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻2 ← π⁻¹(S[0∶63])
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
@@ -176,11 +190,12 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 
     digest[2U] = state[0U];
     digest[3U] = state[1U];
+    VERUM_ASCON_deinterleave(&digest[2U]);
 
     /**
      * @internal
      * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻3 ← S[0∶63]
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻3 ← π⁻¹(S[0∶63])
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
@@ -198,11 +213,12 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 
     digest[4U] = state[0U];
     digest[5U] = state[1U];
+    VERUM_ASCON_deinterleave(&digest[4U]);
 
     /**
      * @internal
      * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻4 ← S[0∶63]
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻4 ← π⁻¹(S[0∶63])
      */
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
@@ -220,6 +236,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 
     digest[6U] = state[0U];
     digest[7U] = state[1U];
+    VERUM_ASCON_deinterleave(&digest[6U]);
 #endif // VERUM_OPTIMIZATION_MEMORY_DEF
 
 }

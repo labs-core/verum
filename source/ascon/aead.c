@@ -3,8 +3,9 @@
  * @brief      NIST SP 800-232 ASCON AEAD-128.
  * @details    Authenticated Encryption with Associated Data (AEAD) implementation,
  *             configurable for memory efficiency xor performance via explicit 32-bit
- *             operations over the 320-bit (five 64-bit word) state machine on 32-bit
- *             targets without compiler-synthesized 64-bit arithmetic.
+ *             operations over the 320-bit (five 64-bit word) bit-interleaved state
+ *             machine [OPT-A_0] on 32-bit targets without compiler-synthesized 64-bit
+ *             arithmetic.
  *
  * @see        https://doi.org/10.6028/NIST.SP.800-232
  *
@@ -22,13 +23,15 @@
 
 /**
  * @internal
- * @ref   NIST SP 800-232 Appendix B
- * @see   https://doi.org/10.6028/NIST.SP.800-232
- * @brief 𝐼𝑉 ← 0x00001000808c0001
+ * @ref          NIST SP 800-232 Appendix B
+ * @see          https://doi.org/10.6028/NIST.SP.800-232
+ * @brief        𝐼𝑉 ← 0x00001000808c0001
+ * @details      Stored as π(𝐼𝑉) = { E, O } of (𝐿 = 0x808C0001, 𝐻 = 0x00001000).
+ * @optimization [OPT-A_0] Pre-interleaved at compile time; no runtime π on the IV.
  */
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
-    0x00001000UL,
-    0x808C0001UL
+    0x00400201UL,
+    0x00008A00UL
 };
 
 
@@ -68,22 +71,29 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 {
     /**
      * @internal
-     * @ref     NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief   𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
-     * @details Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
+     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief        𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
+     * @details      Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
+     *               Bit-interleaved state [OPT-A_0]: state[2w] = E_w (even bits of S_w),
+     *               state[2w+1] = O_w (odd bits of S_w).
+     * @optimization [OPT-A_12] π applied in place on the state words holding 𝐾 and 𝑁.
      */
-    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
-                            VERUM_ASCON_AEAD128_initialization_vector[0U],
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[0U],
+                            VERUM_ASCON_AEAD128_initialization_vector[1U],
                             key[0U], key[1U], key[2U], key[3U],
                             nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    VERUM_ASCON_interleave(&state[2U]);
+    VERUM_ASCON_interleave(&state[4U]);
+    VERUM_ASCON_interleave(&state[6U]);
+    VERUM_ASCON_interleave(&state[8U]);
 
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
      * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     * @optimization Selects compact loop call (VERUM_OPTIMIZATION_MEMORY_DEF) or 12 unrolled
-     *               fused inline rounds (p_S + 11x p_merged + p_L).
+     * @optimization [OPT-A_7] Selects compact loop call (VERUM_OPTIMIZATION_MEMORY_DEF) or
+     *               12 unrolled fused inline rounds (p_S + 11x p_merged + p_L).
      */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     VERUM_ASCON_permute(state, holder, 0U);
@@ -105,13 +115,21 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief S ← S ⊕ (0^[192] ‖ 𝐾)
+     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief        S ← S ⊕ (0^[192] ‖ π(𝐾))
+     * @optimization [OPT-A_12] holder (dead between permutations) stages π(𝐾); no
+     *               persistent interleaved key copy (no extra SSP to zeroize).
      */
-    state[6U] = state[6U] ^ key[0U];
-    state[7U] = state[7U] ^ key[1U];
-    state[8U] = state[8U] ^ key[2U];
-    state[9U] = state[9U] ^ key[3U];
+    holder[0U] = key[0U];
+    holder[1U] = key[1U];
+    holder[2U] = key[2U];
+    holder[3U] = key[3U];
+    VERUM_ASCON_interleave(&holder[0U]);
+    VERUM_ASCON_interleave(&holder[2U]);
+    state[6U] = state[6U] ^ holder[0U];
+    state[7U] = state[7U] ^ holder[1U];
+    state[8U] = state[8U] ^ holder[2U];
+    state[9U] = state[9U] ^ holder[3U];
 
     uint32_t block_counter = 0U;
     uint32_t last_block_byte_index = 0U;
@@ -132,15 +150,22 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     {
         /**
          * @internal
-         * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-         * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑖
+         * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+         * @brief        S[0∶127] ← S[0∶127] ⊕ π(𝐴𝑖)
+         * @optimization [OPT-A_12] holder stages π(𝐴𝑖); no extra stack.
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
+        holder[0U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
+        holder[1U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
+        holder[2U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
+        holder[3U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
         // cppcheck-suppress-end misra-c2012-11.3
+        VERUM_ASCON_interleave(&holder[0U]);
+        VERUM_ASCON_interleave(&holder[2U]);
+        state[0U] = state[0U] ^ holder[0U];
+        state[1U] = state[1U] ^ holder[1U];
+        state[2U] = state[2U] ^ holder[2U];
+        state[3U] = state[3U] ^ holder[3U];
         associated_data += 16U;
 
         /**
@@ -179,10 +204,13 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑚
+     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief        S[0∶127] ← S[0∶127] ⊕ π(𝐴𝑚)
+     * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
      */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U]);
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U]);
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
@@ -212,8 +240,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief S ← S ⊕ (0^[319] ‖ 1)
+     * @ref     NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief   S ← S ⊕ (0^[319] ‖ 1)
+     * @details Bit 63 of S4 is odd (2·31 + 1), so it maps to bit 31 of O_4 (state[9U]).
      */
     state[9U] = state[9U] ^ 0x80000000UL;
 
@@ -223,23 +252,32 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     {
         /**
          * @internal
-         * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-         * @brief S[0∶127] ← S[0∶127] ⊕ 𝑃𝑖
+         * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+         * @brief        S[0∶127] ← S[0∶127] ⊕ π(𝑃𝑖); 𝐶𝑖 ← π⁻¹(S[0∶127])
+         * @optimization [OPT-A_12] holder stages π(𝑃𝑖) and π⁻¹(S[0∶127]); no extra stack.
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U];
-        /**
-         * @internal
-         * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-         * @brief 𝐶𝑖 ← S[0∶127]
-         */
-        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U] = state[0U];
-        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U] = state[1U];
-        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U] = state[2U];
-        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U] = state[3U];
+        holder[0U] = ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U];
+        holder[1U] = ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U];
+        holder[2U] = ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U];
+        holder[3U] = ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U];
+        VERUM_ASCON_interleave(&holder[0U]);
+        VERUM_ASCON_interleave(&holder[2U]);
+        state[0U] = state[0U] ^ holder[0U];
+        state[1U] = state[1U] ^ holder[1U];
+        state[2U] = state[2U] ^ holder[2U];
+        state[3U] = state[3U] ^ holder[3U];
+
+        holder[0U] = state[0U];
+        holder[1U] = state[1U];
+        holder[2U] = state[2U];
+        holder[3U] = state[3U];
+        VERUM_ASCON_deinterleave(&holder[0U]);
+        VERUM_ASCON_deinterleave(&holder[2U]);
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U] = holder[0U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U] = holder[1U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U] = holder[2U];
+        ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U] = holder[3U];
         // cppcheck-suppress-end misra-c2012-11.3
         plaintext += 16U;
 
@@ -282,10 +320,13 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief S[0∶127] ← S[0∶127] ⊕ pad(̃𝑃𝑛, 128)
+     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief        S[0∶127] ← S[0∶127] ⊕ π(pad(̃𝑃𝑛, 128))
+     * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
      */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U]);
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U]);
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U];
@@ -294,25 +335,39 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief 𝐶𝑛 ← S[0∶ℓ−1]
+     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief        𝐶𝑛 ← π⁻¹(S[0∶127])[0∶ℓ−1]
+     * @optimization [OPT-A_12] holder stages π⁻¹(S[0∶127]); no extra stack.
      */
-    const uint8_t * const state_bytes = (const uint8_t *) state;
+    holder[0U] = state[0U];
+    holder[1U] = state[1U];
+    holder[2U] = state[2U];
+    holder[3U] = state[3U];
+    VERUM_ASCON_deinterleave(&holder[0U]);
+    VERUM_ASCON_deinterleave(&holder[2U]);
+    const uint8_t * const holder_bytes = (const uint8_t *) holder;
     while (0U < last_block_byte_index_holder)
     {
         --last_block_byte_index_holder;
-        plaintext[last_block_byte_index_holder] = state_bytes[last_block_byte_index_holder];
+        plaintext[last_block_byte_index_holder] = holder_bytes[last_block_byte_index_holder];
     }
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief S ← S ⊕ (0^[128] ∥ 𝐾 ∥ 0^[64])
+     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief        S ← S ⊕ (0^[128] ∥ π(𝐾) ∥ 0^[64])
+     * @optimization [OPT-A_12] holder stages π(𝐾); no persistent interleaved key copy.
      */
-    state[4U] = state[4U] ^ key[0U];
-    state[5U] = state[5U] ^ key[1U];
-    state[6U] = state[6U] ^ key[2U];
-    state[7U] = state[7U] ^ key[3U];
+    holder[0U] = key[0U];
+    holder[1U] = key[1U];
+    holder[2U] = key[2U];
+    holder[3U] = key[3U];
+    VERUM_ASCON_interleave(&holder[0U]);
+    VERUM_ASCON_interleave(&holder[2U]);
+    state[4U] = state[4U] ^ holder[0U];
+    state[5U] = state[5U] ^ holder[1U];
+    state[6U] = state[6U] ^ holder[2U];
+    state[7U] = state[7U] ^ holder[3U];
 
     /**
      * @internal
@@ -339,13 +394,20 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
-     * @brief 𝑇 ← S[192∶319] ⊕ 𝐾
+     * @ref          NIST SP 800-232 Section 4.1.1 Algorithm 3 Ascon-AEAD128.enc(𝐾,𝑁,𝐴,𝑃)
+     * @brief        𝑇 ← π⁻¹(S[192∶319]) ⊕ 𝐾
+     * @optimization [OPT-A_12] π⁻¹ applied in place on the tag words; no staging copy.
      */
-    authentication_tag[0U] = state[6U]^key[0U];
-    authentication_tag[1U] = state[7U]^key[1U];
-    authentication_tag[2U] = state[8U]^key[2U];
-    authentication_tag[3U] = state[9U]^key[3U];
+    authentication_tag[0U] = state[6U];
+    authentication_tag[1U] = state[7U];
+    authentication_tag[2U] = state[8U];
+    authentication_tag[3U] = state[9U];
+    VERUM_ASCON_deinterleave(&authentication_tag[0U]);
+    VERUM_ASCON_deinterleave(&authentication_tag[2U]);
+    authentication_tag[0U] = authentication_tag[0U] ^ key[0U];
+    authentication_tag[1U] = authentication_tag[1U] ^ key[1U];
+    authentication_tag[2U] = authentication_tag[2U] ^ key[2U];
+    authentication_tag[3U] = authentication_tag[3U] ^ key[3U];
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
     /**
@@ -430,23 +492,30 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 {
     /**
      * @internal
-     * @ref     NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief   𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
-     * @details Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
+     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief        𝐼𝑉 ← 0x00001000808c0001; S ← 𝐼𝑉 ‖ 𝐾 ‖ 𝑁
+     * @details      Initializes the 320-bit state as the concatenation of 64-bit 𝐼𝑉, 128-bit 𝐾, and 128-bit 𝑁.
+     *               Bit-interleaved state [OPT-A_0]: state[2w] = E_w (even bits of S_w),
+     *               state[2w+1] = O_w (odd bits of S_w).
+     * @optimization [OPT-A_12] π applied in place on the state words holding 𝐾 and 𝑁.
      */
-    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
-                            VERUM_ASCON_AEAD128_initialization_vector[0U],
+    uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[0U],
+                            VERUM_ASCON_AEAD128_initialization_vector[1U],
                             key[0U], key[1U], key[2U], key[3U],
                             nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
 
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    VERUM_ASCON_interleave(&state[2U]);
+    VERUM_ASCON_interleave(&state[4U]);
+    VERUM_ASCON_interleave(&state[6U]);
+    VERUM_ASCON_interleave(&state[8U]);
 
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
      * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     * @optimization Selects compact loop call (VERUM_OPTIMIZATION_MEMORY_DEF) or 12 unrolled
-     *               fused inline rounds (p_S + 11x p_merged + p_L).
+     * @optimization [OPT-A_7] Selects compact loop call (VERUM_OPTIMIZATION_MEMORY_DEF) or
+     *               12 unrolled fused inline rounds (p_S + 11x p_merged + p_L).
      */
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
     VERUM_ASCON_permute(state, holder, 0U);
@@ -468,13 +537,21 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief S ← S ⊕ (0^[192] ‖ 𝐾)
+     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief        S ← S ⊕ (0^[192] ‖ π(𝐾))
+     * @optimization [OPT-A_12] holder (dead between permutations) stages π(𝐾); no
+     *               persistent interleaved key copy (no extra SSP to zeroize).
      */
-    state[6U] = state[6U] ^ key[0U];
-    state[7U] = state[7U] ^ key[1U];
-    state[8U] = state[8U] ^ key[2U];
-    state[9U] = state[9U] ^ key[3U];
+    holder[0U] = key[0U];
+    holder[1U] = key[1U];
+    holder[2U] = key[2U];
+    holder[3U] = key[3U];
+    VERUM_ASCON_interleave(&holder[0U]);
+    VERUM_ASCON_interleave(&holder[2U]);
+    state[6U] = state[6U] ^ holder[0U];
+    state[7U] = state[7U] ^ holder[1U];
+    state[8U] = state[8U] ^ holder[2U];
+    state[9U] = state[9U] ^ holder[3U];
 
     uint32_t block_counter = 0U;
     uint32_t last_block_byte_index = 0U;
@@ -492,15 +569,22 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     {
         /**
          * @internal
-         * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-         * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑖
+         * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+         * @brief        S[0∶127] ← S[0∶127] ⊕ π(𝐴𝑖)
+         * @optimization [OPT-A_12] holder stages π(𝐴𝑖); no extra stack.
          */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
-        state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
-        state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
+        holder[0U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
+        holder[1U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
+        holder[2U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
+        holder[3U] = ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
         // cppcheck-suppress-end misra-c2012-11.3
+        VERUM_ASCON_interleave(&holder[0U]);
+        VERUM_ASCON_interleave(&holder[2U]);
+        state[0U] = state[0U] ^ holder[0U];
+        state[1U] = state[1U] ^ holder[1U];
+        state[2U] = state[2U] ^ holder[2U];
+        state[3U] = state[3U] ^ holder[3U];
         associated_data += 16U;
 
         /**
@@ -539,10 +623,13 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief S[0∶127] ← S[0∶127] ⊕ 𝐴𝑚
+     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief        S[0∶127] ← S[0∶127] ⊕ π(𝐴𝑚)
+     * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
      */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U]);
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U]);
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
@@ -572,8 +659,9 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief S ← S ⊕ (0^[319] ‖ 1)
+     * @ref     NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief   S ← S ⊕ (0^[319] ‖ 1)
+     * @details Bit 63 of S4 is odd (2·31 + 1), so it maps to bit 31 of O_4 (state[9U]).
      */
     state[9U] = state[9U] ^ 0x80000000UL;
 
@@ -584,28 +672,35 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         /**
          * @internal
          * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-         * @brief        𝑃𝑖 ← S[0∶127] ⊕ 𝐶𝑖; S[0∶127] ← 𝐶𝑖
+         * @brief        𝑃𝑖 ← π⁻¹(S[0∶127]) ⊕ 𝐶𝑖; S[0∶127] ← π(𝐶𝑖)
          * @feature      In-place decryption preserving 𝐶𝑖 for sponge state replacement.
-         * @optimization Reuses holder[0U] as the single-word swap register across all four
-         *               rate words, avoiding extra stack allocation.
+         * @optimization [OPT-A_12] holder[0U..3U] stages π⁻¹(S[0∶127]) and holder[4U..7U]
+         *               preserves 𝐶𝑖 for π, avoiding extra stack allocation.
          */
+        holder[0U] = state[0U];
+        holder[1U] = state[1U];
+        holder[2U] = state[2U];
+        holder[3U] = state[3U];
+        VERUM_ASCON_deinterleave(&holder[0U]);
+        VERUM_ASCON_deinterleave(&holder[2U]);
+
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
-        state[0U] = holder[0U];
-
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U];
-        state[1U] = holder[0U];
-
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U];
-        state[2U] = holder[0U];
-
-        holder[0U] = ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U];
-        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U];
-        state[3U] = holder[0U];
+        holder[4U] = ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
+        holder[5U] = ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U];
+        holder[6U] = ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U];
+        holder[7U] = ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U] = holder[0U] ^ holder[4U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U] = holder[1U] ^ holder[5U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[2U] = holder[2U] ^ holder[6U];
+        ((uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[3U] = holder[3U] ^ holder[7U];
         // cppcheck-suppress-end misra-c2012-11.3
+
+        VERUM_ASCON_interleave(&holder[4U]);
+        VERUM_ASCON_interleave(&holder[6U]);
+        state[0U] = holder[4U];
+        state[1U] = holder[5U];
+        state[2U] = holder[6U];
+        state[3U] = holder[7U];
 
         ciphertext += 16U;
 
@@ -637,23 +732,31 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief 𝑃𝑛 ← S[0∶ℓ−1] ⊕ ̃𝐶𝑛
+     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief        𝑃𝑛 ← π⁻¹(S[0∶127])[0∶ℓ−1] ⊕ ̃𝐶𝑛
+     * @optimization [OPT-A_12] holder stages π⁻¹(S[0∶127]); no extra stack.
      */
-    const uint8_t * const state_bytes = (const uint8_t *) state;
+    holder[0U] = state[0U];
+    holder[1U] = state[1U];
+    holder[2U] = state[2U];
+    holder[3U] = state[3U];
+    VERUM_ASCON_deinterleave(&holder[0U]);
+    VERUM_ASCON_deinterleave(&holder[2U]);
+    const uint8_t * const holder_bytes = (const uint8_t *) holder;
     while (0U < last_block_byte_index_holder)
     {
         --last_block_byte_index_holder;
-        ciphertext[last_block_byte_index_holder] = state_bytes[last_block_byte_index_holder]^ciphertext[last_block_byte_index_holder];
+        ciphertext[last_block_byte_index_holder] = holder_bytes[last_block_byte_index_holder]^ciphertext[last_block_byte_index_holder];
     }
 
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief        S[0∶127] ← ̃𝐶𝑛 ‖ (S[ℓ∶127] ⊕ (1 ‖ 0^[127−ℓ]))
-     * @optimization Stages the decrypted tail 𝑃𝑛 with the 0x01 padding byte in a
-     *               4-byte-aligned buffer so S ^ pad(𝑃𝑛) = ̃𝐶𝑛 || (S[ℓ:127] ^ (1 || 0))
-     *               is computed in a single word-XOR pass.
+     * @brief        S[0∶127] ← π(̃𝐶𝑛 ‖ (π⁻¹(S)[ℓ∶127] ⊕ (1 ‖ 0^[127−ℓ])))
+     * @optimization [OPT-A_13] Stages the decrypted tail 𝑃𝑛 with the 0x01 padding byte in a
+     *               4-byte-aligned buffer so S ⊕ π(pad(𝑃𝑛)) yields the result in a single
+     *               word-XOR pass (π is ⊕-linear).
+     *               [OPT-A_12] π applied in place on the aligned staging buffer.
      */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_ciphertext[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
@@ -665,6 +768,8 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         last_block_ciphertext[last_block_byte_index] = ciphertext[last_block_byte_index];
     }
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U]);
+    VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U]);
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U];
@@ -673,13 +778,20 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief S ← S ⊕ (0^[128] ∥ 𝐾 ∥ 0^[64])
+     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief        S ← S ⊕ (0^[128] ∥ π(𝐾) ∥ 0^[64])
+     * @optimization [OPT-A_12] holder stages π(𝐾); no persistent interleaved key copy.
      */
-    state[4U] = state[4U] ^ key[0U];
-    state[5U] = state[5U] ^ key[1U];
-    state[6U] = state[6U] ^ key[2U];
-    state[7U] = state[7U] ^ key[3U];
+    holder[0U] = key[0U];
+    holder[1U] = key[1U];
+    holder[2U] = key[2U];
+    holder[3U] = key[3U];
+    VERUM_ASCON_interleave(&holder[0U]);
+    VERUM_ASCON_interleave(&holder[2U]);
+    state[4U] = state[4U] ^ holder[0U];
+    state[5U] = state[5U] ^ holder[1U];
+    state[6U] = state[6U] ^ holder[2U];
+    state[7U] = state[7U] ^ holder[3U];
 
     /**
      * @internal
@@ -706,13 +818,20 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 
     /**
      * @internal
-     * @ref   NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
-     * @brief 𝑇 ← S[192∶319] ⊕ 𝐾
+     * @ref          NIST SP 800-232 Section 4.1.2 Algorithm 4 Ascon-AEAD128.dec(𝐾,𝑁,𝐴,C,T)
+     * @brief        𝑇 ← π⁻¹(S[192∶319]) ⊕ 𝐾
+     * @optimization [OPT-A_12] π⁻¹ applied in place on the tag words; no staging copy.
      */
-    authentication_tag[0U] = state[6U]^key[0U];
-    authentication_tag[1U] = state[7U]^key[1U];
-    authentication_tag[2U] = state[8U]^key[2U];
-    authentication_tag[3U] = state[9U]^key[3U];
+    authentication_tag[0U] = state[6U];
+    authentication_tag[1U] = state[7U];
+    authentication_tag[2U] = state[8U];
+    authentication_tag[3U] = state[9U];
+    VERUM_ASCON_deinterleave(&authentication_tag[0U]);
+    VERUM_ASCON_deinterleave(&authentication_tag[2U]);
+    authentication_tag[0U] = authentication_tag[0U] ^ key[0U];
+    authentication_tag[1U] = authentication_tag[1U] ^ key[1U];
+    authentication_tag[2U] = authentication_tag[2U] ^ key[2U];
+    authentication_tag[3U] = authentication_tag[3U] ^ key[3U];
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
     /**
