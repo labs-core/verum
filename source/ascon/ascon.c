@@ -133,8 +133,8 @@ void VERUM_ASCON_deinterleave(uint32_t word[2U])
 VERUM_ATTR_INLINE static inline
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
-                                                   uint32_t holder[10U],
-                                                   const uint8_t round_constant[2U])
+                                            uint32_t holder[10U],
+                                            const uint8_t round_constant[2U])
 {
     state[0U] = state[0U] ^ state[8U];
     state[1U] = state[1U] ^ state[9U];
@@ -166,8 +166,8 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
 VERUM_ATTR_INLINE static inline
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
-                                                   uint32_t holder[10U],
-                                                   const uint32_t round_constant)
+                                            uint32_t holder[10U],
+                                            const uint32_t round_constant)
 {
     state[0U] = state[0U] ^ state[8U];
     state[1U] = state[1U] ^ state[9U];
@@ -212,7 +212,7 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
 VERUM_ATTR_INLINE static inline
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
-                                                       const uint32_t holder[10U])
+                                                const uint32_t holder[10U])
 {
     state[0U] = holder[0U] ^ ((holder[1U] >>  9U) | (holder[1U] << 23U)) ^ ((holder[0U] >> 14U) | (holder[0U] << 18U));
     state[1U] = holder[1U] ^ ((holder[0U] >> 10U) | (holder[0U] << 22U)) ^ ((holder[1U] >> 14U) | (holder[1U] << 18U));
@@ -234,7 +234,7 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
 VERUM_ATTR_INLINE static inline
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
-                                                       const uint32_t holder[10U])
+                                                const uint32_t holder[10U])
 {
     state[0U] = holder[0U] ^ ((holder[0U] >> 19U) | (holder[1U] << 13U)) ^ ((holder[0U] >> 28U) | (holder[1U] << 4U));
     state[1U] = holder[1U] ^ ((holder[1U] >> 19U) | (holder[0U] << 13U)) ^ ((holder[1U] >> 28U) | (holder[0U] << 4U));
@@ -272,8 +272,8 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
 VERUM_ATTR_INLINE static inline
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
-                                       uint32_t holder[10U],
-                                       const uint8_t round_constant[2U])
+                                uint32_t holder[10U],
+                                const uint8_t round_constant[2U])
 {
     state[8U] = holder[8U] ^ ((holder[9U] >>  3U) | (holder[9U] << 29U)) ^ ((holder[9U] >> 20U) | (holder[9U] << 12U));
     state[9U] = holder[9U] ^ ((holder[8U] >>  4U) | (holder[8U] << 28U)) ^ ((holder[8U] >> 21U) | (holder[8U] << 11U));
@@ -314,8 +314,8 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
 VERUM_ATTR_INLINE static inline
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
-                                       uint32_t holder[10U],
-                                       const uint32_t round_constant)
+                                uint32_t holder[10U],
+                                const uint32_t round_constant)
 {
     state[8U] = holder[8U] ^ ((holder[8U] >>  7U) | (holder[9U] << 25U)) ^ ((holder[8U] << 23U) | (holder[9U] >> 9U));
     state[9U] = holder[9U] ^ ((holder[9U] >>  7U) | (holder[8U] << 25U)) ^ ((holder[9U] << 23U) | (holder[8U] >> 9U));

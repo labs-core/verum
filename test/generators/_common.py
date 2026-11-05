@@ -8,10 +8,12 @@ _KAT_DIR        = _GENERATORS_DIR / 'kat'
 KAT_AEAD = _KAT_DIR / 'LWC_AEAD_KAT_128_128.json'
 KAT_HASH = _KAT_DIR / 'LWC_HASH_KAT_256.json'
 KAT_XOF  = _KAT_DIR / 'LWC_XOF_KAT.json'
+KAT_CXOF = _KAT_DIR / 'LWC_CXOF_KAT.json'
 
 OUT_AEAD = _SUITE_DIR / 'ascon' / 'aead.c'
 OUT_HASH = _SUITE_DIR / 'ascon' / 'hash.c'
 OUT_XOF  = _SUITE_DIR / 'ascon' / 'xof.c'
+OUT_CXOF = _SUITE_DIR / 'ascon' / 'cxof.c'
 
 _ONES = [
     '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight',

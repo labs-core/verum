@@ -16,6 +16,7 @@ FAMILIES: dict[str, list[tuple[str, str, str, str]]] = {
         ('aead', 'ascon.aead', 'ASCON AEAD-128',  'run_aead_tests'),
         ('hash', 'ascon.hash', 'ASCON Hash-256',  'run_hash256_tests'),
         ('xof',  'ascon.xof',  'ASCON XOF-128',   'run_xof128_tests'),
+        ('cxof', 'ascon.cxof', 'ASCON CXOF-128',  'run_cxof128_tests'),
     ],
 }
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import json
+import struct
 import sys
 from pathlib import Path
 
@@ -40,6 +41,23 @@ _ENCRYPT_INDENT = ' ' * len('    VERUM_ASCON_AEAD128_encrypt(')
 _DECRYPT_INDENT = ' ' * len('    VERUM_ASCON_AEAD128_decrypt(')
 
 
+def interleave_word_pair(w0: int, w1: int) -> tuple[int, int]:
+    v = (w1 << 32) | w0
+    e = 0
+    o = 0
+    for i in range(32):
+        e |= ((v >> (2 * i)) & 1) << i
+        o |= ((v >> (2 * i + 1)) & 1) << i
+    return e, o
+
+
+def preinterleave_128(raw_bytes: bytes) -> tuple[int, int, int, int]:
+    w0, w1, w2, w3 = struct.unpack('<IIII', raw_bytes)
+    e0, o0 = interleave_word_pair(w0, w1)
+    e1, o1 = interleave_word_pair(w2, w3)
+    return e0, o0, e1, o1
+
+
 def _func_name(pt_len: int, ad_len: int) -> str:
     pt_desc = 'empty' if pt_len == 0 else f'{num_to_words(pt_len)}_byte'
     ad_desc = 'empty' if ad_len == 0 else f'{num_to_words(ad_len)}_byte'
@@ -60,8 +78,13 @@ def _call_lines(fn: str, indent: str,
                 has_ad: bool, ad_len: int) -> list[str]:
     pfx = f'    VERUM_ASCON_AEAD128_{fn}('
     lines = [
+        '#ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF',
+        f'{pfx}key,',
+        f'{indent}nonce,',
+        '#else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */',
         f'{pfx}(const uint32_t *) key,',
         f'{indent}(const uint32_t *) nonce,',
+        '#endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */',
         f'{indent}{data_var},',
         f'{indent}{data_len_str},',
     ]
@@ -96,11 +119,19 @@ def _generate_test_function(vec: dict, func_name: str) -> str:
     data_var     = 'plaintext' if has_pt else 'dummy'
     data_len_str = f'{pt_len}U' if has_pt else '0U'
 
+    k_inter = preinterleave_128(key_bytes)
+    n_inter = preinterleave_128(nonce_bytes)
+
     L: list[str] = []
     L.append(f'static void {func_name}(void)')
     L.append('{')
+    L.append('#ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF')
+    L.append(f'    const uint32_t key[4U]   = {{ 0x{k_inter[0]:08X}UL, 0x{k_inter[1]:08X}UL, 0x{k_inter[2]:08X}UL, 0x{k_inter[3]:08X}UL }};')
+    L.append(f'    const uint32_t nonce[4U] = {{ 0x{n_inter[0]:08X}UL, 0x{n_inter[1]:08X}UL, 0x{n_inter[2]:08X}UL, 0x{n_inter[3]:08X}UL }};')
+    L.append('#else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */')
     L.extend(_c_array('const', 'key',   16, key_bytes))
     L.extend(_c_array('const', 'nonce', 16, nonce_bytes))
+    L.append('#endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */')
 
     if has_ad:
         L.extend(_c_array('const', 'associated_data', ad_len, ad_bytes))
