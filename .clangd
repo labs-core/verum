@@ -1,4 +1,7 @@
 CompileFlags:
-  CompilationDatabase: build
+  CompilationDatabase: .
   Compiler: clang
-  Add: [-I../include]
+  Add:
+    - -Iinclude
+    - -std=c11
+    - -DDEBUG
