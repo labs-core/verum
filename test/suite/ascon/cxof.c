@@ -23,7 +23,7 @@
 
 static void test_VERUM_ASCON_CXOF128_empty_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=0  Dlen=32  M=(empty)  Z=(empty) */
         0x4FU, 0x50U, 0x15U, 0x9EU, 0xF7U, 0x0BU, 0xB3U, 0xDAU,
@@ -39,8 +39,8 @@ static void test_VERUM_ASCON_CXOF128_empty_message_empty_custom_thirtytwo_byte_o
 
 static void test_VERUM_ASCON_CXOF128_empty_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=1  Dlen=32  M=(empty)  Z=00 */
         0x6AU, 0x6FU, 0xDAU, 0xBDU, 0x0AU, 0xCDU, 0x0BU, 0x7FU,
@@ -56,10 +56,10 @@ static void test_VERUM_ASCON_CXOF128_empty_message_one_byte_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=2  Dlen=32  M=(empty)  Z=0001 */
         0x6EU, 0x79U, 0x26U, 0xDBU, 0x9AU, 0xB6U, 0x31U, 0x3EU,
@@ -75,10 +75,10 @@ static void test_VERUM_ASCON_CXOF128_empty_message_two_byte_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=3  Dlen=32  M=(empty)  Z=000102 */
         0x28U, 0x76U, 0x42U, 0x3AU, 0x7DU, 0x35U, 0x09U, 0xD7U,
@@ -94,10 +94,10 @@ static void test_VERUM_ASCON_CXOF128_empty_message_three_byte_custom_thirtytwo_b
 
 static void test_VERUM_ASCON_CXOF128_empty_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=4  Dlen=32  M=(empty)  Z=00010203 */
         0x81U, 0x27U, 0x41U, 0xD8U, 0x0FU, 0x89U, 0x9BU, 0xF7U,
@@ -113,10 +113,10 @@ static void test_VERUM_ASCON_CXOF128_empty_message_four_byte_custom_thirtytwo_by
 
 static void test_VERUM_ASCON_CXOF128_empty_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=5  Dlen=32  M=(empty)  Z=0001020304 */
         0x41U, 0xDEU, 0x30U, 0xCAU, 0xB9U, 0x72U, 0x28U, 0x79U,
@@ -132,10 +132,10 @@ static void test_VERUM_ASCON_CXOF128_empty_message_five_byte_custom_thirtytwo_by
 
 static void test_VERUM_ASCON_CXOF128_empty_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=6  Dlen=32  M=(empty)  Z=000102030405 */
         0x5EU, 0x85U, 0x71U, 0x85U, 0xF7U, 0x75U, 0x9CU, 0x2AU,
@@ -151,10 +151,10 @@ static void test_VERUM_ASCON_CXOF128_empty_message_six_byte_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=7  Dlen=32  M=(empty)  Z=00010203040506 */
         0x44U, 0xDCU, 0x53U, 0xBCU, 0x6FU, 0x7DU, 0x80U, 0x48U,
@@ -170,10 +170,10 @@ static void test_VERUM_ASCON_CXOF128_empty_message_seven_byte_custom_thirtytwo_b
 
 static void test_VERUM_ASCON_CXOF128_empty_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=8  Dlen=32  M=(empty)  Z=0001020304050607 */
         0x18U, 0xA2U, 0xBDU, 0x44U, 0x77U, 0xB9U, 0xCDU, 0xE1U,
@@ -189,11 +189,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_eight_byte_custom_thirtytwo_b
 
 static void test_VERUM_ASCON_CXOF128_empty_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=9  Dlen=32  M=(empty)  Z=000102030405060708 */
         0xBEU, 0x9CU, 0x65U, 0xCDU, 0xC7U, 0xC2U, 0xB1U, 0xC7U,
@@ -209,11 +209,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_nine_byte_custom_thirtytwo_by
 
 static void test_VERUM_ASCON_CXOF128_empty_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=10  Dlen=32  M=(empty)  Z=00010203040506070809 */
         0xA4U, 0x78U, 0xADU, 0x60U, 0x39U, 0xC2U, 0x72U, 0xBBU,
@@ -229,11 +229,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_ten_byte_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=11  Dlen=32  M=(empty)  Z=000102...090A */
         0x69U, 0xA5U, 0x16U, 0xDDU, 0x74U, 0x9EU, 0x4BU, 0x37U,
@@ -249,11 +249,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_eleven_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=12  Dlen=32  M=(empty)  Z=000102...0A0B */
         0xBBU, 0xB1U, 0xF3U, 0xE1U, 0x93U, 0xDBU, 0xF8U, 0x55U,
@@ -269,11 +269,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twelve_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_empty_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=13  Dlen=32  M=(empty)  Z=000102...0B0C */
         0xD5U, 0x0FU, 0x68U, 0x7CU, 0xEEU, 0x12U, 0xE3U, 0x3FU,
@@ -289,11 +289,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_thirteen_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_empty_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=14  Dlen=32  M=(empty)  Z=000102...0C0D */
         0x5AU, 0x0FU, 0xF5U, 0x0DU, 0x66U, 0xF5U, 0x02U, 0x66U,
@@ -309,11 +309,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_fourteen_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_empty_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=15  Dlen=32  M=(empty)  Z=000102...0D0E */
         0x52U, 0x88U, 0x7CU, 0x07U, 0x3AU, 0x80U, 0x4DU, 0x1DU,
@@ -329,11 +329,11 @@ static void test_VERUM_ASCON_CXOF128_empty_message_fifteen_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_empty_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=16  Dlen=32  M=(empty)  Z=000102...0E0F */
         0xCBU, 0x0EU, 0x21U, 0x97U, 0x6AU, 0xE9U, 0xDDU, 0x62U,
@@ -349,12 +349,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_sixteen_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_empty_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=17  Dlen=32  M=(empty)  Z=000102...0F10 */
         0x87U, 0x46U, 0x52U, 0xFCU, 0x44U, 0xEBU, 0x84U, 0x25U,
@@ -370,12 +370,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_seventeen_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=18  Dlen=32  M=(empty)  Z=000102...1011 */
         0x8AU, 0x60U, 0x6CU, 0xA2U, 0xA2U, 0x15U, 0xFFU, 0xDCU,
@@ -391,12 +391,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_eighteen_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_empty_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=19  Dlen=32  M=(empty)  Z=000102...1112 */
         0x6FU, 0x7EU, 0x4DU, 0xC8U, 0x16U, 0x80U, 0xD8U, 0xBCU,
@@ -412,12 +412,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_nineteen_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=20  Dlen=32  M=(empty)  Z=000102...1213 */
         0xB2U, 0xA7U, 0x85U, 0xA9U, 0x84U, 0xB4U, 0x7CU, 0x86U,
@@ -433,12 +433,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twenty_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=21  Dlen=32  M=(empty)  Z=000102...1314 */
         0xEDU, 0x66U, 0x1AU, 0xA9U, 0xF1U, 0x79U, 0x9FU, 0x6FU,
@@ -454,12 +454,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentyone_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=22  Dlen=32  M=(empty)  Z=000102...1415 */
         0x70U, 0xA6U, 0x88U, 0x79U, 0x72U, 0x42U, 0x42U, 0x7CU,
@@ -475,12 +475,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentytwo_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=23  Dlen=32  M=(empty)  Z=000102...1516 */
         0xB0U, 0xCBU, 0x50U, 0x4DU, 0xA7U, 0x1FU, 0x78U, 0xA7U,
@@ -496,12 +496,12 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentythree_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=24  Dlen=32  M=(empty)  Z=000102...1617 */
         0x67U, 0xB9U, 0x82U, 0x20U, 0x0FU, 0x9FU, 0x6AU, 0x27U,
@@ -517,13 +517,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentyfour_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=25  Dlen=32  M=(empty)  Z=000102...1718 */
         0x9CU, 0x83U, 0xDDU, 0xB2U, 0x93U, 0xFBU, 0x04U, 0x6EU,
@@ -539,13 +539,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentyfive_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=26  Dlen=32  M=(empty)  Z=000102...1819 */
         0xB7U, 0x9AU, 0xCCU, 0xE3U, 0xDCU, 0x9FU, 0x9FU, 0x18U,
@@ -561,13 +561,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentysix_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=27  Dlen=32  M=(empty)  Z=000102...191A */
         0x8AU, 0xFDU, 0x8CU, 0x12U, 0x4EU, 0x2CU, 0x58U, 0x3BU,
@@ -583,13 +583,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentyseven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=28  Dlen=32  M=(empty)  Z=000102...1A1B */
         0xC6U, 0x40U, 0x26U, 0x1AU, 0xBDU, 0x17U, 0x79U, 0x63U,
@@ -605,13 +605,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentyeight_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=29  Dlen=32  M=(empty)  Z=000102...1B1C */
         0xDBU, 0xB4U, 0x2DU, 0xAFU, 0x9CU, 0xEFU, 0x90U, 0x23U,
@@ -627,13 +627,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_twentynine_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_empty_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=30  Dlen=32  M=(empty)  Z=000102...1C1D */
         0x56U, 0xC9U, 0xEEU, 0x53U, 0xE8U, 0xE0U, 0xDAU, 0x31U,
@@ -649,13 +649,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_thirty_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_empty_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=31  Dlen=32  M=(empty)  Z=000102...1D1E */
         0x47U, 0x98U, 0x50U, 0x58U, 0x75U, 0x2EU, 0x70U, 0x39U,
@@ -671,13 +671,13 @@ static void test_VERUM_ASCON_CXOF128_empty_message_thirtyone_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_empty_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=0  Zlen=32  Dlen=32  M=(empty)  Z=000102...1E1F */
         0x01U, 0x42U, 0xCBU, 0xB1U, 0xD8U, 0x81U, 0x67U, 0x8BU,
@@ -693,8 +693,8 @@ static void test_VERUM_ASCON_CXOF128_empty_message_thirtytwo_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t message[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=0  Dlen=32  M=00  Z=(empty) */
         0x7FU, 0x0CU, 0x0DU, 0xDDU, 0x4BU, 0xC9U, 0x60U, 0x3DU,
@@ -710,9 +710,9 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_empty_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=1  Dlen=32  M=00  Z=00 */
         0xFBU, 0xABU, 0x1CU, 0x47U, 0x77U, 0x98U, 0xDFU, 0x70U,
@@ -728,11 +728,11 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_one_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[2U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=2  Dlen=32  M=00  Z=0001 */
         0xA2U, 0xD8U, 0x1BU, 0x26U, 0x45U, 0x73U, 0x32U, 0x71U,
@@ -748,11 +748,11 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_two_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[3U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=3  Dlen=32  M=00  Z=000102 */
         0xB6U, 0x1DU, 0x86U, 0x6DU, 0x2BU, 0x31U, 0x64U, 0x86U,
@@ -768,11 +768,11 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_three_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[4U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=4  Dlen=32  M=00  Z=00010203 */
         0x84U, 0x57U, 0xEAU, 0x27U, 0x2EU, 0x01U, 0x31U, 0xACU,
@@ -788,11 +788,11 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_four_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[5U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=5  Dlen=32  M=00  Z=0001020304 */
         0xE5U, 0x76U, 0xDCU, 0xE1U, 0xCDU, 0x6FU, 0xE1U, 0xCAU,
@@ -808,11 +808,11 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_five_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[6U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=6  Dlen=32  M=00  Z=000102030405 */
         0x3AU, 0x45U, 0xD3U, 0xA0U, 0x89U, 0x5EU, 0xD8U, 0x77U,
@@ -828,11 +828,11 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_six_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[7U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=7  Dlen=32  M=00  Z=00010203040506 */
         0x22U, 0x37U, 0x03U, 0x01U, 0xDBU, 0x23U, 0x56U, 0x0EU,
@@ -848,11 +848,11 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_seven_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[8U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=8  Dlen=32  M=00  Z=0001020304050607 */
         0x0CU, 0x76U, 0xBDU, 0xD4U, 0xF3U, 0x7BU, 0x37U, 0x97U,
@@ -868,12 +868,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_eight_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[9U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=9  Dlen=32  M=00  Z=000102030405060708 */
         0x06U, 0x66U, 0x83U, 0x48U, 0x40U, 0x10U, 0xA7U, 0x95U,
@@ -889,12 +889,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_nine_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[10U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=10  Dlen=32  M=00  Z=00010203040506070809 */
         0xAFU, 0xE2U, 0xC3U, 0x43U, 0xE2U, 0x22U, 0x57U, 0xFFU,
@@ -910,12 +910,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_ten_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[11U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=11  Dlen=32  M=00  Z=000102...090A */
         0x64U, 0xD5U, 0xAFU, 0x23U, 0xB8U, 0x28U, 0xBAU, 0xBCU,
@@ -931,12 +931,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_eleven_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[12U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=12  Dlen=32  M=00  Z=000102...0A0B */
         0x57U, 0x10U, 0x4BU, 0x81U, 0xC8U, 0x30U, 0x9EU, 0xEEU,
@@ -952,12 +952,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twelve_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[13U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=13  Dlen=32  M=00  Z=000102...0B0C */
         0x8EU, 0x64U, 0x9FU, 0x9CU, 0x12U, 0x37U, 0x60U, 0x29U,
@@ -973,12 +973,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_thirteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[14U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=14  Dlen=32  M=00  Z=000102...0C0D */
         0xC1U, 0xA9U, 0xCEU, 0xB7U, 0x07U, 0x25U, 0x65U, 0x70U,
@@ -994,12 +994,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_fourteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[15U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=15  Dlen=32  M=00  Z=000102...0D0E */
         0x49U, 0xB7U, 0x1EU, 0x27U, 0x92U, 0x1CU, 0x0AU, 0x31U,
@@ -1015,12 +1015,12 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_fifteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[16U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=16  Dlen=32  M=00  Z=000102...0E0F */
         0x52U, 0xC1U, 0x2EU, 0x46U, 0x82U, 0x50U, 0x60U, 0x64U,
@@ -1036,13 +1036,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_sixteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[17U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=17  Dlen=32  M=00  Z=000102...0F10 */
         0x27U, 0x47U, 0xF0U, 0x35U, 0xC0U, 0xBFU, 0xD3U, 0x9EU,
@@ -1058,13 +1058,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_seventeen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[18U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=18  Dlen=32  M=00  Z=000102...1011 */
         0x78U, 0xB8U, 0x30U, 0x36U, 0x22U, 0xA9U, 0x37U, 0x5CU,
@@ -1080,13 +1080,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_eighteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[19U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=19  Dlen=32  M=00  Z=000102...1112 */
         0x18U, 0xD2U, 0x91U, 0xFFU, 0xC7U, 0x22U, 0xFBU, 0x46U,
@@ -1102,13 +1102,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_nineteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[20U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=20  Dlen=32  M=00  Z=000102...1213 */
         0x2AU, 0x2DU, 0xD8U, 0xB3U, 0xCEU, 0x18U, 0xBCU, 0x0CU,
@@ -1124,13 +1124,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twenty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[21U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=21  Dlen=32  M=00  Z=000102...1314 */
         0x44U, 0xC7U, 0xF7U, 0x00U, 0x1FU, 0xDBU, 0xAFU, 0x7EU,
@@ -1146,13 +1146,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[22U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=22  Dlen=32  M=00  Z=000102...1415 */
         0xE7U, 0x4DU, 0x96U, 0xF0U, 0x0BU, 0x55U, 0xD2U, 0xA6U,
@@ -1168,13 +1168,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[23U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=23  Dlen=32  M=00  Z=000102...1516 */
         0x89U, 0x1AU, 0x47U, 0xADU, 0x58U, 0x28U, 0xFEU, 0x06U,
@@ -1190,13 +1190,13 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentythree_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[24U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=24  Dlen=32  M=00  Z=000102...1617 */
         0x4DU, 0x74U, 0x8AU, 0xACU, 0x2CU, 0x2FU, 0xFAU, 0x6DU,
@@ -1212,14 +1212,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyfour_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[25U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=25  Dlen=32  M=00  Z=000102...1718 */
         0x5FU, 0x7BU, 0xBEU, 0x80U, 0x47U, 0x03U, 0x16U, 0xC1U,
@@ -1235,14 +1235,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyfive_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[26U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=26  Dlen=32  M=00  Z=000102...1819 */
         0x34U, 0xF9U, 0xC8U, 0xF7U, 0xCCU, 0x27U, 0x74U, 0x04U,
@@ -1258,14 +1258,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentysix_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[27U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=27  Dlen=32  M=00  Z=000102...191A */
         0x76U, 0x77U, 0x0DU, 0xECU, 0xB7U, 0xF4U, 0xFDU, 0x7CU,
@@ -1281,14 +1281,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyseven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[28U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=28  Dlen=32  M=00  Z=000102...1A1B */
         0x12U, 0x87U, 0x58U, 0x70U, 0x8CU, 0xDAU, 0xAFU, 0x96U,
@@ -1304,14 +1304,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentyeight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[29U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=29  Dlen=32  M=00  Z=000102...1B1C */
         0x73U, 0xE9U, 0x76U, 0xFEU, 0xA8U, 0x52U, 0x12U, 0x55U,
@@ -1327,14 +1327,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_twentynine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[30U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=30  Dlen=32  M=00  Z=000102...1C1D */
         0xBAU, 0x50U, 0xEBU, 0xC0U, 0x80U, 0x8EU, 0x5FU, 0x36U,
@@ -1350,14 +1350,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_thirty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[31U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=31  Dlen=32  M=00  Z=000102...1D1E */
         0x5FU, 0x81U, 0x1CU, 0x5FU, 0x5CU, 0x08U, 0xF2U, 0xD6U,
@@ -1373,14 +1373,14 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_thirtyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_one_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[1U]   = { 0x00U };
-    uint8_t  customization[32U] = {
+    uint8_t message[1U] = { 0x00U };
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=1  Zlen=32  Dlen=32  M=00  Z=000102...1E1F */
         0xB1U, 0x2DU, 0x20U, 0x38U, 0xE4U, 0x1FU, 0x81U, 0x56U,
@@ -1396,10 +1396,10 @@ static void test_VERUM_ASCON_CXOF128_one_byte_message_thirtytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=0  Dlen=32  M=0001  Z=(empty) */
         0x7BU, 0x4CU, 0xB4U, 0xBAU, 0x9CU, 0x09U, 0x35U, 0x5DU,
@@ -1415,11 +1415,11 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_empty_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=1  Dlen=32  M=0001  Z=00 */
         0x1DU, 0x53U, 0x97U, 0x3FU, 0x73U, 0x18U, 0xA3U, 0xC3U,
@@ -1435,13 +1435,13 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_one_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=2  Dlen=32  M=0001  Z=0001 */
         0xF2U, 0x14U, 0x2BU, 0x25U, 0x02U, 0x01U, 0x4FU, 0x30U,
@@ -1457,13 +1457,13 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_two_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=3  Dlen=32  M=0001  Z=000102 */
         0x50U, 0xD4U, 0xF4U, 0xB9U, 0x4FU, 0x4FU, 0x2AU, 0x07U,
@@ -1479,13 +1479,13 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_three_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=4  Dlen=32  M=0001  Z=00010203 */
         0x1CU, 0x12U, 0x7DU, 0xDDU, 0x30U, 0x45U, 0x81U, 0xBDU,
@@ -1501,13 +1501,13 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_four_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=5  Dlen=32  M=0001  Z=0001020304 */
         0xF0U, 0x29U, 0x18U, 0xD5U, 0xA0U, 0x79U, 0xE7U, 0xEEU,
@@ -1523,13 +1523,13 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_five_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=6  Dlen=32  M=0001  Z=000102030405 */
         0x04U, 0xD9U, 0xC1U, 0x49U, 0xE5U, 0xA0U, 0x8CU, 0x16U,
@@ -1545,13 +1545,13 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_six_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=7  Dlen=32  M=0001  Z=00010203040506 */
         0x93U, 0x52U, 0xB6U, 0x8AU, 0xDDU, 0x2CU, 0x3AU, 0x1EU,
@@ -1567,13 +1567,13 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_seven_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=8  Dlen=32  M=0001  Z=0001020304050607 */
         0xE8U, 0x26U, 0x9DU, 0x83U, 0x5BU, 0x9AU, 0x06U, 0xF0U,
@@ -1589,14 +1589,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_eight_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=9  Dlen=32  M=0001  Z=000102030405060708 */
         0xD4U, 0x14U, 0x8CU, 0x7BU, 0x64U, 0xA9U, 0xA5U, 0xE5U,
@@ -1612,14 +1612,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_nine_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=10  Dlen=32  M=0001  Z=00010203040506070809 */
         0x48U, 0x30U, 0x01U, 0x38U, 0xACU, 0x9EU, 0x42U, 0x32U,
@@ -1635,14 +1635,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_ten_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=11  Dlen=32  M=0001  Z=000102...090A */
         0xD2U, 0x30U, 0x05U, 0xDEU, 0x08U, 0xB4U, 0x63U, 0xD6U,
@@ -1658,14 +1658,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_eleven_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=12  Dlen=32  M=0001  Z=000102...0A0B */
         0xC9U, 0x95U, 0xFBU, 0x9CU, 0x6CU, 0xB2U, 0x48U, 0x77U,
@@ -1681,14 +1681,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twelve_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=13  Dlen=32  M=0001  Z=000102...0B0C */
         0x50U, 0xE8U, 0xDFU, 0x3EU, 0x87U, 0x96U, 0xD9U, 0x63U,
@@ -1704,14 +1704,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_thirteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=14  Dlen=32  M=0001  Z=000102...0C0D */
         0x4FU, 0x43U, 0xC7U, 0x83U, 0x99U, 0xDCU, 0x5CU, 0x3EU,
@@ -1727,14 +1727,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_fourteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=15  Dlen=32  M=0001  Z=000102...0D0E */
         0xB3U, 0x65U, 0xA2U, 0xEBU, 0xEEU, 0x0FU, 0xC4U, 0xF5U,
@@ -1750,14 +1750,14 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_fifteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=16  Dlen=32  M=0001  Z=000102...0E0F */
         0x91U, 0x48U, 0x76U, 0x05U, 0x9AU, 0xAFU, 0xF3U, 0x4CU,
@@ -1773,15 +1773,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_sixteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=17  Dlen=32  M=0001  Z=000102...0F10 */
         0x25U, 0x2FU, 0x67U, 0x2BU, 0x81U, 0xACU, 0xCBU, 0xF9U,
@@ -1797,15 +1797,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_seventeen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=18  Dlen=32  M=0001  Z=000102...1011 */
         0x3DU, 0x64U, 0x3AU, 0x1CU, 0xB2U, 0x35U, 0x06U, 0xC3U,
@@ -1821,15 +1821,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_eighteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=19  Dlen=32  M=0001  Z=000102...1112 */
         0x7DU, 0xCCU, 0x23U, 0xACU, 0x0BU, 0x2DU, 0xF8U, 0x0FU,
@@ -1845,15 +1845,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_nineteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=20  Dlen=32  M=0001  Z=000102...1213 */
         0x82U, 0xA9U, 0x5DU, 0x3BU, 0x97U, 0xDEU, 0xD1U, 0x54U,
@@ -1869,15 +1869,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twenty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=21  Dlen=32  M=0001  Z=000102...1314 */
         0x7CU, 0x8BU, 0x95U, 0x11U, 0x7EU, 0xCAU, 0x3FU, 0x60U,
@@ -1893,15 +1893,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=22  Dlen=32  M=0001  Z=000102...1415 */
         0x04U, 0x5CU, 0xB8U, 0x15U, 0x14U, 0x3FU, 0x90U, 0xFFU,
@@ -1917,15 +1917,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=23  Dlen=32  M=0001  Z=000102...1516 */
         0x9FU, 0x51U, 0x76U, 0x39U, 0xC9U, 0x6EU, 0x85U, 0xF9U,
@@ -1941,15 +1941,15 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentythree_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=24  Dlen=32  M=0001  Z=000102...1617 */
         0x85U, 0xC2U, 0x4CU, 0xD2U, 0x30U, 0xD6U, 0x89U, 0xE9U,
@@ -1965,16 +1965,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyfour_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=25  Dlen=32  M=0001  Z=000102...1718 */
         0x81U, 0x27U, 0x2EU, 0x13U, 0x5BU, 0x63U, 0xEBU, 0xECU,
@@ -1990,16 +1990,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyfive_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=26  Dlen=32  M=0001  Z=000102...1819 */
         0x65U, 0xB8U, 0x57U, 0x7AU, 0x79U, 0xDAU, 0xA3U, 0xB4U,
@@ -2015,16 +2015,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentysix_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=27  Dlen=32  M=0001  Z=000102...191A */
         0x78U, 0x7EU, 0x97U, 0xAAU, 0x15U, 0x21U, 0x99U, 0x14U,
@@ -2040,16 +2040,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyseven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=28  Dlen=32  M=0001  Z=000102...1A1B */
         0x99U, 0x45U, 0x02U, 0xFCU, 0x73U, 0x76U, 0x3FU, 0xEEU,
@@ -2065,16 +2065,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentyeight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=29  Dlen=32  M=0001  Z=000102...1B1C */
         0xA1U, 0x85U, 0x73U, 0xD8U, 0xABU, 0x05U, 0x3FU, 0xBAU,
@@ -2090,16 +2090,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_twentynine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=30  Dlen=32  M=0001  Z=000102...1C1D */
         0x62U, 0xD4U, 0x14U, 0x84U, 0xBDU, 0x04U, 0x9DU, 0xF3U,
@@ -2115,16 +2115,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_thirty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=31  Dlen=32  M=0001  Z=000102...1D1E */
         0x02U, 0x6FU, 0x38U, 0x0AU, 0x35U, 0xCAU, 0xCEU, 0x9DU,
@@ -2140,16 +2140,16 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_thirtyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_two_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[2U] = {
+    uint8_t message[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=2  Zlen=32  Dlen=32  M=0001  Z=000102...1E1F */
         0xE5U, 0x01U, 0xC1U, 0xCCU, 0x12U, 0xF6U, 0x8AU, 0x57U,
@@ -2165,10 +2165,10 @@ static void test_VERUM_ASCON_CXOF128_two_byte_message_thirtytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=0  Dlen=32  M=000102  Z=(empty) */
         0x10U, 0x93U, 0xDAU, 0x88U, 0xC3U, 0x18U, 0xF6U, 0xD9U,
@@ -2184,11 +2184,11 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_empty_custom_thirtytwo_b
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=1  Dlen=32  M=000102  Z=00 */
         0x08U, 0x59U, 0x5DU, 0x9BU, 0x5FU, 0x7DU, 0xB1U, 0x54U,
@@ -2204,13 +2204,13 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_one_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=2  Dlen=32  M=000102  Z=0001 */
         0xF7U, 0x61U, 0x14U, 0xBAU, 0x35U, 0x59U, 0x6FU, 0x76U,
@@ -2226,13 +2226,13 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_two_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=3  Dlen=32  M=000102  Z=000102 */
         0x13U, 0x7CU, 0x89U, 0xAEU, 0xB5U, 0x7EU, 0x33U, 0x81U,
@@ -2248,13 +2248,13 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_three_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=4  Dlen=32  M=000102  Z=00010203 */
         0xE9U, 0x0CU, 0x05U, 0x2EU, 0xA7U, 0x3DU, 0xCBU, 0x4CU,
@@ -2270,13 +2270,13 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_four_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=5  Dlen=32  M=000102  Z=0001020304 */
         0xFEU, 0xD6U, 0xF5U, 0x1FU, 0x0CU, 0xF2U, 0x79U, 0x31U,
@@ -2292,13 +2292,13 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_five_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=6  Dlen=32  M=000102  Z=000102030405 */
         0xA3U, 0xD1U, 0xBDU, 0x13U, 0x03U, 0x44U, 0xB8U, 0xFAU,
@@ -2314,13 +2314,13 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_six_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=7  Dlen=32  M=000102  Z=00010203040506 */
         0xA4U, 0x61U, 0x7DU, 0x47U, 0xFBU, 0x0FU, 0x4AU, 0x53U,
@@ -2336,13 +2336,13 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_seven_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=8  Dlen=32  M=000102  Z=0001020304050607 */
         0x58U, 0x5BU, 0x95U, 0xECU, 0xBAU, 0x03U, 0x89U, 0xC1U,
@@ -2358,14 +2358,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_eight_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=9  Dlen=32  M=000102  Z=000102030405060708 */
         0x5CU, 0x6AU, 0x83U, 0xE9U, 0x5BU, 0x08U, 0xABU, 0x88U,
@@ -2381,14 +2381,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_nine_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=10  Dlen=32  M=000102  Z=00010203040506070809 */
         0xF4U, 0xE4U, 0x27U, 0x29U, 0xC4U, 0xD5U, 0xDFU, 0xACU,
@@ -2404,14 +2404,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_ten_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=11  Dlen=32  M=000102  Z=000102...090A */
         0x41U, 0x57U, 0xE6U, 0x7CU, 0x93U, 0xF6U, 0x71U, 0x01U,
@@ -2427,14 +2427,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_eleven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=12  Dlen=32  M=000102  Z=000102...0A0B */
         0xC2U, 0x9FU, 0xB1U, 0x96U, 0xA0U, 0x8BU, 0x4EU, 0x9AU,
@@ -2450,14 +2450,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twelve_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=13  Dlen=32  M=000102  Z=000102...0B0C */
         0x88U, 0x88U, 0x6DU, 0xB6U, 0x64U, 0x97U, 0xCEU, 0xD0U,
@@ -2473,14 +2473,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_thirteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=14  Dlen=32  M=000102  Z=000102...0C0D */
         0xB0U, 0xABU, 0xDBU, 0xAEU, 0x6BU, 0x54U, 0x18U, 0xF9U,
@@ -2496,14 +2496,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_fourteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=15  Dlen=32  M=000102  Z=000102...0D0E */
         0xF2U, 0x2BU, 0xD7U, 0xE6U, 0xA8U, 0x0DU, 0x65U, 0xFFU,
@@ -2519,14 +2519,14 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_fifteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=16  Dlen=32  M=000102  Z=000102...0E0F */
         0xD6U, 0x23U, 0xF0U, 0x58U, 0x79U, 0xA4U, 0x03U, 0x31U,
@@ -2542,15 +2542,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_sixteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=17  Dlen=32  M=000102  Z=000102...0F10 */
         0xF3U, 0x60U, 0xCAU, 0x11U, 0x05U, 0x73U, 0xA0U, 0x19U,
@@ -2566,15 +2566,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_seventeen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=18  Dlen=32  M=000102  Z=000102...1011 */
         0xC3U, 0x35U, 0xCFU, 0x01U, 0x6FU, 0x44U, 0x5BU, 0x0CU,
@@ -2590,15 +2590,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_eighteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=19  Dlen=32  M=000102  Z=000102...1112 */
         0x2BU, 0x6BU, 0x69U, 0x70U, 0x3DU, 0x4BU, 0xA2U, 0xE0U,
@@ -2614,15 +2614,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_nineteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=20  Dlen=32  M=000102  Z=000102...1213 */
         0x29U, 0x08U, 0x46U, 0xE2U, 0x58U, 0x3DU, 0xEBU, 0xD6U,
@@ -2638,15 +2638,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twenty_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=21  Dlen=32  M=000102  Z=000102...1314 */
         0xF8U, 0x9CU, 0xA7U, 0x55U, 0x69U, 0x19U, 0x6DU, 0xDFU,
@@ -2662,15 +2662,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyone_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=22  Dlen=32  M=000102  Z=000102...1415 */
         0xB9U, 0x18U, 0x20U, 0x63U, 0xFEU, 0xB6U, 0x8DU, 0xE3U,
@@ -2686,15 +2686,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentytwo_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=23  Dlen=32  M=000102  Z=000102...1516 */
         0x9AU, 0xFAU, 0x0AU, 0x53U, 0xE5U, 0x9DU, 0x92U, 0x4CU,
@@ -2710,15 +2710,15 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentythree_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=24  Dlen=32  M=000102  Z=000102...1617 */
         0x72U, 0xE1U, 0x3DU, 0x80U, 0x0DU, 0x71U, 0x1DU, 0xF5U,
@@ -2734,16 +2734,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyfour_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=25  Dlen=32  M=000102  Z=000102...1718 */
         0x38U, 0xB1U, 0x2BU, 0xA0U, 0x47U, 0x84U, 0x58U, 0x18U,
@@ -2759,16 +2759,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyfive_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=26  Dlen=32  M=000102  Z=000102...1819 */
         0x3CU, 0x52U, 0x3CU, 0x0AU, 0x0DU, 0xD3U, 0x60U, 0x32U,
@@ -2784,16 +2784,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentysix_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=27  Dlen=32  M=000102  Z=000102...191A */
         0xABU, 0xC3U, 0xDFU, 0x1AU, 0x7CU, 0x56U, 0x28U, 0x33U,
@@ -2809,16 +2809,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyseven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=28  Dlen=32  M=000102  Z=000102...1A1B */
         0xF0U, 0x38U, 0xEBU, 0xF4U, 0x40U, 0x72U, 0x6DU, 0xA7U,
@@ -2834,16 +2834,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentyeight_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=29  Dlen=32  M=000102  Z=000102...1B1C */
         0xB8U, 0x68U, 0xD0U, 0x6FU, 0x15U, 0x15U, 0xE8U, 0x96U,
@@ -2859,16 +2859,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_twentynine_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=30  Dlen=32  M=000102  Z=000102...1C1D */
         0x29U, 0x52U, 0x95U, 0x88U, 0x24U, 0x76U, 0x37U, 0x0CU,
@@ -2884,16 +2884,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_thirty_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=31  Dlen=32  M=000102  Z=000102...1D1E */
         0x8AU, 0xA5U, 0x89U, 0xF7U, 0x77U, 0x6DU, 0x39U, 0xA5U,
@@ -2909,16 +2909,16 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_thirtyone_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_three_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[3U] = {
+    uint8_t message[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=3  Zlen=32  Dlen=32  M=000102  Z=000102...1E1F */
         0xD2U, 0xDCU, 0x32U, 0x1FU, 0xF8U, 0xE8U, 0xB1U, 0x22U,
@@ -2934,10 +2934,10 @@ static void test_VERUM_ASCON_CXOF128_three_byte_message_thirtytwo_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=0  Dlen=32  M=00010203  Z=(empty) */
         0x7EU, 0xEFU, 0x8FU, 0x62U, 0xDCU, 0xB3U, 0xE9U, 0x6FU,
@@ -2953,11 +2953,11 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_empty_custom_thirtytwo_by
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=1  Dlen=32  M=00010203  Z=00 */
         0x8FU, 0xA0U, 0x3DU, 0x4FU, 0xC3U, 0x23U, 0xF4U, 0x5FU,
@@ -2973,13 +2973,13 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_one_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=2  Dlen=32  M=00010203  Z=0001 */
         0xCBU, 0x1BU, 0x4FU, 0xE4U, 0x62U, 0xF1U, 0x5CU, 0xDDU,
@@ -2995,13 +2995,13 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_two_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=3  Dlen=32  M=00010203  Z=000102 */
         0x93U, 0xACU, 0x7AU, 0xF1U, 0x7AU, 0x6DU, 0x5CU, 0xE5U,
@@ -3017,13 +3017,13 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_three_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=4  Dlen=32  M=00010203  Z=00010203 */
         0x97U, 0xF0U, 0xEAU, 0xCCU, 0x9FU, 0xACU, 0x9BU, 0xBCU,
@@ -3039,13 +3039,13 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_four_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=5  Dlen=32  M=00010203  Z=0001020304 */
         0x34U, 0x9CU, 0x72U, 0x59U, 0x2CU, 0xDFU, 0x61U, 0xCDU,
@@ -3061,13 +3061,13 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_five_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=6  Dlen=32  M=00010203  Z=000102030405 */
         0x08U, 0xD2U, 0xC0U, 0xCDU, 0xB0U, 0x14U, 0x19U, 0x91U,
@@ -3083,13 +3083,13 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_six_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=7  Dlen=32  M=00010203  Z=00010203040506 */
         0x82U, 0x77U, 0x58U, 0x49U, 0x27U, 0x1DU, 0x9BU, 0xE0U,
@@ -3105,13 +3105,13 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_seven_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=8  Dlen=32  M=00010203  Z=0001020304050607 */
         0x75U, 0x31U, 0x43U, 0x79U, 0xF3U, 0x9CU, 0x78U, 0x73U,
@@ -3127,14 +3127,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_eight_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=9  Dlen=32  M=00010203  Z=000102030405060708 */
         0xC9U, 0x62U, 0x98U, 0x42U, 0xE5U, 0xA1U, 0x01U, 0xDAU,
@@ -3150,14 +3150,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_nine_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=10  Dlen=32  M=00010203  Z=00010203040506070809 */
         0x82U, 0x58U, 0x68U, 0x75U, 0xDEU, 0x9EU, 0xFAU, 0xEDU,
@@ -3173,14 +3173,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_ten_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=11  Dlen=32  M=00010203  Z=000102...090A */
         0x58U, 0x14U, 0xE2U, 0xE2U, 0xA4U, 0x8FU, 0x81U, 0xA7U,
@@ -3196,14 +3196,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_eleven_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=12  Dlen=32  M=00010203  Z=000102...0A0B */
         0x11U, 0xFAU, 0xEFU, 0x77U, 0xB5U, 0x1FU, 0x41U, 0x09U,
@@ -3219,14 +3219,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twelve_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=13  Dlen=32  M=00010203  Z=000102...0B0C */
         0x2CU, 0xC4U, 0x66U, 0xDDU, 0x66U, 0x34U, 0x00U, 0x14U,
@@ -3242,14 +3242,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_thirteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=14  Dlen=32  M=00010203  Z=000102...0C0D */
         0x70U, 0x1EU, 0x63U, 0xABU, 0x4BU, 0x15U, 0x12U, 0xE2U,
@@ -3265,14 +3265,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_fourteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=15  Dlen=32  M=00010203  Z=000102...0D0E */
         0x5CU, 0x1DU, 0x8AU, 0xD5U, 0x63U, 0x91U, 0xA7U, 0x99U,
@@ -3288,14 +3288,14 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_fifteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=16  Dlen=32  M=00010203  Z=000102...0E0F */
         0xC6U, 0xF0U, 0xD3U, 0xAFU, 0xEBU, 0x7CU, 0x3FU, 0x64U,
@@ -3311,15 +3311,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_sixteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=17  Dlen=32  M=00010203  Z=000102...0F10 */
         0xF3U, 0x97U, 0x53U, 0x3FU, 0x07U, 0x8CU, 0x7DU, 0xE7U,
@@ -3335,15 +3335,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_seventeen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=18  Dlen=32  M=00010203  Z=000102...1011 */
         0xCCU, 0x56U, 0xC3U, 0xABU, 0x4EU, 0x3CU, 0x9BU, 0x70U,
@@ -3359,15 +3359,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_eighteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=19  Dlen=32  M=00010203  Z=000102...1112 */
         0x48U, 0x34U, 0x25U, 0x0DU, 0xF7U, 0x03U, 0x99U, 0xE5U,
@@ -3383,15 +3383,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_nineteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=20  Dlen=32  M=00010203  Z=000102...1213 */
         0xE5U, 0xA9U, 0x03U, 0x43U, 0x80U, 0x75U, 0x78U, 0x9EU,
@@ -3407,15 +3407,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twenty_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=21  Dlen=32  M=00010203  Z=000102...1314 */
         0xCFU, 0xE1U, 0xBEU, 0x25U, 0x1FU, 0xCAU, 0xA1U, 0x9EU,
@@ -3431,15 +3431,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyone_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=22  Dlen=32  M=00010203  Z=000102...1415 */
         0x10U, 0x29U, 0xAAU, 0xE8U, 0x99U, 0x47U, 0x52U, 0x51U,
@@ -3455,15 +3455,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentytwo_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=23  Dlen=32  M=00010203  Z=000102...1516 */
         0x11U, 0xEFU, 0x46U, 0xF5U, 0x13U, 0x45U, 0x33U, 0x2CU,
@@ -3479,15 +3479,15 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentythree_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=24  Dlen=32  M=00010203  Z=000102...1617 */
         0x35U, 0xEDU, 0xFDU, 0xECU, 0x6DU, 0x65U, 0x54U, 0x1EU,
@@ -3503,16 +3503,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyfour_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=25  Dlen=32  M=00010203  Z=000102...1718 */
         0x2BU, 0x43U, 0xDDU, 0xF0U, 0xB9U, 0xE8U, 0x08U, 0x32U,
@@ -3528,16 +3528,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyfive_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=26  Dlen=32  M=00010203  Z=000102...1819 */
         0x16U, 0x20U, 0xD0U, 0xF9U, 0xB1U, 0x91U, 0x9EU, 0xABU,
@@ -3553,16 +3553,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentysix_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=27  Dlen=32  M=00010203  Z=000102...191A */
         0x5BU, 0xE3U, 0x8FU, 0x8CU, 0x7DU, 0x9EU, 0x0AU, 0xDEU,
@@ -3578,16 +3578,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyseven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=28  Dlen=32  M=00010203  Z=000102...1A1B */
         0xAAU, 0xD4U, 0xD3U, 0xECU, 0x6DU, 0xB0U, 0x45U, 0x1EU,
@@ -3603,16 +3603,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentyeight_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=29  Dlen=32  M=00010203  Z=000102...1B1C */
         0x71U, 0x64U, 0xEFU, 0xEFU, 0x77U, 0xE8U, 0x85U, 0x4EU,
@@ -3628,16 +3628,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_twentynine_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=30  Dlen=32  M=00010203  Z=000102...1C1D */
         0x7AU, 0x66U, 0xD1U, 0xFEU, 0x9EU, 0x80U, 0xFCU, 0xC4U,
@@ -3653,16 +3653,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_thirty_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=31  Dlen=32  M=00010203  Z=000102...1D1E */
         0xC2U, 0x19U, 0xBAU, 0x5AU, 0x6DU, 0xDEU, 0x47U, 0x65U,
@@ -3678,16 +3678,16 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_thirtyone_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_four_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[4U] = {
+    uint8_t message[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=4  Zlen=32  Dlen=32  M=00010203  Z=000102...1E1F */
         0x78U, 0xDBU, 0x8FU, 0x7EU, 0xEBU, 0x12U, 0x4AU, 0xC1U,
@@ -3703,10 +3703,10 @@ static void test_VERUM_ASCON_CXOF128_four_byte_message_thirtytwo_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=0  Dlen=32  M=0001020304  Z=(empty) */
         0x8BU, 0xA7U, 0x29U, 0x8BU, 0xCEU, 0x2DU, 0xD2U, 0xE4U,
@@ -3722,11 +3722,11 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_empty_custom_thirtytwo_by
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=1  Dlen=32  M=0001020304  Z=00 */
         0x86U, 0x59U, 0xF7U, 0x52U, 0x6FU, 0x8DU, 0x67U, 0xCCU,
@@ -3742,13 +3742,13 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_one_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=2  Dlen=32  M=0001020304  Z=0001 */
         0x1DU, 0x9FU, 0xEAU, 0x1BU, 0xC6U, 0x0EU, 0x2DU, 0xEAU,
@@ -3764,13 +3764,13 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_two_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=3  Dlen=32  M=0001020304  Z=000102 */
         0xCAU, 0x48U, 0x51U, 0x7EU, 0x38U, 0xACU, 0xC1U, 0x66U,
@@ -3786,13 +3786,13 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_three_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=4  Dlen=32  M=0001020304  Z=00010203 */
         0xF3U, 0x60U, 0x48U, 0xB3U, 0x4FU, 0x5DU, 0x1FU, 0xE7U,
@@ -3808,13 +3808,13 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_four_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=5  Dlen=32  M=0001020304  Z=0001020304 */
         0x59U, 0xD8U, 0x68U, 0xBFU, 0xC2U, 0xE7U, 0x93U, 0xDDU,
@@ -3830,13 +3830,13 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_five_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=6  Dlen=32  M=0001020304  Z=000102030405 */
         0xC7U, 0xADU, 0xE4U, 0x52U, 0x18U, 0x86U, 0x8CU, 0xBFU,
@@ -3852,13 +3852,13 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_six_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=7  Dlen=32  M=0001020304  Z=00010203040506 */
         0x89U, 0x8CU, 0x39U, 0xDEU, 0x21U, 0xDEU, 0xE1U, 0x79U,
@@ -3874,13 +3874,13 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_seven_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=8  Dlen=32  M=0001020304  Z=0001020304050607 */
         0xF3U, 0x05U, 0x33U, 0x02U, 0xEEU, 0x6EU, 0x73U, 0xF9U,
@@ -3896,14 +3896,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_eight_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=9  Dlen=32  M=0001020304  Z=000102030405060708 */
         0xE0U, 0xEFU, 0x54U, 0x46U, 0x84U, 0xC4U, 0x92U, 0x2CU,
@@ -3919,14 +3919,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_nine_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=10  Dlen=32  M=0001020304  Z=00010203040506070809 */
         0xD1U, 0x9BU, 0xA9U, 0xDFU, 0xEBU, 0x70U, 0xA1U, 0x13U,
@@ -3942,14 +3942,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_ten_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=11  Dlen=32  M=0001020304  Z=000102...090A */
         0x04U, 0xC3U, 0x0CU, 0x51U, 0x4DU, 0xCFU, 0xD0U, 0xD7U,
@@ -3965,14 +3965,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_eleven_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=12  Dlen=32  M=0001020304  Z=000102...0A0B */
         0x05U, 0xFBU, 0x5BU, 0x1AU, 0xBFU, 0xC4U, 0x1AU, 0x29U,
@@ -3988,14 +3988,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twelve_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=13  Dlen=32  M=0001020304  Z=000102...0B0C */
         0x25U, 0x69U, 0x80U, 0xA9U, 0x45U, 0xB1U, 0x6BU, 0xC8U,
@@ -4011,14 +4011,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_thirteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=14  Dlen=32  M=0001020304  Z=000102...0C0D */
         0xA7U, 0x1AU, 0x6BU, 0x10U, 0x57U, 0xACU, 0x1BU, 0x79U,
@@ -4034,14 +4034,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_fourteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=15  Dlen=32  M=0001020304  Z=000102...0D0E */
         0x31U, 0x1AU, 0x9AU, 0xA4U, 0xC2U, 0x6FU, 0x83U, 0xDBU,
@@ -4057,14 +4057,14 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_fifteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=16  Dlen=32  M=0001020304  Z=000102...0E0F */
         0xE5U, 0x1AU, 0xC0U, 0xE9U, 0xCDU, 0x50U, 0x4BU, 0xE5U,
@@ -4080,15 +4080,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_sixteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=17  Dlen=32  M=0001020304  Z=000102...0F10 */
         0x87U, 0x90U, 0x8EU, 0x0CU, 0xE2U, 0x35U, 0x77U, 0x69U,
@@ -4104,15 +4104,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_seventeen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=18  Dlen=32  M=0001020304  Z=000102...1011 */
         0xC0U, 0x80U, 0xD0U, 0xD8U, 0x9CU, 0x88U, 0x6FU, 0xC0U,
@@ -4128,15 +4128,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_eighteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=19  Dlen=32  M=0001020304  Z=000102...1112 */
         0x35U, 0x5FU, 0x2CU, 0x01U, 0xE1U, 0xA8U, 0xDDU, 0x25U,
@@ -4152,15 +4152,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_nineteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=20  Dlen=32  M=0001020304  Z=000102...1213 */
         0x1FU, 0x90U, 0x6CU, 0x64U, 0x26U, 0x36U, 0xB9U, 0xCAU,
@@ -4176,15 +4176,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twenty_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=21  Dlen=32  M=0001020304  Z=000102...1314 */
         0xB9U, 0xDEU, 0x50U, 0xCBU, 0xBDU, 0x7CU, 0x29U, 0xFEU,
@@ -4200,15 +4200,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyone_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=22  Dlen=32  M=0001020304  Z=000102...1415 */
         0xFCU, 0x58U, 0x3CU, 0xF5U, 0x6DU, 0xB2U, 0x8CU, 0x0CU,
@@ -4224,15 +4224,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentytwo_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=23  Dlen=32  M=0001020304  Z=000102...1516 */
         0x2BU, 0x65U, 0xE5U, 0x94U, 0xF9U, 0x76U, 0xF9U, 0x00U,
@@ -4248,15 +4248,15 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentythree_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=24  Dlen=32  M=0001020304  Z=000102...1617 */
         0x71U, 0xF3U, 0x23U, 0xA1U, 0x3EU, 0xB0U, 0x2DU, 0x3BU,
@@ -4272,16 +4272,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyfour_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=25  Dlen=32  M=0001020304  Z=000102...1718 */
         0x98U, 0x1DU, 0x44U, 0x69U, 0x68U, 0xA2U, 0xA8U, 0x9EU,
@@ -4297,16 +4297,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyfive_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=26  Dlen=32  M=0001020304  Z=000102...1819 */
         0x0EU, 0x67U, 0x94U, 0xBDU, 0xB0U, 0xE8U, 0x88U, 0xCCU,
@@ -4322,16 +4322,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentysix_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=27  Dlen=32  M=0001020304  Z=000102...191A */
         0xFCU, 0xF6U, 0x0EU, 0xF9U, 0x54U, 0x54U, 0x5EU, 0xF1U,
@@ -4347,16 +4347,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyseven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=28  Dlen=32  M=0001020304  Z=000102...1A1B */
         0x28U, 0xEDU, 0x19U, 0x35U, 0x18U, 0x5AU, 0x8BU, 0x24U,
@@ -4372,16 +4372,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentyeight_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=29  Dlen=32  M=0001020304  Z=000102...1B1C */
         0x14U, 0x45U, 0x0EU, 0xA1U, 0x69U, 0x06U, 0x6EU, 0x9CU,
@@ -4397,16 +4397,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_twentynine_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=30  Dlen=32  M=0001020304  Z=000102...1C1D */
         0xC5U, 0x1CU, 0xCDU, 0x19U, 0xD4U, 0xDBU, 0x3BU, 0x6AU,
@@ -4422,16 +4422,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_thirty_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=31  Dlen=32  M=0001020304  Z=000102...1D1E */
         0xB6U, 0xB8U, 0x15U, 0x2EU, 0xB4U, 0x46U, 0xEBU, 0x50U,
@@ -4447,16 +4447,16 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_thirtyone_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_five_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[5U] = {
+    uint8_t message[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=5  Zlen=32  Dlen=32  M=0001020304  Z=000102...1E1F */
         0xBEU, 0x09U, 0x5CU, 0x17U, 0x39U, 0xDAU, 0x10U, 0x89U,
@@ -4472,10 +4472,10 @@ static void test_VERUM_ASCON_CXOF128_five_byte_message_thirtytwo_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=0  Dlen=32  M=000102030405  Z=(empty) */
         0xC2U, 0x09U, 0xC1U, 0x85U, 0x6FU, 0x11U, 0x0EU, 0xD7U,
@@ -4491,11 +4491,11 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_empty_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=1  Dlen=32  M=000102030405  Z=00 */
         0x66U, 0x19U, 0x78U, 0x8FU, 0xF2U, 0x71U, 0x66U, 0x8FU,
@@ -4511,13 +4511,13 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_one_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=2  Dlen=32  M=000102030405  Z=0001 */
         0x33U, 0xF9U, 0x59U, 0x92U, 0x63U, 0xB1U, 0x4BU, 0x9AU,
@@ -4533,13 +4533,13 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_two_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=3  Dlen=32  M=000102030405  Z=000102 */
         0x9AU, 0x2CU, 0x2CU, 0xE8U, 0x86U, 0x58U, 0x53U, 0x88U,
@@ -4555,13 +4555,13 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_three_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=4  Dlen=32  M=000102030405  Z=00010203 */
         0x82U, 0xF6U, 0xD9U, 0xC9U, 0x45U, 0xCAU, 0xA4U, 0x15U,
@@ -4577,13 +4577,13 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_four_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=5  Dlen=32  M=000102030405  Z=0001020304 */
         0xBEU, 0x91U, 0xAFU, 0xF0U, 0x1BU, 0x92U, 0xE4U, 0x37U,
@@ -4599,13 +4599,13 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_five_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=6  Dlen=32  M=000102030405  Z=000102030405 */
         0x67U, 0xDDU, 0x9AU, 0xB2U, 0xE9U, 0x15U, 0xA1U, 0x48U,
@@ -4621,13 +4621,13 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_six_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=7  Dlen=32  M=000102030405  Z=00010203040506 */
         0xD8U, 0x60U, 0x2FU, 0x99U, 0x4FU, 0x53U, 0xA2U, 0xF0U,
@@ -4643,13 +4643,13 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_seven_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=8  Dlen=32  M=000102030405  Z=0001020304050607 */
         0x1CU, 0xFFU, 0xA9U, 0xB6U, 0xD4U, 0x8CU, 0xB3U, 0xB2U,
@@ -4665,14 +4665,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_eight_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=9  Dlen=32  M=000102030405  Z=000102030405060708 */
         0xF0U, 0x1DU, 0xF4U, 0x24U, 0x17U, 0x4CU, 0x84U, 0x6CU,
@@ -4688,14 +4688,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_nine_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=10  Dlen=32  M=000102030405  Z=00010203040506070809 */
         0x13U, 0x2DU, 0xA6U, 0x83U, 0xD8U, 0xA9U, 0x09U, 0xE9U,
@@ -4711,14 +4711,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_ten_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=11  Dlen=32  M=000102030405  Z=000102...090A */
         0xAFU, 0x8CU, 0x4AU, 0xA5U, 0x96U, 0x83U, 0x8EU, 0xF7U,
@@ -4734,14 +4734,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_eleven_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=12  Dlen=32  M=000102030405  Z=000102...0A0B */
         0x89U, 0x2EU, 0x75U, 0xCFU, 0x78U, 0xA2U, 0x5DU, 0xE8U,
@@ -4757,14 +4757,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twelve_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=13  Dlen=32  M=000102030405  Z=000102...0B0C */
         0x96U, 0x12U, 0x48U, 0x6AU, 0x24U, 0xDDU, 0x95U, 0xB2U,
@@ -4780,14 +4780,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_thirteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=14  Dlen=32  M=000102030405  Z=000102...0C0D */
         0xB8U, 0x0AU, 0xBFU, 0xDAU, 0x3EU, 0x47U, 0xF1U, 0x30U,
@@ -4803,14 +4803,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_fourteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=15  Dlen=32  M=000102030405  Z=000102...0D0E */
         0x0DU, 0x05U, 0x2EU, 0x47U, 0x2DU, 0xDAU, 0x48U, 0x3EU,
@@ -4826,14 +4826,14 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_fifteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=16  Dlen=32  M=000102030405  Z=000102...0E0F */
         0x28U, 0x89U, 0x0FU, 0xAAU, 0xDFU, 0xE5U, 0xD6U, 0x50U,
@@ -4849,15 +4849,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_sixteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=17  Dlen=32  M=000102030405  Z=000102...0F10 */
         0xC2U, 0x04U, 0xBCU, 0xC5U, 0x5EU, 0x09U, 0x63U, 0x61U,
@@ -4873,15 +4873,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_seventeen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=18  Dlen=32  M=000102030405  Z=000102...1011 */
         0xEFU, 0x8CU, 0xE0U, 0xCEU, 0xCEU, 0x65U, 0xCEU, 0xDFU,
@@ -4897,15 +4897,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_eighteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=19  Dlen=32  M=000102030405  Z=000102...1112 */
         0x11U, 0xCEU, 0x1CU, 0x25U, 0x10U, 0x60U, 0x60U, 0x18U,
@@ -4921,15 +4921,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_nineteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=20  Dlen=32  M=000102030405  Z=000102...1213 */
         0x9EU, 0x03U, 0x0FU, 0xA6U, 0x33U, 0x18U, 0x0EU, 0xD8U,
@@ -4945,15 +4945,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twenty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=21  Dlen=32  M=000102030405  Z=000102...1314 */
         0x81U, 0x69U, 0x68U, 0xC4U, 0x7EU, 0x34U, 0x6BU, 0xA2U,
@@ -4969,15 +4969,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=22  Dlen=32  M=000102030405  Z=000102...1415 */
         0x5CU, 0x5FU, 0xE3U, 0xB7U, 0xB1U, 0x1EU, 0x11U, 0x6CU,
@@ -4993,15 +4993,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=23  Dlen=32  M=000102030405  Z=000102...1516 */
         0x4DU, 0xBCU, 0x76U, 0xCDU, 0x64U, 0xE0U, 0x4EU, 0x7EU,
@@ -5017,15 +5017,15 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentythree_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=24  Dlen=32  M=000102030405  Z=000102...1617 */
         0xE2U, 0xBEU, 0x77U, 0xE5U, 0xCFU, 0xCAU, 0x85U, 0x1DU,
@@ -5041,16 +5041,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyfour_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=25  Dlen=32  M=000102030405  Z=000102...1718 */
         0x5AU, 0x30U, 0xADU, 0x14U, 0xA8U, 0xC5U, 0x75U, 0xFBU,
@@ -5066,16 +5066,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyfive_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=26  Dlen=32  M=000102030405  Z=000102...1819 */
         0x38U, 0x6BU, 0x1EU, 0xA7U, 0x25U, 0x13U, 0xEBU, 0xCAU,
@@ -5091,16 +5091,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentysix_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=27  Dlen=32  M=000102030405  Z=000102...191A */
         0xE2U, 0xEFU, 0xE5U, 0x1DU, 0x86U, 0x78U, 0xD8U, 0x80U,
@@ -5116,16 +5116,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyseven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=28  Dlen=32  M=000102030405  Z=000102...1A1B */
         0x26U, 0x9DU, 0xA6U, 0x1EU, 0x11U, 0x6FU, 0xA7U, 0xDAU,
@@ -5141,16 +5141,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentyeight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=29  Dlen=32  M=000102030405  Z=000102...1B1C */
         0x83U, 0x31U, 0x59U, 0x08U, 0x85U, 0x8BU, 0xFAU, 0xE8U,
@@ -5166,16 +5166,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_twentynine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=30  Dlen=32  M=000102030405  Z=000102...1C1D */
         0xC8U, 0x2FU, 0xACU, 0xEBU, 0x07U, 0x8BU, 0x82U, 0x84U,
@@ -5191,16 +5191,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_thirty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=31  Dlen=32  M=000102030405  Z=000102...1D1E */
         0x65U, 0xE7U, 0xD3U, 0xF8U, 0xC5U, 0xAAU, 0xA7U, 0x69U,
@@ -5216,16 +5216,16 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_thirtyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_six_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[6U] = {
+    uint8_t message[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=6  Zlen=32  Dlen=32  M=000102030405  Z=000102...1E1F */
         0x02U, 0xB9U, 0x6BU, 0xB3U, 0x49U, 0x22U, 0xE3U, 0x53U,
@@ -5241,10 +5241,10 @@ static void test_VERUM_ASCON_CXOF128_six_byte_message_thirtytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=0  Dlen=32  M=00010203040506  Z=(empty) */
         0xAAU, 0x04U, 0xB2U, 0xE2U, 0x80U, 0xD6U, 0x26U, 0xF6U,
@@ -5260,11 +5260,11 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_empty_custom_thirtytwo_b
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=1  Dlen=32  M=00010203040506  Z=00 */
         0xAEU, 0x21U, 0x32U, 0xD0U, 0x7BU, 0x05U, 0xDAU, 0xBEU,
@@ -5280,13 +5280,13 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_one_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=2  Dlen=32  M=00010203040506  Z=0001 */
         0xB7U, 0xC2U, 0x3BU, 0xD0U, 0x31U, 0x8EU, 0x92U, 0xEDU,
@@ -5302,13 +5302,13 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_two_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=3  Dlen=32  M=00010203040506  Z=000102 */
         0xE6U, 0x61U, 0xCDU, 0x18U, 0x27U, 0x7FU, 0x8DU, 0x5EU,
@@ -5324,13 +5324,13 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_three_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=4  Dlen=32  M=00010203040506  Z=00010203 */
         0x34U, 0xBFU, 0x7DU, 0x49U, 0xC1U, 0x1CU, 0x4DU, 0xFEU,
@@ -5346,13 +5346,13 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_four_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=5  Dlen=32  M=00010203040506  Z=0001020304 */
         0xFCU, 0x20U, 0xDCU, 0x0BU, 0xC9U, 0x0EU, 0x74U, 0x23U,
@@ -5368,13 +5368,13 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_five_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=6  Dlen=32  M=00010203040506  Z=000102030405 */
         0xB4U, 0x7FU, 0x24U, 0x35U, 0xE9U, 0xC0U, 0xA4U, 0xCDU,
@@ -5390,13 +5390,13 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_six_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=7  Dlen=32  M=00010203040506  Z=00010203040506 */
         0xC9U, 0x1AU, 0xE4U, 0x5BU, 0xD8U, 0x95U, 0x26U, 0x2BU,
@@ -5412,13 +5412,13 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_seven_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=8  Dlen=32  M=00010203040506  Z=0001020304050607 */
         0x70U, 0x85U, 0xACU, 0x10U, 0x4BU, 0x63U, 0x75U, 0x2CU,
@@ -5434,14 +5434,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_eight_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=9  Dlen=32  M=00010203040506  Z=000102030405060708 */
         0x72U, 0xA5U, 0x1CU, 0xE8U, 0x7BU, 0x14U, 0x68U, 0xFCU,
@@ -5457,14 +5457,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_nine_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=10  Dlen=32  M=00010203040506  Z=00010203040506070809 */
         0xCBU, 0x5EU, 0x8DU, 0x1BU, 0xD3U, 0x60U, 0x84U, 0x30U,
@@ -5480,14 +5480,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_ten_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=11  Dlen=32  M=00010203040506  Z=000102...090A */
         0x03U, 0x3BU, 0x77U, 0x9EU, 0x23U, 0xDDU, 0x4EU, 0xF6U,
@@ -5503,14 +5503,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_eleven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=12  Dlen=32  M=00010203040506  Z=000102...0A0B */
         0x89U, 0xA3U, 0x0BU, 0x35U, 0xAEU, 0x72U, 0x3AU, 0xD1U,
@@ -5526,14 +5526,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twelve_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=13  Dlen=32  M=00010203040506  Z=000102...0B0C */
         0xEEU, 0x15U, 0xADU, 0x80U, 0xECU, 0x81U, 0x0DU, 0x9BU,
@@ -5549,14 +5549,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=14  Dlen=32  M=00010203040506  Z=000102...0C0D */
         0xF4U, 0xBCU, 0x80U, 0xBAU, 0x6FU, 0x74U, 0x7FU, 0xEBU,
@@ -5572,14 +5572,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_fourteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=15  Dlen=32  M=00010203040506  Z=000102...0D0E */
         0x54U, 0x60U, 0x0EU, 0xB6U, 0x76U, 0x14U, 0xEAU, 0x39U,
@@ -5595,14 +5595,14 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_fifteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=16  Dlen=32  M=00010203040506  Z=000102...0E0F */
         0xAAU, 0xC8U, 0xA4U, 0x46U, 0xCFU, 0x06U, 0xFBU, 0x88U,
@@ -5618,15 +5618,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_sixteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=17  Dlen=32  M=00010203040506  Z=000102...0F10 */
         0xA0U, 0x2CU, 0xAAU, 0x82U, 0x89U, 0xCBU, 0x01U, 0xB4U,
@@ -5642,15 +5642,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_seventeen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=18  Dlen=32  M=00010203040506  Z=000102...1011 */
         0x70U, 0x06U, 0x3AU, 0x88U, 0x61U, 0x85U, 0x80U, 0xAAU,
@@ -5666,15 +5666,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_eighteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=19  Dlen=32  M=00010203040506  Z=000102...1112 */
         0x7AU, 0xB0U, 0xC0U, 0x09U, 0xE7U, 0xB2U, 0x0FU, 0x33U,
@@ -5690,15 +5690,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_nineteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=20  Dlen=32  M=00010203040506  Z=000102...1213 */
         0x73U, 0x60U, 0x15U, 0x0FU, 0x78U, 0x01U, 0xEFU, 0xC6U,
@@ -5714,15 +5714,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twenty_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=21  Dlen=32  M=00010203040506  Z=000102...1314 */
         0xC6U, 0xA9U, 0xD2U, 0x6CU, 0x8CU, 0xD6U, 0xBEU, 0xB0U,
@@ -5738,15 +5738,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyone_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=22  Dlen=32  M=00010203040506  Z=000102...1415 */
         0xD7U, 0xE4U, 0x08U, 0xC0U, 0x64U, 0x3CU, 0x25U, 0xC3U,
@@ -5762,15 +5762,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentytwo_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=23  Dlen=32  M=00010203040506  Z=000102...1516 */
         0xDAU, 0x32U, 0x83U, 0x9BU, 0xA5U, 0xB6U, 0xBBU, 0xE9U,
@@ -5786,15 +5786,15 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentythree_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=24  Dlen=32  M=00010203040506  Z=000102...1617 */
         0x92U, 0xD9U, 0x71U, 0x1AU, 0x5CU, 0x7DU, 0x7FU, 0xFCU,
@@ -5810,16 +5810,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyfour_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=25  Dlen=32  M=00010203040506  Z=000102...1718 */
         0xBFU, 0x3BU, 0x5DU, 0x09U, 0x76U, 0x55U, 0xAFU, 0xBFU,
@@ -5835,16 +5835,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyfive_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=26  Dlen=32  M=00010203040506  Z=000102...1819 */
         0xA5U, 0x28U, 0xEBU, 0x7BU, 0xA2U, 0x45U, 0xB1U, 0xC1U,
@@ -5860,16 +5860,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentysix_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=27  Dlen=32  M=00010203040506  Z=000102...191A */
         0x36U, 0xD2U, 0xB3U, 0xBAU, 0x9AU, 0xFDU, 0x6FU, 0xD7U,
@@ -5885,16 +5885,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyseven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=28  Dlen=32  M=00010203040506  Z=000102...1A1B */
         0x90U, 0xD8U, 0xA1U, 0xC0U, 0xCCU, 0xCBU, 0xF6U, 0xB8U,
@@ -5910,16 +5910,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentyeight_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=29  Dlen=32  M=00010203040506  Z=000102...1B1C */
         0xBEU, 0xF5U, 0x83U, 0xF1U, 0x7AU, 0x82U, 0xC5U, 0xB6U,
@@ -5935,16 +5935,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_twentynine_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=30  Dlen=32  M=00010203040506  Z=000102...1C1D */
         0x93U, 0xE0U, 0xB3U, 0xFDU, 0x07U, 0x2FU, 0x4EU, 0xA3U,
@@ -5960,16 +5960,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirty_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=31  Dlen=32  M=00010203040506  Z=000102...1D1E */
         0x7BU, 0xC5U, 0x4BU, 0xBAU, 0xBAU, 0xF4U, 0x1BU, 0xF7U,
@@ -5985,16 +5985,16 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirtyone_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[7U] = {
+    uint8_t message[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=7  Zlen=32  Dlen=32  M=00010203040506  Z=000102...1E1F */
         0x3CU, 0x1BU, 0x27U, 0x30U, 0x37U, 0x86U, 0x3EU, 0x33U,
@@ -6010,10 +6010,10 @@ static void test_VERUM_ASCON_CXOF128_seven_byte_message_thirtytwo_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=0  Dlen=32  M=0001020304050607  Z=(empty) */
         0x2CU, 0x07U, 0x6DU, 0x8AU, 0x55U, 0x92U, 0x99U, 0xE3U,
@@ -6029,11 +6029,11 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_empty_custom_thirtytwo_b
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=1  Dlen=32  M=0001020304050607  Z=00 */
         0x15U, 0xA7U, 0x13U, 0xCCU, 0x65U, 0xAAU, 0xD8U, 0xBBU,
@@ -6049,13 +6049,13 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_one_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=2  Dlen=32  M=0001020304050607  Z=0001 */
         0xB3U, 0xD3U, 0x6FU, 0x8CU, 0x0BU, 0x98U, 0xC4U, 0xC9U,
@@ -6071,13 +6071,13 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_two_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=3  Dlen=32  M=0001020304050607  Z=000102 */
         0xE7U, 0xCCU, 0x5DU, 0xCEU, 0x56U, 0x91U, 0x89U, 0xA9U,
@@ -6093,13 +6093,13 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_three_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=4  Dlen=32  M=0001020304050607  Z=00010203 */
         0x09U, 0x25U, 0xC6U, 0x89U, 0x36U, 0x02U, 0xD5U, 0xD6U,
@@ -6115,13 +6115,13 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_four_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=5  Dlen=32  M=0001020304050607  Z=0001020304 */
         0xEDU, 0x48U, 0xE3U, 0x9CU, 0xEAU, 0x08U, 0xA1U, 0x8BU,
@@ -6137,13 +6137,13 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_five_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=6  Dlen=32  M=0001020304050607  Z=000102030405 */
         0xC1U, 0x2DU, 0x07U, 0x91U, 0x39U, 0xAEU, 0x05U, 0x29U,
@@ -6159,13 +6159,13 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_six_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=7  Dlen=32  M=0001020304050607  Z=00010203040506 */
         0x7AU, 0x88U, 0x8EU, 0x09U, 0x97U, 0x0EU, 0x00U, 0x73U,
@@ -6181,13 +6181,13 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_seven_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=8  Dlen=32  M=0001020304050607  Z=0001020304050607 */
         0x3CU, 0x15U, 0x1CU, 0xDDU, 0x72U, 0xBEU, 0x71U, 0xA0U,
@@ -6203,14 +6203,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_eight_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=9  Dlen=32  M=0001020304050607  Z=000102030405060708 */
         0x87U, 0x06U, 0x50U, 0x98U, 0x2FU, 0x53U, 0x86U, 0x3FU,
@@ -6226,14 +6226,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_nine_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=10  Dlen=32  M=0001020304050607  Z=00010203040506070809 */
         0x8FU, 0x8CU, 0x82U, 0x1DU, 0x6DU, 0xE6U, 0x61U, 0xDEU,
@@ -6249,14 +6249,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_ten_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=11  Dlen=32  M=0001020304050607  Z=000102...090A */
         0xCCU, 0xFBU, 0xDCU, 0x45U, 0x58U, 0x98U, 0x61U, 0x99U,
@@ -6272,14 +6272,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_eleven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=12  Dlen=32  M=0001020304050607  Z=000102...0A0B */
         0x6BU, 0x00U, 0x49U, 0xF7U, 0x2EU, 0x11U, 0x69U, 0xC5U,
@@ -6295,14 +6295,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twelve_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=13  Dlen=32  M=0001020304050607  Z=000102...0B0C */
         0xFCU, 0x85U, 0xDBU, 0x7EU, 0x69U, 0x78U, 0x87U, 0x73U,
@@ -6318,14 +6318,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=14  Dlen=32  M=0001020304050607  Z=000102...0C0D */
         0x41U, 0xF7U, 0xA9U, 0x90U, 0x1AU, 0x5FU, 0x0BU, 0x81U,
@@ -6341,14 +6341,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_fourteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=15  Dlen=32  M=0001020304050607  Z=000102...0D0E */
         0x73U, 0x9CU, 0x16U, 0xCEU, 0xB7U, 0x16U, 0x5CU, 0xF0U,
@@ -6364,14 +6364,14 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_fifteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=16  Dlen=32  M=0001020304050607  Z=000102...0E0F */
         0x2AU, 0x0CU, 0x96U, 0xD1U, 0x04U, 0xEFU, 0xD1U, 0xD6U,
@@ -6387,15 +6387,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_sixteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=17  Dlen=32  M=0001020304050607  Z=000102...0F10 */
         0xA9U, 0x1BU, 0x3CU, 0xB0U, 0x30U, 0x81U, 0x76U, 0x55U,
@@ -6411,15 +6411,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_seventeen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=18  Dlen=32  M=0001020304050607  Z=000102...1011 */
         0x5CU, 0x91U, 0xE0U, 0x3BU, 0xACU, 0xCAU, 0xB9U, 0x4AU,
@@ -6435,15 +6435,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_eighteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=19  Dlen=32  M=0001020304050607  Z=000102...1112 */
         0x07U, 0x11U, 0xDCU, 0x43U, 0x58U, 0x6FU, 0xDEU, 0x6FU,
@@ -6459,15 +6459,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_nineteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=20  Dlen=32  M=0001020304050607  Z=000102...1213 */
         0xE4U, 0x9BU, 0x6FU, 0xD8U, 0xE9U, 0x7DU, 0x53U, 0x28U,
@@ -6483,15 +6483,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twenty_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=21  Dlen=32  M=0001020304050607  Z=000102...1314 */
         0x09U, 0x42U, 0xEAU, 0x3BU, 0x38U, 0x43U, 0xEBU, 0x4BU,
@@ -6507,15 +6507,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyone_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=22  Dlen=32  M=0001020304050607  Z=000102...1415 */
         0x9AU, 0x8DU, 0xCFU, 0xE3U, 0xDFU, 0x03U, 0x7BU, 0x99U,
@@ -6531,15 +6531,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentytwo_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=23  Dlen=32  M=0001020304050607  Z=000102...1516 */
         0xDFU, 0x15U, 0x79U, 0xD8U, 0xB5U, 0x59U, 0x1CU, 0x6EU,
@@ -6555,15 +6555,15 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentythree_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=24  Dlen=32  M=0001020304050607  Z=000102...1617 */
         0x8DU, 0x8EU, 0xE9U, 0x53U, 0xC0U, 0xBAU, 0xAEU, 0x1FU,
@@ -6579,16 +6579,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyfour_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=25  Dlen=32  M=0001020304050607  Z=000102...1718 */
         0xBAU, 0x2EU, 0xEFU, 0xBFU, 0x2AU, 0xD4U, 0x17U, 0x9AU,
@@ -6604,16 +6604,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyfive_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=26  Dlen=32  M=0001020304050607  Z=000102...1819 */
         0xB0U, 0x51U, 0xDAU, 0x7CU, 0x79U, 0x79U, 0x33U, 0x02U,
@@ -6629,16 +6629,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentysix_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=27  Dlen=32  M=0001020304050607  Z=000102...191A */
         0xEFU, 0x44U, 0x57U, 0x2FU, 0x45U, 0xD9U, 0x83U, 0x4AU,
@@ -6654,16 +6654,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyseven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=28  Dlen=32  M=0001020304050607  Z=000102...1A1B */
         0xBEU, 0xC6U, 0x2DU, 0xE8U, 0x50U, 0x4EU, 0x02U, 0x2BU,
@@ -6679,16 +6679,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentyeight_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=29  Dlen=32  M=0001020304050607  Z=000102...1B1C */
         0xE3U, 0x03U, 0xCEU, 0xAFU, 0x00U, 0xBCU, 0x94U, 0x52U,
@@ -6704,16 +6704,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_twentynine_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=30  Dlen=32  M=0001020304050607  Z=000102...1C1D */
         0x7DU, 0xE5U, 0xC1U, 0x0BU, 0x37U, 0x47U, 0xBBU, 0xC4U,
@@ -6729,16 +6729,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirty_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=31  Dlen=32  M=0001020304050607  Z=000102...1D1E */
         0x5DU, 0xFAU, 0x11U, 0x0EU, 0x19U, 0x98U, 0xF0U, 0x46U,
@@ -6754,16 +6754,16 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirtyone_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[8U] = {
+    uint8_t message[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=8  Zlen=32  Dlen=32  M=0001020304050607  Z=000102...1E1F */
         0x79U, 0x0EU, 0x1EU, 0x4EU, 0xE0U, 0x9AU, 0x5EU, 0x7DU,
@@ -6779,11 +6779,11 @@ static void test_VERUM_ASCON_CXOF128_eight_byte_message_thirtytwo_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=0  Dlen=32  M=000102030405060708  Z=(empty) */
         0xF4U, 0xBDU, 0xE7U, 0x49U, 0x12U, 0x9CU, 0x67U, 0x6DU,
@@ -6799,12 +6799,12 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_empty_custom_thirtytwo_by
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=1  Dlen=32  M=000102030405060708  Z=00 */
         0x4FU, 0x8DU, 0x15U, 0xF0U, 0xC3U, 0xD1U, 0x2EU, 0x4CU,
@@ -6820,14 +6820,14 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_one_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=2  Dlen=32  M=000102030405060708  Z=0001 */
         0xBEU, 0xC6U, 0xC0U, 0xC3U, 0xEDU, 0x25U, 0x67U, 0x6EU,
@@ -6843,14 +6843,14 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_two_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=3  Dlen=32  M=000102030405060708  Z=000102 */
         0x50U, 0xB6U, 0x08U, 0x69U, 0xD9U, 0xCBU, 0x81U, 0xF0U,
@@ -6866,14 +6866,14 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_three_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=4  Dlen=32  M=000102030405060708  Z=00010203 */
         0xC3U, 0x7CU, 0x97U, 0xBCU, 0x2CU, 0x81U, 0xC7U, 0xD9U,
@@ -6889,14 +6889,14 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_four_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=5  Dlen=32  M=000102030405060708  Z=0001020304 */
         0xDCU, 0x62U, 0x60U, 0x35U, 0xC5U, 0xE5U, 0x74U, 0x00U,
@@ -6912,14 +6912,14 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_five_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=6  Dlen=32  M=000102030405060708  Z=000102030405 */
         0x3AU, 0xEFU, 0x37U, 0xBCU, 0x16U, 0xB6U, 0xF9U, 0xFFU,
@@ -6935,14 +6935,14 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_six_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=7  Dlen=32  M=000102030405060708  Z=00010203040506 */
         0x62U, 0x5EU, 0xC4U, 0xABU, 0x47U, 0xB1U, 0xF3U, 0xBCU,
@@ -6958,14 +6958,14 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_seven_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=8  Dlen=32  M=000102030405060708  Z=0001020304050607 */
         0x9AU, 0xA4U, 0x69U, 0xC3U, 0xB8U, 0x58U, 0x38U, 0x64U,
@@ -6981,15 +6981,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_eight_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=9  Dlen=32  M=000102030405060708  Z=000102030405060708 */
         0x13U, 0x48U, 0x01U, 0xA2U, 0x17U, 0xCFU, 0xFAU, 0xF9U,
@@ -7005,15 +7005,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_nine_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=10  Dlen=32  M=000102030405060708  Z=00010203040506070809 */
         0x0BU, 0xA6U, 0x6FU, 0x54U, 0x9AU, 0x70U, 0x52U, 0x1EU,
@@ -7029,15 +7029,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_ten_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=11  Dlen=32  M=000102030405060708  Z=000102...090A */
         0xDBU, 0xABU, 0x8DU, 0x98U, 0x1EU, 0x9DU, 0x0BU, 0xFDU,
@@ -7053,15 +7053,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_eleven_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=12  Dlen=32  M=000102030405060708  Z=000102...0A0B */
         0x16U, 0x78U, 0x40U, 0xD1U, 0x17U, 0x8BU, 0xA3U, 0x86U,
@@ -7077,15 +7077,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twelve_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=13  Dlen=32  M=000102030405060708  Z=000102...0B0C */
         0xD1U, 0x49U, 0xD1U, 0x40U, 0x7FU, 0x6DU, 0x58U, 0xCCU,
@@ -7101,15 +7101,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=14  Dlen=32  M=000102030405060708  Z=000102...0C0D */
         0xC9U, 0x7FU, 0xEAU, 0x6CU, 0xD6U, 0x8CU, 0x16U, 0x51U,
@@ -7125,15 +7125,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_fourteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=15  Dlen=32  M=000102030405060708  Z=000102...0D0E */
         0x9EU, 0x67U, 0xD9U, 0x82U, 0x6CU, 0xD9U, 0x57U, 0xAFU,
@@ -7149,15 +7149,15 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_fifteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=16  Dlen=32  M=000102030405060708  Z=000102...0E0F */
         0x60U, 0xECU, 0x50U, 0x26U, 0xD1U, 0xEEU, 0x32U, 0xCAU,
@@ -7173,16 +7173,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_sixteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=17  Dlen=32  M=000102030405060708  Z=000102...0F10 */
         0xA1U, 0x6FU, 0x0CU, 0xEFU, 0x1DU, 0x15U, 0x8CU, 0xD2U,
@@ -7198,16 +7198,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_seventeen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=18  Dlen=32  M=000102030405060708  Z=000102...1011 */
         0xBDU, 0x11U, 0xA3U, 0x88U, 0x38U, 0x16U, 0x1EU, 0x60U,
@@ -7223,16 +7223,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_eighteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=19  Dlen=32  M=000102030405060708  Z=000102...1112 */
         0x7CU, 0xE6U, 0xD6U, 0xCEU, 0x11U, 0xD9U, 0x7CU, 0xFFU,
@@ -7248,16 +7248,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_nineteen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=20  Dlen=32  M=000102030405060708  Z=000102...1213 */
         0xA6U, 0xE8U, 0x65U, 0xF5U, 0x16U, 0x7AU, 0xF1U, 0xE2U,
@@ -7273,16 +7273,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twenty_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=21  Dlen=32  M=000102030405060708  Z=000102...1314 */
         0x43U, 0x5AU, 0x72U, 0x40U, 0x8AU, 0x2CU, 0x50U, 0xFEU,
@@ -7298,16 +7298,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyone_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=22  Dlen=32  M=000102030405060708  Z=000102...1415 */
         0x1DU, 0x68U, 0xEBU, 0xDEU, 0xBFU, 0xCFU, 0x3EU, 0x15U,
@@ -7323,16 +7323,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentytwo_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=23  Dlen=32  M=000102030405060708  Z=000102...1516 */
         0x75U, 0xA2U, 0x67U, 0x1CU, 0x92U, 0x48U, 0x3DU, 0x65U,
@@ -7348,16 +7348,16 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentythree_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=24  Dlen=32  M=000102030405060708  Z=000102...1617 */
         0xCBU, 0xCAU, 0x74U, 0x85U, 0xFBU, 0xDDU, 0x58U, 0xF0U,
@@ -7373,17 +7373,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyfour_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=25  Dlen=32  M=000102030405060708  Z=000102...1718 */
         0x71U, 0xA1U, 0x57U, 0x17U, 0x74U, 0xF5U, 0x16U, 0x1AU,
@@ -7399,17 +7399,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyfive_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=26  Dlen=32  M=000102030405060708  Z=000102...1819 */
         0x07U, 0x93U, 0x1AU, 0xCCU, 0xD0U, 0x0EU, 0xBDU, 0x95U,
@@ -7425,17 +7425,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentysix_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=27  Dlen=32  M=000102030405060708  Z=000102...191A */
         0xFDU, 0xEAU, 0x27U, 0x34U, 0x89U, 0x93U, 0x1CU, 0x49U,
@@ -7451,17 +7451,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyseven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=28  Dlen=32  M=000102030405060708  Z=000102...1A1B */
         0xB8U, 0x6AU, 0x68U, 0x2AU, 0xADU, 0xB7U, 0x3FU, 0x76U,
@@ -7477,17 +7477,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentyeight_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=29  Dlen=32  M=000102030405060708  Z=000102...1B1C */
         0xC8U, 0xA0U, 0x12U, 0x46U, 0x2DU, 0xCEU, 0xA7U, 0x3DU,
@@ -7503,17 +7503,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_twentynine_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=30  Dlen=32  M=000102030405060708  Z=000102...1C1D */
         0x55U, 0x75U, 0x5EU, 0x69U, 0x33U, 0xC9U, 0xC1U, 0xD3U,
@@ -7529,17 +7529,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirty_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=31  Dlen=32  M=000102030405060708  Z=000102...1D1E */
         0xDEU, 0xB6U, 0x4FU, 0x57U, 0x2FU, 0x3FU, 0x98U, 0x82U,
@@ -7555,17 +7555,17 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirtyone_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[9U] = {
+    uint8_t message[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=9  Zlen=32  Dlen=32  M=000102030405060708  Z=000102...1E1F */
         0x4EU, 0x3EU, 0x47U, 0x51U, 0x0DU, 0xCAU, 0x48U, 0x07U,
@@ -7581,11 +7581,11 @@ static void test_VERUM_ASCON_CXOF128_nine_byte_message_thirtytwo_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=0  Dlen=32  M=00010203040506070809  Z=(empty) */
         0x65U, 0xBAU, 0xC6U, 0x5DU, 0xECU, 0x01U, 0x88U, 0x38U,
@@ -7601,12 +7601,12 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_empty_custom_thirtytwo_byt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=1  Dlen=32  M=00010203040506070809  Z=00 */
         0x87U, 0xCDU, 0x28U, 0x40U, 0xF6U, 0xD2U, 0xD6U, 0x6BU,
@@ -7622,14 +7622,14 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_one_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=2  Dlen=32  M=00010203040506070809  Z=0001 */
         0x68U, 0x59U, 0x73U, 0xADU, 0x25U, 0xEDU, 0xBFU, 0x24U,
@@ -7645,14 +7645,14 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_two_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=3  Dlen=32  M=00010203040506070809  Z=000102 */
         0xCAU, 0x1FU, 0x34U, 0x83U, 0x72U, 0x48U, 0x8EU, 0xCCU,
@@ -7668,14 +7668,14 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_three_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=4  Dlen=32  M=00010203040506070809  Z=00010203 */
         0x63U, 0xEDU, 0xF0U, 0x55U, 0xDCU, 0x57U, 0x2BU, 0xD5U,
@@ -7691,14 +7691,14 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_four_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=5  Dlen=32  M=00010203040506070809  Z=0001020304 */
         0x2FU, 0x89U, 0x9DU, 0xEEU, 0x6FU, 0x13U, 0x98U, 0x93U,
@@ -7714,14 +7714,14 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_five_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=6  Dlen=32  M=00010203040506070809  Z=000102030405 */
         0x0AU, 0x71U, 0x73U, 0x67U, 0xE5U, 0xB7U, 0xC5U, 0xB8U,
@@ -7737,14 +7737,14 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_six_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=7  Dlen=32  M=00010203040506070809  Z=00010203040506 */
         0x3AU, 0x17U, 0x41U, 0x98U, 0x44U, 0xA3U, 0x9CU, 0x12U,
@@ -7760,14 +7760,14 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_seven_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=8  Dlen=32  M=00010203040506070809  Z=0001020304050607 */
         0x4FU, 0x9AU, 0x75U, 0xC1U, 0x8AU, 0x85U, 0x69U, 0x9EU,
@@ -7783,15 +7783,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_eight_byte_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=9  Dlen=32  M=00010203040506070809  Z=000102030405060708 */
         0x62U, 0x01U, 0xD7U, 0x7BU, 0x52U, 0x6FU, 0xA0U, 0x1FU,
@@ -7807,15 +7807,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_nine_byte_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=10  Dlen=32  M=00010203040506070809  Z=00010203040506070809 */
         0xABU, 0xC3U, 0x4DU, 0xE2U, 0x1DU, 0x2EU, 0xE6U, 0x27U,
@@ -7831,15 +7831,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_ten_byte_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=11  Dlen=32  M=00010203040506070809  Z=000102...090A */
         0x31U, 0x44U, 0xACU, 0x9DU, 0x2DU, 0x94U, 0xA9U, 0xF6U,
@@ -7855,15 +7855,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_eleven_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=12  Dlen=32  M=00010203040506070809  Z=000102...0A0B */
         0xB3U, 0xCCU, 0xCAU, 0x1FU, 0xE0U, 0xF4U, 0xAFU, 0x85U,
@@ -7879,15 +7879,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twelve_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=13  Dlen=32  M=00010203040506070809  Z=000102...0B0C */
         0xC7U, 0x04U, 0x0BU, 0xE0U, 0x15U, 0xB2U, 0x0DU, 0xF2U,
@@ -7903,15 +7903,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=14  Dlen=32  M=00010203040506070809  Z=000102...0C0D */
         0xD7U, 0xE5U, 0x34U, 0x66U, 0x9AU, 0x0DU, 0xB1U, 0x93U,
@@ -7927,15 +7927,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_fourteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=15  Dlen=32  M=00010203040506070809  Z=000102...0D0E */
         0x06U, 0xB1U, 0x73U, 0x36U, 0xE9U, 0x2EU, 0x1CU, 0x58U,
@@ -7951,15 +7951,15 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_fifteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=16  Dlen=32  M=00010203040506070809  Z=000102...0E0F */
         0xA5U, 0x82U, 0xEAU, 0xA5U, 0x43U, 0x49U, 0xAFU, 0xE9U,
@@ -7975,16 +7975,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_sixteen_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=17  Dlen=32  M=00010203040506070809  Z=000102...0F10 */
         0x92U, 0xA8U, 0xD9U, 0x48U, 0x35U, 0x07U, 0x2BU, 0x4CU,
@@ -8000,16 +8000,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_seventeen_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=18  Dlen=32  M=00010203040506070809  Z=000102...1011 */
         0x98U, 0x48U, 0x99U, 0x33U, 0xCAU, 0xCDU, 0x57U, 0x65U,
@@ -8025,16 +8025,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_eighteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=19  Dlen=32  M=00010203040506070809  Z=000102...1112 */
         0xB9U, 0x00U, 0x17U, 0x82U, 0x06U, 0xFFU, 0x66U, 0xDDU,
@@ -8050,16 +8050,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_nineteen_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=20  Dlen=32  M=00010203040506070809  Z=000102...1213 */
         0xB5U, 0xE4U, 0xA5U, 0x33U, 0x5FU, 0x10U, 0x8CU, 0x59U,
@@ -8075,16 +8075,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twenty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=21  Dlen=32  M=00010203040506070809  Z=000102...1314 */
         0x52U, 0x28U, 0x39U, 0xEAU, 0x89U, 0xB3U, 0x99U, 0x6AU,
@@ -8100,16 +8100,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=22  Dlen=32  M=00010203040506070809  Z=000102...1415 */
         0xE0U, 0x30U, 0x63U, 0xFDU, 0xB8U, 0x1EU, 0xBBU, 0x4CU,
@@ -8125,16 +8125,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=23  Dlen=32  M=00010203040506070809  Z=000102...1516 */
         0x3AU, 0x5EU, 0x07U, 0xA2U, 0x22U, 0x7DU, 0x8FU, 0x45U,
@@ -8150,16 +8150,16 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentythree_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=24  Dlen=32  M=00010203040506070809  Z=000102...1617 */
         0x1DU, 0x48U, 0x6EU, 0x5FU, 0x51U, 0xB9U, 0x50U, 0x31U,
@@ -8175,17 +8175,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyfour_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=25  Dlen=32  M=00010203040506070809  Z=000102...1718 */
         0x04U, 0xE5U, 0xA7U, 0x03U, 0xA4U, 0x97U, 0x55U, 0x03U,
@@ -8201,17 +8201,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyfive_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=26  Dlen=32  M=00010203040506070809  Z=000102...1819 */
         0x7BU, 0xF8U, 0xE3U, 0x9AU, 0x60U, 0x45U, 0xB9U, 0xCBU,
@@ -8227,17 +8227,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentysix_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=27  Dlen=32  M=00010203040506070809  Z=000102...191A */
         0x79U, 0x19U, 0xD4U, 0x16U, 0x08U, 0x39U, 0x7BU, 0x9AU,
@@ -8253,17 +8253,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyseven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=28  Dlen=32  M=00010203040506070809  Z=000102...1A1B */
         0xD7U, 0x74U, 0xB5U, 0xDAU, 0xAFU, 0x69U, 0x90U, 0xBAU,
@@ -8279,17 +8279,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentyeight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=29  Dlen=32  M=00010203040506070809  Z=000102...1B1C */
         0xFAU, 0x82U, 0xDEU, 0x42U, 0x1FU, 0x2BU, 0xB8U, 0x6EU,
@@ -8305,17 +8305,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_twentynine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=30  Dlen=32  M=00010203040506070809  Z=000102...1C1D */
         0xE1U, 0xE8U, 0xE9U, 0xF4U, 0x11U, 0x3DU, 0x80U, 0x6AU,
@@ -8331,17 +8331,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirty_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=31  Dlen=32  M=00010203040506070809  Z=000102...1D1E */
         0x9CU, 0xD6U, 0xAAU, 0x7FU, 0xEAU, 0x14U, 0xF5U, 0x93U,
@@ -8357,17 +8357,17 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirtyone_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[10U] = {
+    uint8_t message[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=10  Zlen=32  Dlen=32  M=00010203040506070809  Z=000102...1E1F */
         0xD8U, 0xBBU, 0xF1U, 0x47U, 0x81U, 0x62U, 0x3DU, 0x40U,
@@ -8383,11 +8383,11 @@ static void test_VERUM_ASCON_CXOF128_ten_byte_message_thirtytwo_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=0  Dlen=32  M=000102...090A  Z=(empty) */
         0x05U, 0x3EU, 0x24U, 0x06U, 0x81U, 0x09U, 0xE1U, 0x08U,
@@ -8403,12 +8403,12 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_empty_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=1  Dlen=32  M=000102...090A  Z=00 */
         0xAAU, 0x10U, 0xC8U, 0x14U, 0x63U, 0x2FU, 0xA3U, 0xF0U,
@@ -8424,14 +8424,14 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_one_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=2  Dlen=32  M=000102...090A  Z=0001 */
         0x33U, 0xF1U, 0x94U, 0x96U, 0x46U, 0xEFU, 0xFDU, 0xC0U,
@@ -8447,14 +8447,14 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_two_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=3  Dlen=32  M=000102...090A  Z=000102 */
         0x92U, 0xABU, 0x07U, 0xBFU, 0xF1U, 0x20U, 0x39U, 0xCCU,
@@ -8470,14 +8470,14 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_three_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=4  Dlen=32  M=000102...090A  Z=00010203 */
         0x30U, 0x0DU, 0x42U, 0x9EU, 0x8EU, 0xE5U, 0xB9U, 0x0EU,
@@ -8493,14 +8493,14 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_four_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=5  Dlen=32  M=000102...090A  Z=0001020304 */
         0x02U, 0x29U, 0x03U, 0xC9U, 0x23U, 0x7FU, 0xA0U, 0x45U,
@@ -8516,14 +8516,14 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_five_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=6  Dlen=32  M=000102...090A  Z=000102030405 */
         0x88U, 0x32U, 0xE2U, 0xECU, 0x7CU, 0xBEU, 0x75U, 0x78U,
@@ -8539,14 +8539,14 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_six_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=7  Dlen=32  M=000102...090A  Z=00010203040506 */
         0x60U, 0xFAU, 0x80U, 0xE8U, 0x55U, 0xB5U, 0xAAU, 0xBCU,
@@ -8562,14 +8562,14 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_seven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=8  Dlen=32  M=000102...090A  Z=0001020304050607 */
         0x5CU, 0xE2U, 0x21U, 0xACU, 0xC3U, 0x35U, 0xE5U, 0x7CU,
@@ -8585,15 +8585,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_eight_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=9  Dlen=32  M=000102...090A  Z=000102030405060708 */
         0xF2U, 0x9FU, 0xF7U, 0x2DU, 0x2FU, 0x7CU, 0xC7U, 0xBDU,
@@ -8609,15 +8609,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_nine_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=10  Dlen=32  M=000102...090A  Z=00010203040506070809 */
         0xE7U, 0xF2U, 0x96U, 0xE1U, 0x6FU, 0xD6U, 0xE5U, 0x6AU,
@@ -8633,15 +8633,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_ten_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=11  Dlen=32  M=000102...090A  Z=000102...090A */
         0x33U, 0xE0U, 0x67U, 0x81U, 0xEEU, 0x17U, 0x4AU, 0x8BU,
@@ -8657,15 +8657,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_eleven_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=12  Dlen=32  M=000102...090A  Z=000102...0A0B */
         0xE7U, 0x8EU, 0xEAU, 0x24U, 0xD9U, 0x7BU, 0xEFU, 0x59U,
@@ -8681,15 +8681,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twelve_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=13  Dlen=32  M=000102...090A  Z=000102...0B0C */
         0xF8U, 0x3FU, 0xA2U, 0x69U, 0x96U, 0xFDU, 0x6DU, 0x50U,
@@ -8705,15 +8705,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=14  Dlen=32  M=000102...090A  Z=000102...0C0D */
         0x4DU, 0xDBU, 0x20U, 0x02U, 0x8AU, 0x31U, 0x94U, 0xE5U,
@@ -8729,15 +8729,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_fourteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=15  Dlen=32  M=000102...090A  Z=000102...0D0E */
         0xAFU, 0x82U, 0xFFU, 0xEAU, 0x02U, 0x0BU, 0xC0U, 0xF6U,
@@ -8753,15 +8753,15 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_fifteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=16  Dlen=32  M=000102...090A  Z=000102...0E0F */
         0x19U, 0x8AU, 0x94U, 0xADU, 0x96U, 0xA4U, 0x02U, 0x43U,
@@ -8777,16 +8777,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_sixteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=17  Dlen=32  M=000102...090A  Z=000102...0F10 */
         0x5EU, 0x14U, 0x0FU, 0xFEU, 0x30U, 0x70U, 0xF1U, 0x22U,
@@ -8802,16 +8802,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_seventeen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=18  Dlen=32  M=000102...090A  Z=000102...1011 */
         0x76U, 0x40U, 0xF8U, 0x53U, 0x99U, 0x90U, 0x41U, 0xFEU,
@@ -8827,16 +8827,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_eighteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=19  Dlen=32  M=000102...090A  Z=000102...1112 */
         0x06U, 0xC0U, 0x5BU, 0x32U, 0x7DU, 0x64U, 0x33U, 0x6BU,
@@ -8852,16 +8852,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_nineteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=20  Dlen=32  M=000102...090A  Z=000102...1213 */
         0xB7U, 0x56U, 0xC8U, 0x91U, 0xD6U, 0x75U, 0x2FU, 0x2BU,
@@ -8877,16 +8877,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twenty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=21  Dlen=32  M=000102...090A  Z=000102...1314 */
         0x73U, 0x0BU, 0xE9U, 0x67U, 0x46U, 0x1FU, 0x5DU, 0x9BU,
@@ -8902,16 +8902,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=22  Dlen=32  M=000102...090A  Z=000102...1415 */
         0x53U, 0x57U, 0xBFU, 0xB6U, 0x6CU, 0x23U, 0xFBU, 0xD6U,
@@ -8927,16 +8927,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=23  Dlen=32  M=000102...090A  Z=000102...1516 */
         0x7AU, 0xADU, 0x77U, 0x2AU, 0x9BU, 0x16U, 0x86U, 0xDFU,
@@ -8952,16 +8952,16 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentythree_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=24  Dlen=32  M=000102...090A  Z=000102...1617 */
         0x53U, 0xE2U, 0x7DU, 0x0FU, 0xB4U, 0xDEU, 0xA8U, 0x03U,
@@ -8977,17 +8977,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyfour_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=25  Dlen=32  M=000102...090A  Z=000102...1718 */
         0x25U, 0x09U, 0x61U, 0x39U, 0xB6U, 0x72U, 0x0AU, 0xE7U,
@@ -9003,17 +9003,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyfive_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=26  Dlen=32  M=000102...090A  Z=000102...1819 */
         0xE0U, 0x1CU, 0x28U, 0x06U, 0x83U, 0x45U, 0xC6U, 0xB6U,
@@ -9029,17 +9029,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentysix_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=27  Dlen=32  M=000102...090A  Z=000102...191A */
         0x8EU, 0xA3U, 0xADU, 0x19U, 0xA3U, 0x67U, 0x9CU, 0x98U,
@@ -9055,17 +9055,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyseven_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=28  Dlen=32  M=000102...090A  Z=000102...1A1B */
         0x18U, 0xAAU, 0xCBU, 0xD2U, 0xBCU, 0xFDU, 0x3DU, 0x4DU,
@@ -9081,17 +9081,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentyeight_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=29  Dlen=32  M=000102...090A  Z=000102...1B1C */
         0xD3U, 0x95U, 0x67U, 0x52U, 0x55U, 0x48U, 0xF6U, 0x6AU,
@@ -9107,17 +9107,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_twentynine_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=30  Dlen=32  M=000102...090A  Z=000102...1C1D */
         0xB2U, 0xBBU, 0x7CU, 0x7AU, 0x0CU, 0x07U, 0x20U, 0x8FU,
@@ -9133,17 +9133,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=31  Dlen=32  M=000102...090A  Z=000102...1D1E */
         0x48U, 0x2CU, 0x21U, 0x4AU, 0x1AU, 0x7FU, 0x05U, 0x44U,
@@ -9159,17 +9159,17 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirtyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[11U] = {
+    uint8_t message[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=11  Zlen=32  Dlen=32  M=000102...090A  Z=000102...1E1F */
         0x28U, 0x67U, 0xFEU, 0x5DU, 0xDCU, 0xBBU, 0x6BU, 0x7BU,
@@ -9185,11 +9185,11 @@ static void test_VERUM_ASCON_CXOF128_eleven_byte_message_thirtytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=0  Dlen=32  M=000102...0A0B  Z=(empty) */
         0x74U, 0x72U, 0xCCU, 0xF5U, 0xD7U, 0x92U, 0x27U, 0x0FU,
@@ -9205,12 +9205,12 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_empty_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=1  Dlen=32  M=000102...0A0B  Z=00 */
         0x10U, 0xB4U, 0x0AU, 0x0AU, 0xDCU, 0xF6U, 0x8BU, 0x1FU,
@@ -9226,14 +9226,14 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_one_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=2  Dlen=32  M=000102...0A0B  Z=0001 */
         0x24U, 0xB3U, 0x02U, 0x17U, 0x8BU, 0xEAU, 0xE6U, 0x17U,
@@ -9249,14 +9249,14 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_two_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=3  Dlen=32  M=000102...0A0B  Z=000102 */
         0x9BU, 0x74U, 0x91U, 0x08U, 0x06U, 0xD3U, 0xE8U, 0x5EU,
@@ -9272,14 +9272,14 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_three_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=4  Dlen=32  M=000102...0A0B  Z=00010203 */
         0xE0U, 0x49U, 0x89U, 0x3FU, 0xC4U, 0x0FU, 0x4DU, 0xBFU,
@@ -9295,14 +9295,14 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_four_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=5  Dlen=32  M=000102...0A0B  Z=0001020304 */
         0x6AU, 0x16U, 0x1CU, 0x43U, 0x4DU, 0xA3U, 0x63U, 0xE8U,
@@ -9318,14 +9318,14 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_five_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=6  Dlen=32  M=000102...0A0B  Z=000102030405 */
         0x2FU, 0x73U, 0x6CU, 0x92U, 0x7DU, 0x2DU, 0x84U, 0x95U,
@@ -9341,14 +9341,14 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_six_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=7  Dlen=32  M=000102...0A0B  Z=00010203040506 */
         0xF5U, 0x2CU, 0xE7U, 0x28U, 0x6FU, 0xC9U, 0x58U, 0x34U,
@@ -9364,14 +9364,14 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_seven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=8  Dlen=32  M=000102...0A0B  Z=0001020304050607 */
         0x01U, 0x6AU, 0x7BU, 0x4EU, 0x8CU, 0x83U, 0x79U, 0xC4U,
@@ -9387,15 +9387,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_eight_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=9  Dlen=32  M=000102...0A0B  Z=000102030405060708 */
         0x82U, 0x32U, 0xA9U, 0xA7U, 0xF1U, 0x58U, 0x12U, 0xBFU,
@@ -9411,15 +9411,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_nine_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=10  Dlen=32  M=000102...0A0B  Z=00010203040506070809 */
         0x74U, 0xACU, 0x36U, 0xC2U, 0x1BU, 0xC3U, 0xAEU, 0xF3U,
@@ -9435,15 +9435,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_ten_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=11  Dlen=32  M=000102...0A0B  Z=000102...090A */
         0xC7U, 0x91U, 0x1EU, 0x08U, 0x39U, 0xBEU, 0xFAU, 0x22U,
@@ -9459,15 +9459,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_eleven_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=12  Dlen=32  M=000102...0A0B  Z=000102...0A0B */
         0xEDU, 0x69U, 0x32U, 0x4AU, 0x98U, 0x88U, 0xCDU, 0xD3U,
@@ -9483,15 +9483,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twelve_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=13  Dlen=32  M=000102...0A0B  Z=000102...0B0C */
         0x8AU, 0x9DU, 0xBCU, 0x1CU, 0xC6U, 0xF5U, 0x6AU, 0x4AU,
@@ -9507,15 +9507,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=14  Dlen=32  M=000102...0A0B  Z=000102...0C0D */
         0x56U, 0x44U, 0xE6U, 0x37U, 0xE1U, 0x84U, 0x1EU, 0x20U,
@@ -9531,15 +9531,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_fourteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=15  Dlen=32  M=000102...0A0B  Z=000102...0D0E */
         0xA2U, 0x8EU, 0x57U, 0x3EU, 0x2DU, 0xFDU, 0x91U, 0x51U,
@@ -9555,15 +9555,15 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_fifteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=16  Dlen=32  M=000102...0A0B  Z=000102...0E0F */
         0x76U, 0x99U, 0x1CU, 0xC0U, 0xECU, 0xD2U, 0x96U, 0x7CU,
@@ -9579,16 +9579,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_sixteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=17  Dlen=32  M=000102...0A0B  Z=000102...0F10 */
         0xDFU, 0x08U, 0xB3U, 0x61U, 0x7DU, 0xBDU, 0xC2U, 0x84U,
@@ -9604,16 +9604,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_seventeen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=18  Dlen=32  M=000102...0A0B  Z=000102...1011 */
         0x93U, 0xEEU, 0x91U, 0x96U, 0xE3U, 0xF2U, 0xF5U, 0x12U,
@@ -9629,16 +9629,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_eighteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=19  Dlen=32  M=000102...0A0B  Z=000102...1112 */
         0x56U, 0xE2U, 0x14U, 0xDBU, 0xF9U, 0x55U, 0x55U, 0xCAU,
@@ -9654,16 +9654,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_nineteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=20  Dlen=32  M=000102...0A0B  Z=000102...1213 */
         0xA9U, 0x1FU, 0xB3U, 0x11U, 0x46U, 0x24U, 0x78U, 0xF6U,
@@ -9679,16 +9679,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twenty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=21  Dlen=32  M=000102...0A0B  Z=000102...1314 */
         0x71U, 0x7DU, 0x3BU, 0x9EU, 0x0AU, 0x6CU, 0x89U, 0x66U,
@@ -9704,16 +9704,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=22  Dlen=32  M=000102...0A0B  Z=000102...1415 */
         0x9CU, 0x78U, 0x87U, 0xEAU, 0x12U, 0x3CU, 0x88U, 0x42U,
@@ -9729,16 +9729,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=23  Dlen=32  M=000102...0A0B  Z=000102...1516 */
         0x5BU, 0xD8U, 0xAFU, 0xEEU, 0x8BU, 0x8FU, 0x3DU, 0xB1U,
@@ -9754,16 +9754,16 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentythree_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=24  Dlen=32  M=000102...0A0B  Z=000102...1617 */
         0x4AU, 0x40U, 0x27U, 0x4EU, 0xC0U, 0x5FU, 0xA3U, 0x8EU,
@@ -9779,17 +9779,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyfour_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=25  Dlen=32  M=000102...0A0B  Z=000102...1718 */
         0xD3U, 0x71U, 0xEEU, 0x37U, 0x1EU, 0x46U, 0xE5U, 0xC6U,
@@ -9805,17 +9805,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyfive_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=26  Dlen=32  M=000102...0A0B  Z=000102...1819 */
         0x24U, 0xC1U, 0xE4U, 0x7DU, 0x1CU, 0xCEU, 0xDDU, 0xDDU,
@@ -9831,17 +9831,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentysix_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=27  Dlen=32  M=000102...0A0B  Z=000102...191A */
         0xB2U, 0xCEU, 0xF8U, 0x2EU, 0x2CU, 0xC1U, 0x7AU, 0x9EU,
@@ -9857,17 +9857,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyseven_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=28  Dlen=32  M=000102...0A0B  Z=000102...1A1B */
         0xEEU, 0x48U, 0x67U, 0x1BU, 0x64U, 0x54U, 0x9CU, 0xA0U,
@@ -9883,17 +9883,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentyeight_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=29  Dlen=32  M=000102...0A0B  Z=000102...1B1C */
         0x77U, 0xE0U, 0x61U, 0x9DU, 0x0DU, 0xC0U, 0xACU, 0x0AU,
@@ -9909,17 +9909,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_twentynine_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=30  Dlen=32  M=000102...0A0B  Z=000102...1C1D */
         0x86U, 0x01U, 0x04U, 0x88U, 0xFDU, 0xECU, 0xFAU, 0x9EU,
@@ -9935,17 +9935,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=31  Dlen=32  M=000102...0A0B  Z=000102...1D1E */
         0x3CU, 0xFBU, 0xAEU, 0x4BU, 0xEBU, 0x6DU, 0x75U, 0xF1U,
@@ -9961,17 +9961,17 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirtyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[12U] = {
+    uint8_t message[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=12  Zlen=32  Dlen=32  M=000102...0A0B  Z=000102...1E1F */
         0xF5U, 0x96U, 0xECU, 0x7CU, 0x98U, 0x1BU, 0x29U, 0x1AU,
@@ -9987,11 +9987,11 @@ static void test_VERUM_ASCON_CXOF128_twelve_byte_message_thirtytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=0  Dlen=32  M=000102...0B0C  Z=(empty) */
         0x54U, 0x25U, 0x50U, 0x31U, 0xC0U, 0x98U, 0x7FU, 0xEBU,
@@ -10007,12 +10007,12 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_empty_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=1  Dlen=32  M=000102...0B0C  Z=00 */
         0x22U, 0xF9U, 0x42U, 0x58U, 0x63U, 0xADU, 0x85U, 0xB0U,
@@ -10028,14 +10028,14 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_one_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=2  Dlen=32  M=000102...0B0C  Z=0001 */
         0xF1U, 0x3EU, 0x4EU, 0x9AU, 0x45U, 0x75U, 0x36U, 0x71U,
@@ -10051,14 +10051,14 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_two_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=3  Dlen=32  M=000102...0B0C  Z=000102 */
         0x16U, 0x85U, 0x94U, 0x3CU, 0x8EU, 0x72U, 0x45U, 0x6FU,
@@ -10074,14 +10074,14 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_three_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=4  Dlen=32  M=000102...0B0C  Z=00010203 */
         0x47U, 0x22U, 0xE3U, 0xE9U, 0xB5U, 0xA5U, 0x74U, 0x2BU,
@@ -10097,14 +10097,14 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_four_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=5  Dlen=32  M=000102...0B0C  Z=0001020304 */
         0x09U, 0x3EU, 0x74U, 0xCBU, 0x9FU, 0x7EU, 0xA3U, 0x0DU,
@@ -10120,14 +10120,14 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_five_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=6  Dlen=32  M=000102...0B0C  Z=000102030405 */
         0xD5U, 0xF1U, 0x6BU, 0x81U, 0xDFU, 0xB1U, 0xCDU, 0xDCU,
@@ -10143,14 +10143,14 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_six_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=7  Dlen=32  M=000102...0B0C  Z=00010203040506 */
         0x53U, 0x6CU, 0x62U, 0x48U, 0xB1U, 0xE7U, 0x82U, 0x81U,
@@ -10166,14 +10166,14 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_seven_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=8  Dlen=32  M=000102...0B0C  Z=0001020304050607 */
         0x53U, 0xB9U, 0x36U, 0x58U, 0x29U, 0xCFU, 0x3BU, 0xB6U,
@@ -10189,15 +10189,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_eight_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=9  Dlen=32  M=000102...0B0C  Z=000102030405060708 */
         0x25U, 0x2BU, 0x41U, 0xD2U, 0x3AU, 0x54U, 0x3AU, 0xD8U,
@@ -10213,15 +10213,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_nine_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=10  Dlen=32  M=000102...0B0C  Z=00010203040506070809 */
         0xF4U, 0x14U, 0x3BU, 0xC8U, 0x4AU, 0xC2U, 0x56U, 0xEBU,
@@ -10237,15 +10237,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_ten_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=11  Dlen=32  M=000102...0B0C  Z=000102...090A */
         0xE8U, 0x32U, 0xDBU, 0x8EU, 0xC6U, 0x22U, 0x4DU, 0x86U,
@@ -10261,15 +10261,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_eleven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=12  Dlen=32  M=000102...0B0C  Z=000102...0A0B */
         0x0FU, 0xFEU, 0x8FU, 0x59U, 0x82U, 0xD2U, 0x64U, 0xB7U,
@@ -10285,15 +10285,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twelve_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=13  Dlen=32  M=000102...0B0C  Z=000102...0B0C */
         0x43U, 0xC0U, 0x27U, 0xCFU, 0xE0U, 0xA7U, 0x9FU, 0x00U,
@@ -10309,15 +10309,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=14  Dlen=32  M=000102...0B0C  Z=000102...0C0D */
         0x64U, 0xBAU, 0xE5U, 0x1CU, 0x61U, 0x9BU, 0x75U, 0xD1U,
@@ -10333,15 +10333,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_fourteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=15  Dlen=32  M=000102...0B0C  Z=000102...0D0E */
         0xC1U, 0x42U, 0x4CU, 0x68U, 0x25U, 0x44U, 0x91U, 0x3FU,
@@ -10357,15 +10357,15 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_fifteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=16  Dlen=32  M=000102...0B0C  Z=000102...0E0F */
         0x0FU, 0x07U, 0xA6U, 0x47U, 0xA5U, 0x08U, 0x9EU, 0xD6U,
@@ -10381,16 +10381,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_sixteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=17  Dlen=32  M=000102...0B0C  Z=000102...0F10 */
         0xCBU, 0x6EU, 0xF6U, 0x98U, 0x33U, 0x33U, 0x43U, 0x16U,
@@ -10406,16 +10406,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_seventeen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=18  Dlen=32  M=000102...0B0C  Z=000102...1011 */
         0xDAU, 0x97U, 0xBCU, 0xE6U, 0x91U, 0x1AU, 0xB3U, 0x01U,
@@ -10431,16 +10431,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_eighteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=19  Dlen=32  M=000102...0B0C  Z=000102...1112 */
         0x24U, 0xC2U, 0x2BU, 0xB3U, 0xEEU, 0x51U, 0x74U, 0x4CU,
@@ -10456,16 +10456,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_nineteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=20  Dlen=32  M=000102...0B0C  Z=000102...1213 */
         0x74U, 0xFBU, 0x98U, 0x48U, 0x22U, 0x90U, 0xFDU, 0xF9U,
@@ -10481,16 +10481,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twenty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=21  Dlen=32  M=000102...0B0C  Z=000102...1314 */
         0x3AU, 0xC8U, 0xD5U, 0xE3U, 0xBFU, 0x34U, 0x7BU, 0xD7U,
@@ -10506,16 +10506,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=22  Dlen=32  M=000102...0B0C  Z=000102...1415 */
         0x73U, 0x8FU, 0xE0U, 0x77U, 0xFAU, 0x7BU, 0xFDU, 0xFDU,
@@ -10531,16 +10531,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=23  Dlen=32  M=000102...0B0C  Z=000102...1516 */
         0x86U, 0x08U, 0xCEU, 0xF4U, 0xFBU, 0x54U, 0xBFU, 0xA9U,
@@ -10556,16 +10556,16 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentythree_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=24  Dlen=32  M=000102...0B0C  Z=000102...1617 */
         0x37U, 0xCEU, 0x55U, 0x02U, 0x2AU, 0x41U, 0x6CU, 0x1CU,
@@ -10581,17 +10581,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyfour_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=25  Dlen=32  M=000102...0B0C  Z=000102...1718 */
         0xE7U, 0xECU, 0xB8U, 0x1AU, 0xFDU, 0xE9U, 0xDDU, 0x1CU,
@@ -10607,17 +10607,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyfive_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=26  Dlen=32  M=000102...0B0C  Z=000102...1819 */
         0xFAU, 0xA8U, 0x6DU, 0xC9U, 0xE3U, 0xBFU, 0x4BU, 0xD9U,
@@ -10633,17 +10633,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentysix_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=27  Dlen=32  M=000102...0B0C  Z=000102...191A */
         0x0AU, 0xD2U, 0x1BU, 0x21U, 0x13U, 0x29U, 0x0FU, 0x55U,
@@ -10659,17 +10659,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyseven_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=28  Dlen=32  M=000102...0B0C  Z=000102...1A1B */
         0x61U, 0x57U, 0x1DU, 0xBDU, 0x23U, 0x72U, 0x30U, 0x87U,
@@ -10685,17 +10685,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentyeight_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=29  Dlen=32  M=000102...0B0C  Z=000102...1B1C */
         0x9CU, 0x05U, 0x88U, 0xCBU, 0xC9U, 0x32U, 0x2BU, 0x4BU,
@@ -10711,17 +10711,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_twentynine_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=30  Dlen=32  M=000102...0B0C  Z=000102...1C1D */
         0x61U, 0x41U, 0xABU, 0x82U, 0x66U, 0xD7U, 0x28U, 0x7BU,
@@ -10737,17 +10737,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=31  Dlen=32  M=000102...0B0C  Z=000102...1D1E */
         0xF0U, 0x37U, 0xD5U, 0x86U, 0x9DU, 0x50U, 0x3DU, 0xD3U,
@@ -10763,17 +10763,17 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirtyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[13U] = {
+    uint8_t message[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=13  Zlen=32  Dlen=32  M=000102...0B0C  Z=000102...1E1F */
         0x1EU, 0xE6U, 0xF1U, 0xC0U, 0x07U, 0x69U, 0xCCU, 0xC0U,
@@ -10789,11 +10789,11 @@ static void test_VERUM_ASCON_CXOF128_thirteen_byte_message_thirtytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=0  Dlen=32  M=000102...0C0D  Z=(empty) */
         0x3BU, 0xE3U, 0x4DU, 0x60U, 0xF3U, 0x2EU, 0xFCU, 0xF0U,
@@ -10809,12 +10809,12 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_empty_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=1  Dlen=32  M=000102...0C0D  Z=00 */
         0x3DU, 0xC4U, 0x70U, 0x52U, 0xD3U, 0x16U, 0x07U, 0xB5U,
@@ -10830,14 +10830,14 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_one_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=2  Dlen=32  M=000102...0C0D  Z=0001 */
         0x69U, 0x04U, 0xC1U, 0x7FU, 0x04U, 0x71U, 0xEBU, 0xDBU,
@@ -10853,14 +10853,14 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_two_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=3  Dlen=32  M=000102...0C0D  Z=000102 */
         0x00U, 0x85U, 0xF9U, 0xEFU, 0x34U, 0x75U, 0xF5U, 0xB8U,
@@ -10876,14 +10876,14 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_three_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=4  Dlen=32  M=000102...0C0D  Z=00010203 */
         0xFBU, 0x6BU, 0x6EU, 0xBAU, 0x18U, 0x11U, 0x08U, 0x32U,
@@ -10899,14 +10899,14 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_four_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=5  Dlen=32  M=000102...0C0D  Z=0001020304 */
         0xEAU, 0x03U, 0x75U, 0x98U, 0x3FU, 0xCFU, 0x0FU, 0x3DU,
@@ -10922,14 +10922,14 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_five_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=6  Dlen=32  M=000102...0C0D  Z=000102030405 */
         0x80U, 0x61U, 0x61U, 0x74U, 0xC0U, 0xEDU, 0xF9U, 0x14U,
@@ -10945,14 +10945,14 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_six_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=7  Dlen=32  M=000102...0C0D  Z=00010203040506 */
         0x4AU, 0x15U, 0xE9U, 0xCDU, 0xAEU, 0xF6U, 0x09U, 0xD4U,
@@ -10968,14 +10968,14 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_seven_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=8  Dlen=32  M=000102...0C0D  Z=0001020304050607 */
         0xF3U, 0x0EU, 0xCCU, 0xC7U, 0x66U, 0xC6U, 0x63U, 0x05U,
@@ -10991,15 +10991,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_eight_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=9  Dlen=32  M=000102...0C0D  Z=000102030405060708 */
         0xD2U, 0x01U, 0x20U, 0x27U, 0x1BU, 0xD8U, 0xE1U, 0xBBU,
@@ -11015,15 +11015,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_nine_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=10  Dlen=32  M=000102...0C0D  Z=00010203040506070809 */
         0x30U, 0x13U, 0xF8U, 0x36U, 0x9DU, 0xB7U, 0x15U, 0x66U,
@@ -11039,15 +11039,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_ten_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=11  Dlen=32  M=000102...0C0D  Z=000102...090A */
         0xECU, 0xC0U, 0x18U, 0xB5U, 0x28U, 0x85U, 0x31U, 0xBEU,
@@ -11063,15 +11063,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_eleven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=12  Dlen=32  M=000102...0C0D  Z=000102...0A0B */
         0xCFU, 0x38U, 0x18U, 0xA0U, 0xFDU, 0xB0U, 0xA7U, 0x47U,
@@ -11087,15 +11087,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twelve_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=13  Dlen=32  M=000102...0C0D  Z=000102...0B0C */
         0x5BU, 0xA8U, 0x4EU, 0x71U, 0x1BU, 0xFEU, 0xFFU, 0x7CU,
@@ -11111,15 +11111,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=14  Dlen=32  M=000102...0C0D  Z=000102...0C0D */
         0x05U, 0x8AU, 0x5CU, 0xDDU, 0x53U, 0x88U, 0x80U, 0xC3U,
@@ -11135,15 +11135,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_fourteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=15  Dlen=32  M=000102...0C0D  Z=000102...0D0E */
         0x21U, 0xB0U, 0x91U, 0x51U, 0x3DU, 0x6AU, 0x08U, 0x85U,
@@ -11159,15 +11159,15 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_fifteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=16  Dlen=32  M=000102...0C0D  Z=000102...0E0F */
         0xC3U, 0x13U, 0x1EU, 0x14U, 0x80U, 0x5FU, 0x23U, 0x1CU,
@@ -11183,16 +11183,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_sixteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=17  Dlen=32  M=000102...0C0D  Z=000102...0F10 */
         0x1FU, 0x65U, 0xCAU, 0xF9U, 0x32U, 0x21U, 0x0BU, 0x66U,
@@ -11208,16 +11208,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_seventeen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=18  Dlen=32  M=000102...0C0D  Z=000102...1011 */
         0x7FU, 0xBAU, 0x0CU, 0x71U, 0x7CU, 0xC2U, 0x83U, 0x88U,
@@ -11233,16 +11233,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_eighteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=19  Dlen=32  M=000102...0C0D  Z=000102...1112 */
         0x9DU, 0x86U, 0xECU, 0x8CU, 0x32U, 0x8EU, 0x7FU, 0x6CU,
@@ -11258,16 +11258,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_nineteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=20  Dlen=32  M=000102...0C0D  Z=000102...1213 */
         0xCDU, 0xD4U, 0x97U, 0x9FU, 0x5BU, 0x75U, 0x1DU, 0x98U,
@@ -11283,16 +11283,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twenty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=21  Dlen=32  M=000102...0C0D  Z=000102...1314 */
         0xFAU, 0x5BU, 0xB2U, 0x8AU, 0x5CU, 0xD3U, 0xB7U, 0x36U,
@@ -11308,16 +11308,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=22  Dlen=32  M=000102...0C0D  Z=000102...1415 */
         0x12U, 0x46U, 0x2AU, 0x05U, 0x6CU, 0x30U, 0xF3U, 0x98U,
@@ -11333,16 +11333,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=23  Dlen=32  M=000102...0C0D  Z=000102...1516 */
         0x75U, 0x31U, 0x17U, 0x75U, 0x02U, 0xD5U, 0xA9U, 0xD8U,
@@ -11358,16 +11358,16 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentythree_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=24  Dlen=32  M=000102...0C0D  Z=000102...1617 */
         0x92U, 0xA6U, 0x75U, 0x4DU, 0x45U, 0x68U, 0x23U, 0x17U,
@@ -11383,17 +11383,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyfour_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=25  Dlen=32  M=000102...0C0D  Z=000102...1718 */
         0xB5U, 0x68U, 0xB6U, 0x59U, 0x52U, 0xD9U, 0x3DU, 0xF8U,
@@ -11409,17 +11409,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyfive_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=26  Dlen=32  M=000102...0C0D  Z=000102...1819 */
         0x69U, 0x68U, 0x7EU, 0x31U, 0x09U, 0x7EU, 0x48U, 0x6CU,
@@ -11435,17 +11435,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentysix_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=27  Dlen=32  M=000102...0C0D  Z=000102...191A */
         0x66U, 0x02U, 0xEAU, 0xB1U, 0x54U, 0x3DU, 0x1BU, 0x0EU,
@@ -11461,17 +11461,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyseven_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=28  Dlen=32  M=000102...0C0D  Z=000102...1A1B */
         0x41U, 0x4DU, 0x24U, 0xE9U, 0xB5U, 0xB6U, 0xC6U, 0x00U,
@@ -11487,17 +11487,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentyeight_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=29  Dlen=32  M=000102...0C0D  Z=000102...1B1C */
         0x8FU, 0xE1U, 0x82U, 0x54U, 0xD7U, 0x65U, 0x63U, 0x28U,
@@ -11513,17 +11513,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_twentynine_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=30  Dlen=32  M=000102...0C0D  Z=000102...1C1D */
         0xCCU, 0x68U, 0x0EU, 0x93U, 0x69U, 0xDAU, 0x97U, 0x44U,
@@ -11539,17 +11539,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=31  Dlen=32  M=000102...0C0D  Z=000102...1D1E */
         0x16U, 0x02U, 0x45U, 0x1FU, 0x17U, 0x5DU, 0x72U, 0xF9U,
@@ -11565,17 +11565,17 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirtyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[14U] = {
+    uint8_t message[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=14  Zlen=32  Dlen=32  M=000102...0C0D  Z=000102...1E1F */
         0x9AU, 0xE7U, 0x66U, 0x2DU, 0x95U, 0xA2U, 0xBBU, 0xC0U,
@@ -11591,11 +11591,11 @@ static void test_VERUM_ASCON_CXOF128_fourteen_byte_message_thirtytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=0  Dlen=32  M=000102...0D0E  Z=(empty) */
         0xD7U, 0x75U, 0x26U, 0x0DU, 0x6EU, 0x96U, 0x3CU, 0xCAU,
@@ -11611,12 +11611,12 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_empty_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=1  Dlen=32  M=000102...0D0E  Z=00 */
         0x79U, 0x5CU, 0x55U, 0x92U, 0xE5U, 0x0CU, 0xB0U, 0x9AU,
@@ -11632,14 +11632,14 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_one_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=2  Dlen=32  M=000102...0D0E  Z=0001 */
         0x3BU, 0x73U, 0xC2U, 0xD4U, 0x35U, 0xE7U, 0x4DU, 0xAEU,
@@ -11655,14 +11655,14 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_two_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=3  Dlen=32  M=000102...0D0E  Z=000102 */
         0x23U, 0x30U, 0x30U, 0x1CU, 0xC7U, 0xBEU, 0x62U, 0xF1U,
@@ -11678,14 +11678,14 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_three_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=4  Dlen=32  M=000102...0D0E  Z=00010203 */
         0x71U, 0x08U, 0x67U, 0x57U, 0x36U, 0x7CU, 0xFFU, 0xC5U,
@@ -11701,14 +11701,14 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_four_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=5  Dlen=32  M=000102...0D0E  Z=0001020304 */
         0xF6U, 0x96U, 0x94U, 0xA3U, 0xACU, 0x32U, 0x65U, 0xC5U,
@@ -11724,14 +11724,14 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_five_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=6  Dlen=32  M=000102...0D0E  Z=000102030405 */
         0x05U, 0xECU, 0xDCU, 0x4EU, 0x1BU, 0xB6U, 0x93U, 0x27U,
@@ -11747,14 +11747,14 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_six_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=7  Dlen=32  M=000102...0D0E  Z=00010203040506 */
         0x33U, 0xAAU, 0xB2U, 0xE0U, 0xBBU, 0xE4U, 0xA6U, 0x5BU,
@@ -11770,14 +11770,14 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_seven_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=8  Dlen=32  M=000102...0D0E  Z=0001020304050607 */
         0x28U, 0x90U, 0xF1U, 0xE8U, 0x7AU, 0x6AU, 0x71U, 0xF8U,
@@ -11793,15 +11793,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_eight_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=9  Dlen=32  M=000102...0D0E  Z=000102030405060708 */
         0x89U, 0xA1U, 0x9FU, 0x87U, 0xBCU, 0xCFU, 0xC7U, 0x87U,
@@ -11817,15 +11817,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_nine_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=10  Dlen=32  M=000102...0D0E  Z=00010203040506070809 */
         0x24U, 0x75U, 0xBFU, 0x92U, 0xADU, 0xE7U, 0xCDU, 0xB8U,
@@ -11841,15 +11841,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_ten_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=11  Dlen=32  M=000102...0D0E  Z=000102...090A */
         0x32U, 0x30U, 0x27U, 0x93U, 0xC5U, 0x09U, 0x54U, 0xCEU,
@@ -11865,15 +11865,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_eleven_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=12  Dlen=32  M=000102...0D0E  Z=000102...0A0B */
         0xC8U, 0x34U, 0x0EU, 0x85U, 0xD9U, 0xA0U, 0x6DU, 0xB5U,
@@ -11889,15 +11889,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twelve_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=13  Dlen=32  M=000102...0D0E  Z=000102...0B0C */
         0xBCU, 0x0DU, 0x47U, 0xA7U, 0x7CU, 0x54U, 0xC5U, 0x51U,
@@ -11913,15 +11913,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=14  Dlen=32  M=000102...0D0E  Z=000102...0C0D */
         0xDCU, 0xEDU, 0xF9U, 0x69U, 0xA6U, 0x22U, 0x93U, 0x49U,
@@ -11937,15 +11937,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_fourteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=15  Dlen=32  M=000102...0D0E  Z=000102...0D0E */
         0xA8U, 0xABU, 0x28U, 0x64U, 0xE0U, 0x02U, 0xB2U, 0x90U,
@@ -11961,15 +11961,15 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_fifteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=16  Dlen=32  M=000102...0D0E  Z=000102...0E0F */
         0xB1U, 0x5BU, 0x8EU, 0x5DU, 0x18U, 0x82U, 0xB9U, 0xE5U,
@@ -11985,16 +11985,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_sixteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=17  Dlen=32  M=000102...0D0E  Z=000102...0F10 */
         0x4DU, 0xF9U, 0x16U, 0x93U, 0x94U, 0x19U, 0x95U, 0x6FU,
@@ -12010,16 +12010,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_seventeen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=18  Dlen=32  M=000102...0D0E  Z=000102...1011 */
         0x36U, 0x81U, 0xBFU, 0xF2U, 0xCAU, 0x2DU, 0x76U, 0x60U,
@@ -12035,16 +12035,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_eighteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=19  Dlen=32  M=000102...0D0E  Z=000102...1112 */
         0x79U, 0xACU, 0x82U, 0x1DU, 0x99U, 0xAFU, 0xF4U, 0x95U,
@@ -12060,16 +12060,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_nineteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=20  Dlen=32  M=000102...0D0E  Z=000102...1213 */
         0x1BU, 0x25U, 0x89U, 0x76U, 0xCAU, 0x31U, 0x4DU, 0x57U,
@@ -12085,16 +12085,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twenty_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=21  Dlen=32  M=000102...0D0E  Z=000102...1314 */
         0x7FU, 0x8CU, 0x2AU, 0xB2U, 0xDAU, 0x62U, 0xE6U, 0xCDU,
@@ -12110,16 +12110,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyone_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=22  Dlen=32  M=000102...0D0E  Z=000102...1415 */
         0x9AU, 0x64U, 0xE9U, 0x2AU, 0xECU, 0x8EU, 0x91U, 0x38U,
@@ -12135,16 +12135,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentytwo_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=23  Dlen=32  M=000102...0D0E  Z=000102...1516 */
         0x95U, 0x94U, 0xA2U, 0xF8U, 0x02U, 0x65U, 0xEDU, 0xEBU,
@@ -12160,16 +12160,16 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentythree_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=24  Dlen=32  M=000102...0D0E  Z=000102...1617 */
         0xD6U, 0xF9U, 0x59U, 0x49U, 0xDFU, 0x63U, 0xEDU, 0xB8U,
@@ -12185,17 +12185,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyfour_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=25  Dlen=32  M=000102...0D0E  Z=000102...1718 */
         0x82U, 0x5DU, 0x4CU, 0xFFU, 0x80U, 0x42U, 0xE3U, 0x77U,
@@ -12211,17 +12211,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyfive_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=26  Dlen=32  M=000102...0D0E  Z=000102...1819 */
         0xD8U, 0xFFU, 0xC3U, 0xF6U, 0x00U, 0x60U, 0xDBU, 0xA6U,
@@ -12237,17 +12237,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentysix_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=27  Dlen=32  M=000102...0D0E  Z=000102...191A */
         0xA3U, 0x62U, 0x1EU, 0x3DU, 0x5AU, 0x5FU, 0xA4U, 0x42U,
@@ -12263,17 +12263,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyseven_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=28  Dlen=32  M=000102...0D0E  Z=000102...1A1B */
         0x71U, 0x21U, 0x65U, 0xA2U, 0x03U, 0x6DU, 0xDDU, 0x0FU,
@@ -12289,17 +12289,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentyeight_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=29  Dlen=32  M=000102...0D0E  Z=000102...1B1C */
         0x50U, 0xEFU, 0xC6U, 0x6DU, 0x19U, 0xF1U, 0x9BU, 0x01U,
@@ -12315,17 +12315,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_twentynine_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=30  Dlen=32  M=000102...0D0E  Z=000102...1C1D */
         0xACU, 0x7CU, 0x45U, 0xA2U, 0x77U, 0xF4U, 0x99U, 0x7DU,
@@ -12341,17 +12341,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirty_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=31  Dlen=32  M=000102...0D0E  Z=000102...1D1E */
         0xEEU, 0x29U, 0x02U, 0xEEU, 0xBFU, 0x69U, 0x44U, 0x6FU,
@@ -12367,17 +12367,17 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirtyone_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[15U] = {
+    uint8_t message[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=15  Zlen=32  Dlen=32  M=000102...0D0E  Z=000102...1E1F */
         0x6BU, 0x29U, 0x0FU, 0x08U, 0x45U, 0x24U, 0xFDU, 0x08U,
@@ -12393,11 +12393,11 @@ static void test_VERUM_ASCON_CXOF128_fifteen_byte_message_thirtytwo_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=0  Dlen=32  M=000102...0E0F  Z=(empty) */
         0x5BU, 0xD8U, 0x38U, 0x6BU, 0x8CU, 0xB8U, 0xB2U, 0x19U,
@@ -12413,12 +12413,12 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_empty_custom_thirtytwo
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=1  Dlen=32  M=000102...0E0F  Z=00 */
         0x5FU, 0xC2U, 0x6FU, 0x70U, 0xA2U, 0x16U, 0xB2U, 0x4DU,
@@ -12434,14 +12434,14 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_one_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=2  Dlen=32  M=000102...0E0F  Z=0001 */
         0xFCU, 0xD8U, 0xEFU, 0xE0U, 0xF2U, 0x52U, 0x33U, 0x63U,
@@ -12457,14 +12457,14 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_two_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=3  Dlen=32  M=000102...0E0F  Z=000102 */
         0x2FU, 0x71U, 0xD9U, 0x07U, 0x97U, 0x91U, 0xA0U, 0x02U,
@@ -12480,14 +12480,14 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_three_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=4  Dlen=32  M=000102...0E0F  Z=00010203 */
         0x62U, 0x1DU, 0x74U, 0x63U, 0xD7U, 0xDCU, 0xDAU, 0xEEU,
@@ -12503,14 +12503,14 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_four_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=5  Dlen=32  M=000102...0E0F  Z=0001020304 */
         0xCEU, 0x46U, 0x92U, 0x9BU, 0x12U, 0x23U, 0x9DU, 0x95U,
@@ -12526,14 +12526,14 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_five_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=6  Dlen=32  M=000102...0E0F  Z=000102030405 */
         0xF5U, 0xC7U, 0x07U, 0xE6U, 0x09U, 0x36U, 0xF5U, 0x41U,
@@ -12549,14 +12549,14 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_six_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=7  Dlen=32  M=000102...0E0F  Z=00010203040506 */
         0x37U, 0x33U, 0x9FU, 0xB7U, 0x38U, 0x4CU, 0x03U, 0x0FU,
@@ -12572,14 +12572,14 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_seven_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=8  Dlen=32  M=000102...0E0F  Z=0001020304050607 */
         0xCBU, 0x73U, 0x2FU, 0xE6U, 0x0CU, 0xCBU, 0x20U, 0x56U,
@@ -12595,15 +12595,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_eight_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=9  Dlen=32  M=000102...0E0F  Z=000102030405060708 */
         0x06U, 0x7FU, 0x19U, 0x3DU, 0x3FU, 0xDBU, 0xF4U, 0x42U,
@@ -12619,15 +12619,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_nine_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=10  Dlen=32  M=000102...0E0F  Z=00010203040506070809 */
         0x00U, 0x51U, 0xEFU, 0x5BU, 0x39U, 0x0DU, 0x57U, 0x1FU,
@@ -12643,15 +12643,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_ten_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=11  Dlen=32  M=000102...0E0F  Z=000102...090A */
         0xE4U, 0xC2U, 0x8BU, 0xBBU, 0x58U, 0x6EU, 0x23U, 0x57U,
@@ -12667,15 +12667,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_eleven_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=12  Dlen=32  M=000102...0E0F  Z=000102...0A0B */
         0xA4U, 0x8DU, 0xBEU, 0x22U, 0x42U, 0xEAU, 0xFCU, 0xB9U,
@@ -12691,15 +12691,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twelve_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=13  Dlen=32  M=000102...0E0F  Z=000102...0B0C */
         0x57U, 0x3EU, 0x5DU, 0x3DU, 0x61U, 0x6EU, 0xD4U, 0x86U,
@@ -12715,15 +12715,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=14  Dlen=32  M=000102...0E0F  Z=000102...0C0D */
         0xC6U, 0x8CU, 0x93U, 0x9FU, 0xE6U, 0x9CU, 0x05U, 0x12U,
@@ -12739,15 +12739,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_fourteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=15  Dlen=32  M=000102...0E0F  Z=000102...0D0E */
         0x28U, 0x01U, 0xBFU, 0xECU, 0xC2U, 0xC9U, 0xBFU, 0xCBU,
@@ -12763,15 +12763,15 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_fifteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=16  Dlen=32  M=000102...0E0F  Z=000102...0E0F */
         0x30U, 0xB0U, 0x68U, 0x2EU, 0x8BU, 0xECU, 0x65U, 0x15U,
@@ -12787,16 +12787,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_sixteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=17  Dlen=32  M=000102...0E0F  Z=000102...0F10 */
         0x5CU, 0x17U, 0x70U, 0xBEU, 0xD1U, 0x8BU, 0xBDU, 0x54U,
@@ -12812,16 +12812,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_seventeen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=18  Dlen=32  M=000102...0E0F  Z=000102...1011 */
         0x31U, 0x63U, 0xDEU, 0x20U, 0x45U, 0x23U, 0xBEU, 0x65U,
@@ -12837,16 +12837,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_eighteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=19  Dlen=32  M=000102...0E0F  Z=000102...1112 */
         0xADU, 0xD0U, 0xCEU, 0xDEU, 0xF5U, 0xC5U, 0xEBU, 0xDCU,
@@ -12862,16 +12862,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_nineteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=20  Dlen=32  M=000102...0E0F  Z=000102...1213 */
         0x41U, 0x96U, 0xC8U, 0xE9U, 0xB9U, 0x04U, 0xC4U, 0x61U,
@@ -12887,16 +12887,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twenty_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=21  Dlen=32  M=000102...0E0F  Z=000102...1314 */
         0x41U, 0xABU, 0x73U, 0x38U, 0x94U, 0x7DU, 0x10U, 0x3FU,
@@ -12912,16 +12912,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyone_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=22  Dlen=32  M=000102...0E0F  Z=000102...1415 */
         0x98U, 0x04U, 0xBBU, 0xF1U, 0x3FU, 0x5AU, 0x24U, 0x0BU,
@@ -12937,16 +12937,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentytwo_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=23  Dlen=32  M=000102...0E0F  Z=000102...1516 */
         0xD5U, 0x8FU, 0x7DU, 0xA9U, 0xA6U, 0x7AU, 0x57U, 0x26U,
@@ -12962,16 +12962,16 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentythree_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=24  Dlen=32  M=000102...0E0F  Z=000102...1617 */
         0xB4U, 0xDEU, 0x92U, 0xD7U, 0xC0U, 0x86U, 0x2CU, 0x3AU,
@@ -12987,17 +12987,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyfour_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=25  Dlen=32  M=000102...0E0F  Z=000102...1718 */
         0x9AU, 0xA8U, 0x46U, 0x63U, 0xDFU, 0xDDU, 0xB1U, 0x7FU,
@@ -13013,17 +13013,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyfive_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=26  Dlen=32  M=000102...0E0F  Z=000102...1819 */
         0x82U, 0x6EU, 0x91U, 0xDDU, 0x08U, 0x24U, 0xB6U, 0xECU,
@@ -13039,17 +13039,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentysix_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=27  Dlen=32  M=000102...0E0F  Z=000102...191A */
         0x65U, 0x21U, 0xEAU, 0xCEU, 0xE1U, 0xA8U, 0x51U, 0xCEU,
@@ -13065,17 +13065,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyseven_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=28  Dlen=32  M=000102...0E0F  Z=000102...1A1B */
         0x41U, 0xA0U, 0xC0U, 0x82U, 0x7FU, 0x79U, 0x8CU, 0x80U,
@@ -13091,17 +13091,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentyeight_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=29  Dlen=32  M=000102...0E0F  Z=000102...1B1C */
         0x9DU, 0x79U, 0x34U, 0x3BU, 0x3DU, 0xC8U, 0xA5U, 0x39U,
@@ -13117,17 +13117,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_twentynine_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=30  Dlen=32  M=000102...0E0F  Z=000102...1C1D */
         0x1BU, 0x3EU, 0xE4U, 0xA0U, 0x32U, 0x5AU, 0x9DU, 0xACU,
@@ -13143,17 +13143,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirty_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=31  Dlen=32  M=000102...0E0F  Z=000102...1D1E */
         0x99U, 0x95U, 0x00U, 0x73U, 0x40U, 0x3DU, 0x3AU, 0xF5U,
@@ -13169,17 +13169,17 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirtyone_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[16U] = {
+    uint8_t message[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=16  Zlen=32  Dlen=32  M=000102...0E0F  Z=000102...1E1F */
         0x93U, 0x9AU, 0xC6U, 0x4CU, 0x5DU, 0x77U, 0xFFU, 0xA7U,
@@ -13195,12 +13195,12 @@ static void test_VERUM_ASCON_CXOF128_sixteen_byte_message_thirtytwo_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=0  Dlen=32  M=000102...0F10  Z=(empty) */
         0x67U, 0x89U, 0x7BU, 0x18U, 0xBCU, 0xDDU, 0x41U, 0xA7U,
@@ -13216,13 +13216,13 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_empty_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=1  Dlen=32  M=000102...0F10  Z=00 */
         0xC7U, 0x67U, 0x34U, 0x7FU, 0x29U, 0xFDU, 0x23U, 0xCAU,
@@ -13238,15 +13238,15 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_one_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=2  Dlen=32  M=000102...0F10  Z=0001 */
         0x13U, 0x92U, 0x94U, 0xC6U, 0x8CU, 0xF1U, 0x83U, 0x39U,
@@ -13262,15 +13262,15 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_two_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=3  Dlen=32  M=000102...0F10  Z=000102 */
         0x37U, 0xD5U, 0x47U, 0xDBU, 0x8CU, 0xEFU, 0x4BU, 0x20U,
@@ -13286,15 +13286,15 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_three_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=4  Dlen=32  M=000102...0F10  Z=00010203 */
         0x92U, 0x35U, 0x13U, 0x2DU, 0x61U, 0xEBU, 0xFDU, 0x13U,
@@ -13310,15 +13310,15 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_four_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=5  Dlen=32  M=000102...0F10  Z=0001020304 */
         0x39U, 0x3DU, 0xBDU, 0xD4U, 0xD0U, 0xDBU, 0xD9U, 0x20U,
@@ -13334,15 +13334,15 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_five_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=6  Dlen=32  M=000102...0F10  Z=000102030405 */
         0x5AU, 0x32U, 0x16U, 0xEBU, 0xE9U, 0x29U, 0xB7U, 0xF5U,
@@ -13358,15 +13358,15 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_six_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=7  Dlen=32  M=000102...0F10  Z=00010203040506 */
         0x1CU, 0xD1U, 0xE3U, 0x4AU, 0xACU, 0xFDU, 0x1BU, 0x21U,
@@ -13382,15 +13382,15 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_seven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=8  Dlen=32  M=000102...0F10  Z=0001020304050607 */
         0x6EU, 0x73U, 0x43U, 0x03U, 0x98U, 0x63U, 0xDEU, 0x32U,
@@ -13406,16 +13406,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_eight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=9  Dlen=32  M=000102...0F10  Z=000102030405060708 */
         0xCDU, 0x96U, 0x48U, 0xE8U, 0xDCU, 0x89U, 0xEEU, 0x2AU,
@@ -13431,16 +13431,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_nine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=10  Dlen=32  M=000102...0F10  Z=00010203040506070809 */
         0xE5U, 0xD6U, 0x99U, 0xAEU, 0x8AU, 0xF2U, 0x95U, 0xB5U,
@@ -13456,16 +13456,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_ten_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=11  Dlen=32  M=000102...0F10  Z=000102...090A */
         0xAFU, 0x79U, 0x1BU, 0x9CU, 0xA2U, 0x0EU, 0x57U, 0x3BU,
@@ -13481,16 +13481,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_eleven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=12  Dlen=32  M=000102...0F10  Z=000102...0A0B */
         0xBFU, 0x0BU, 0xA3U, 0x8CU, 0x08U, 0x1BU, 0xCEU, 0x5BU,
@@ -13506,16 +13506,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twelve_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=13  Dlen=32  M=000102...0F10  Z=000102...0B0C */
         0x69U, 0xAEU, 0xF4U, 0xB1U, 0x3DU, 0x33U, 0x25U, 0xF0U,
@@ -13531,16 +13531,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=14  Dlen=32  M=000102...0F10  Z=000102...0C0D */
         0xDBU, 0x73U, 0x8DU, 0xD0U, 0x51U, 0x78U, 0xEAU, 0xB0U,
@@ -13556,16 +13556,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_fourteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=15  Dlen=32  M=000102...0F10  Z=000102...0D0E */
         0x88U, 0xC5U, 0xDBU, 0x23U, 0x91U, 0xD2U, 0x65U, 0x75U,
@@ -13581,16 +13581,16 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_fifteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=16  Dlen=32  M=000102...0F10  Z=000102...0E0F */
         0xD6U, 0xCEU, 0xB0U, 0x91U, 0x99U, 0xD5U, 0x96U, 0x1EU,
@@ -13606,17 +13606,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_sixteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=17  Dlen=32  M=000102...0F10  Z=000102...0F10 */
         0xA0U, 0x79U, 0x8BU, 0x54U, 0xC1U, 0x4BU, 0x1BU, 0xD9U,
@@ -13632,17 +13632,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_seventeen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=18  Dlen=32  M=000102...0F10  Z=000102...1011 */
         0x1EU, 0x28U, 0xDCU, 0xCEU, 0x57U, 0x95U, 0xD4U, 0x01U,
@@ -13658,17 +13658,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_eighteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=19  Dlen=32  M=000102...0F10  Z=000102...1112 */
         0x54U, 0xD2U, 0x1FU, 0x1EU, 0xD7U, 0x39U, 0x7CU, 0x97U,
@@ -13684,17 +13684,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_nineteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=20  Dlen=32  M=000102...0F10  Z=000102...1213 */
         0x48U, 0xE7U, 0x13U, 0x5FU, 0xD9U, 0x30U, 0x17U, 0xC4U,
@@ -13710,17 +13710,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twenty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=21  Dlen=32  M=000102...0F10  Z=000102...1314 */
         0xA9U, 0xB0U, 0xEFU, 0x1AU, 0xBFU, 0x17U, 0x15U, 0x3AU,
@@ -13736,17 +13736,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=22  Dlen=32  M=000102...0F10  Z=000102...1415 */
         0xE2U, 0x94U, 0xA4U, 0x6FU, 0x92U, 0xB2U, 0x9AU, 0xCEU,
@@ -13762,17 +13762,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=23  Dlen=32  M=000102...0F10  Z=000102...1516 */
         0xAAU, 0x01U, 0xFFU, 0xC0U, 0x06U, 0x06U, 0xE5U, 0xA2U,
@@ -13788,17 +13788,17 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentythree_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=24  Dlen=32  M=000102...0F10  Z=000102...1617 */
         0xD5U, 0xBFU, 0x7BU, 0x30U, 0x50U, 0x7AU, 0x39U, 0x6AU,
@@ -13814,18 +13814,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyfour_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=25  Dlen=32  M=000102...0F10  Z=000102...1718 */
         0x20U, 0x18U, 0x76U, 0x9DU, 0x4FU, 0xF3U, 0x79U, 0x00U,
@@ -13841,18 +13841,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyfive_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=26  Dlen=32  M=000102...0F10  Z=000102...1819 */
         0xD0U, 0xE3U, 0xCDU, 0xD1U, 0x89U, 0x97U, 0x20U, 0x95U,
@@ -13868,18 +13868,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentysix_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=27  Dlen=32  M=000102...0F10  Z=000102...191A */
         0x1CU, 0xC0U, 0x04U, 0x0FU, 0x51U, 0x1AU, 0x7FU, 0xCAU,
@@ -13895,18 +13895,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyseven_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=28  Dlen=32  M=000102...0F10  Z=000102...1A1B */
         0xFBU, 0x40U, 0x5AU, 0x4DU, 0x8AU, 0x7CU, 0x5DU, 0xE3U,
@@ -13922,18 +13922,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentyeight_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=29  Dlen=32  M=000102...0F10  Z=000102...1B1C */
         0x51U, 0x0DU, 0x06U, 0x3EU, 0x3BU, 0xC6U, 0x5DU, 0x50U,
@@ -13949,18 +13949,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_twentynine_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=30  Dlen=32  M=000102...0F10  Z=000102...1C1D */
         0x09U, 0x28U, 0x1CU, 0x20U, 0xADU, 0x7FU, 0x60U, 0x91U,
@@ -13976,18 +13976,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=31  Dlen=32  M=000102...0F10  Z=000102...1D1E */
         0x2EU, 0x90U, 0xBAU, 0x49U, 0x8CU, 0xBBU, 0x9FU, 0x3EU,
@@ -14003,18 +14003,18 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirtyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[17U] = {
+    uint8_t message[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=17  Zlen=32  Dlen=32  M=000102...0F10  Z=000102...1E1F */
         0xBAU, 0x43U, 0x30U, 0x79U, 0xC3U, 0x34U, 0x2FU, 0xE5U,
@@ -14030,12 +14030,12 @@ static void test_VERUM_ASCON_CXOF128_seventeen_byte_message_thirtytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=0  Dlen=32  M=000102...1011  Z=(empty) */
         0xA5U, 0x68U, 0x83U, 0x09U, 0xF9U, 0xBBU, 0x37U, 0x94U,
@@ -14051,13 +14051,13 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_empty_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=1  Dlen=32  M=000102...1011  Z=00 */
         0x24U, 0x05U, 0xA4U, 0x9AU, 0x8CU, 0x1FU, 0xA5U, 0xA4U,
@@ -14073,15 +14073,15 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_one_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=2  Dlen=32  M=000102...1011  Z=0001 */
         0xE0U, 0x33U, 0xC9U, 0x62U, 0xC6U, 0x20U, 0xFEU, 0x57U,
@@ -14097,15 +14097,15 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_two_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=3  Dlen=32  M=000102...1011  Z=000102 */
         0x31U, 0xD1U, 0x6AU, 0x14U, 0x83U, 0x7BU, 0x79U, 0xF0U,
@@ -14121,15 +14121,15 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_three_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=4  Dlen=32  M=000102...1011  Z=00010203 */
         0x3EU, 0xD7U, 0xCBU, 0x99U, 0xAAU, 0x16U, 0x66U, 0x3AU,
@@ -14145,15 +14145,15 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_four_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=5  Dlen=32  M=000102...1011  Z=0001020304 */
         0xDBU, 0xEDU, 0x92U, 0x43U, 0xF5U, 0x18U, 0x7EU, 0x39U,
@@ -14169,15 +14169,15 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_five_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=6  Dlen=32  M=000102...1011  Z=000102030405 */
         0x9AU, 0x1DU, 0x50U, 0xC0U, 0x6FU, 0x2EU, 0xA4U, 0x4EU,
@@ -14193,15 +14193,15 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_six_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=7  Dlen=32  M=000102...1011  Z=00010203040506 */
         0x00U, 0x1EU, 0x15U, 0x72U, 0x01U, 0x04U, 0xBFU, 0x17U,
@@ -14217,15 +14217,15 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_seven_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=8  Dlen=32  M=000102...1011  Z=0001020304050607 */
         0x5AU, 0x63U, 0x01U, 0x23U, 0xBCU, 0xC1U, 0xB3U, 0x86U,
@@ -14241,16 +14241,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_eight_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=9  Dlen=32  M=000102...1011  Z=000102030405060708 */
         0xE7U, 0x0FU, 0x66U, 0x3CU, 0x9EU, 0x4BU, 0x41U, 0xA9U,
@@ -14266,16 +14266,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_nine_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=10  Dlen=32  M=000102...1011  Z=00010203040506070809 */
         0x0DU, 0xE7U, 0x0CU, 0xF0U, 0xE9U, 0x3CU, 0xB2U, 0x36U,
@@ -14291,16 +14291,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_ten_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=11  Dlen=32  M=000102...1011  Z=000102...090A */
         0x9FU, 0xE8U, 0x73U, 0xC4U, 0xCBU, 0x55U, 0x58U, 0x06U,
@@ -14316,16 +14316,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_eleven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=12  Dlen=32  M=000102...1011  Z=000102...0A0B */
         0xF7U, 0x16U, 0x53U, 0xC3U, 0x0FU, 0x54U, 0x7AU, 0xCCU,
@@ -14341,16 +14341,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twelve_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=13  Dlen=32  M=000102...1011  Z=000102...0B0C */
         0x93U, 0x37U, 0xE8U, 0x07U, 0x37U, 0xF0U, 0x82U, 0x0EU,
@@ -14366,16 +14366,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=14  Dlen=32  M=000102...1011  Z=000102...0C0D */
         0x7CU, 0xE9U, 0x16U, 0xE1U, 0x24U, 0x3AU, 0xD2U, 0x72U,
@@ -14391,16 +14391,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_fourteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=15  Dlen=32  M=000102...1011  Z=000102...0D0E */
         0xD8U, 0x71U, 0xBCU, 0xCAU, 0x80U, 0x2BU, 0x4EU, 0xEEU,
@@ -14416,16 +14416,16 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_fifteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=16  Dlen=32  M=000102...1011  Z=000102...0E0F */
         0xE7U, 0xC8U, 0x28U, 0x36U, 0x67U, 0xC3U, 0xAFU, 0xE5U,
@@ -14441,17 +14441,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_sixteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=17  Dlen=32  M=000102...1011  Z=000102...0F10 */
         0xB8U, 0x13U, 0x41U, 0x41U, 0x5FU, 0x5FU, 0x8FU, 0x4BU,
@@ -14467,17 +14467,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_seventeen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=18  Dlen=32  M=000102...1011  Z=000102...1011 */
         0xC0U, 0x73U, 0x8DU, 0x1EU, 0x4DU, 0x8CU, 0xF5U, 0x33U,
@@ -14493,17 +14493,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_eighteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=19  Dlen=32  M=000102...1011  Z=000102...1112 */
         0x40U, 0xF5U, 0x66U, 0xEFU, 0x1FU, 0x27U, 0xBAU, 0x12U,
@@ -14519,17 +14519,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_nineteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=20  Dlen=32  M=000102...1011  Z=000102...1213 */
         0x31U, 0x7EU, 0x0FU, 0xDCU, 0xB1U, 0xE8U, 0x04U, 0x5FU,
@@ -14545,17 +14545,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twenty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=21  Dlen=32  M=000102...1011  Z=000102...1314 */
         0x36U, 0xEAU, 0x30U, 0xFAU, 0x6AU, 0x8CU, 0x22U, 0x57U,
@@ -14571,17 +14571,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=22  Dlen=32  M=000102...1011  Z=000102...1415 */
         0xBEU, 0xD8U, 0x62U, 0x42U, 0x50U, 0x49U, 0x93U, 0xBCU,
@@ -14597,17 +14597,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=23  Dlen=32  M=000102...1011  Z=000102...1516 */
         0xD1U, 0x1FU, 0x3CU, 0x35U, 0x4FU, 0x28U, 0x50U, 0x75U,
@@ -14623,17 +14623,17 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentythree_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=24  Dlen=32  M=000102...1011  Z=000102...1617 */
         0x6BU, 0xFBU, 0x32U, 0x3BU, 0xC3U, 0xF0U, 0x0AU, 0xE8U,
@@ -14649,18 +14649,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyfour_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=25  Dlen=32  M=000102...1011  Z=000102...1718 */
         0xD0U, 0x22U, 0x6CU, 0xDDU, 0x5EU, 0x78U, 0xCBU, 0x3AU,
@@ -14676,18 +14676,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyfive_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=26  Dlen=32  M=000102...1011  Z=000102...1819 */
         0x59U, 0x74U, 0x9AU, 0xE8U, 0xBEU, 0xC9U, 0x81U, 0x2AU,
@@ -14703,18 +14703,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentysix_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=27  Dlen=32  M=000102...1011  Z=000102...191A */
         0x81U, 0x79U, 0xD1U, 0xA1U, 0x15U, 0x16U, 0x44U, 0xBFU,
@@ -14730,18 +14730,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyseven_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=28  Dlen=32  M=000102...1011  Z=000102...1A1B */
         0xEAU, 0x5DU, 0x8DU, 0x07U, 0xEAU, 0x85U, 0x89U, 0x3DU,
@@ -14757,18 +14757,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentyeight_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=29  Dlen=32  M=000102...1011  Z=000102...1B1C */
         0xD7U, 0xC9U, 0x34U, 0x61U, 0x94U, 0xA4U, 0x19U, 0x65U,
@@ -14784,18 +14784,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_twentynine_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=30  Dlen=32  M=000102...1011  Z=000102...1C1D */
         0xCEU, 0x75U, 0x56U, 0x5AU, 0xC5U, 0x1FU, 0x50U, 0x60U,
@@ -14811,18 +14811,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=31  Dlen=32  M=000102...1011  Z=000102...1D1E */
         0x17U, 0x53U, 0xDDU, 0xFEU, 0x02U, 0x61U, 0x9AU, 0xD4U,
@@ -14838,18 +14838,18 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirtyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[18U] = {
+    uint8_t message[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=18  Zlen=32  Dlen=32  M=000102...1011  Z=000102...1E1F */
         0x32U, 0x7EU, 0xECU, 0x41U, 0xC3U, 0x66U, 0x17U, 0x0CU,
@@ -14865,12 +14865,12 @@ static void test_VERUM_ASCON_CXOF128_eighteen_byte_message_thirtytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=0  Dlen=32  M=000102...1112  Z=(empty) */
         0xC2U, 0x35U, 0xFEU, 0xF0U, 0xE3U, 0xD3U, 0xACU, 0xD7U,
@@ -14886,13 +14886,13 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_empty_custom_thirtytw
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=1  Dlen=32  M=000102...1112  Z=00 */
         0xF2U, 0x8DU, 0x88U, 0xE9U, 0xA8U, 0x85U, 0x36U, 0x8AU,
@@ -14908,15 +14908,15 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_one_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=2  Dlen=32  M=000102...1112  Z=0001 */
         0x00U, 0x54U, 0x10U, 0x9DU, 0x43U, 0xB4U, 0x6DU, 0xCDU,
@@ -14932,15 +14932,15 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_two_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=3  Dlen=32  M=000102...1112  Z=000102 */
         0x6CU, 0xE9U, 0x31U, 0xD6U, 0xBAU, 0x5CU, 0xD5U, 0xF3U,
@@ -14956,15 +14956,15 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_three_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=4  Dlen=32  M=000102...1112  Z=00010203 */
         0x43U, 0x4FU, 0x11U, 0x09U, 0x16U, 0x7EU, 0x7BU, 0xF7U,
@@ -14980,15 +14980,15 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_four_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=5  Dlen=32  M=000102...1112  Z=0001020304 */
         0xD0U, 0x93U, 0x2FU, 0xD1U, 0x53U, 0x0BU, 0x43U, 0x1DU,
@@ -15004,15 +15004,15 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_five_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=6  Dlen=32  M=000102...1112  Z=000102030405 */
         0x0BU, 0x11U, 0x09U, 0xF4U, 0xC2U, 0x25U, 0xAFU, 0x91U,
@@ -15028,15 +15028,15 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_six_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=7  Dlen=32  M=000102...1112  Z=00010203040506 */
         0x12U, 0x7AU, 0x8FU, 0xB2U, 0x88U, 0xE9U, 0x39U, 0x1CU,
@@ -15052,15 +15052,15 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_seven_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=8  Dlen=32  M=000102...1112  Z=0001020304050607 */
         0x84U, 0xD2U, 0x87U, 0x26U, 0xB2U, 0xCCU, 0xC8U, 0xA7U,
@@ -15076,16 +15076,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_eight_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=9  Dlen=32  M=000102...1112  Z=000102030405060708 */
         0x52U, 0x3BU, 0xF5U, 0x19U, 0x63U, 0x80U, 0x9AU, 0x6DU,
@@ -15101,16 +15101,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_nine_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=10  Dlen=32  M=000102...1112  Z=00010203040506070809 */
         0xCDU, 0x85U, 0x3AU, 0x3BU, 0xE2U, 0xE0U, 0xE5U, 0x89U,
@@ -15126,16 +15126,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_ten_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=11  Dlen=32  M=000102...1112  Z=000102...090A */
         0xF4U, 0x35U, 0x77U, 0xCFU, 0x92U, 0xA7U, 0xB3U, 0xE3U,
@@ -15151,16 +15151,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_eleven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=12  Dlen=32  M=000102...1112  Z=000102...0A0B */
         0xC3U, 0x1DU, 0xD8U, 0x3CU, 0xDAU, 0xD7U, 0x2BU, 0x3EU,
@@ -15176,16 +15176,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twelve_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=13  Dlen=32  M=000102...1112  Z=000102...0B0C */
         0x0EU, 0x31U, 0x03U, 0x27U, 0xC8U, 0xC0U, 0xB6U, 0x61U,
@@ -15201,16 +15201,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=14  Dlen=32  M=000102...1112  Z=000102...0C0D */
         0x80U, 0xE4U, 0xC9U, 0xB2U, 0x82U, 0x60U, 0xEAU, 0x62U,
@@ -15226,16 +15226,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_fourteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=15  Dlen=32  M=000102...1112  Z=000102...0D0E */
         0xD9U, 0xA7U, 0x1AU, 0xC9U, 0xDAU, 0x5AU, 0xE2U, 0x7CU,
@@ -15251,16 +15251,16 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_fifteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=16  Dlen=32  M=000102...1112  Z=000102...0E0F */
         0xA1U, 0xB0U, 0xE5U, 0x70U, 0xABU, 0x8FU, 0x07U, 0xDBU,
@@ -15276,17 +15276,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_sixteen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=17  Dlen=32  M=000102...1112  Z=000102...0F10 */
         0x32U, 0x35U, 0x08U, 0x39U, 0x0AU, 0x1CU, 0x7AU, 0x93U,
@@ -15302,17 +15302,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_seventeen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=18  Dlen=32  M=000102...1112  Z=000102...1011 */
         0xB2U, 0x13U, 0x23U, 0x3DU, 0x86U, 0xD3U, 0xA8U, 0x3AU,
@@ -15328,17 +15328,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_eighteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=19  Dlen=32  M=000102...1112  Z=000102...1112 */
         0xC7U, 0xA9U, 0xCFU, 0x08U, 0x24U, 0x26U, 0x26U, 0x20U,
@@ -15354,17 +15354,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_nineteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=20  Dlen=32  M=000102...1112  Z=000102...1213 */
         0x94U, 0x0BU, 0x59U, 0x94U, 0xA6U, 0x46U, 0xF9U, 0xDAU,
@@ -15380,17 +15380,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twenty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=21  Dlen=32  M=000102...1112  Z=000102...1314 */
         0xACU, 0x47U, 0x93U, 0x9DU, 0xF3U, 0x94U, 0x6EU, 0x2FU,
@@ -15406,17 +15406,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=22  Dlen=32  M=000102...1112  Z=000102...1415 */
         0xD6U, 0x58U, 0x7BU, 0x91U, 0x1FU, 0x11U, 0x50U, 0x7DU,
@@ -15432,17 +15432,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=23  Dlen=32  M=000102...1112  Z=000102...1516 */
         0x4CU, 0xD3U, 0x2BU, 0x77U, 0x43U, 0x47U, 0x81U, 0x1FU,
@@ -15458,17 +15458,17 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentythree_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=24  Dlen=32  M=000102...1112  Z=000102...1617 */
         0x0EU, 0x61U, 0x83U, 0xA8U, 0x52U, 0x0EU, 0x12U, 0x79U,
@@ -15484,18 +15484,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyfour_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=25  Dlen=32  M=000102...1112  Z=000102...1718 */
         0x6FU, 0xDDU, 0xBCU, 0x84U, 0xF5U, 0x9AU, 0x5DU, 0xB7U,
@@ -15511,18 +15511,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyfive_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=26  Dlen=32  M=000102...1112  Z=000102...1819 */
         0x63U, 0xC3U, 0xFEU, 0x6EU, 0x39U, 0x55U, 0x2CU, 0xA6U,
@@ -15538,18 +15538,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentysix_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=27  Dlen=32  M=000102...1112  Z=000102...191A */
         0xD4U, 0x08U, 0x32U, 0x5DU, 0x7EU, 0x6EU, 0x71U, 0x21U,
@@ -15565,18 +15565,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyseven_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=28  Dlen=32  M=000102...1112  Z=000102...1A1B */
         0xC2U, 0x3EU, 0xBBU, 0x48U, 0xE0U, 0xF0U, 0x4EU, 0x8FU,
@@ -15592,18 +15592,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentyeight_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=29  Dlen=32  M=000102...1112  Z=000102...1B1C */
         0xBBU, 0xCEU, 0x8AU, 0x1EU, 0x58U, 0x4BU, 0x36U, 0x87U,
@@ -15619,18 +15619,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_twentynine_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=30  Dlen=32  M=000102...1112  Z=000102...1C1D */
         0x1CU, 0xE3U, 0x95U, 0x3AU, 0xD3U, 0x38U, 0x80U, 0x75U,
@@ -15646,18 +15646,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirty_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=31  Dlen=32  M=000102...1112  Z=000102...1D1E */
         0xCFU, 0x74U, 0xC0U, 0x1EU, 0x24U, 0x95U, 0x5CU, 0x78U,
@@ -15673,18 +15673,18 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirtyone_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[19U] = {
+    uint8_t message[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=19  Zlen=32  Dlen=32  M=000102...1112  Z=000102...1E1F */
         0x5BU, 0x74U, 0x42U, 0x1FU, 0xA8U, 0x31U, 0x30U, 0x74U,
@@ -15700,12 +15700,12 @@ static void test_VERUM_ASCON_CXOF128_nineteen_byte_message_thirtytwo_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=0  Dlen=32  M=000102...1213  Z=(empty) */
         0x2EU, 0x44U, 0xA7U, 0x83U, 0x06U, 0x26U, 0xCCU, 0x2CU,
@@ -15721,13 +15721,13 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_empty_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=1  Dlen=32  M=000102...1213  Z=00 */
         0x0EU, 0xF9U, 0xDCU, 0xEFU, 0xE8U, 0xC8U, 0x27U, 0xEBU,
@@ -15743,15 +15743,15 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_one_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=2  Dlen=32  M=000102...1213  Z=0001 */
         0xAAU, 0xE4U, 0x90U, 0x24U, 0xF4U, 0x85U, 0xF6U, 0x6DU,
@@ -15767,15 +15767,15 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_two_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=3  Dlen=32  M=000102...1213  Z=000102 */
         0x2DU, 0x96U, 0xDDU, 0x5EU, 0xD1U, 0xB3U, 0x7FU, 0xF4U,
@@ -15791,15 +15791,15 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_three_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=4  Dlen=32  M=000102...1213  Z=00010203 */
         0xECU, 0x42U, 0xA2U, 0x7FU, 0x64U, 0xFCU, 0x18U, 0xC0U,
@@ -15815,15 +15815,15 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_four_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=5  Dlen=32  M=000102...1213  Z=0001020304 */
         0x19U, 0x75U, 0xD3U, 0xCDU, 0xFFU, 0x99U, 0x54U, 0xC0U,
@@ -15839,15 +15839,15 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_five_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=6  Dlen=32  M=000102...1213  Z=000102030405 */
         0xC8U, 0x77U, 0x10U, 0x2AU, 0x7EU, 0x1AU, 0xF2U, 0xFBU,
@@ -15863,15 +15863,15 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_six_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=7  Dlen=32  M=000102...1213  Z=00010203040506 */
         0xE3U, 0xB3U, 0xD5U, 0xBEU, 0xEBU, 0xD4U, 0x08U, 0x95U,
@@ -15887,15 +15887,15 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_seven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=8  Dlen=32  M=000102...1213  Z=0001020304050607 */
         0xAAU, 0x88U, 0xFCU, 0x95U, 0xC0U, 0x21U, 0xECU, 0xFEU,
@@ -15911,16 +15911,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_eight_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=9  Dlen=32  M=000102...1213  Z=000102030405060708 */
         0x7FU, 0xC3U, 0x2DU, 0x7BU, 0xBDU, 0x8AU, 0x9AU, 0xCBU,
@@ -15936,16 +15936,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_nine_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=10  Dlen=32  M=000102...1213  Z=00010203040506070809 */
         0x86U, 0x65U, 0x02U, 0x29U, 0xC1U, 0x17U, 0x2BU, 0xB0U,
@@ -15961,16 +15961,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_ten_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=11  Dlen=32  M=000102...1213  Z=000102...090A */
         0x20U, 0x25U, 0x2CU, 0xBBU, 0xA1U, 0x82U, 0x7CU, 0x38U,
@@ -15986,16 +15986,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_eleven_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=12  Dlen=32  M=000102...1213  Z=000102...0A0B */
         0x23U, 0x0AU, 0xC8U, 0xB6U, 0xCEU, 0x7FU, 0xBDU, 0xD0U,
@@ -16011,16 +16011,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twelve_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=13  Dlen=32  M=000102...1213  Z=000102...0B0C */
         0xC1U, 0x0BU, 0xB9U, 0x9EU, 0xBFU, 0xE9U, 0xAFU, 0x23U,
@@ -16036,16 +16036,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=14  Dlen=32  M=000102...1213  Z=000102...0C0D */
         0x23U, 0x2AU, 0x88U, 0x3EU, 0x16U, 0x64U, 0x13U, 0x75U,
@@ -16061,16 +16061,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_fourteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=15  Dlen=32  M=000102...1213  Z=000102...0D0E */
         0x70U, 0x95U, 0xA3U, 0xFCU, 0xC1U, 0x94U, 0x09U, 0x28U,
@@ -16086,16 +16086,16 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_fifteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=16  Dlen=32  M=000102...1213  Z=000102...0E0F */
         0x61U, 0x37U, 0xB5U, 0x92U, 0x9FU, 0xA7U, 0x41U, 0x9FU,
@@ -16111,17 +16111,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_sixteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=17  Dlen=32  M=000102...1213  Z=000102...0F10 */
         0x7CU, 0x24U, 0x27U, 0x23U, 0x52U, 0x8CU, 0x99U, 0x9DU,
@@ -16137,17 +16137,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_seventeen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=18  Dlen=32  M=000102...1213  Z=000102...1011 */
         0x76U, 0xA7U, 0x92U, 0x42U, 0x31U, 0x51U, 0x72U, 0x83U,
@@ -16163,17 +16163,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_eighteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=19  Dlen=32  M=000102...1213  Z=000102...1112 */
         0x36U, 0xACU, 0x75U, 0xDAU, 0x50U, 0x8FU, 0xAAU, 0x07U,
@@ -16189,17 +16189,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_nineteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=20  Dlen=32  M=000102...1213  Z=000102...1213 */
         0x28U, 0x34U, 0x36U, 0x72U, 0xC4U, 0x6EU, 0x3BU, 0xC7U,
@@ -16215,17 +16215,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twenty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=21  Dlen=32  M=000102...1213  Z=000102...1314 */
         0x09U, 0x11U, 0x6BU, 0x9DU, 0x86U, 0xBAU, 0xFAU, 0xA7U,
@@ -16241,17 +16241,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=22  Dlen=32  M=000102...1213  Z=000102...1415 */
         0xBBU, 0x78U, 0x17U, 0x78U, 0x77U, 0x8CU, 0xA0U, 0x5FU,
@@ -16267,17 +16267,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=23  Dlen=32  M=000102...1213  Z=000102...1516 */
         0x95U, 0xC4U, 0xB9U, 0x12U, 0x9BU, 0x21U, 0x87U, 0xB7U,
@@ -16293,17 +16293,17 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentythree_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=24  Dlen=32  M=000102...1213  Z=000102...1617 */
         0x77U, 0x19U, 0x24U, 0x56U, 0xA6U, 0x94U, 0x85U, 0xA1U,
@@ -16319,18 +16319,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyfour_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=25  Dlen=32  M=000102...1213  Z=000102...1718 */
         0x32U, 0xEEU, 0x30U, 0x37U, 0x8DU, 0xF9U, 0xC6U, 0xBFU,
@@ -16346,18 +16346,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyfive_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=26  Dlen=32  M=000102...1213  Z=000102...1819 */
         0xB0U, 0x8AU, 0x5EU, 0xCCU, 0x04U, 0xB7U, 0x48U, 0x0FU,
@@ -16373,18 +16373,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentysix_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=27  Dlen=32  M=000102...1213  Z=000102...191A */
         0xF0U, 0x88U, 0x37U, 0xFFU, 0xB2U, 0x3AU, 0x5BU, 0x5EU,
@@ -16400,18 +16400,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyseven_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=28  Dlen=32  M=000102...1213  Z=000102...1A1B */
         0xEBU, 0xD8U, 0x31U, 0xC0U, 0x44U, 0x52U, 0x9CU, 0x20U,
@@ -16427,18 +16427,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentyeight_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=29  Dlen=32  M=000102...1213  Z=000102...1B1C */
         0x38U, 0xCFU, 0x5CU, 0x96U, 0x57U, 0xE0U, 0x13U, 0x0FU,
@@ -16454,18 +16454,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_twentynine_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=30  Dlen=32  M=000102...1213  Z=000102...1C1D */
         0x7DU, 0xE7U, 0x59U, 0xB2U, 0x71U, 0xA3U, 0x60U, 0xE3U,
@@ -16481,18 +16481,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=31  Dlen=32  M=000102...1213  Z=000102...1D1E */
         0xFFU, 0x84U, 0x9DU, 0x2EU, 0x2CU, 0xC8U, 0x4BU, 0x24U,
@@ -16508,18 +16508,18 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirtyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[20U] = {
+    uint8_t message[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=20  Zlen=32  Dlen=32  M=000102...1213  Z=000102...1E1F */
         0x46U, 0x13U, 0xA8U, 0x06U, 0x8DU, 0xB5U, 0xB9U, 0x5EU,
@@ -16535,12 +16535,12 @@ static void test_VERUM_ASCON_CXOF128_twenty_byte_message_thirtytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=0  Dlen=32  M=000102...1314  Z=(empty) */
         0x05U, 0xFEU, 0xD2U, 0x19U, 0xDDU, 0xB4U, 0x50U, 0x43U,
@@ -16556,13 +16556,13 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_empty_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=1  Dlen=32  M=000102...1314  Z=00 */
         0x77U, 0x0DU, 0xD8U, 0x68U, 0x80U, 0x8BU, 0x92U, 0x8AU,
@@ -16578,15 +16578,15 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_one_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=2  Dlen=32  M=000102...1314  Z=0001 */
         0x4BU, 0x26U, 0xA2U, 0x11U, 0x45U, 0x3DU, 0x23U, 0x19U,
@@ -16602,15 +16602,15 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_two_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=3  Dlen=32  M=000102...1314  Z=000102 */
         0x6DU, 0xDAU, 0x3DU, 0xE8U, 0x41U, 0x92U, 0x9AU, 0xC9U,
@@ -16626,15 +16626,15 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_three_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=4  Dlen=32  M=000102...1314  Z=00010203 */
         0x06U, 0xDDU, 0x60U, 0xABU, 0x16U, 0x47U, 0x37U, 0xF6U,
@@ -16650,15 +16650,15 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_four_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=5  Dlen=32  M=000102...1314  Z=0001020304 */
         0xE6U, 0x55U, 0x7AU, 0xB5U, 0x20U, 0xB9U, 0x9BU, 0x94U,
@@ -16674,15 +16674,15 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_five_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=6  Dlen=32  M=000102...1314  Z=000102030405 */
         0xB0U, 0x95U, 0xBCU, 0x39U, 0x2BU, 0x89U, 0x8FU, 0xF3U,
@@ -16698,15 +16698,15 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_six_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=7  Dlen=32  M=000102...1314  Z=00010203040506 */
         0x7BU, 0x75U, 0x60U, 0x6AU, 0x0EU, 0x07U, 0xC8U, 0x8EU,
@@ -16722,15 +16722,15 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_seven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=8  Dlen=32  M=000102...1314  Z=0001020304050607 */
         0xE4U, 0x33U, 0xC8U, 0xF3U, 0xDDU, 0x81U, 0xC2U, 0x65U,
@@ -16746,16 +16746,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_eight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=9  Dlen=32  M=000102...1314  Z=000102030405060708 */
         0xA0U, 0x8FU, 0xE1U, 0xBAU, 0xA1U, 0x2CU, 0xEDU, 0x3AU,
@@ -16771,16 +16771,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_nine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=10  Dlen=32  M=000102...1314  Z=00010203040506070809 */
         0x0DU, 0x7BU, 0x1CU, 0xEBU, 0x0BU, 0x25U, 0x52U, 0xC4U,
@@ -16796,16 +16796,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_ten_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=11  Dlen=32  M=000102...1314  Z=000102...090A */
         0x99U, 0x87U, 0x21U, 0xDEU, 0x9FU, 0x09U, 0x73U, 0x6BU,
@@ -16821,16 +16821,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_eleven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=12  Dlen=32  M=000102...1314  Z=000102...0A0B */
         0x13U, 0xFFU, 0x00U, 0x5CU, 0xB7U, 0x1AU, 0x1DU, 0xA4U,
@@ -16846,16 +16846,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twelve_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=13  Dlen=32  M=000102...1314  Z=000102...0B0C */
         0xCDU, 0x36U, 0x1EU, 0xB5U, 0xE1U, 0x24U, 0xDDU, 0x14U,
@@ -16871,16 +16871,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=14  Dlen=32  M=000102...1314  Z=000102...0C0D */
         0xB3U, 0x25U, 0xBCU, 0x03U, 0xAFU, 0x82U, 0x0BU, 0x9CU,
@@ -16896,16 +16896,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_fourteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=15  Dlen=32  M=000102...1314  Z=000102...0D0E */
         0x9FU, 0x0AU, 0xDBU, 0x93U, 0x60U, 0x7FU, 0x3DU, 0xEEU,
@@ -16921,16 +16921,16 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_fifteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=16  Dlen=32  M=000102...1314  Z=000102...0E0F */
         0x7CU, 0x27U, 0x4BU, 0x46U, 0xD2U, 0x96U, 0xFBU, 0x8FU,
@@ -16946,17 +16946,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_sixteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=17  Dlen=32  M=000102...1314  Z=000102...0F10 */
         0xECU, 0x3FU, 0xE0U, 0x78U, 0xD6U, 0xB8U, 0x87U, 0xC9U,
@@ -16972,17 +16972,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_seventeen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=18  Dlen=32  M=000102...1314  Z=000102...1011 */
         0x2DU, 0x57U, 0x6EU, 0x9BU, 0x52U, 0xCBU, 0x54U, 0x74U,
@@ -16998,17 +16998,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_eighteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=19  Dlen=32  M=000102...1314  Z=000102...1112 */
         0x2FU, 0x72U, 0x00U, 0x11U, 0x54U, 0xFCU, 0xB6U, 0xC3U,
@@ -17024,17 +17024,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_nineteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=20  Dlen=32  M=000102...1314  Z=000102...1213 */
         0x39U, 0x10U, 0x4AU, 0xE2U, 0x05U, 0xAAU, 0x69U, 0xD4U,
@@ -17050,17 +17050,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twenty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=21  Dlen=32  M=000102...1314  Z=000102...1314 */
         0x77U, 0x2FU, 0xFBU, 0xF5U, 0x82U, 0xCCU, 0x23U, 0x84U,
@@ -17076,17 +17076,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=22  Dlen=32  M=000102...1314  Z=000102...1415 */
         0x64U, 0xB7U, 0x16U, 0xD0U, 0xDEU, 0x7AU, 0x0CU, 0x50U,
@@ -17102,17 +17102,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=23  Dlen=32  M=000102...1314  Z=000102...1516 */
         0x4EU, 0x5AU, 0x71U, 0x91U, 0xCFU, 0xC9U, 0xAAU, 0x54U,
@@ -17128,17 +17128,17 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentythree_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=24  Dlen=32  M=000102...1314  Z=000102...1617 */
         0x84U, 0x93U, 0xA9U, 0xE6U, 0x81U, 0xF6U, 0x12U, 0xE9U,
@@ -17154,18 +17154,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyfour_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=25  Dlen=32  M=000102...1314  Z=000102...1718 */
         0x27U, 0x90U, 0x14U, 0x1DU, 0x99U, 0xA7U, 0x40U, 0x2DU,
@@ -17181,18 +17181,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyfive_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=26  Dlen=32  M=000102...1314  Z=000102...1819 */
         0x71U, 0x62U, 0xECU, 0x10U, 0xC7U, 0x21U, 0x7FU, 0x8EU,
@@ -17208,18 +17208,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentysix_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=27  Dlen=32  M=000102...1314  Z=000102...191A */
         0x2AU, 0xECU, 0xC0U, 0xF3U, 0xFAU, 0x2CU, 0x8FU, 0x92U,
@@ -17235,18 +17235,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyseven_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=28  Dlen=32  M=000102...1314  Z=000102...1A1B */
         0x3BU, 0x87U, 0x6FU, 0x7FU, 0x88U, 0x50U, 0x89U, 0x8EU,
@@ -17262,18 +17262,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentyeight_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=29  Dlen=32  M=000102...1314  Z=000102...1B1C */
         0xB9U, 0x3CU, 0xF2U, 0xB6U, 0x65U, 0xCDU, 0xACU, 0xCCU,
@@ -17289,18 +17289,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_twentynine_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=30  Dlen=32  M=000102...1314  Z=000102...1C1D */
         0xE5U, 0xCDU, 0x68U, 0x8DU, 0xB4U, 0xEAU, 0x8EU, 0x52U,
@@ -17316,18 +17316,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=31  Dlen=32  M=000102...1314  Z=000102...1D1E */
         0x6CU, 0xDFU, 0xF2U, 0xBDU, 0xACU, 0xB8U, 0xC6U, 0xD9U,
@@ -17343,18 +17343,18 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirtyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[21U] = {
+    uint8_t message[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=21  Zlen=32  Dlen=32  M=000102...1314  Z=000102...1E1F */
         0xD4U, 0x2DU, 0x58U, 0x71U, 0x5EU, 0x60U, 0x6DU, 0x86U,
@@ -17370,12 +17370,12 @@ static void test_VERUM_ASCON_CXOF128_twentyone_byte_message_thirtytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=0  Dlen=32  M=000102...1415  Z=(empty) */
         0x47U, 0x38U, 0x29U, 0x6CU, 0xB1U, 0x71U, 0xDCU, 0x9FU,
@@ -17391,13 +17391,13 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_empty_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=1  Dlen=32  M=000102...1415  Z=00 */
         0x0AU, 0x88U, 0x63U, 0xF2U, 0xECU, 0xF6U, 0xD2U, 0xB2U,
@@ -17413,15 +17413,15 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_one_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=2  Dlen=32  M=000102...1415  Z=0001 */
         0x73U, 0x14U, 0xE0U, 0x64U, 0xB9U, 0x20U, 0x1AU, 0xB6U,
@@ -17437,15 +17437,15 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_two_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=3  Dlen=32  M=000102...1415  Z=000102 */
         0xFAU, 0xB9U, 0x0BU, 0x9BU, 0x11U, 0xD9U, 0x0FU, 0x11U,
@@ -17461,15 +17461,15 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_three_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=4  Dlen=32  M=000102...1415  Z=00010203 */
         0x96U, 0x77U, 0x72U, 0x96U, 0x49U, 0xBEU, 0xE8U, 0x9DU,
@@ -17485,15 +17485,15 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_four_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=5  Dlen=32  M=000102...1415  Z=0001020304 */
         0xC2U, 0xBCU, 0x09U, 0xB7U, 0xCEU, 0xFAU, 0xD9U, 0x62U,
@@ -17509,15 +17509,15 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_five_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=6  Dlen=32  M=000102...1415  Z=000102030405 */
         0xFDU, 0x0DU, 0x68U, 0x39U, 0xB0U, 0x72U, 0xACU, 0x9FU,
@@ -17533,15 +17533,15 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_six_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=7  Dlen=32  M=000102...1415  Z=00010203040506 */
         0x7AU, 0x31U, 0xE0U, 0x29U, 0x9EU, 0x6BU, 0x41U, 0x14U,
@@ -17557,15 +17557,15 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_seven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=8  Dlen=32  M=000102...1415  Z=0001020304050607 */
         0x90U, 0x53U, 0x52U, 0x25U, 0x3DU, 0xDEU, 0xDFU, 0xCDU,
@@ -17581,16 +17581,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_eight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=9  Dlen=32  M=000102...1415  Z=000102030405060708 */
         0x76U, 0xCBU, 0x13U, 0x48U, 0x57U, 0x3AU, 0xBFU, 0x80U,
@@ -17606,16 +17606,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_nine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=10  Dlen=32  M=000102...1415  Z=00010203040506070809 */
         0x3FU, 0x12U, 0x6BU, 0xCEU, 0xF1U, 0x45U, 0x59U, 0x55U,
@@ -17631,16 +17631,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_ten_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=11  Dlen=32  M=000102...1415  Z=000102...090A */
         0xE8U, 0x55U, 0xD4U, 0xBBU, 0xFFU, 0x84U, 0xEFU, 0x47U,
@@ -17656,16 +17656,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_eleven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=12  Dlen=32  M=000102...1415  Z=000102...0A0B */
         0x2EU, 0x06U, 0xFFU, 0x6CU, 0x8FU, 0x4BU, 0x97U, 0x86U,
@@ -17681,16 +17681,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twelve_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=13  Dlen=32  M=000102...1415  Z=000102...0B0C */
         0x64U, 0x6DU, 0xFDU, 0x48U, 0xE9U, 0xCBU, 0x13U, 0x4BU,
@@ -17706,16 +17706,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=14  Dlen=32  M=000102...1415  Z=000102...0C0D */
         0x26U, 0x45U, 0x39U, 0x24U, 0x0BU, 0xE7U, 0x3AU, 0xA8U,
@@ -17731,16 +17731,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_fourteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=15  Dlen=32  M=000102...1415  Z=000102...0D0E */
         0x06U, 0xF8U, 0x43U, 0x88U, 0xB1U, 0x16U, 0xBAU, 0xB3U,
@@ -17756,16 +17756,16 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_fifteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=16  Dlen=32  M=000102...1415  Z=000102...0E0F */
         0x7EU, 0xE5U, 0x65U, 0x1AU, 0xA0U, 0xE4U, 0xE4U, 0x2EU,
@@ -17781,17 +17781,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_sixteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=17  Dlen=32  M=000102...1415  Z=000102...0F10 */
         0x28U, 0xB3U, 0xACU, 0xB0U, 0xC3U, 0x75U, 0x85U, 0x94U,
@@ -17807,17 +17807,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_seventeen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=18  Dlen=32  M=000102...1415  Z=000102...1011 */
         0xF8U, 0xD1U, 0xD5U, 0xE3U, 0x61U, 0x90U, 0x23U, 0x66U,
@@ -17833,17 +17833,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_eighteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=19  Dlen=32  M=000102...1415  Z=000102...1112 */
         0x8FU, 0xB7U, 0xE0U, 0x95U, 0x55U, 0xEBU, 0xCCU, 0x42U,
@@ -17859,17 +17859,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_nineteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=20  Dlen=32  M=000102...1415  Z=000102...1213 */
         0x74U, 0x23U, 0x98U, 0x56U, 0xB9U, 0xBAU, 0x42U, 0xC7U,
@@ -17885,17 +17885,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twenty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=21  Dlen=32  M=000102...1415  Z=000102...1314 */
         0x2DU, 0x45U, 0xB0U, 0xE6U, 0x51U, 0xF1U, 0xE3U, 0x69U,
@@ -17911,17 +17911,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=22  Dlen=32  M=000102...1415  Z=000102...1415 */
         0x95U, 0xD8U, 0xE5U, 0x89U, 0x6BU, 0x28U, 0x26U, 0xA0U,
@@ -17937,17 +17937,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=23  Dlen=32  M=000102...1415  Z=000102...1516 */
         0x31U, 0x45U, 0x24U, 0xAAU, 0x5FU, 0x5FU, 0x51U, 0xDCU,
@@ -17963,17 +17963,17 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentythree_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=24  Dlen=32  M=000102...1415  Z=000102...1617 */
         0x33U, 0xBFU, 0x74U, 0xC6U, 0x98U, 0x39U, 0xB5U, 0x60U,
@@ -17989,18 +17989,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyfour_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=25  Dlen=32  M=000102...1415  Z=000102...1718 */
         0xF5U, 0xD8U, 0x97U, 0x7BU, 0xFDU, 0xB0U, 0x59U, 0x03U,
@@ -18016,18 +18016,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyfive_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=26  Dlen=32  M=000102...1415  Z=000102...1819 */
         0x79U, 0x05U, 0x03U, 0x1FU, 0x0BU, 0xFFU, 0xBFU, 0x23U,
@@ -18043,18 +18043,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentysix_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=27  Dlen=32  M=000102...1415  Z=000102...191A */
         0xDDU, 0xCBU, 0x3EU, 0x34U, 0x2FU, 0x60U, 0x3CU, 0x04U,
@@ -18070,18 +18070,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyseven_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=28  Dlen=32  M=000102...1415  Z=000102...1A1B */
         0x6FU, 0x4BU, 0xB6U, 0x5AU, 0xA4U, 0xD0U, 0xE2U, 0xF3U,
@@ -18097,18 +18097,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentyeight_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=29  Dlen=32  M=000102...1415  Z=000102...1B1C */
         0x01U, 0xF7U, 0x28U, 0x62U, 0xF9U, 0x82U, 0x05U, 0x80U,
@@ -18124,18 +18124,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_twentynine_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=30  Dlen=32  M=000102...1415  Z=000102...1C1D */
         0x22U, 0x14U, 0x67U, 0x40U, 0x3DU, 0x00U, 0xE6U, 0xB2U,
@@ -18151,18 +18151,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=31  Dlen=32  M=000102...1415  Z=000102...1D1E */
         0x78U, 0xB3U, 0x4CU, 0xD8U, 0x59U, 0xE1U, 0x63U, 0xE1U,
@@ -18178,18 +18178,18 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirtyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[22U] = {
+    uint8_t message[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=22  Zlen=32  Dlen=32  M=000102...1415  Z=000102...1E1F */
         0x77U, 0x14U, 0xF3U, 0xDEU, 0x50U, 0xD0U, 0x9EU, 0xDDU,
@@ -18205,12 +18205,12 @@ static void test_VERUM_ASCON_CXOF128_twentytwo_byte_message_thirtytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=0  Dlen=32  M=000102...1516  Z=(empty) */
         0x2EU, 0x58U, 0xC0U, 0x26U, 0x1FU, 0xEFU, 0x15U, 0x21U,
@@ -18226,13 +18226,13 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_empty_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=1  Dlen=32  M=000102...1516  Z=00 */
         0x51U, 0xAFU, 0x11U, 0x95U, 0x2EU, 0xAFU, 0x70U, 0xC4U,
@@ -18248,15 +18248,15 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_one_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=2  Dlen=32  M=000102...1516  Z=0001 */
         0x69U, 0x2FU, 0x44U, 0x5EU, 0xCBU, 0xB4U, 0x28U, 0xB3U,
@@ -18272,15 +18272,15 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_two_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=3  Dlen=32  M=000102...1516  Z=000102 */
         0x5CU, 0xD5U, 0x31U, 0x9CU, 0xC9U, 0x3AU, 0xDFU, 0x23U,
@@ -18296,15 +18296,15 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_three_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=4  Dlen=32  M=000102...1516  Z=00010203 */
         0x64U, 0xE6U, 0xD9U, 0xB7U, 0x3EU, 0xA9U, 0xD0U, 0xE4U,
@@ -18320,15 +18320,15 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_four_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=5  Dlen=32  M=000102...1516  Z=0001020304 */
         0xF8U, 0x44U, 0x97U, 0xB8U, 0xB4U, 0x7FU, 0x9BU, 0x18U,
@@ -18344,15 +18344,15 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_five_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=6  Dlen=32  M=000102...1516  Z=000102030405 */
         0x1DU, 0x8DU, 0x17U, 0xA1U, 0x69U, 0xD2U, 0x6DU, 0x88U,
@@ -18368,15 +18368,15 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_six_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=7  Dlen=32  M=000102...1516  Z=00010203040506 */
         0x88U, 0xEAU, 0xFAU, 0x87U, 0x20U, 0x0AU, 0xB3U, 0x34U,
@@ -18392,15 +18392,15 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_seven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=8  Dlen=32  M=000102...1516  Z=0001020304050607 */
         0xE5U, 0xCCU, 0x09U, 0x25U, 0x45U, 0xF3U, 0xDBU, 0xC4U,
@@ -18416,16 +18416,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_eight_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=9  Dlen=32  M=000102...1516  Z=000102030405060708 */
         0xF1U, 0xB8U, 0xF6U, 0x3FU, 0x35U, 0xEEU, 0x24U, 0x5DU,
@@ -18441,16 +18441,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_nine_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=10  Dlen=32  M=000102...1516  Z=00010203040506070809 */
         0x94U, 0x61U, 0xD2U, 0x8BU, 0x0FU, 0xE3U, 0x73U, 0x11U,
@@ -18466,16 +18466,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_ten_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=11  Dlen=32  M=000102...1516  Z=000102...090A */
         0x68U, 0x06U, 0xB4U, 0xCEU, 0x8BU, 0x6CU, 0x10U, 0x70U,
@@ -18491,16 +18491,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_eleven_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=12  Dlen=32  M=000102...1516  Z=000102...0A0B */
         0xECU, 0x0CU, 0x10U, 0xB4U, 0x0AU, 0x42U, 0xB9U, 0xB9U,
@@ -18516,16 +18516,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twelve_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=13  Dlen=32  M=000102...1516  Z=000102...0B0C */
         0x10U, 0x1DU, 0x0AU, 0x19U, 0x9AU, 0x00U, 0xF0U, 0x26U,
@@ -18541,16 +18541,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=14  Dlen=32  M=000102...1516  Z=000102...0C0D */
         0xB6U, 0x8BU, 0x64U, 0x9EU, 0xFEU, 0x60U, 0x39U, 0x20U,
@@ -18566,16 +18566,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_fourteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=15  Dlen=32  M=000102...1516  Z=000102...0D0E */
         0x09U, 0x14U, 0x6DU, 0xB8U, 0x06U, 0x57U, 0x12U, 0x41U,
@@ -18591,16 +18591,16 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_fifteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=16  Dlen=32  M=000102...1516  Z=000102...0E0F */
         0x4CU, 0x9DU, 0xD7U, 0x36U, 0xF0U, 0xFFU, 0xA3U, 0x68U,
@@ -18616,17 +18616,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_sixteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=17  Dlen=32  M=000102...1516  Z=000102...0F10 */
         0xBBU, 0x9AU, 0x9FU, 0x8AU, 0xC7U, 0xC6U, 0x82U, 0x84U,
@@ -18642,17 +18642,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_seventeen_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=18  Dlen=32  M=000102...1516  Z=000102...1011 */
         0x10U, 0xB2U, 0x2DU, 0x06U, 0xBCU, 0x9CU, 0x9CU, 0xEDU,
@@ -18668,17 +18668,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_eighteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=19  Dlen=32  M=000102...1516  Z=000102...1112 */
         0x00U, 0x97U, 0x09U, 0x50U, 0xD3U, 0x4DU, 0x4AU, 0x2BU,
@@ -18694,17 +18694,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_nineteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=20  Dlen=32  M=000102...1516  Z=000102...1213 */
         0x03U, 0x8EU, 0xE4U, 0x6EU, 0x22U, 0x58U, 0x44U, 0x02U,
@@ -18720,17 +18720,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twenty_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=21  Dlen=32  M=000102...1516  Z=000102...1314 */
         0xCDU, 0x08U, 0x2FU, 0xA0U, 0x2AU, 0x1CU, 0x21U, 0x9CU,
@@ -18746,17 +18746,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyone_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=22  Dlen=32  M=000102...1516  Z=000102...1415 */
         0xE9U, 0xB9U, 0x3DU, 0xC3U, 0x90U, 0x72U, 0x17U, 0xA7U,
@@ -18772,17 +18772,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentytwo_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=23  Dlen=32  M=000102...1516  Z=000102...1516 */
         0x65U, 0x4CU, 0xF2U, 0xFAU, 0x27U, 0x44U, 0xD1U, 0xC2U,
@@ -18798,17 +18798,17 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentythree_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=24  Dlen=32  M=000102...1516  Z=000102...1617 */
         0xACU, 0x4FU, 0xE7U, 0x38U, 0x27U, 0x09U, 0xADU, 0x23U,
@@ -18824,18 +18824,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyfour_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=25  Dlen=32  M=000102...1516  Z=000102...1718 */
         0x25U, 0x41U, 0xFEU, 0x5EU, 0x1DU, 0xA2U, 0xECU, 0x0CU,
@@ -18851,18 +18851,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyfive_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=26  Dlen=32  M=000102...1516  Z=000102...1819 */
         0x59U, 0x23U, 0xECU, 0x08U, 0x03U, 0xABU, 0x73U, 0x25U,
@@ -18878,18 +18878,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentysix_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=27  Dlen=32  M=000102...1516  Z=000102...191A */
         0x1AU, 0xF3U, 0xE4U, 0xBFU, 0xF4U, 0xB8U, 0xCAU, 0xA1U,
@@ -18905,18 +18905,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyseven_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=28  Dlen=32  M=000102...1516  Z=000102...1A1B */
         0x38U, 0x33U, 0x04U, 0xBFU, 0x75U, 0xF0U, 0x64U, 0x65U,
@@ -18932,18 +18932,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentyeight_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=29  Dlen=32  M=000102...1516  Z=000102...1B1C */
         0x4CU, 0xAAU, 0xF0U, 0x46U, 0x0BU, 0x8EU, 0xA1U, 0x8CU,
@@ -18959,18 +18959,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_twentynine_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=30  Dlen=32  M=000102...1516  Z=000102...1C1D */
         0x52U, 0x7FU, 0xF9U, 0xF9U, 0xFCU, 0x8DU, 0x72U, 0xC2U,
@@ -18986,18 +18986,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirty_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=31  Dlen=32  M=000102...1516  Z=000102...1D1E */
         0xA6U, 0x88U, 0x6DU, 0x8AU, 0x8BU, 0x39U, 0xB5U, 0xD0U,
@@ -19013,18 +19013,18 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirtyone_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[23U] = {
+    uint8_t message[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=23  Zlen=32  Dlen=32  M=000102...1516  Z=000102...1E1F */
         0x6BU, 0x66U, 0xFCU, 0x14U, 0x28U, 0xE2U, 0x0FU, 0x59U,
@@ -19040,12 +19040,12 @@ static void test_VERUM_ASCON_CXOF128_twentythree_byte_message_thirtytwo_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=0  Dlen=32  M=000102...1617  Z=(empty) */
         0xBAU, 0x66U, 0xF1U, 0x10U, 0x5EU, 0xEFU, 0x45U, 0x25U,
@@ -19061,13 +19061,13 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_empty_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=1  Dlen=32  M=000102...1617  Z=00 */
         0x6AU, 0x3DU, 0x1AU, 0xF9U, 0xC0U, 0xF5U, 0x44U, 0xECU,
@@ -19083,15 +19083,15 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_one_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=2  Dlen=32  M=000102...1617  Z=0001 */
         0xB8U, 0x07U, 0xBEU, 0x7EU, 0xE4U, 0x4CU, 0x43U, 0x57U,
@@ -19107,15 +19107,15 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_two_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=3  Dlen=32  M=000102...1617  Z=000102 */
         0xFEU, 0xF7U, 0xBFU, 0xFCU, 0xF1U, 0x6CU, 0x2FU, 0x05U,
@@ -19131,15 +19131,15 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_three_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=4  Dlen=32  M=000102...1617  Z=00010203 */
         0x63U, 0x91U, 0xFAU, 0x45U, 0xE7U, 0xDEU, 0x50U, 0xF4U,
@@ -19155,15 +19155,15 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_four_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=5  Dlen=32  M=000102...1617  Z=0001020304 */
         0x7DU, 0xDEU, 0xCDU, 0x79U, 0x53U, 0x2FU, 0x85U, 0x16U,
@@ -19179,15 +19179,15 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_five_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=6  Dlen=32  M=000102...1617  Z=000102030405 */
         0x7CU, 0xFCU, 0x18U, 0x3CU, 0xA1U, 0x6BU, 0x69U, 0xD2U,
@@ -19203,15 +19203,15 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_six_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=7  Dlen=32  M=000102...1617  Z=00010203040506 */
         0x77U, 0x8FU, 0xF5U, 0x7EU, 0x12U, 0x45U, 0xA7U, 0xA8U,
@@ -19227,15 +19227,15 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_seven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=8  Dlen=32  M=000102...1617  Z=0001020304050607 */
         0x50U, 0xF7U, 0xCEU, 0x53U, 0x39U, 0x48U, 0xE1U, 0x82U,
@@ -19251,16 +19251,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_eight_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=9  Dlen=32  M=000102...1617  Z=000102030405060708 */
         0x48U, 0xCFU, 0x7FU, 0xFDU, 0x13U, 0x21U, 0x43U, 0x7DU,
@@ -19276,16 +19276,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_nine_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=10  Dlen=32  M=000102...1617  Z=00010203040506070809 */
         0x31U, 0x42U, 0xBAU, 0x12U, 0x8BU, 0x69U, 0x2EU, 0x68U,
@@ -19301,16 +19301,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_ten_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=11  Dlen=32  M=000102...1617  Z=000102...090A */
         0x74U, 0xB4U, 0x45U, 0x0AU, 0xCEU, 0x9FU, 0xB5U, 0x02U,
@@ -19326,16 +19326,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_eleven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=12  Dlen=32  M=000102...1617  Z=000102...0A0B */
         0x15U, 0x73U, 0xC0U, 0xF5U, 0xBBU, 0x89U, 0xBEU, 0x3CU,
@@ -19351,16 +19351,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twelve_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=13  Dlen=32  M=000102...1617  Z=000102...0B0C */
         0xCCU, 0xF8U, 0x1AU, 0xECU, 0x39U, 0xCEU, 0xD3U, 0xB7U,
@@ -19376,16 +19376,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=14  Dlen=32  M=000102...1617  Z=000102...0C0D */
         0x24U, 0xC1U, 0x93U, 0x80U, 0x02U, 0xC8U, 0x09U, 0x62U,
@@ -19401,16 +19401,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_fourteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=15  Dlen=32  M=000102...1617  Z=000102...0D0E */
         0xFEU, 0xFEU, 0x20U, 0xE7U, 0xD0U, 0x51U, 0x28U, 0x10U,
@@ -19426,16 +19426,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_fifteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=16  Dlen=32  M=000102...1617  Z=000102...0E0F */
         0xC4U, 0x73U, 0x75U, 0x7AU, 0x46U, 0xF7U, 0x4BU, 0x76U,
@@ -19451,17 +19451,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_sixteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=17  Dlen=32  M=000102...1617  Z=000102...0F10 */
         0x3EU, 0x30U, 0xE8U, 0xACU, 0x0BU, 0x44U, 0x89U, 0x94U,
@@ -19477,17 +19477,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_seventeen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=18  Dlen=32  M=000102...1617  Z=000102...1011 */
         0x88U, 0x2AU, 0x76U, 0x46U, 0x33U, 0xA8U, 0x30U, 0x0AU,
@@ -19503,17 +19503,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_eighteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=19  Dlen=32  M=000102...1617  Z=000102...1112 */
         0x10U, 0x0EU, 0x48U, 0xA8U, 0xA8U, 0x2FU, 0x7BU, 0xA0U,
@@ -19529,17 +19529,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_nineteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=20  Dlen=32  M=000102...1617  Z=000102...1213 */
         0x82U, 0x21U, 0x8FU, 0xB0U, 0xFAU, 0x3EU, 0xFBU, 0xA8U,
@@ -19555,17 +19555,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twenty_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=21  Dlen=32  M=000102...1617  Z=000102...1314 */
         0x46U, 0x9DU, 0xBBU, 0x54U, 0x92U, 0x77U, 0x29U, 0x11U,
@@ -19581,17 +19581,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyone_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=22  Dlen=32  M=000102...1617  Z=000102...1415 */
         0x54U, 0x39U, 0x0FU, 0x7EU, 0xA5U, 0xA5U, 0xE3U, 0x8FU,
@@ -19607,17 +19607,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentytwo_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=23  Dlen=32  M=000102...1617  Z=000102...1516 */
         0xB8U, 0x31U, 0x64U, 0xFDU, 0x9CU, 0x8CU, 0xD2U, 0xA0U,
@@ -19633,17 +19633,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentythree_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=24  Dlen=32  M=000102...1617  Z=000102...1617 */
         0xD4U, 0xE9U, 0x01U, 0x34U, 0x17U, 0x56U, 0xB4U, 0xC3U,
@@ -19659,18 +19659,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyfour_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=25  Dlen=32  M=000102...1617  Z=000102...1718 */
         0xDEU, 0xD3U, 0x1DU, 0xC2U, 0x23U, 0x14U, 0xABU, 0x1EU,
@@ -19686,18 +19686,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyfive_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=26  Dlen=32  M=000102...1617  Z=000102...1819 */
         0x4DU, 0xEDU, 0xD3U, 0x17U, 0xB2U, 0xBDU, 0x6AU, 0xC6U,
@@ -19713,18 +19713,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentysix_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=27  Dlen=32  M=000102...1617  Z=000102...191A */
         0xADU, 0xD3U, 0x9EU, 0x7FU, 0x1DU, 0x9CU, 0x29U, 0x85U,
@@ -19740,18 +19740,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyseven_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=28  Dlen=32  M=000102...1617  Z=000102...1A1B */
         0x3DU, 0x19U, 0x7DU, 0xDDU, 0xD7U, 0x33U, 0x46U, 0xB0U,
@@ -19767,18 +19767,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentyeight_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=29  Dlen=32  M=000102...1617  Z=000102...1B1C */
         0x1FU, 0x38U, 0x06U, 0x88U, 0x8BU, 0xFAU, 0x49U, 0x82U,
@@ -19794,18 +19794,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_twentynine_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=30  Dlen=32  M=000102...1617  Z=000102...1C1D */
         0xD9U, 0x13U, 0xF0U, 0xF9U, 0xEAU, 0x47U, 0x06U, 0x87U,
@@ -19821,18 +19821,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirty_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=31  Dlen=32  M=000102...1617  Z=000102...1D1E */
         0xE4U, 0x8AU, 0xE7U, 0x5AU, 0x0EU, 0xEAU, 0x14U, 0xE5U,
@@ -19848,18 +19848,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirtyone_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[24U] = {
+    uint8_t message[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=24  Zlen=32  Dlen=32  M=000102...1617  Z=000102...1E1F */
         0x44U, 0x6BU, 0x28U, 0x98U, 0x8AU, 0x43U, 0xBBU, 0x63U,
@@ -19875,13 +19875,13 @@ static void test_VERUM_ASCON_CXOF128_twentyfour_byte_message_thirtytwo_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=0  Dlen=32  M=000102...1718  Z=(empty) */
         0x2AU, 0x57U, 0x1CU, 0xEEU, 0x2DU, 0x1FU, 0xCDU, 0xF2U,
@@ -19897,14 +19897,14 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_empty_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=1  Dlen=32  M=000102...1718  Z=00 */
         0x67U, 0x67U, 0x75U, 0x68U, 0x50U, 0x41U, 0xCCU, 0x15U,
@@ -19920,16 +19920,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_one_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=2  Dlen=32  M=000102...1718  Z=0001 */
         0x32U, 0xDDU, 0x03U, 0x89U, 0x0CU, 0x06U, 0x73U, 0x7FU,
@@ -19945,16 +19945,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_two_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=3  Dlen=32  M=000102...1718  Z=000102 */
         0x29U, 0x99U, 0x8BU, 0x0CU, 0xF7U, 0xDDU, 0x1EU, 0x9AU,
@@ -19970,16 +19970,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_three_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=4  Dlen=32  M=000102...1718  Z=00010203 */
         0x45U, 0xA8U, 0x58U, 0xBBU, 0x9EU, 0x90U, 0x9FU, 0xDFU,
@@ -19995,16 +19995,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_four_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=5  Dlen=32  M=000102...1718  Z=0001020304 */
         0x75U, 0xC3U, 0x59U, 0x42U, 0xC8U, 0x4BU, 0x6DU, 0x47U,
@@ -20020,16 +20020,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_five_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=6  Dlen=32  M=000102...1718  Z=000102030405 */
         0xB3U, 0x86U, 0x8DU, 0x3CU, 0x30U, 0x5EU, 0x56U, 0x03U,
@@ -20045,16 +20045,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_six_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=7  Dlen=32  M=000102...1718  Z=00010203040506 */
         0x90U, 0x09U, 0x46U, 0x3EU, 0x27U, 0x8DU, 0x92U, 0x3DU,
@@ -20070,16 +20070,16 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_seven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=8  Dlen=32  M=000102...1718  Z=0001020304050607 */
         0x2CU, 0x3CU, 0x40U, 0xDBU, 0x62U, 0xB8U, 0xBCU, 0x5EU,
@@ -20095,17 +20095,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_eight_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=9  Dlen=32  M=000102...1718  Z=000102030405060708 */
         0x7DU, 0xD4U, 0x20U, 0xA1U, 0x79U, 0x23U, 0x33U, 0x1DU,
@@ -20121,17 +20121,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_nine_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=10  Dlen=32  M=000102...1718  Z=00010203040506070809 */
         0x19U, 0x46U, 0x3DU, 0x19U, 0xC7U, 0x9BU, 0xBEU, 0xFAU,
@@ -20147,17 +20147,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_ten_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=11  Dlen=32  M=000102...1718  Z=000102...090A */
         0x34U, 0xB2U, 0x95U, 0x80U, 0x4AU, 0xBFU, 0x2FU, 0xF3U,
@@ -20173,17 +20173,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_eleven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=12  Dlen=32  M=000102...1718  Z=000102...0A0B */
         0xA9U, 0xB8U, 0xC8U, 0xD7U, 0x82U, 0x1DU, 0xCFU, 0xFEU,
@@ -20199,17 +20199,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twelve_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=13  Dlen=32  M=000102...1718  Z=000102...0B0C */
         0x2BU, 0x60U, 0xCAU, 0x30U, 0xADU, 0xCAU, 0xC0U, 0xBEU,
@@ -20225,17 +20225,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=14  Dlen=32  M=000102...1718  Z=000102...0C0D */
         0xEBU, 0x4DU, 0x35U, 0xEDU, 0xE4U, 0x48U, 0x32U, 0x9FU,
@@ -20251,17 +20251,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_fourteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=15  Dlen=32  M=000102...1718  Z=000102...0D0E */
         0x2BU, 0x87U, 0xE2U, 0xF0U, 0xA6U, 0xA6U, 0x34U, 0x6AU,
@@ -20277,17 +20277,17 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_fifteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=16  Dlen=32  M=000102...1718  Z=000102...0E0F */
         0xA1U, 0x15U, 0xF4U, 0xF9U, 0x82U, 0x9FU, 0x23U, 0x23U,
@@ -20303,18 +20303,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_sixteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=17  Dlen=32  M=000102...1718  Z=000102...0F10 */
         0x5BU, 0x14U, 0xFDU, 0x06U, 0xD7U, 0xCDU, 0x26U, 0x62U,
@@ -20330,18 +20330,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_seventeen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=18  Dlen=32  M=000102...1718  Z=000102...1011 */
         0x22U, 0xACU, 0x69U, 0xB4U, 0xDAU, 0x26U, 0x17U, 0xABU,
@@ -20357,18 +20357,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_eighteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=19  Dlen=32  M=000102...1718  Z=000102...1112 */
         0x3AU, 0x06U, 0x1FU, 0x26U, 0x70U, 0x98U, 0xC2U, 0xD2U,
@@ -20384,18 +20384,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_nineteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=20  Dlen=32  M=000102...1718  Z=000102...1213 */
         0x4AU, 0xE2U, 0x9CU, 0xAEU, 0xC6U, 0x0DU, 0x3EU, 0xE8U,
@@ -20411,18 +20411,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twenty_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=21  Dlen=32  M=000102...1718  Z=000102...1314 */
         0x57U, 0x70U, 0xE3U, 0x1CU, 0x86U, 0xF7U, 0xCBU, 0x5DU,
@@ -20438,18 +20438,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyone_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=22  Dlen=32  M=000102...1718  Z=000102...1415 */
         0xF5U, 0x4EU, 0xE5U, 0xF0U, 0x27U, 0xBFU, 0xE1U, 0x97U,
@@ -20465,18 +20465,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentytwo_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=23  Dlen=32  M=000102...1718  Z=000102...1516 */
         0x75U, 0x88U, 0x89U, 0x54U, 0x9CU, 0x34U, 0xA5U, 0xCEU,
@@ -20492,18 +20492,18 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentythree_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=24  Dlen=32  M=000102...1718  Z=000102...1617 */
         0x3DU, 0x9AU, 0x1AU, 0xAEU, 0x00U, 0x47U, 0xC4U, 0xD5U,
@@ -20519,19 +20519,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyfour_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=25  Dlen=32  M=000102...1718  Z=000102...1718 */
         0x69U, 0x43U, 0x86U, 0xC9U, 0xEBU, 0xA9U, 0xE4U, 0xC0U,
@@ -20547,19 +20547,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyfive_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=26  Dlen=32  M=000102...1718  Z=000102...1819 */
         0x05U, 0x62U, 0x69U, 0x90U, 0x8BU, 0xF5U, 0x3EU, 0x2BU,
@@ -20575,19 +20575,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentysix_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=27  Dlen=32  M=000102...1718  Z=000102...191A */
         0xB7U, 0xE7U, 0xD1U, 0xCFU, 0x9BU, 0xC9U, 0x53U, 0x39U,
@@ -20603,19 +20603,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyseven_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=28  Dlen=32  M=000102...1718  Z=000102...1A1B */
         0x74U, 0x62U, 0x73U, 0x1FU, 0xEEU, 0x31U, 0xF7U, 0x14U,
@@ -20631,19 +20631,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentyeight_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=29  Dlen=32  M=000102...1718  Z=000102...1B1C */
         0x8AU, 0xA9U, 0x0EU, 0xC0U, 0xB7U, 0x0BU, 0x70U, 0x4FU,
@@ -20659,19 +20659,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_twentynine_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=30  Dlen=32  M=000102...1718  Z=000102...1C1D */
         0x03U, 0x16U, 0x4FU, 0xC7U, 0x06U, 0x1BU, 0x62U, 0x68U,
@@ -20687,19 +20687,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirty_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=31  Dlen=32  M=000102...1718  Z=000102...1D1E */
         0xFFU, 0x11U, 0xBFU, 0x4EU, 0xC9U, 0x0DU, 0x69U, 0x34U,
@@ -20715,19 +20715,19 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirtyone_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[25U] = {
+    uint8_t message[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=25  Zlen=32  Dlen=32  M=000102...1718  Z=000102...1E1F */
         0xA4U, 0x5FU, 0x5FU, 0x53U, 0x96U, 0x05U, 0x43U, 0x38U,
@@ -20743,13 +20743,13 @@ static void test_VERUM_ASCON_CXOF128_twentyfive_byte_message_thirtytwo_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=0  Dlen=32  M=000102...1819  Z=(empty) */
         0x25U, 0x1CU, 0xC6U, 0xA5U, 0x9FU, 0x67U, 0xF6U, 0xF1U,
@@ -20765,14 +20765,14 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_empty_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=1  Dlen=32  M=000102...1819  Z=00 */
         0x8AU, 0x21U, 0xA9U, 0x52U, 0xFAU, 0x66U, 0xEEU, 0x7EU,
@@ -20788,16 +20788,16 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_one_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=2  Dlen=32  M=000102...1819  Z=0001 */
         0x14U, 0x15U, 0x08U, 0xB4U, 0x12U, 0xE5U, 0x5EU, 0x90U,
@@ -20813,16 +20813,16 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_two_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=3  Dlen=32  M=000102...1819  Z=000102 */
         0x30U, 0x46U, 0x77U, 0x79U, 0xA4U, 0xC2U, 0xBBU, 0xA0U,
@@ -20838,16 +20838,16 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_three_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=4  Dlen=32  M=000102...1819  Z=00010203 */
         0xC3U, 0x6AU, 0xFAU, 0x15U, 0xEAU, 0xD2U, 0x8AU, 0x97U,
@@ -20863,16 +20863,16 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_four_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=5  Dlen=32  M=000102...1819  Z=0001020304 */
         0xB6U, 0xDEU, 0x10U, 0x32U, 0x8EU, 0xB8U, 0x81U, 0x90U,
@@ -20888,16 +20888,16 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_five_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=6  Dlen=32  M=000102...1819  Z=000102030405 */
         0xEFU, 0xD5U, 0x45U, 0xCEU, 0x0AU, 0xADU, 0xF5U, 0xC2U,
@@ -20913,16 +20913,16 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_six_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=7  Dlen=32  M=000102...1819  Z=00010203040506 */
         0x27U, 0x50U, 0x55U, 0xA0U, 0xC7U, 0xB3U, 0x33U, 0xEFU,
@@ -20938,16 +20938,16 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_seven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=8  Dlen=32  M=000102...1819  Z=0001020304050607 */
         0xE8U, 0xC6U, 0x82U, 0x8CU, 0xE4U, 0x91U, 0xF5U, 0xBEU,
@@ -20963,17 +20963,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_eight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=9  Dlen=32  M=000102...1819  Z=000102030405060708 */
         0xA1U, 0xB9U, 0x4FU, 0x22U, 0xEBU, 0x23U, 0xD8U, 0xCDU,
@@ -20989,17 +20989,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_nine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=10  Dlen=32  M=000102...1819  Z=00010203040506070809 */
         0x6AU, 0x9BU, 0x36U, 0x78U, 0x12U, 0x98U, 0x01U, 0xDDU,
@@ -21015,17 +21015,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_ten_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=11  Dlen=32  M=000102...1819  Z=000102...090A */
         0xEEU, 0xD0U, 0xA5U, 0x97U, 0xFCU, 0x96U, 0x93U, 0x1EU,
@@ -21041,17 +21041,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_eleven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=12  Dlen=32  M=000102...1819  Z=000102...0A0B */
         0x7FU, 0x32U, 0x82U, 0xDFU, 0xADU, 0xA3U, 0x78U, 0x05U,
@@ -21067,17 +21067,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twelve_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=13  Dlen=32  M=000102...1819  Z=000102...0B0C */
         0x8AU, 0x14U, 0xF4U, 0x7EU, 0x65U, 0x18U, 0xD1U, 0xDEU,
@@ -21093,17 +21093,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=14  Dlen=32  M=000102...1819  Z=000102...0C0D */
         0x01U, 0xBFU, 0x2DU, 0x71U, 0x70U, 0x6CU, 0x2AU, 0xCAU,
@@ -21119,17 +21119,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_fourteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=15  Dlen=32  M=000102...1819  Z=000102...0D0E */
         0x2FU, 0x65U, 0x7EU, 0xCCU, 0xE8U, 0x89U, 0xD6U, 0xD9U,
@@ -21145,17 +21145,17 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_fifteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=16  Dlen=32  M=000102...1819  Z=000102...0E0F */
         0x19U, 0x2EU, 0x7BU, 0x29U, 0xB9U, 0x52U, 0xE6U, 0xFBU,
@@ -21171,18 +21171,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_sixteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=17  Dlen=32  M=000102...1819  Z=000102...0F10 */
         0xD5U, 0x10U, 0x12U, 0x0AU, 0x99U, 0x53U, 0xA7U, 0x1FU,
@@ -21198,18 +21198,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_seventeen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=18  Dlen=32  M=000102...1819  Z=000102...1011 */
         0x15U, 0xFCU, 0x3BU, 0x37U, 0xFFU, 0x03U, 0x14U, 0x5AU,
@@ -21225,18 +21225,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_eighteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=19  Dlen=32  M=000102...1819  Z=000102...1112 */
         0xFAU, 0xD9U, 0x3DU, 0xE7U, 0xB1U, 0x2AU, 0xEAU, 0x42U,
@@ -21252,18 +21252,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_nineteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=20  Dlen=32  M=000102...1819  Z=000102...1213 */
         0xBBU, 0x58U, 0x78U, 0x84U, 0xB9U, 0x34U, 0xC1U, 0xACU,
@@ -21279,18 +21279,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twenty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=21  Dlen=32  M=000102...1819  Z=000102...1314 */
         0x11U, 0xC0U, 0xE4U, 0x70U, 0x4BU, 0xA8U, 0xFCU, 0xDEU,
@@ -21306,18 +21306,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=22  Dlen=32  M=000102...1819  Z=000102...1415 */
         0xDFU, 0xE5U, 0x68U, 0xCBU, 0xBFU, 0x30U, 0x37U, 0x07U,
@@ -21333,18 +21333,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=23  Dlen=32  M=000102...1819  Z=000102...1516 */
         0x77U, 0xBFU, 0x59U, 0xE7U, 0xF1U, 0x71U, 0x8DU, 0xBCU,
@@ -21360,18 +21360,18 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentythree_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=24  Dlen=32  M=000102...1819  Z=000102...1617 */
         0x8EU, 0xA3U, 0x66U, 0xDCU, 0xF8U, 0x16U, 0x5BU, 0xC3U,
@@ -21387,19 +21387,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyfour_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=25  Dlen=32  M=000102...1819  Z=000102...1718 */
         0x82U, 0xD7U, 0xA4U, 0x80U, 0x61U, 0xA4U, 0xA9U, 0xF5U,
@@ -21415,19 +21415,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyfive_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=26  Dlen=32  M=000102...1819  Z=000102...1819 */
         0xA0U, 0x15U, 0x2CU, 0x06U, 0x96U, 0xF9U, 0x68U, 0x69U,
@@ -21443,19 +21443,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentysix_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=27  Dlen=32  M=000102...1819  Z=000102...191A */
         0x6EU, 0xD9U, 0xDCU, 0x46U, 0xACU, 0x91U, 0x20U, 0xCAU,
@@ -21471,19 +21471,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyseven_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=28  Dlen=32  M=000102...1819  Z=000102...1A1B */
         0xF9U, 0x92U, 0x98U, 0xF8U, 0x1FU, 0x1FU, 0x90U, 0x77U,
@@ -21499,19 +21499,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentyeight_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=29  Dlen=32  M=000102...1819  Z=000102...1B1C */
         0x8AU, 0x7DU, 0xE5U, 0x1DU, 0xC9U, 0x7FU, 0x51U, 0xADU,
@@ -21527,19 +21527,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_twentynine_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=30  Dlen=32  M=000102...1819  Z=000102...1C1D */
         0x03U, 0x54U, 0x80U, 0xC4U, 0x98U, 0x3EU, 0x34U, 0x51U,
@@ -21555,19 +21555,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=31  Dlen=32  M=000102...1819  Z=000102...1D1E */
         0x03U, 0x4BU, 0x39U, 0x20U, 0x9FU, 0xCBU, 0xD6U, 0xA1U,
@@ -21583,19 +21583,19 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirtyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[26U] = {
+    uint8_t message[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=26  Zlen=32  Dlen=32  M=000102...1819  Z=000102...1E1F */
         0x94U, 0x92U, 0x7CU, 0x29U, 0x02U, 0x04U, 0xC6U, 0x7FU,
@@ -21611,13 +21611,13 @@ static void test_VERUM_ASCON_CXOF128_twentysix_byte_message_thirtytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=0  Dlen=32  M=000102...191A  Z=(empty) */
         0x79U, 0x7FU, 0x98U, 0xFEU, 0x51U, 0x3BU, 0xE9U, 0x8EU,
@@ -21633,14 +21633,14 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_empty_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=1  Dlen=32  M=000102...191A  Z=00 */
         0xBBU, 0xC2U, 0x64U, 0xC6U, 0x59U, 0x98U, 0x02U, 0xF7U,
@@ -21656,16 +21656,16 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_one_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=2  Dlen=32  M=000102...191A  Z=0001 */
         0x3EU, 0x29U, 0xC2U, 0x7DU, 0x14U, 0x2BU, 0x39U, 0x4CU,
@@ -21681,16 +21681,16 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_two_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=3  Dlen=32  M=000102...191A  Z=000102 */
         0xEAU, 0x98U, 0x3EU, 0x45U, 0x5FU, 0x3BU, 0xCDU, 0xD0U,
@@ -21706,16 +21706,16 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_three_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=4  Dlen=32  M=000102...191A  Z=00010203 */
         0x40U, 0x00U, 0xA1U, 0xF2U, 0x1BU, 0x1EU, 0x51U, 0x8DU,
@@ -21731,16 +21731,16 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_four_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=5  Dlen=32  M=000102...191A  Z=0001020304 */
         0xFBU, 0x69U, 0xACU, 0x9CU, 0xFDU, 0x79U, 0xEDU, 0x97U,
@@ -21756,16 +21756,16 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_five_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=6  Dlen=32  M=000102...191A  Z=000102030405 */
         0xE3U, 0xFBU, 0x2FU, 0xFBU, 0x44U, 0xE6U, 0x6DU, 0x54U,
@@ -21781,16 +21781,16 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_six_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=7  Dlen=32  M=000102...191A  Z=00010203040506 */
         0xE5U, 0x69U, 0x32U, 0x61U, 0x1CU, 0xDDU, 0x1AU, 0xFFU,
@@ -21806,16 +21806,16 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_seven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=8  Dlen=32  M=000102...191A  Z=0001020304050607 */
         0xD9U, 0xABU, 0x25U, 0x68U, 0x1DU, 0x57U, 0xF9U, 0xECU,
@@ -21831,17 +21831,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_eight_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=9  Dlen=32  M=000102...191A  Z=000102030405060708 */
         0x9EU, 0xB7U, 0xC0U, 0xFAU, 0x29U, 0xF5U, 0xE2U, 0xA3U,
@@ -21857,17 +21857,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_nine_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=10  Dlen=32  M=000102...191A  Z=00010203040506070809 */
         0x60U, 0xE1U, 0xD3U, 0xEAU, 0xE4U, 0x16U, 0xBCU, 0xB3U,
@@ -21883,17 +21883,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_ten_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=11  Dlen=32  M=000102...191A  Z=000102...090A */
         0xD6U, 0x9BU, 0x2DU, 0x3BU, 0x21U, 0x1CU, 0xD8U, 0x0CU,
@@ -21909,17 +21909,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_eleven_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=12  Dlen=32  M=000102...191A  Z=000102...0A0B */
         0xABU, 0x59U, 0xFFU, 0x28U, 0x08U, 0xCEU, 0xC3U, 0x2BU,
@@ -21935,17 +21935,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twelve_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=13  Dlen=32  M=000102...191A  Z=000102...0B0C */
         0xCAU, 0xFEU, 0x2CU, 0x35U, 0x0AU, 0xA7U, 0x41U, 0x0EU,
@@ -21961,17 +21961,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=14  Dlen=32  M=000102...191A  Z=000102...0C0D */
         0xC1U, 0x04U, 0x4CU, 0x1BU, 0xD7U, 0xB2U, 0x66U, 0x18U,
@@ -21987,17 +21987,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_fourteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=15  Dlen=32  M=000102...191A  Z=000102...0D0E */
         0x62U, 0x34U, 0xEDU, 0x73U, 0xEAU, 0x8AU, 0x20U, 0x57U,
@@ -22013,17 +22013,17 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_fifteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=16  Dlen=32  M=000102...191A  Z=000102...0E0F */
         0x72U, 0x7FU, 0xA6U, 0xD6U, 0x52U, 0x43U, 0x2AU, 0x9DU,
@@ -22039,18 +22039,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_sixteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=17  Dlen=32  M=000102...191A  Z=000102...0F10 */
         0x56U, 0x6FU, 0x3BU, 0xDEU, 0x60U, 0x27U, 0xEEU, 0x11U,
@@ -22066,18 +22066,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_seventeen_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=18  Dlen=32  M=000102...191A  Z=000102...1011 */
         0x16U, 0xFCU, 0x38U, 0xDAU, 0x01U, 0xC1U, 0x7AU, 0x6DU,
@@ -22093,18 +22093,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_eighteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=19  Dlen=32  M=000102...191A  Z=000102...1112 */
         0x56U, 0x1CU, 0x6CU, 0xB9U, 0x28U, 0xF6U, 0x8EU, 0xA8U,
@@ -22120,18 +22120,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_nineteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=20  Dlen=32  M=000102...191A  Z=000102...1213 */
         0x02U, 0x1FU, 0xF6U, 0x4BU, 0xD6U, 0xC2U, 0x24U, 0x19U,
@@ -22147,18 +22147,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twenty_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=21  Dlen=32  M=000102...191A  Z=000102...1314 */
         0x22U, 0x67U, 0xDDU, 0xA1U, 0xA9U, 0x99U, 0xFCU, 0x93U,
@@ -22174,18 +22174,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyone_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=22  Dlen=32  M=000102...191A  Z=000102...1415 */
         0x73U, 0x9CU, 0x98U, 0x4EU, 0xA0U, 0x24U, 0x5AU, 0x41U,
@@ -22201,18 +22201,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentytwo_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=23  Dlen=32  M=000102...191A  Z=000102...1516 */
         0xD0U, 0xF0U, 0xF5U, 0x39U, 0x68U, 0x2AU, 0x7AU, 0x16U,
@@ -22228,18 +22228,18 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentythree_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=24  Dlen=32  M=000102...191A  Z=000102...1617 */
         0x7AU, 0x2CU, 0x85U, 0xE0U, 0xF2U, 0xD8U, 0x4CU, 0xDBU,
@@ -22255,19 +22255,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyfour_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=25  Dlen=32  M=000102...191A  Z=000102...1718 */
         0xFDU, 0x74U, 0x26U, 0x3BU, 0xABU, 0x80U, 0x46U, 0x08U,
@@ -22283,19 +22283,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyfive_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=26  Dlen=32  M=000102...191A  Z=000102...1819 */
         0x45U, 0x0DU, 0x49U, 0x26U, 0x3BU, 0xD7U, 0x10U, 0x81U,
@@ -22311,19 +22311,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentysix_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=27  Dlen=32  M=000102...191A  Z=000102...191A */
         0x06U, 0x6AU, 0x4DU, 0xC7U, 0xBBU, 0x98U, 0x46U, 0x91U,
@@ -22339,19 +22339,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyseven_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=28  Dlen=32  M=000102...191A  Z=000102...1A1B */
         0x2DU, 0xCBU, 0x96U, 0x92U, 0x17U, 0xFAU, 0xBEU, 0x84U,
@@ -22367,19 +22367,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentyeight_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=29  Dlen=32  M=000102...191A  Z=000102...1B1C */
         0x4DU, 0x35U, 0xA8U, 0x68U, 0xB3U, 0xFCU, 0x5AU, 0xA1U,
@@ -22395,19 +22395,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_twentynine_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=30  Dlen=32  M=000102...191A  Z=000102...1C1D */
         0x9EU, 0xFAU, 0x27U, 0x4DU, 0x79U, 0x1EU, 0xF0U, 0x18U,
@@ -22423,19 +22423,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirty_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=31  Dlen=32  M=000102...191A  Z=000102...1D1E */
         0x92U, 0x64U, 0x00U, 0xDCU, 0xEAU, 0x1DU, 0xA7U, 0xEAU,
@@ -22451,19 +22451,19 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirtyone_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[27U] = {
+    uint8_t message[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=27  Zlen=32  Dlen=32  M=000102...191A  Z=000102...1E1F */
         0x00U, 0x4FU, 0xE3U, 0xF0U, 0xB2U, 0xEBU, 0x76U, 0x62U,
@@ -22479,13 +22479,13 @@ static void test_VERUM_ASCON_CXOF128_twentyseven_byte_message_thirtytwo_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=0  Dlen=32  M=000102...1A1B  Z=(empty) */
         0x0DU, 0x01U, 0x17U, 0x2BU, 0xCBU, 0xCFU, 0x8AU, 0x63U,
@@ -22501,14 +22501,14 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_empty_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=1  Dlen=32  M=000102...1A1B  Z=00 */
         0x18U, 0xAEU, 0x06U, 0x14U, 0xB5U, 0x78U, 0x0AU, 0x19U,
@@ -22524,16 +22524,16 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_one_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=2  Dlen=32  M=000102...1A1B  Z=0001 */
         0x01U, 0x92U, 0x58U, 0x28U, 0xA7U, 0x20U, 0xE9U, 0xA0U,
@@ -22549,16 +22549,16 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_two_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=3  Dlen=32  M=000102...1A1B  Z=000102 */
         0xA1U, 0xCFU, 0xA1U, 0x7AU, 0x68U, 0x02U, 0x7DU, 0x0DU,
@@ -22574,16 +22574,16 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_three_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=4  Dlen=32  M=000102...1A1B  Z=00010203 */
         0x95U, 0xF1U, 0xC8U, 0xE8U, 0x9FU, 0x59U, 0x22U, 0x93U,
@@ -22599,16 +22599,16 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_four_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=5  Dlen=32  M=000102...1A1B  Z=0001020304 */
         0xEDU, 0x6DU, 0x13U, 0x22U, 0x6EU, 0xEAU, 0x00U, 0x86U,
@@ -22624,16 +22624,16 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_five_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=6  Dlen=32  M=000102...1A1B  Z=000102030405 */
         0x92U, 0x52U, 0x15U, 0xEBU, 0x33U, 0x34U, 0x9DU, 0x3EU,
@@ -22649,16 +22649,16 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_six_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=7  Dlen=32  M=000102...1A1B  Z=00010203040506 */
         0x2BU, 0x11U, 0x98U, 0xC5U, 0x83U, 0xCFU, 0xE9U, 0x4FU,
@@ -22674,16 +22674,16 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_seven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=8  Dlen=32  M=000102...1A1B  Z=0001020304050607 */
         0x6FU, 0x72U, 0xDEU, 0x37U, 0xF5U, 0x06U, 0x53U, 0x5AU,
@@ -22699,17 +22699,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_eight_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=9  Dlen=32  M=000102...1A1B  Z=000102030405060708 */
         0xB4U, 0xC6U, 0x5EU, 0xB9U, 0xFCU, 0xC9U, 0x53U, 0xABU,
@@ -22725,17 +22725,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_nine_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=10  Dlen=32  M=000102...1A1B  Z=00010203040506070809 */
         0x86U, 0xD9U, 0x04U, 0xE9U, 0x6BU, 0xEBU, 0x28U, 0xD6U,
@@ -22751,17 +22751,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_ten_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=11  Dlen=32  M=000102...1A1B  Z=000102...090A */
         0x89U, 0x86U, 0xC0U, 0xE3U, 0x31U, 0xDCU, 0xADU, 0x99U,
@@ -22777,17 +22777,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_eleven_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=12  Dlen=32  M=000102...1A1B  Z=000102...0A0B */
         0x34U, 0xE8U, 0x7BU, 0x25U, 0xBDU, 0x5CU, 0x08U, 0xFCU,
@@ -22803,17 +22803,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twelve_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=13  Dlen=32  M=000102...1A1B  Z=000102...0B0C */
         0x0CU, 0x85U, 0xD7U, 0x5BU, 0x7FU, 0xC9U, 0xEEU, 0xDEU,
@@ -22829,17 +22829,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=14  Dlen=32  M=000102...1A1B  Z=000102...0C0D */
         0x47U, 0x69U, 0xB8U, 0xF2U, 0x20U, 0xE6U, 0x41U, 0x6CU,
@@ -22855,17 +22855,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_fourteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=15  Dlen=32  M=000102...1A1B  Z=000102...0D0E */
         0xBDU, 0xFDU, 0x81U, 0xE8U, 0x5AU, 0x3CU, 0xB9U, 0xDEU,
@@ -22881,17 +22881,17 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_fifteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=16  Dlen=32  M=000102...1A1B  Z=000102...0E0F */
         0x19U, 0x3CU, 0x3CU, 0x7CU, 0x6FU, 0xE1U, 0x9EU, 0xD9U,
@@ -22907,18 +22907,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_sixteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=17  Dlen=32  M=000102...1A1B  Z=000102...0F10 */
         0x11U, 0xF6U, 0xD7U, 0x0DU, 0x9DU, 0x2DU, 0x3BU, 0x10U,
@@ -22934,18 +22934,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_seventeen_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=18  Dlen=32  M=000102...1A1B  Z=000102...1011 */
         0x97U, 0xA4U, 0x3EU, 0xC0U, 0xDFU, 0xEEU, 0xD4U, 0xB7U,
@@ -22961,18 +22961,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_eighteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=19  Dlen=32  M=000102...1A1B  Z=000102...1112 */
         0x3CU, 0x98U, 0xC0U, 0x8CU, 0x47U, 0x8AU, 0xD5U, 0x58U,
@@ -22988,18 +22988,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_nineteen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=20  Dlen=32  M=000102...1A1B  Z=000102...1213 */
         0x18U, 0xB3U, 0xE4U, 0x90U, 0x0BU, 0xBFU, 0x40U, 0x57U,
@@ -23015,18 +23015,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twenty_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=21  Dlen=32  M=000102...1A1B  Z=000102...1314 */
         0x25U, 0x19U, 0xF2U, 0x4EU, 0x81U, 0x18U, 0xE1U, 0x52U,
@@ -23042,18 +23042,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyone_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=22  Dlen=32  M=000102...1A1B  Z=000102...1415 */
         0xFDU, 0x98U, 0x97U, 0xB6U, 0x96U, 0x73U, 0xC5U, 0x36U,
@@ -23069,18 +23069,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentytwo_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=23  Dlen=32  M=000102...1A1B  Z=000102...1516 */
         0xE5U, 0x79U, 0x30U, 0x10U, 0x15U, 0x7BU, 0x54U, 0x49U,
@@ -23096,18 +23096,18 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentythree_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=24  Dlen=32  M=000102...1A1B  Z=000102...1617 */
         0xC7U, 0xC7U, 0xFDU, 0xACU, 0x30U, 0xF7U, 0xB7U, 0x36U,
@@ -23123,19 +23123,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyfour_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=25  Dlen=32  M=000102...1A1B  Z=000102...1718 */
         0x34U, 0x9DU, 0x76U, 0x74U, 0xF2U, 0x95U, 0xD0U, 0x8EU,
@@ -23151,19 +23151,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyfive_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=26  Dlen=32  M=000102...1A1B  Z=000102...1819 */
         0xB9U, 0x8FU, 0x68U, 0x68U, 0x62U, 0x20U, 0x13U, 0x97U,
@@ -23179,19 +23179,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentysix_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=27  Dlen=32  M=000102...1A1B  Z=000102...191A */
         0x73U, 0xD9U, 0x9DU, 0xADU, 0xDFU, 0xDDU, 0x37U, 0xB9U,
@@ -23207,19 +23207,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyseven_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=28  Dlen=32  M=000102...1A1B  Z=000102...1A1B */
         0x4BU, 0x6AU, 0x23U, 0x89U, 0xBEU, 0x42U, 0xA7U, 0x30U,
@@ -23235,19 +23235,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentyeight_byte_c
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=29  Dlen=32  M=000102...1A1B  Z=000102...1B1C */
         0xC0U, 0x45U, 0x72U, 0x32U, 0xFEU, 0x4AU, 0x81U, 0x35U,
@@ -23263,19 +23263,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_twentynine_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=30  Dlen=32  M=000102...1A1B  Z=000102...1C1D */
         0x5CU, 0x0AU, 0x81U, 0xCCU, 0x7BU, 0x69U, 0xC2U, 0x2BU,
@@ -23291,19 +23291,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirty_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=31  Dlen=32  M=000102...1A1B  Z=000102...1D1E */
         0x1BU, 0xFBU, 0xF8U, 0x58U, 0x50U, 0xDFU, 0xF3U, 0xB8U,
@@ -23319,19 +23319,19 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirtyone_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[28U] = {
+    uint8_t message[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=28  Zlen=32  Dlen=32  M=000102...1A1B  Z=000102...1E1F */
         0xABU, 0x8EU, 0x53U, 0xF3U, 0x1FU, 0xB6U, 0x1DU, 0x87U,
@@ -23347,13 +23347,13 @@ static void test_VERUM_ASCON_CXOF128_twentyeight_byte_message_thirtytwo_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=0  Dlen=32  M=000102...1B1C  Z=(empty) */
         0x62U, 0x6AU, 0x14U, 0xB7U, 0x69U, 0xB6U, 0xDBU, 0x77U,
@@ -23369,14 +23369,14 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_empty_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=1  Dlen=32  M=000102...1B1C  Z=00 */
         0x70U, 0xDCU, 0xBCU, 0x3EU, 0xB6U, 0x7FU, 0x24U, 0x02U,
@@ -23392,16 +23392,16 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_one_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=2  Dlen=32  M=000102...1B1C  Z=0001 */
         0x99U, 0xFCU, 0x8CU, 0x9DU, 0x6DU, 0x8EU, 0xE3U, 0x18U,
@@ -23417,16 +23417,16 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_two_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=3  Dlen=32  M=000102...1B1C  Z=000102 */
         0x32U, 0x8CU, 0x28U, 0xD8U, 0x92U, 0xB0U, 0xFBU, 0x63U,
@@ -23442,16 +23442,16 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_three_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=4  Dlen=32  M=000102...1B1C  Z=00010203 */
         0x96U, 0x8CU, 0x11U, 0x09U, 0x47U, 0xA4U, 0x7DU, 0x84U,
@@ -23467,16 +23467,16 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_four_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=5  Dlen=32  M=000102...1B1C  Z=0001020304 */
         0x09U, 0x06U, 0x6AU, 0xE8U, 0x95U, 0x9CU, 0x16U, 0x50U,
@@ -23492,16 +23492,16 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_five_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=6  Dlen=32  M=000102...1B1C  Z=000102030405 */
         0xB9U, 0x62U, 0xAAU, 0xD1U, 0x17U, 0x36U, 0x69U, 0xF2U,
@@ -23517,16 +23517,16 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_six_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=7  Dlen=32  M=000102...1B1C  Z=00010203040506 */
         0xC8U, 0xBAU, 0x3FU, 0x19U, 0xBBU, 0x83U, 0xBEU, 0x23U,
@@ -23542,16 +23542,16 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_seven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=8  Dlen=32  M=000102...1B1C  Z=0001020304050607 */
         0xFDU, 0x29U, 0x3DU, 0xDAU, 0x4EU, 0xFCU, 0x69U, 0x16U,
@@ -23567,17 +23567,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_eight_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=9  Dlen=32  M=000102...1B1C  Z=000102030405060708 */
         0x4AU, 0x0EU, 0x51U, 0x99U, 0xCBU, 0x91U, 0x96U, 0x38U,
@@ -23593,17 +23593,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_nine_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=10  Dlen=32  M=000102...1B1C  Z=00010203040506070809 */
         0xBBU, 0x7DU, 0x1CU, 0x03U, 0x0CU, 0x95U, 0xC3U, 0x17U,
@@ -23619,17 +23619,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_ten_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=11  Dlen=32  M=000102...1B1C  Z=000102...090A */
         0xC9U, 0x79U, 0x72U, 0x8DU, 0x02U, 0x1EU, 0x16U, 0x0FU,
@@ -23645,17 +23645,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_eleven_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=12  Dlen=32  M=000102...1B1C  Z=000102...0A0B */
         0xE4U, 0xBBU, 0xFFU, 0xC2U, 0x5BU, 0x98U, 0xFFU, 0x6DU,
@@ -23671,17 +23671,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twelve_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=13  Dlen=32  M=000102...1B1C  Z=000102...0B0C */
         0x18U, 0x95U, 0xADU, 0x41U, 0xEBU, 0x0AU, 0x0FU, 0xD6U,
@@ -23697,17 +23697,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=14  Dlen=32  M=000102...1B1C  Z=000102...0C0D */
         0xD8U, 0xF2U, 0x97U, 0x35U, 0xBFU, 0xA9U, 0x7FU, 0x30U,
@@ -23723,17 +23723,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_fourteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=15  Dlen=32  M=000102...1B1C  Z=000102...0D0E */
         0x78U, 0x28U, 0x9CU, 0x37U, 0x19U, 0x9CU, 0x44U, 0xA5U,
@@ -23749,17 +23749,17 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_fifteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=16  Dlen=32  M=000102...1B1C  Z=000102...0E0F */
         0xBEU, 0x8EU, 0x50U, 0xC9U, 0xD1U, 0x22U, 0xD3U, 0x72U,
@@ -23775,18 +23775,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_sixteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=17  Dlen=32  M=000102...1B1C  Z=000102...0F10 */
         0xFAU, 0x7CU, 0x28U, 0xDDU, 0x31U, 0xFCU, 0x84U, 0x5EU,
@@ -23802,18 +23802,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_seventeen_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=18  Dlen=32  M=000102...1B1C  Z=000102...1011 */
         0x3DU, 0x4AU, 0x28U, 0x06U, 0x46U, 0xE3U, 0x92U, 0x40U,
@@ -23829,18 +23829,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_eighteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=19  Dlen=32  M=000102...1B1C  Z=000102...1112 */
         0xA0U, 0x19U, 0xD2U, 0xFAU, 0xF9U, 0xDBU, 0x18U, 0x67U,
@@ -23856,18 +23856,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_nineteen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=20  Dlen=32  M=000102...1B1C  Z=000102...1213 */
         0x7FU, 0x69U, 0xB1U, 0xA7U, 0x4AU, 0x31U, 0x4BU, 0x09U,
@@ -23883,18 +23883,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twenty_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=21  Dlen=32  M=000102...1B1C  Z=000102...1314 */
         0x20U, 0xE8U, 0xD6U, 0xE5U, 0x63U, 0x88U, 0xB3U, 0x0AU,
@@ -23910,18 +23910,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyone_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=22  Dlen=32  M=000102...1B1C  Z=000102...1415 */
         0xC6U, 0x9EU, 0xD3U, 0x75U, 0xF7U, 0x39U, 0x74U, 0xD3U,
@@ -23937,18 +23937,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentytwo_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=23  Dlen=32  M=000102...1B1C  Z=000102...1516 */
         0x24U, 0xB0U, 0x7CU, 0x8AU, 0x39U, 0x7FU, 0xCFU, 0xEBU,
@@ -23964,18 +23964,18 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentythree_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=24  Dlen=32  M=000102...1B1C  Z=000102...1617 */
         0x5FU, 0x24U, 0xFCU, 0xD5U, 0x1CU, 0x0AU, 0x03U, 0xB1U,
@@ -23991,19 +23991,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyfour_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=25  Dlen=32  M=000102...1B1C  Z=000102...1718 */
         0x3EU, 0x64U, 0xF9U, 0x10U, 0x4EU, 0x09U, 0xF5U, 0xC8U,
@@ -24019,19 +24019,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyfive_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=26  Dlen=32  M=000102...1B1C  Z=000102...1819 */
         0xF6U, 0x66U, 0xA1U, 0xCAU, 0xACU, 0x40U, 0x27U, 0x3BU,
@@ -24047,19 +24047,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentysix_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=27  Dlen=32  M=000102...1B1C  Z=000102...191A */
         0xE7U, 0x8BU, 0xBBU, 0xDDU, 0x7BU, 0x28U, 0x1EU, 0x76U,
@@ -24075,19 +24075,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyseven_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=28  Dlen=32  M=000102...1B1C  Z=000102...1A1B */
         0x12U, 0xC1U, 0x71U, 0x65U, 0x01U, 0xFCU, 0x5DU, 0x20U,
@@ -24103,19 +24103,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentyeight_byte_cu
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=29  Dlen=32  M=000102...1B1C  Z=000102...1B1C */
         0x97U, 0x1EU, 0x0FU, 0xC9U, 0xECU, 0x35U, 0x1BU, 0xE7U,
@@ -24131,19 +24131,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_twentynine_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=30  Dlen=32  M=000102...1B1C  Z=000102...1C1D */
         0xCAU, 0x08U, 0x73U, 0xC0U, 0x72U, 0xA4U, 0xA9U, 0xF0U,
@@ -24159,19 +24159,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirty_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=31  Dlen=32  M=000102...1B1C  Z=000102...1D1E */
         0x98U, 0x49U, 0xB6U, 0x06U, 0x0DU, 0x32U, 0x8EU, 0x81U,
@@ -24187,19 +24187,19 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirtyone_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[29U] = {
+    uint8_t message[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=29  Zlen=32  Dlen=32  M=000102...1B1C  Z=000102...1E1F */
         0xEAU, 0x4CU, 0xD2U, 0x20U, 0x24U, 0xE3U, 0x3AU, 0x9EU,
@@ -24215,13 +24215,13 @@ static void test_VERUM_ASCON_CXOF128_twentynine_byte_message_thirtytwo_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=0  Dlen=32  M=000102...1C1D  Z=(empty) */
         0xF0U, 0x02U, 0x5AU, 0x55U, 0x37U, 0x23U, 0x8BU, 0xA4U,
@@ -24237,14 +24237,14 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_empty_custom_thirtytwo_
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=1  Dlen=32  M=000102...1C1D  Z=00 */
         0x39U, 0xC3U, 0x2CU, 0x75U, 0xF9U, 0xA7U, 0x11U, 0xA7U,
@@ -24260,16 +24260,16 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_one_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=2  Dlen=32  M=000102...1C1D  Z=0001 */
         0x76U, 0x22U, 0x84U, 0x7AU, 0x45U, 0xE3U, 0x53U, 0xFCU,
@@ -24285,16 +24285,16 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_two_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=3  Dlen=32  M=000102...1C1D  Z=000102 */
         0xFFU, 0x5EU, 0xD7U, 0x82U, 0xFAU, 0x64U, 0xB5U, 0x35U,
@@ -24310,16 +24310,16 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_three_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=4  Dlen=32  M=000102...1C1D  Z=00010203 */
         0x94U, 0xDCU, 0xBFU, 0x34U, 0xB1U, 0x4DU, 0xB4U, 0xD4U,
@@ -24335,16 +24335,16 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_four_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=5  Dlen=32  M=000102...1C1D  Z=0001020304 */
         0xC2U, 0x26U, 0xDFU, 0x82U, 0x6AU, 0x13U, 0x52U, 0xD7U,
@@ -24360,16 +24360,16 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_five_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=6  Dlen=32  M=000102...1C1D  Z=000102030405 */
         0x84U, 0xE9U, 0x24U, 0x8AU, 0x1FU, 0xE5U, 0xE2U, 0x01U,
@@ -24385,16 +24385,16 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_six_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=7  Dlen=32  M=000102...1C1D  Z=00010203040506 */
         0xD7U, 0x1DU, 0xEAU, 0x35U, 0xA2U, 0xD6U, 0xE6U, 0xD5U,
@@ -24410,16 +24410,16 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_seven_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=8  Dlen=32  M=000102...1C1D  Z=0001020304050607 */
         0xCDU, 0x76U, 0x37U, 0x9BU, 0x8AU, 0x45U, 0x94U, 0xDBU,
@@ -24435,17 +24435,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_eight_byte_custom_thirt
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=9  Dlen=32  M=000102...1C1D  Z=000102030405060708 */
         0xE3U, 0x55U, 0xE3U, 0x29U, 0x5CU, 0xB3U, 0x00U, 0x1AU,
@@ -24461,17 +24461,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_nine_byte_custom_thirty
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=10  Dlen=32  M=000102...1C1D  Z=00010203040506070809 */
         0x5BU, 0x76U, 0xC8U, 0x4FU, 0x8FU, 0xC5U, 0xBFU, 0x49U,
@@ -24487,17 +24487,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_ten_byte_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=11  Dlen=32  M=000102...1C1D  Z=000102...090A */
         0x93U, 0xC0U, 0xF2U, 0xB0U, 0xF0U, 0x3EU, 0x23U, 0xC7U,
@@ -24513,17 +24513,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_eleven_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=12  Dlen=32  M=000102...1C1D  Z=000102...0A0B */
         0x36U, 0x6CU, 0x30U, 0x8AU, 0xC3U, 0x7AU, 0x96U, 0xFDU,
@@ -24539,17 +24539,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twelve_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=13  Dlen=32  M=000102...1C1D  Z=000102...0B0C */
         0xDEU, 0x1CU, 0x66U, 0x7CU, 0xDFU, 0x10U, 0xDFU, 0xA7U,
@@ -24565,17 +24565,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=14  Dlen=32  M=000102...1C1D  Z=000102...0C0D */
         0x6DU, 0xBBU, 0xFCU, 0x0FU, 0xD2U, 0x88U, 0x3DU, 0x57U,
@@ -24591,17 +24591,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_fourteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=15  Dlen=32  M=000102...1C1D  Z=000102...0D0E */
         0x07U, 0x2CU, 0x80U, 0x40U, 0x70U, 0x79U, 0xC1U, 0x0CU,
@@ -24617,17 +24617,17 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_fifteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=16  Dlen=32  M=000102...1C1D  Z=000102...0E0F */
         0x2EU, 0x7BU, 0xC5U, 0x20U, 0x01U, 0x03U, 0x15U, 0xB8U,
@@ -24643,18 +24643,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_sixteen_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=17  Dlen=32  M=000102...1C1D  Z=000102...0F10 */
         0x9AU, 0xB2U, 0x34U, 0x5BU, 0xE0U, 0x78U, 0x75U, 0x0CU,
@@ -24670,18 +24670,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_seventeen_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=18  Dlen=32  M=000102...1C1D  Z=000102...1011 */
         0xFEU, 0xBEU, 0xF6U, 0x2AU, 0x78U, 0x9CU, 0xF2U, 0x55U,
@@ -24697,18 +24697,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_eighteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=19  Dlen=32  M=000102...1C1D  Z=000102...1112 */
         0xBEU, 0x06U, 0x81U, 0x63U, 0xA0U, 0x7EU, 0xA2U, 0xFBU,
@@ -24724,18 +24724,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_nineteen_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=20  Dlen=32  M=000102...1C1D  Z=000102...1213 */
         0x17U, 0xACU, 0xC6U, 0xF8U, 0x2DU, 0x52U, 0x65U, 0xF8U,
@@ -24751,18 +24751,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twenty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=21  Dlen=32  M=000102...1C1D  Z=000102...1314 */
         0x61U, 0x5EU, 0x70U, 0x1DU, 0xD3U, 0xB2U, 0x9DU, 0xF9U,
@@ -24778,18 +24778,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=22  Dlen=32  M=000102...1C1D  Z=000102...1415 */
         0xCBU, 0xAFU, 0x18U, 0x08U, 0x2FU, 0x1DU, 0x48U, 0x11U,
@@ -24805,18 +24805,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=23  Dlen=32  M=000102...1C1D  Z=000102...1516 */
         0x2CU, 0x13U, 0xA9U, 0xC6U, 0xB8U, 0x78U, 0xE4U, 0xF5U,
@@ -24832,18 +24832,18 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentythree_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=24  Dlen=32  M=000102...1C1D  Z=000102...1617 */
         0x17U, 0x34U, 0x44U, 0xD2U, 0xC9U, 0x5BU, 0x8FU, 0x17U,
@@ -24859,19 +24859,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyfour_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=25  Dlen=32  M=000102...1C1D  Z=000102...1718 */
         0x3AU, 0xE0U, 0x5CU, 0x8DU, 0x7BU, 0xE7U, 0xDEU, 0xAFU,
@@ -24887,19 +24887,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyfive_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=26  Dlen=32  M=000102...1C1D  Z=000102...1819 */
         0x87U, 0x6AU, 0xE3U, 0xA4U, 0x64U, 0x0EU, 0x28U, 0xF1U,
@@ -24915,19 +24915,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentysix_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=27  Dlen=32  M=000102...1C1D  Z=000102...191A */
         0x38U, 0x0CU, 0xE2U, 0xF1U, 0x91U, 0xB5U, 0x8BU, 0xA4U,
@@ -24943,19 +24943,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyseven_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=28  Dlen=32  M=000102...1C1D  Z=000102...1A1B */
         0x06U, 0x8AU, 0xF3U, 0xF4U, 0xE4U, 0x05U, 0x29U, 0xFDU,
@@ -24971,19 +24971,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentyeight_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=29  Dlen=32  M=000102...1C1D  Z=000102...1B1C */
         0xCFU, 0x88U, 0xDDU, 0x4AU, 0xEEU, 0x36U, 0xD1U, 0x51U,
@@ -24999,19 +24999,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_twentynine_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=30  Dlen=32  M=000102...1C1D  Z=000102...1C1D */
         0xD0U, 0xC3U, 0xACU, 0x9CU, 0x4EU, 0xC6U, 0xA7U, 0x6BU,
@@ -25027,19 +25027,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirty_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=31  Dlen=32  M=000102...1C1D  Z=000102...1D1E */
         0x11U, 0x35U, 0x6EU, 0x46U, 0xA1U, 0xBCU, 0xBBU, 0x53U,
@@ -25055,19 +25055,19 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirtyone_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[30U] = {
+    uint8_t message[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=30  Zlen=32  Dlen=32  M=000102...1C1D  Z=000102...1E1F */
         0x98U, 0x25U, 0xEDU, 0xC7U, 0xD6U, 0x6CU, 0x51U, 0x27U,
@@ -25083,13 +25083,13 @@ static void test_VERUM_ASCON_CXOF128_thirty_byte_message_thirtytwo_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=0  Dlen=32  M=000102...1D1E  Z=(empty) */
         0x49U, 0xCAU, 0x9FU, 0xF1U, 0x40U, 0x78U, 0xE8U, 0x48U,
@@ -25105,14 +25105,14 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_empty_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=1  Dlen=32  M=000102...1D1E  Z=00 */
         0x3EU, 0x24U, 0x8EU, 0xC4U, 0x43U, 0xF9U, 0xBBU, 0xFAU,
@@ -25128,16 +25128,16 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_one_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=2  Dlen=32  M=000102...1D1E  Z=0001 */
         0x41U, 0xDEU, 0x95U, 0x49U, 0xC9U, 0xD1U, 0x26U, 0x48U,
@@ -25153,16 +25153,16 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_two_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=3  Dlen=32  M=000102...1D1E  Z=000102 */
         0xFAU, 0x4DU, 0x3DU, 0x07U, 0x5CU, 0x41U, 0xD8U, 0xDDU,
@@ -25178,16 +25178,16 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_three_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=4  Dlen=32  M=000102...1D1E  Z=00010203 */
         0xC2U, 0x32U, 0x0DU, 0x28U, 0x2CU, 0x68U, 0x52U, 0x49U,
@@ -25203,16 +25203,16 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_four_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=5  Dlen=32  M=000102...1D1E  Z=0001020304 */
         0xB5U, 0x78U, 0xACU, 0x5AU, 0xE6U, 0x25U, 0xF1U, 0xA6U,
@@ -25228,16 +25228,16 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_five_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=6  Dlen=32  M=000102...1D1E  Z=000102030405 */
         0x99U, 0x68U, 0x5FU, 0x31U, 0x6AU, 0xB7U, 0xD3U, 0x99U,
@@ -25253,16 +25253,16 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_six_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=7  Dlen=32  M=000102...1D1E  Z=00010203040506 */
         0xD1U, 0xA6U, 0x0EU, 0xAFU, 0x46U, 0xFFU, 0xA2U, 0xB7U,
@@ -25278,16 +25278,16 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_seven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=8  Dlen=32  M=000102...1D1E  Z=0001020304050607 */
         0x3BU, 0x8CU, 0x5EU, 0x77U, 0xCEU, 0x14U, 0x2CU, 0x9EU,
@@ -25303,17 +25303,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_eight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=9  Dlen=32  M=000102...1D1E  Z=000102030405060708 */
         0x94U, 0xF8U, 0x3AU, 0x3FU, 0xE3U, 0xF4U, 0x56U, 0xACU,
@@ -25329,17 +25329,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_nine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=10  Dlen=32  M=000102...1D1E  Z=00010203040506070809 */
         0xDAU, 0xA6U, 0xC0U, 0x4BU, 0xB9U, 0xCDU, 0x18U, 0x36U,
@@ -25355,17 +25355,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_ten_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=11  Dlen=32  M=000102...1D1E  Z=000102...090A */
         0xDAU, 0xA1U, 0xA9U, 0xC7U, 0x83U, 0xC1U, 0x87U, 0x36U,
@@ -25381,17 +25381,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_eleven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=12  Dlen=32  M=000102...1D1E  Z=000102...0A0B */
         0xFDU, 0x48U, 0x9FU, 0xF6U, 0x3EU, 0x06U, 0xA4U, 0x49U,
@@ -25407,17 +25407,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twelve_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=13  Dlen=32  M=000102...1D1E  Z=000102...0B0C */
         0x14U, 0x9BU, 0x0AU, 0x0EU, 0x7BU, 0xD8U, 0xBBU, 0x72U,
@@ -25433,17 +25433,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=14  Dlen=32  M=000102...1D1E  Z=000102...0C0D */
         0xAAU, 0x99U, 0x79U, 0x4BU, 0x31U, 0xF0U, 0x33U, 0x8FU,
@@ -25459,17 +25459,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_fourteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=15  Dlen=32  M=000102...1D1E  Z=000102...0D0E */
         0x61U, 0xDAU, 0xBAU, 0x54U, 0x98U, 0xBEU, 0xA0U, 0x14U,
@@ -25485,17 +25485,17 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_fifteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=16  Dlen=32  M=000102...1D1E  Z=000102...0E0F */
         0x89U, 0x5FU, 0x63U, 0x4EU, 0xA1U, 0x07U, 0x24U, 0x51U,
@@ -25511,18 +25511,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_sixteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=17  Dlen=32  M=000102...1D1E  Z=000102...0F10 */
         0x11U, 0xC0U, 0xD1U, 0x39U, 0xD3U, 0x3CU, 0x43U, 0xFAU,
@@ -25538,18 +25538,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_seventeen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=18  Dlen=32  M=000102...1D1E  Z=000102...1011 */
         0xE2U, 0x2DU, 0x83U, 0x9DU, 0xA7U, 0x33U, 0xC7U, 0xA8U,
@@ -25565,18 +25565,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_eighteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=19  Dlen=32  M=000102...1D1E  Z=000102...1112 */
         0x33U, 0xD7U, 0xEFU, 0xF2U, 0x2BU, 0xF6U, 0xB7U, 0x86U,
@@ -25592,18 +25592,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_nineteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=20  Dlen=32  M=000102...1D1E  Z=000102...1213 */
         0x8DU, 0xA8U, 0x4EU, 0xAFU, 0x61U, 0xCDU, 0x50U, 0x47U,
@@ -25619,18 +25619,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twenty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=21  Dlen=32  M=000102...1D1E  Z=000102...1314 */
         0xC3U, 0x3EU, 0xCAU, 0x1EU, 0x62U, 0x53U, 0x9FU, 0x99U,
@@ -25646,18 +25646,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=22  Dlen=32  M=000102...1D1E  Z=000102...1415 */
         0xEEU, 0x17U, 0xFCU, 0xE9U, 0xB2U, 0x1DU, 0x6CU, 0x18U,
@@ -25673,18 +25673,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=23  Dlen=32  M=000102...1D1E  Z=000102...1516 */
         0xC4U, 0x6CU, 0x0AU, 0xADU, 0x00U, 0x20U, 0xE2U, 0x54U,
@@ -25700,18 +25700,18 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentythree_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=24  Dlen=32  M=000102...1D1E  Z=000102...1617 */
         0x69U, 0x69U, 0x74U, 0x35U, 0x2AU, 0x79U, 0xE2U, 0x67U,
@@ -25727,19 +25727,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyfour_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=25  Dlen=32  M=000102...1D1E  Z=000102...1718 */
         0xA9U, 0x16U, 0x4EU, 0x8BU, 0xE6U, 0x63U, 0x5FU, 0xA0U,
@@ -25755,19 +25755,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyfive_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=26  Dlen=32  M=000102...1D1E  Z=000102...1819 */
         0x30U, 0xE6U, 0x5FU, 0xD9U, 0xEAU, 0x25U, 0x7BU, 0xB7U,
@@ -25783,19 +25783,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentysix_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=27  Dlen=32  M=000102...1D1E  Z=000102...191A */
         0xCDU, 0x7AU, 0xFDU, 0xE2U, 0x64U, 0x4CU, 0x5BU, 0x50U,
@@ -25811,19 +25811,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyseven_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=28  Dlen=32  M=000102...1D1E  Z=000102...1A1B */
         0x2CU, 0xF1U, 0x72U, 0x91U, 0xCEU, 0x63U, 0xBDU, 0x5EU,
@@ -25839,19 +25839,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentyeight_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=29  Dlen=32  M=000102...1D1E  Z=000102...1B1C */
         0xB0U, 0x01U, 0x6FU, 0x09U, 0x23U, 0x1EU, 0x6EU, 0xD1U,
@@ -25867,19 +25867,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_twentynine_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=30  Dlen=32  M=000102...1D1E  Z=000102...1C1D */
         0x21U, 0x51U, 0x05U, 0x73U, 0xF9U, 0x80U, 0x33U, 0xD5U,
@@ -25895,19 +25895,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=31  Dlen=32  M=000102...1D1E  Z=000102...1D1E */
         0x68U, 0xA3U, 0xD3U, 0x9EU, 0xD7U, 0x24U, 0xE1U, 0x52U,
@@ -25923,19 +25923,19 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirtyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[31U] = {
+    uint8_t message[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=31  Zlen=32  Dlen=32  M=000102...1D1E  Z=000102...1E1F */
         0x9CU, 0x30U, 0x7AU, 0xFFU, 0x2BU, 0xB0U, 0x5AU, 0x20U,
@@ -25951,13 +25951,13 @@ static void test_VERUM_ASCON_CXOF128_thirtyone_byte_message_thirtytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_empty_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=0  Dlen=32  M=000102...1E1F  Z=(empty) */
         0x71U, 0xF8U, 0x12U, 0x32U, 0x1CU, 0xD5U, 0x4EU, 0x2DU,
@@ -25973,14 +25973,14 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_empty_custom_thirtyt
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_one_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[1U] = { 0x00U };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t customization[1U] = { 0x00U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=1  Dlen=32  M=000102...1E1F  Z=00 */
         0xA9U, 0x40U, 0x0AU, 0xD5U, 0x23U, 0xEBU, 0x85U, 0x89U,
@@ -25996,16 +25996,16 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_one_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_two_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[2U] = {
+    uint8_t customization[2U] = {
         0x00U, 0x01U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=2  Dlen=32  M=000102...1E1F  Z=0001 */
         0x4DU, 0x7FU, 0x86U, 0x48U, 0xA2U, 0xC7U, 0x21U, 0x96U,
@@ -26021,16 +26021,16 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_two_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_three_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[3U] = {
+    uint8_t customization[3U] = {
         0x00U, 0x01U, 0x02U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=3  Dlen=32  M=000102...1E1F  Z=000102 */
         0xA9U, 0x68U, 0x1DU, 0x62U, 0x8EU, 0x81U, 0x97U, 0x67U,
@@ -26046,16 +26046,16 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_three_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_four_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[4U] = {
+    uint8_t customization[4U] = {
         0x00U, 0x01U, 0x02U, 0x03U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=4  Dlen=32  M=000102...1E1F  Z=00010203 */
         0x12U, 0x34U, 0x48U, 0x5EU, 0x98U, 0xD2U, 0x03U, 0x86U,
@@ -26071,16 +26071,16 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_four_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_five_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[5U] = {
+    uint8_t customization[5U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=5  Dlen=32  M=000102...1E1F  Z=0001020304 */
         0xB8U, 0x7BU, 0x6BU, 0x12U, 0xD3U, 0x84U, 0xF0U, 0x0CU,
@@ -26096,16 +26096,16 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_five_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_six_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[6U] = {
+    uint8_t customization[6U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=6  Dlen=32  M=000102...1E1F  Z=000102030405 */
         0x60U, 0xC4U, 0xBEU, 0x6CU, 0x68U, 0x11U, 0xDFU, 0x98U,
@@ -26121,16 +26121,16 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_six_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_seven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[7U] = {
+    uint8_t customization[7U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=7  Dlen=32  M=000102...1E1F  Z=00010203040506 */
         0x74U, 0x58U, 0x52U, 0x83U, 0xB1U, 0x2DU, 0xAEU, 0x82U,
@@ -26146,16 +26146,16 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_seven_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_eight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[8U] = {
+    uint8_t customization[8U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=8  Dlen=32  M=000102...1E1F  Z=0001020304050607 */
         0x73U, 0x95U, 0xB3U, 0x97U, 0x49U, 0x58U, 0xEEU, 0xA7U,
@@ -26171,17 +26171,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_eight_byte_custom_th
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_nine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[9U] = {
+    uint8_t customization[9U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=9  Dlen=32  M=000102...1E1F  Z=000102030405060708 */
         0x77U, 0x95U, 0xD0U, 0x73U, 0x76U, 0x6FU, 0xC3U, 0x7FU,
@@ -26197,17 +26197,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_nine_byte_custom_thi
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_ten_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[10U] = {
+    uint8_t customization[10U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=10  Dlen=32  M=000102...1E1F  Z=00010203040506070809 */
         0x06U, 0x06U, 0x63U, 0xABU, 0x6CU, 0xFDU, 0x03U, 0xD2U,
@@ -26223,17 +26223,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_ten_byte_custom_thir
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_eleven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[11U] = {
+    uint8_t customization[11U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=11  Dlen=32  M=000102...1E1F  Z=000102...090A */
         0x66U, 0x29U, 0x24U, 0x20U, 0x02U, 0xBBU, 0x2EU, 0xD6U,
@@ -26249,17 +26249,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_eleven_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twelve_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[12U] = {
+    uint8_t customization[12U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=12  Dlen=32  M=000102...1E1F  Z=000102...0A0B */
         0xD1U, 0x5BU, 0xC4U, 0x89U, 0x18U, 0x86U, 0xDCU, 0xB5U,
@@ -26275,17 +26275,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twelve_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_thirteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[13U] = {
+    uint8_t customization[13U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=13  Dlen=32  M=000102...1E1F  Z=000102...0B0C */
         0x16U, 0x70U, 0xD8U, 0xB4U, 0xBDU, 0x6FU, 0x7BU, 0xA4U,
@@ -26301,17 +26301,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_thirteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_fourteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[14U] = {
+    uint8_t customization[14U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=14  Dlen=32  M=000102...1E1F  Z=000102...0C0D */
         0x28U, 0xC0U, 0x8EU, 0xF3U, 0x69U, 0xB9U, 0x47U, 0xDAU,
@@ -26327,17 +26327,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_fourteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_fifteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[15U] = {
+    uint8_t customization[15U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=15  Dlen=32  M=000102...1E1F  Z=000102...0D0E */
         0x8DU, 0x80U, 0xDEU, 0x11U, 0xE5U, 0xD9U, 0x7EU, 0xB5U,
@@ -26353,17 +26353,17 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_fifteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_sixteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[16U] = {
+    uint8_t customization[16U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=16  Dlen=32  M=000102...1E1F  Z=000102...0E0F */
         0xCAU, 0xB2U, 0xE3U, 0x58U, 0x38U, 0x3AU, 0x57U, 0x18U,
@@ -26379,18 +26379,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_sixteen_byte_custom_
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_seventeen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[17U] = {
+    uint8_t customization[17U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=17  Dlen=32  M=000102...1E1F  Z=000102...0F10 */
         0x94U, 0x9FU, 0x97U, 0x19U, 0xD1U, 0xAFU, 0x27U, 0xECU,
@@ -26406,18 +26406,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_seventeen_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_eighteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[18U] = {
+    uint8_t customization[18U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=18  Dlen=32  M=000102...1E1F  Z=000102...1011 */
         0x6EU, 0x36U, 0x78U, 0x1BU, 0xDCU, 0xF8U, 0x4CU, 0x65U,
@@ -26433,18 +26433,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_eighteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_nineteen_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[19U] = {
+    uint8_t customization[19U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=19  Dlen=32  M=000102...1E1F  Z=000102...1112 */
         0x9AU, 0xF4U, 0x0EU, 0xF4U, 0x15U, 0x74U, 0x26U, 0x42U,
@@ -26460,18 +26460,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_nineteen_byte_custom
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twenty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[20U] = {
+    uint8_t customization[20U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=20  Dlen=32  M=000102...1E1F  Z=000102...1213 */
         0x60U, 0x0CU, 0x61U, 0xFAU, 0x8CU, 0x36U, 0xE1U, 0xC9U,
@@ -26487,18 +26487,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twenty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[21U] = {
+    uint8_t customization[21U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=21  Dlen=32  M=000102...1E1F  Z=000102...1314 */
         0x3CU, 0x6BU, 0xC1U, 0x93U, 0xBEU, 0x37U, 0x43U, 0x79U,
@@ -26514,18 +26514,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[22U] = {
+    uint8_t customization[22U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=22  Dlen=32  M=000102...1E1F  Z=000102...1415 */
         0x63U, 0xACU, 0xD5U, 0x8AU, 0xD5U, 0x31U, 0x06U, 0x96U,
@@ -26541,18 +26541,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentytwo_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentythree_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[23U] = {
+    uint8_t customization[23U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=23  Dlen=32  M=000102...1E1F  Z=000102...1516 */
         0xC1U, 0xC6U, 0x22U, 0x05U, 0x14U, 0x52U, 0x2FU, 0x0BU,
@@ -26568,18 +26568,18 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentythree_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyfour_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[24U] = {
+    uint8_t customization[24U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=24  Dlen=32  M=000102...1E1F  Z=000102...1617 */
         0x59U, 0xDEU, 0x3BU, 0xC5U, 0xF5U, 0xC5U, 0x73U, 0x5DU,
@@ -26595,19 +26595,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyfour_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyfive_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[25U] = {
+    uint8_t customization[25U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=25  Dlen=32  M=000102...1E1F  Z=000102...1718 */
         0xAFU, 0x20U, 0x76U, 0x5BU, 0xBAU, 0x52U, 0x9FU, 0x17U,
@@ -26623,19 +26623,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyfive_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentysix_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[26U] = {
+    uint8_t customization[26U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=26  Dlen=32  M=000102...1E1F  Z=000102...1819 */
         0x4AU, 0xEBU, 0xDCU, 0x81U, 0xA5U, 0x41U, 0x40U, 0x73U,
@@ -26651,19 +26651,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentysix_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyseven_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[27U] = {
+    uint8_t customization[27U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=27  Dlen=32  M=000102...1E1F  Z=000102...191A */
         0x0EU, 0xDDU, 0x86U, 0xF0U, 0xA1U, 0x17U, 0xACU, 0xCDU,
@@ -26679,19 +26679,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyseven_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyeight_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[28U] = {
+    uint8_t customization[28U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=28  Dlen=32  M=000102...1E1F  Z=000102...1A1B */
         0xE3U, 0xB9U, 0xF4U, 0x35U, 0xE7U, 0x6FU, 0xFBU, 0x8BU,
@@ -26707,19 +26707,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentyeight_byte_cus
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentynine_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[29U] = {
+    uint8_t customization[29U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=29  Dlen=32  M=000102...1E1F  Z=000102...1B1C */
         0x12U, 0xD6U, 0xCAU, 0x64U, 0xD0U, 0x28U, 0xFEU, 0x97U,
@@ -26735,19 +26735,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_twentynine_byte_cust
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_thirty_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[30U] = {
+    uint8_t customization[30U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=30  Dlen=32  M=000102...1E1F  Z=000102...1C1D */
         0x5CU, 0x56U, 0xC9U, 0xD1U, 0x07U, 0x35U, 0x48U, 0x34U,
@@ -26763,19 +26763,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_thirty_byte_custom_t
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_thirtyone_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[31U] = {
+    uint8_t customization[31U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=31  Dlen=32  M=000102...1E1F  Z=000102...1D1E */
         0x27U, 0xDBU, 0xF2U, 0xF7U, 0xA9U, 0xE2U, 0xD7U, 0x6DU,
@@ -26791,19 +26791,19 @@ static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_thirtyone_byte_custo
 
 static void test_VERUM_ASCON_CXOF128_thirtytwo_byte_message_thirtytwo_byte_custom_thirtytwo_byte_output(void)
 {
-    uint8_t  message[32U] = {
+    uint8_t message[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  customization[32U] = {
+    uint8_t customization[32U] = {
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU,
         0x10U, 0x11U, 0x12U, 0x13U, 0x14U, 0x15U, 0x16U, 0x17U,
         0x18U, 0x19U, 0x1AU, 0x1BU, 0x1CU, 0x1DU, 0x1EU, 0x1FU
     };
-    uint8_t  digest[32U]  = { 0U };
+    uint8_t digest[32U] = { 0U };
     const uint8_t expected[32U] = {
         /* KAT: Ascon-CXOF128  Mlen=32  Zlen=32  Dlen=32  M=000102...1E1F  Z=000102...1E1F */
         0x4AU, 0x10U, 0xD4U, 0xA3U, 0x0FU, 0x85U, 0xDCU, 0x77U,

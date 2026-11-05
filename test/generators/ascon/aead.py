@@ -78,13 +78,8 @@ def _call_lines(fn: str, indent: str,
                 has_ad: bool, ad_len: int) -> list[str]:
     pfx = f'    VERUM_ASCON_AEAD128_{fn}('
     lines = [
-        '#ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF',
-        f'{pfx}key,',
-        f'{indent}nonce,',
-        '#else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */',
-        f'{pfx}(const uint32_t *) key,',
-        f'{indent}(const uint32_t *) nonce,',
-        '#endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */',
+        f'{pfx}key_param,',
+        f'{indent}nonce_param,',
         f'{indent}{data_var},',
         f'{indent}{data_len_str},',
     ]
@@ -128,9 +123,13 @@ def _generate_test_function(vec: dict, func_name: str) -> str:
     L.append('#ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF')
     L.append(f'    const uint32_t key[4U]   = {{ 0x{k_inter[0]:08X}UL, 0x{k_inter[1]:08X}UL, 0x{k_inter[2]:08X}UL, 0x{k_inter[3]:08X}UL }};')
     L.append(f'    const uint32_t nonce[4U] = {{ 0x{n_inter[0]:08X}UL, 0x{n_inter[1]:08X}UL, 0x{n_inter[2]:08X}UL, 0x{n_inter[3]:08X}UL }};')
+    L.append('    const uint32_t *key_param   = key;')
+    L.append('    const uint32_t *nonce_param = nonce;')
     L.append('#else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */')
     L.extend(_c_array('const', 'key',   16, key_bytes))
     L.extend(_c_array('const', 'nonce', 16, nonce_bytes))
+    L.append('    const uint32_t *key_param   = (const uint32_t *) key;')
+    L.append('    const uint32_t *nonce_param = (const uint32_t *) nonce;')
     L.append('#endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */')
 
     if has_ad:
