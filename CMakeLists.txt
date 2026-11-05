@@ -123,6 +123,14 @@ set(PROJECT_COMPILE_OPTIONS
 set(PROJECT_BASE_FLAGS -O0 $<$<CONFIG:Debug>:-g3>)
 set(SANITIZE_FLAGS -fsanitize=address,undefined)
 
+enable_testing()
+
+if(WIN32)
+    set(RUN_TESTS_ASAN_OPTIONS "abort_on_error=1")
+else()
+    set(RUN_TESTS_ASAN_OPTIONS "detect_leaks=1:abort_on_error=1")
+endif()
+
 add_library(verum OBJECT ${SOURCES_C})
 target_include_directories(verum PUBLIC ${INCLUDE_DIR})
 target_compile_options(verum PRIVATE
@@ -142,18 +150,125 @@ target_compile_definitions(test_runner PRIVATE $<$<CONFIG:Debug>:DEBUG>)
 target_link_libraries(test_runner PRIVATE verum)
 target_link_options(test_runner PRIVATE $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>)
 
-if(WIN32)
-    set(RUN_TESTS_ASAN_OPTIONS "abort_on_error=1")
-else()
-    set(RUN_TESTS_ASAN_OPTIONS "detect_leaks=1:abort_on_error=1")
-endif()
+# -----------------------------------------------------------------------------
+# Ascon Configuration Permutation Matrix (12 Configurations)
+# -----------------------------------------------------------------------------
+set(MATRIX_CONFIG_NAMES
+    ad_direct_unrolled
+    ad_direct_memory
+    ad_interleaved_unrolled
+    ad_interleaved_memory
+    ad_preinterleaved_unrolled
+    ad_preinterleaved_memory
+    noad_direct_unrolled
+    noad_direct_memory
+    noad_interleaved_unrolled
+    noad_interleaved_memory
+    noad_preinterleaved_unrolled
+    noad_preinterleaved_memory
+)
+
+set(DEFS_ad_direct_unrolled
+    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+set(DEFS_ad_direct_memory
+    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    VERUM_OPTIMIZATION_MEMORY_DEF
+)
+set(DEFS_ad_interleaved_unrolled
+    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+set(DEFS_ad_interleaved_memory
+    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_OPTIMIZATION_MEMORY_DEF
+)
+set(DEFS_ad_preinterleaved_unrolled
+    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+set(DEFS_ad_preinterleaved_memory
+    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    VERUM_OPTIMIZATION_MEMORY_DEF
+)
+set(DEFS_noad_direct_unrolled
+    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+set(DEFS_noad_direct_memory
+    VERUM_OPTIMIZATION_MEMORY_DEF
+)
+set(DEFS_noad_interleaved_unrolled
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+set(DEFS_noad_interleaved_memory
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_OPTIMIZATION_MEMORY_DEF
+)
+set(DEFS_noad_preinterleaved_unrolled
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+set(DEFS_noad_preinterleaved_memory
+    VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    VERUM_OPTIMIZATION_MEMORY_DEF
+)
+
+set(ALL_MATRIX_TEST_RUNNERS "")
+
+foreach(CFG IN LISTS MATRIX_CONFIG_NAMES)
+    set(CFG_LIB verum_${CFG})
+    set(CFG_RUNNER test_runner_${CFG})
+
+    add_library(${CFG_LIB} OBJECT ${SOURCES_C})
+    target_include_directories(${CFG_LIB} PUBLIC ${INCLUDE_DIR})
+    target_compile_options(${CFG_LIB} PRIVATE
+        ${PROJECT_BASE_FLAGS} ${PROJECT_WARNINGS}
+        $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>
+    )
+    target_compile_definitions(${CFG_LIB} PUBLIC
+        VERUM_CUSTOM_CONFIG
+        ${DEFS_${CFG}}
+        $<$<CONFIG:Debug>:DEBUG>
+    )
+    target_link_options(${CFG_LIB} INTERFACE $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>)
+
+    add_executable(${CFG_RUNNER} ${TEST_SRCS_C})
+    target_include_directories(${CFG_RUNNER} PRIVATE ${TEST_INCLUDE_DIRS})
+    target_compile_options(${CFG_RUNNER} PRIVATE
+        ${PROJECT_BASE_FLAGS} ${PROJECT_WARNINGS}
+        $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>
+    )
+    target_compile_definitions(${CFG_RUNNER} PRIVATE
+        VERUM_CUSTOM_CONFIG
+        ${DEFS_${CFG}}
+        $<$<CONFIG:Debug>:DEBUG>
+    )
+    target_link_libraries(${CFG_RUNNER} PRIVATE ${CFG_LIB})
+    target_link_options(${CFG_RUNNER} PRIVATE $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>)
+
+    add_test(NAME ascon_${CFG} COMMAND ${CFG_RUNNER})
+    set_tests_properties(ascon_${CFG} PROPERTIES
+        ENVIRONMENT "ASAN_OPTIONS=${RUN_TESTS_ASAN_OPTIONS}"
+    )
+
+    list(APPEND ALL_MATRIX_TEST_RUNNERS ${CFG_RUNNER})
+endforeach()
 
 add_custom_target(run_tests
-    COMMAND ${CMAKE_COMMAND} -E env ASAN_OPTIONS=${RUN_TESTS_ASAN_OPTIONS}
-        $<TARGET_FILE:test_runner>
-    DEPENDS test_runner
+    COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+    DEPENDS test_runner ${ALL_MATRIX_TEST_RUNNERS}
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-    COMMENT "Running unit tests"
+    COMMENT "Running CTest matrix across all configurations"
     USES_TERMINAL
     VERBATIM
 )
@@ -192,7 +307,7 @@ if(CPPCHECK_EXE)
             --suppress=misra-c2012-20.5
             
             --checkers-report=cppcheck.log
-            -D"__builtin_assume_aligned(p,a)=(p)"
+            "-D__builtin_assume_aligned(p,a)=(p)"
             -I ${INCLUDE_DIR}
             ${SOURCES_C}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
@@ -225,10 +340,11 @@ message(STATUS "${PROJECT_NAME} ${PROJECT_VERSION} configured (${CMAKE_C_COMPILE
 message(STATUS "")
 message(STATUS "Build:")
 message(STATUS "  cmake --build ${BUILD_REL}                  # build everything")
-message(STATUS "  cmake --build ${BUILD_REL} --target verum   # build the library only")
+message(STATUS "  cmake --build ${BUILD_REL} --target verum   # build the default library only")
 message(STATUS "")
 message(STATUS "Test:")
-message(STATUS "  cmake --build ${BUILD_REL} --target run_tests       # build + run test_runner")
+message(STATUS "  cmake --build ${BUILD_REL} --target run_tests       # build + run all 12 configuration tests (CTest)")
+message(STATUS "  ctest --test-dir ${BUILD_REL} --output-on-failure   # run CTest suite directly")
 message(STATUS "")
 message(STATUS "Other:")
 if(UNCRUSTIFY_EXE)

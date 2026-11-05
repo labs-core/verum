@@ -23,6 +23,7 @@
  * @{
  */
 
+#ifndef VERUM_CUSTOM_CONFIG
 /**
  * @def     VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
  * @brief   Enable associated-data authentication in Ascon-AEAD128.
@@ -33,7 +34,7 @@
  * @warning When defined, the AD absorption and padding phase executes unconditionally;
  *          undefine this macro when operating without associated data.
  */
-#undef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    #undef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
 /**
  * @def     VERUM_ASCON_BIT_INTERLEAVING_DEF
@@ -49,7 +50,7 @@
  *          (L_w, H_w), eliminating Morton conversion overhead at the cost of cross-word
  *          funnel shifts in p_L.
  */
-#define VERUM_ASCON_BIT_INTERLEAVING_DEF
+    #define VERUM_ASCON_BIT_INTERLEAVING_DEF
 
 /**
  * @def     VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
@@ -67,10 +68,10 @@
  * @warning When defined, passing raw little-endian keys or nonces will produce non-standard
  *          ciphertext and authentication tags.
  */
-#define VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-#ifndef VERUM_ASCON_BIT_INTERLEAVING_DEF
-#undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+    #define VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    #ifndef VERUM_ASCON_BIT_INTERLEAVING_DEF
+        #undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 /**
  * @def     VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
@@ -83,10 +84,19 @@
  *          the permutation is executed via the compact, shared, non-inlined subroutine
  *          @c VERUM_ASCON_permute, drastically reducing code footprint.
  */
-#define VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-#undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-#endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
+    #define VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
+#else /* VERUM_CUSTOM_CONFIG */
+    #ifndef VERUM_ASCON_BIT_INTERLEAVING_DEF
+        #undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+
+    #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
+#endif /* VERUM_CUSTOM_CONFIG */
 
 /** @} */
 

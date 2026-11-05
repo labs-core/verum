@@ -51,11 +51,17 @@
  * @details    When defined, the implementation trades computational throughput
  *             for reduced static and stack memory usage and data footprint outweigh cycle count.
  */
-#define VERUM_OPTIMIZATION_MEMORY_DEF
+#ifndef VERUM_CUSTOM_CONFIG
+    #define VERUM_OPTIMIZATION_MEMORY_DEF
 
-#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-#undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-#endif
+    #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
+#else /* VERUM_CUSTOM_CONFIG */
+    #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
+#endif /* VERUM_CUSTOM_CONFIG */
 
 /**
  * @def        VERUM_FAULT_HANDLER
@@ -75,7 +81,7 @@
 #undef VERUM_FAULT_HANDLER
 
 
-//#ifdef VERUM_FAULT_HANDLER
+/* #ifdef VERUM_FAULT_HANDLER */
 /**
  * @def        VERUM_STANDARD_FIPS_140_3_DEF
  * @brief      Enable FIPS 140-3 compliance mode.
@@ -109,7 +115,7 @@
  *             this flag is active.
  */
 #define VERUM_STANDARD_FIPS_140_3_DEF
-//#endif /* VERUM_FAULT_HANDLER */
+/* #endif *//* VERUM_FAULT_HANDLER */
 
 
 /** @} */
