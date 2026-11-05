@@ -44,4 +44,4 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
                                 uint32_t message_size,
                                 uint32_t digest[8U]);
 
-#endif // VERUM_ASCON_HASH_H_
+#endif /* VERUM_ASCON_HASH_H_ */

@@ -35,12 +35,12 @@ static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
     0x00400201UL,
     0x00008A00UL
 };
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
     0x00001000UL,
     0x808C0001UL
 };
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 
 /**
@@ -74,7 +74,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                  const uint8_t *associated_data,
                                  const uint32_t associated_size,
-#endif
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
                                  uint32_t authentication_tag[4U])
 {
     /**
@@ -97,14 +97,14 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_interleave(&state[4U]);
     VERUM_ASCON_interleave(&state[6U]);
     VERUM_ASCON_interleave(&state[8U]);
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
                             VERUM_ASCON_AEAD128_initialization_vector[0U],
                             key[0U], key[1U], key[2U], key[3U],
                             nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -127,9 +127,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
     /**
      * @internal
@@ -144,7 +144,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[7U] = state[7U] ^ key[1U];
     state[8U] = state[8U] ^ key[2U];
     state[9U] = state[9U] ^ key[3U];
-    #else
+    #else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
     holder[0U] = key[0U];
     holder[1U] = key[1U];
     holder[2U] = key[2U];
@@ -155,13 +155,13 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[7U] = state[7U] ^ holder[1U];
     state[8U] = state[8U] ^ holder[2U];
     state[9U] = state[9U] ^ holder[3U];
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[6U] = state[6U] ^ key[0U];
     state[7U] = state[7U] ^ key[1U];
     state[8U] = state[8U] ^ key[2U];
     state[9U] = state[9U] ^ key[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     uint32_t block_counter = 0U;
     uint32_t last_block_byte_index = 0U;
@@ -198,12 +198,12 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         state[1U] = state[1U] ^ holder[1U];
         state[2U] = state[2U] ^ holder[2U];
         state[3U] = state[3U] ^ holder[3U];
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
         state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
         state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-end misra-c2012-11.3
         associated_data += 16U;
 
@@ -222,9 +222,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 4U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     }
 
     /**
@@ -251,7 +251,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U]);
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
@@ -273,11 +273,11 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     VERUM_ASCON_permute(state, holder, 4U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
-#endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
     /**
      * @internal
@@ -320,7 +320,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U] = holder[1U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U] = holder[2U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U] = holder[3U];
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U];
         state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U];
@@ -329,7 +329,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[1U] = state[1U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[2U] = state[2U];
         ((uint32_t *) __builtin_assume_aligned(plaintext, sizeof(uint32_t)))[3U] = state[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-end misra-c2012-11.3
         plaintext += 16U;
 
@@ -348,9 +348,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 4U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     }
 
     /**
@@ -361,7 +361,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     last_block_byte_index = plaintext_size & 0xFU;
     uint32_t last_block_byte_index_holder = last_block_byte_index;
     last_block_plaintext[last_block_byte_index] = 0x01U;
-    // TR: opt 32_bit cpy if possible
+    /* TR: opt 32_bit cpy if possible */
     while (0U < last_block_byte_index)
     {
         --last_block_byte_index;
@@ -378,7 +378,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U]);
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[2U];
@@ -404,14 +404,14 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         --last_block_byte_index_holder;
         plaintext[last_block_byte_index_holder] = holder_bytes[last_block_byte_index_holder];
     }
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     const uint8_t * const state_bytes = (const uint8_t *) state;
     while (0U < last_block_byte_index_holder)
     {
         --last_block_byte_index_holder;
         plaintext[last_block_byte_index_holder] = state_bytes[last_block_byte_index_holder];
     }
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -425,7 +425,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[5U] = state[5U] ^ key[1U];
     state[6U] = state[6U] ^ key[2U];
     state[7U] = state[7U] ^ key[3U];
-    #else
+    #else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
     holder[0U] = key[0U];
     holder[1U] = key[1U];
     holder[2U] = key[2U];
@@ -436,13 +436,13 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     state[5U] = state[5U] ^ holder[1U];
     state[6U] = state[6U] ^ holder[2U];
     state[7U] = state[7U] ^ holder[3U];
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[4U] = state[4U] ^ key[0U];
     state[5U] = state[5U] ^ key[1U];
     state[6U] = state[6U] ^ key[2U];
     state[7U] = state[7U] ^ key[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -463,9 +463,9 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
     /**
      * @internal
@@ -481,7 +481,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     authentication_tag[3U] = state[9U] ^ key[3U];
     VERUM_ASCON_deinterleave(&authentication_tag[0U]);
     VERUM_ASCON_deinterleave(&authentication_tag[2U]);
-    #else
+    #else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
     authentication_tag[0U] = state[6U];
     authentication_tag[1U] = state[7U];
     authentication_tag[2U] = state[8U];
@@ -492,13 +492,13 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     authentication_tag[1U] = authentication_tag[1U] ^ key[1U];
     authentication_tag[2U] = authentication_tag[2U] ^ key[2U];
     authentication_tag[3U] = authentication_tag[3U] ^ key[3U];
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     authentication_tag[0U] = state[6U] ^ key[0U];
     authentication_tag[1U] = state[7U] ^ key[1U];
     authentication_tag[2U] = state[8U] ^ key[2U];
     authentication_tag[3U] = state[9U] ^ key[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
     /**
@@ -528,7 +528,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U] = 0U;
     // cppcheck-suppress-end misra-c2012-11.3
-#endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U] = 0U;
@@ -543,7 +543,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
     holder[3U] = 0U;
     // cppcheck-suppress-end unreadVariable
 
-#endif // VERUM_STANDARD_FIPS_140_3_DEF
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 
 }
 
@@ -578,7 +578,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
                                  const uint8_t *associated_data,
                                  const uint32_t associated_size,
-#endif
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
                                  uint32_t authentication_tag[4U])
 {
     /**
@@ -602,15 +602,15 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     VERUM_ASCON_interleave(&state[4U]);
     VERUM_ASCON_interleave(&state[6U]);
     VERUM_ASCON_interleave(&state[8U]);
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     uint32_t state[10U] = { VERUM_ASCON_AEAD128_initialization_vector[1U],
                             VERUM_ASCON_AEAD128_initialization_vector[0U],
                             key[0U], key[1U], key[2U], key[3U],
                             nonce[0U], nonce[1U], nonce[2U], nonce[3U] };
 
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -633,9 +633,9 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
     /**
      * @internal
@@ -650,7 +650,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     state[7U] = state[7U] ^ key[1U];
     state[8U] = state[8U] ^ key[2U];
     state[9U] = state[9U] ^ key[3U];
-    #else
+    #else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
     holder[0U] = key[0U];
     holder[1U] = key[1U];
     holder[2U] = key[2U];
@@ -661,13 +661,13 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     state[7U] = state[7U] ^ holder[1U];
     state[8U] = state[8U] ^ holder[2U];
     state[9U] = state[9U] ^ holder[3U];
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[6U] = state[6U] ^ key[0U];
     state[7U] = state[7U] ^ key[1U];
     state[8U] = state[8U] ^ key[2U];
     state[9U] = state[9U] ^ key[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     uint32_t block_counter = 0U;
     uint32_t last_block_byte_index = 0U;
@@ -701,12 +701,12 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         state[1U] = state[1U] ^ holder[1U];
         state[2U] = state[2U] ^ holder[2U];
         state[3U] = state[3U] ^ holder[3U];
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[1U];
         state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[2U];
         state[3U] = state[3U] ^ ((const uint32_t *) __builtin_assume_aligned(associated_data, sizeof(uint32_t)))[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-end misra-c2012-11.3
         associated_data += 16U;
 
@@ -725,9 +725,9 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 4U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     }
 
     /**
@@ -754,7 +754,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U]);
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U];
@@ -776,11 +776,11 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     VERUM_ASCON_permute(state, holder, 4U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
-#endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
     /**
      * @internal
@@ -827,7 +827,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         state[1U] = holder[5U];
         state[2U] = holder[6U];
         state[3U] = holder[7U];
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         holder[0U] = ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[0U];
         holder[1U] = ((const uint32_t *) __builtin_assume_aligned(ciphertext, sizeof(uint32_t)))[1U];
@@ -844,7 +844,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         state[1U] = holder[1U];
         state[2U] = holder[2U];
         state[3U] = holder[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         ciphertext += 16U;
 
         /**
@@ -862,9 +862,9 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 4U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     }
 
     last_block_byte_index = ciphertext_size & 0xFU;
@@ -889,14 +889,14 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         --last_block_byte_index_holder;
         ciphertext[last_block_byte_index_holder] = holder_bytes[last_block_byte_index_holder] ^ ciphertext[last_block_byte_index_holder];
     }
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     const uint8_t * const state_bytes = (const uint8_t *) state;
     while (0U < last_block_byte_index_holder)
     {
         --last_block_byte_index_holder;
         ciphertext[last_block_byte_index_holder] = state_bytes[last_block_byte_index_holder] ^ ciphertext[last_block_byte_index_holder];
     }
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -910,7 +910,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_ciphertext[16U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
     last_block_ciphertext[last_block_byte_index] = 0x01U;
-    // TR: opt 32_bit cpy if possible
+    /* TR: opt 32_bit cpy if possible */
     while (0U < last_block_byte_index)
     {
         --last_block_byte_index;
@@ -920,7 +920,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U]);
     VERUM_ASCON_interleave(&((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[1U];
     state[2U] = state[2U] ^ ((const uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[2U];
@@ -939,7 +939,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     state[5U] = state[5U] ^ key[1U];
     state[6U] = state[6U] ^ key[2U];
     state[7U] = state[7U] ^ key[3U];
-    #else
+    #else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
     holder[0U] = key[0U];
     holder[1U] = key[1U];
     holder[2U] = key[2U];
@@ -950,13 +950,13 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     state[5U] = state[5U] ^ holder[1U];
     state[6U] = state[6U] ^ holder[2U];
     state[7U] = state[7U] ^ holder[3U];
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[4U] = state[4U] ^ key[0U];
     state[5U] = state[5U] ^ key[1U];
     state[6U] = state[6U] ^ key[2U];
     state[7U] = state[7U] ^ key[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -977,9 +977,9 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
     VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
     /**
      * @internal
@@ -995,7 +995,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     authentication_tag[3U] = state[9U] ^ key[3U];
     VERUM_ASCON_deinterleave(&authentication_tag[0U]);
     VERUM_ASCON_deinterleave(&authentication_tag[2U]);
-    #else
+    #else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
     authentication_tag[0U] = state[6U];
     authentication_tag[1U] = state[7U];
     authentication_tag[2U] = state[8U];
@@ -1006,13 +1006,13 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     authentication_tag[1U] = authentication_tag[1U] ^ key[1U];
     authentication_tag[2U] = authentication_tag[2U] ^ key[2U];
     authentication_tag[3U] = authentication_tag[3U] ^ key[3U];
-    #endif
-#else
+    #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     authentication_tag[0U] = state[6U] ^ key[0U];
     authentication_tag[1U] = state[7U] ^ key[1U];
     authentication_tag[2U] = state[8U] ^ key[2U];
     authentication_tag[3U] = state[9U] ^ key[3U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
     /**
@@ -1042,7 +1042,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[2U] = 0U;
     ((uint32_t *) __builtin_assume_aligned(last_block_associated_data, sizeof(uint32_t)))[3U] = 0U;
     // cppcheck-suppress-end misra-c2012-11.3
-#endif // VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U] = 0U;
@@ -1057,5 +1057,5 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
     holder[3U] = 0U;
     // cppcheck-suppress-end unreadVariable
 
-#endif // VERUM_STANDARD_FIPS_140_3_DEF
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 }

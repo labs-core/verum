@@ -38,13 +38,13 @@ const uint8_t VERUM_ASCON_round_constants[12U][2U] = {
     { 0x06U, 0x0CU }, { 0x03U, 0x0CU }, { 0x06U, 0x09U }, { 0x03U, 0x09U },
     { 0x0CU, 0x06U }, { 0x09U, 0x06U }, { 0x0CU, 0x03U }, { 0x09U, 0x03U }
 };
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 const uint32_t VERUM_ASCON_round_constants[12U] = {
     0x000000F0UL, 0x000000E1UL, 0x000000D2UL, 0x000000C3UL,
     0x000000B4UL, 0x000000A5UL, 0x00000096UL, 0x00000087UL,
     0x00000078UL, 0x00000069UL, 0x0000005AUL, 0x0000004BUL
 };
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 /**
@@ -131,7 +131,7 @@ void VERUM_ASCON_deinterleave(uint32_t word[2U])
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
 VERUM_ATTR_INLINE static inline
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                                    uint32_t holder[10U],
                                                    const uint8_t round_constant[2U])
@@ -161,10 +161,10 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
     holder[4U] = ~holder[4U];
     holder[5U] = ~holder[5U];
 }
-#else /* !VERUM_ASCON_BIT_INTERLEAVING_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
 VERUM_ATTR_INLINE static inline
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                                    uint32_t holder[10U],
                                                    const uint32_t round_constant)
@@ -210,7 +210,7 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
 VERUM_ATTR_INLINE static inline
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                        const uint32_t holder[10U])
 {
@@ -229,10 +229,10 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
     state[8U] = holder[8U] ^ ((holder[9U] >>  3U) | (holder[9U] << 29U)) ^ ((holder[9U] >> 20U) | (holder[9U] << 12U));
     state[9U] = holder[9U] ^ ((holder[8U] >>  4U) | (holder[8U] << 28U)) ^ ((holder[8U] >> 21U) | (holder[8U] << 11U));
 }
-#else /* !VERUM_ASCON_BIT_INTERLEAVING_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
 VERUM_ATTR_INLINE static inline
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                        const uint32_t holder[10U])
 {
@@ -270,7 +270,7 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
 VERUM_ATTR_INLINE static inline
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                        uint32_t holder[10U],
                                        const uint8_t round_constant[2U])
@@ -309,10 +309,10 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
     holder[4U] = ~holder[4U];
     holder[5U] = ~holder[5U];
 }
-#else /* !VERUM_ASCON_BIT_INTERLEAVING_DEF */
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
 VERUM_ATTR_INLINE static inline
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                        uint32_t holder[10U],
                                        const uint32_t round_constant)
@@ -381,4 +381,4 @@ void VERUM_ASCON_permute(uint32_t state[10U],
     while (round_index < 12U);
     VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
 }
-#endif /* !VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */

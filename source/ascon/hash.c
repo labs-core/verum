@@ -57,9 +57,9 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
      */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     uint32_t state[10U] = { 0x56E696E1UL, 0xB308E498UL, 0x990657DCUL, 0x39C35509UL, 0x2B5A9644UL, 0xF46674E3UL, 0x6FE2F8B5UL, 0x678C872DUL, 0x4EA92B7BUL, 0x32121896UL };
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     uint32_t state[10U] = { 0xe934d681U, 0x9b1e5494U, 0x333751d2U, 0x4bc3a01eU, 0x6b34b81aU, 0xae65396cU, 0xd56a4db3U, 0x3c7fd4a4U, 0x06c5976dU, 0x1a5c4649U };
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     /**
@@ -79,12 +79,12 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
         VERUM_ASCON_interleave(holder);
         state[0U] = state[0U] ^ holder[0U];
         state[1U] = state[1U] ^ holder[1U];
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
         // cppcheck-suppress-end misra-c2012-11.3
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         message += 8U;
 
         /**
@@ -106,9 +106,9 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     }
 
     /**
@@ -131,7 +131,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
     // cppcheck-suppress-end misra-c2012-11.3
@@ -153,12 +153,12 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
         digest[block_counter + 1U] = state[1U];
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         VERUM_ASCON_deinterleave(&digest[block_counter]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         block_counter += 2U;
     }
     while (block_counter <= 6U);
 
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
@@ -185,7 +185,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     digest[1U] = state[1U];
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_deinterleave(&digest[0U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -210,7 +210,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     digest[3U] = state[1U];
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_deinterleave(&digest[2U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -235,7 +235,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     digest[5U] = state[1U];
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_deinterleave(&digest[4U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     /**
      * @internal
@@ -260,7 +260,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
     digest[7U] = state[1U];
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_deinterleave(&digest[6U]);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
 }

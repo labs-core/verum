@@ -34,7 +34,7 @@
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
 #include "auxiliary/memory.h"
-#endif // VERUM_OPTIMIZATION_MEMORY_DEF
+#endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
 
 /**
  * @internal
@@ -50,9 +50,9 @@
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 extern const uint8_t VERUM_ASCON_round_constants[12U][2U];
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 extern const uint32_t VERUM_ASCON_round_constants[12U];
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 /**
@@ -96,11 +96,11 @@ void VERUM_ASCON_deinterleave(uint32_t word[2U]);
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
                                             const uint8_t round_constant[2U]);
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
                                             uint32_t round_constant);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 /**
  * @internal
@@ -131,13 +131,13 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],
                                 const uint8_t round_constant[2U]);
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],
                                 uint32_t round_constant);
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
-#else /* !VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
 /**
  * @internal

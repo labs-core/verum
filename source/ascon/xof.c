@@ -60,9 +60,9 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
      */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     uint32_t state[10U] = { 0xC0AE36B9UL, 0xB9B5A81FUL, 0xAEABF6D9UL, 0xA6D933E6UL, 0xBC3F00E5UL, 0xD0B98214UL, 0x288D99CAUL, 0x3CF1072AUL, 0x8EF2DB1EUL, 0xC044B73BUL };
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     uint32_t state[10U] = { 0x8d9447ebU, 0xda82ce76U, 0x5f1ef969U, 0xcc7ce6c7U, 0x80085631U, 0xe7508fd7U, 0x416b58ccU, 0x0ee0ea53U, 0xdb6f0bdeU, 0xe0547524U };
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
 
     uint32_t block_counter = message_size >> 3U;
@@ -82,12 +82,12 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
         VERUM_ASCON_interleave(holder);
         state[0U] = state[0U] ^ holder[0U];
         state[1U] = state[1U] ^ holder[1U];
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
         state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
         // cppcheck-suppress-end misra-c2012-11.3
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         message += 8U;
 
         /**
@@ -109,9 +109,9 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     }
 
     /**
@@ -134,7 +134,7 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
     state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
     // cppcheck-suppress-end misra-c2012-11.3
@@ -170,9 +170,9 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
         /**
          * @internal
@@ -185,7 +185,7 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
         ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[1U] = state[1U];
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         VERUM_ASCON_deinterleave((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)));
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-end misra-c2012-11.3
         digest += 8U;
         --block_counter;
@@ -220,9 +220,9 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
         VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
         VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
         VERUM_ASCON_permute(state, holder, 0U);
-#endif
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
         /**
          * @internal
@@ -233,9 +233,9 @@ void VERUM_ASCON_XOF128_digest(const uint8_t *message,
         holder[1U] = state[1U];
         VERUM_ASCON_deinterleave(holder);
         const uint8_t * const state_bytes = (const uint8_t *) holder;
-#else
+#else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         const uint8_t * const state_bytes = (const uint8_t *) state;
-#endif
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         do
         {
             --digest_byte_index;
