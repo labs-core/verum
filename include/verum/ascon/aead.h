@@ -42,8 +42,8 @@
  * @warning       Lengths (@p plaintext_size, @p associated_size) are in bytes rather than
  *                bits (@nonconformity NIST SP 800-232).
  *
- * @param[in]     key                128-bit secret key (four 32-bit LE words).
- * @param[in]     nonce              128-bit public nonce (four 32-bit LE words).
+ * @param[in]     key                128-bit secret key (four 32-bit LE words, or pre-interleaved \pi(K)).
+ * @param[in]     nonce              128-bit public nonce (four 32-bit LE words, or pre-interleaved \pi(N)).
  * @param[in,out] plaintext          Entry: plaintext (@p plaintext_size bytes). Return: ciphertext in place.
  * @param[in]     plaintext_size     Byte length of @p plaintext (0 is valid; tag covers AD only).
  * @param[in]     associated_data    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Authenticated unencrypted AD buffer.
@@ -81,8 +81,8 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  * @warning       Lengths (@p ciphertext_size, @p associated_size) are in bytes rather than
  *                bits (@nonconformity NIST SP 800-232).
  *
- * @param[in]     key                128-bit secret key (four 32-bit LE words).
- * @param[in]     nonce              128-bit public nonce matching encryption (four 32-bit LE words).
+ * @param[in]     key                128-bit secret key (four 32-bit LE words, or pre-interleaved \pi(K)).
+ * @param[in]     nonce              128-bit public nonce matching encryption (four 32-bit LE words, or pre-interleaved \pi(N)).
  * @param[in,out] ciphertext         Entry: ciphertext (@p ciphertext_size bytes). Return: plaintext in place.
  * @param[in]     ciphertext_size    Byte length of @p ciphertext (0 is valid; tag covers AD only).
  * @param[in]     associated_data    *(VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF)* Authenticated unencrypted AD buffer.

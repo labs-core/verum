@@ -16,8 +16,10 @@
 #ifndef VERUM_ASCON_SET_H_
 #define VERUM_ASCON_SET_H_
 
+#include "define.h"
+
 /**
- * @defgroup VERUM_ASCON_AEAD128_feature_flags Ascon-AEAD128 Feature Flags
+ * @defgroup VERUM_ASCON_AEAD128_feature_flags Ascon Feature Flags
  * @{
  */
 
@@ -33,7 +35,57 @@
  */
 #define VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
 
-/** @} */
+/**
+ * @def     VERUM_ASCON_BIT_INTERLEAVING_DEF
+ * @brief   Enable bit-interleaved state representation for 32-bit platforms.
+ * @details When defined, maps the 320-bit Ascon state to ten 32-bit words via the
+ *          Boolean ring isomorphism \pi(S_w) = (E_w, O_w), separating even- and
+ *          odd-indexed bits. In 32-bit architectures, this converts 64-bit cross-register
+ *          rotations in the linear diffusion layer (p_L) into native 32-bit rotations
+ *          (ROTR32) that fuse into single-cycle instructions on processors with a
+ *          barrel shifter (e.g. ARM). Input and output blocks are converted via
+ *          Morton delta-swap permutation networks.
+ *          When undefined, the state is decomposed directly into low and high halves
+ *          (L_w, H_w), eliminating Morton conversion overhead at the cost of cross-word
+ *          funnel shifts in p_L.
+ */
+#undef VERUM_ASCON_BIT_INTERLEAVING_DEF
 
+/**
+ * @def     VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+ * @brief   Assume pre-interleaved secret key and nonce in Ascon-AEAD128.
+ * @details Applicable only when @c VERUM_ASCON_BIT_INTERLEAVING_DEF is active.
+ *          When defined, @c VERUM_ASCON_AEAD128_encrypt and @c VERUM_ASCON_AEAD128_decrypt
+ *          expect the 128-bit secret key parameter @p key and 128-bit nonce parameter
+ *          @p nonce to be already pre-interleaved into \pi(K) = (E_0, O_0, E_1, O_1)
+ *          and \pi(N) = (E_2, O_2, E_3, O_3) by the caller (e.g., during session handshake
+ *          or packet staging).
+ *          This completely eliminates the runtime Morton interleaving of both key and
+ *          nonce during initialization and tag computation for all subsequent messages.
+ *          When undefined, @p key and @p nonce are accepted in standard little-endian format
+ *          and converted to bit-interleaved form dynamically.
+ * @warning When defined, passing raw little-endian keys or nonces will produce non-standard
+ *          ciphertext and authentication tags.
+ */
+#ifndef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+#undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+#endif
+
+/**
+ * @def     VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+ * @brief   Enable full loop unrolling with fused round layers for maximum throughput.
+ * @details When defined, the Ascon-p[12] and Ascon-p[8] permutations are expanded into
+ *          an unrolled sequence of fused inline functions (VERUM_ASCON_permute_substitution_layer,
+ *          VERUM_ASCON_permute_merged, and VERUM_ASCON_permute_linear_diffusion_layer),
+ *          trading program size (.text) for maximum speed.
+ *          When undefined (or when @c VERUM_OPTIMIZATION_MEMORY_DEF is defined in define.h),
+ *          the permutation is executed via the compact, shared, non-inlined subroutine
+ *          @c VERUM_ASCON_permute, drastically reducing code footprint.
+ */
+#ifndef VERUM_OPTIMIZATION_MEMORY_DEF
+#define VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#endif
+
+/** @} */
 
 #endif /* VERUM_ASCON_SET_H_ */

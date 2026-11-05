@@ -53,6 +53,10 @@
  */
 #define VERUM_OPTIMIZATION_MEMORY_DEF
 
+#ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+#undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#endif
+
 /**
  * @def        VERUM_FAULT_HANDLER
  * @brief      Platform fault handler invoked on a detected computation error.
