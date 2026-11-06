@@ -1,7 +1,7 @@
 /**
  * @file      runner.c
  * @brief     Auto-generated test runner.
- * @details   Do not edit manually — regenerate with test/generators/all.py.
+ * @details   Do not edit manually — regenerate with scripts/test/generators/all.py.
  *
  * @copyright (C) Core Labs
  *            All rights reserved.

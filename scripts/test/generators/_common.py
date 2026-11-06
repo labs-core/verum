@@ -1,7 +1,9 @@
 from pathlib import Path
 
-_GENERATORS_DIR = Path(__file__).parent
-_TEST_DIR       = _GENERATORS_DIR.parent
+_GENERATORS_DIR = Path(__file__).resolve().parent
+# Find repo root by looking upwards for include/ or test/
+_REPO_ROOT = _GENERATORS_DIR.parents[2] if (_GENERATORS_DIR.parents[2] / 'test').is_dir() else _GENERATORS_DIR.parent
+_TEST_DIR       = _REPO_ROOT / 'test'
 _SUITE_DIR      = _TEST_DIR / 'suite'
 _KAT_DIR        = _GENERATORS_DIR / 'kat'
 

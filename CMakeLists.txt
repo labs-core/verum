@@ -47,80 +47,12 @@ file(GLOB SUITE_ASCON CONFIGURE_DEPENDS ${SUITE_DIR}/ascon/*.c)
 set(TEST_SRCS_C ${RUNNER_SRCS} ${UNITY_SRCS} ${SUITE_ASCON})
 set(TEST_INCLUDE_DIRS ${INCLUDE_DIR} ${UNITY_DIR} ${SUITE_DIR}/ascon)
 
-set(PROJECT_WARNINGS
-    -Wall -Wextra -Werror -pedantic
-    -Waddress
-    -Warray-bounds
-    -Wcast-align
-    -Wcast-qual
-    -Wbad-function-cast
-    -Wconversion
-    -Wdouble-promotion
-    -Wformat=2
-    -Wimplicit-function-declaration
-    -Wimplicit-fallthrough
-    -Wmissing-declarations
-    -Wmissing-prototypes
-    -Wmissing-variable-declarations
-    -Wnull-dereference
-    -Wpointer-arith
-    -Wreserved-identifier
-    -Wsign-compare
-    -Wstrict-aliasing
-    -Wstrict-overflow=2
-    -Wstrict-prototypes
-    -Wswitch-default
-    -Wswitch-enum
-    -Wundef
-    -Wuninitialized
-    -Wunused-macros
-    -Wunused-variable
-    -Wvla
-    -Wfloat-equal
-    -Wcomma
-    -Wassign-enum
-    -Wshadow-all
-    -Wunreachable-code-aggressive
-    -Wunreachable-code
-    -Wcast-function-type
-    -Wmissing-noreturn
-    -Wold-style-definition
-    -Wdisabled-macro-expansion
-    -Wextra-semi
-    -Wnewline-eof
-    -Wshift-sign-overflow
-    -Wloop-analysis
-)
+file(GLOB_RECURSE BENCH_SRCS CONFIGURE_DEPENDS ${CMAKE_SOURCE_DIR}/benchmark/*.c ${CMAKE_SOURCE_DIR}/benchmark/*.h)
 
-
-set(PROJECT_COMPILE_OPTIONS
-    -std=c11
-    -fno-gnu-keywords
-    -fsigned-char
-    -fno-short-enums
-    -fno-strict-aliasing
-    -fwrapv
-    -fno-delete-null-pointer-checks
-    -fno-strict-overflow
-    -ffp-contract=off
-    -fno-fast-math
-    -fno-finite-math-only
-    -fno-unsafe-math-optimizations
-    -fno-associative-math
-    -fno-reciprocal-math
-    -fsigned-zeros
-    -ftrapping-math
-    -frounding-math
-    -fno-common
-    -fno-exceptions
-    -fno-unwind-tables
-    -fno-asynchronous-unwind-tables
-    -fdiagnostics-show-option
-    -ferror-limit=0
-    -fmacro-backtrace-limit=0
-)
-
-set(PROJECT_BASE_FLAGS -O0 $<$<CONFIG:Debug>:-g3>)
+# -----------------------------------------------------------------------------
+# Unified Compilation Flags and Matrix Configurations (release/flags.cmake)
+# -----------------------------------------------------------------------------
+include(${CMAKE_SOURCE_DIR}/release/flags.cmake)
 set(SANITIZE_FLAGS -fsanitize=address,undefined)
 
 enable_testing()
@@ -130,6 +62,39 @@ if(WIN32)
 else()
     set(RUN_TESTS_ASAN_OPTIONS "detect_leaks=1:abort_on_error=1")
 endif()
+
+find_package(Python3 COMPONENTS Interpreter REQUIRED)
+
+# -----------------------------------------------------------------------------
+# Release Artifact Generation (x86_64, ARM Cortex-M4, RISC-V 32 RV32IMAC)
+# -----------------------------------------------------------------------------
+set(RELEASE_DIR ${CMAKE_SOURCE_DIR}/release)
+
+add_custom_target(release_x86_64
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/release/run_release.py --arch x86_64 --out-dir ${RELEASE_DIR}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Building stripped release static archives for x86_64 host"
+    VERBATIM
+)
+
+add_custom_target(release_arm
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/release/run_release.py --arch arm --out-dir ${RELEASE_DIR}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Building stripped release static archives for ARM Cortex-M4"
+    VERBATIM
+)
+
+add_custom_target(release_riscv
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/release/run_release.py --arch riscv --out-dir ${RELEASE_DIR}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Building stripped release static archives for RISC-V 32 RV32IMAC"
+    VERBATIM
+)
+
+add_custom_target(release
+    DEPENDS release_x86_64 release_arm release_riscv
+    COMMENT "Building complete stripped release libraries for x86_64, ARM, and RISC-V"
+)
 
 add_library(verum OBJECT ${SOURCES_C})
 target_include_directories(verum PUBLIC ${INCLUDE_DIR})
@@ -144,117 +109,29 @@ add_executable(test_runner ${TEST_SRCS_C})
 target_include_directories(test_runner PRIVATE ${TEST_INCLUDE_DIRS})
 target_compile_options(test_runner PRIVATE
     ${PROJECT_BASE_FLAGS} ${PROJECT_WARNINGS}
-    $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>
 )
-target_compile_definitions(test_runner PRIVATE $<$<CONFIG:Debug>:DEBUG>)
-target_link_libraries(test_runner PRIVATE verum)
-target_link_options(test_runner PRIVATE $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>)
+target_link_libraries(test_runner PRIVATE ${RELEASE_DIR}/verum/ad_direct_unrolled/x86_64/libverum.a)
+add_dependencies(test_runner release_x86_64)
 
 # -----------------------------------------------------------------------------
-# Ascon Configuration Permutation Matrix (12 Configurations)
+# Ascon Configuration Permutation Matrix (12 Configurations from flags.cmake)
 # -----------------------------------------------------------------------------
-set(MATRIX_CONFIG_NAMES
-    ad_direct_unrolled
-    ad_direct_memory
-    ad_interleaved_unrolled
-    ad_interleaved_memory
-    ad_preinterleaved_unrolled
-    ad_preinterleaved_memory
-    noad_direct_unrolled
-    noad_direct_memory
-    noad_interleaved_unrolled
-    noad_interleaved_memory
-    noad_preinterleaved_unrolled
-    noad_preinterleaved_memory
-)
-
-set(DEFS_ad_direct_unrolled
-    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-)
-set(DEFS_ad_direct_memory
-    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_OPTIMIZATION_MEMORY_DEF
-)
-set(DEFS_ad_interleaved_unrolled
-    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-)
-set(DEFS_ad_interleaved_memory
-    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_OPTIMIZATION_MEMORY_DEF
-)
-set(DEFS_ad_preinterleaved_unrolled
-    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-)
-set(DEFS_ad_preinterleaved_memory
-    VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-    VERUM_OPTIMIZATION_MEMORY_DEF
-)
-set(DEFS_noad_direct_unrolled
-    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-)
-set(DEFS_noad_direct_memory
-    VERUM_OPTIMIZATION_MEMORY_DEF
-)
-set(DEFS_noad_interleaved_unrolled
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-)
-set(DEFS_noad_interleaved_memory
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_OPTIMIZATION_MEMORY_DEF
-)
-set(DEFS_noad_preinterleaved_unrolled
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-    VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-)
-set(DEFS_noad_preinterleaved_memory
-    VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-    VERUM_OPTIMIZATION_MEMORY_DEF
-)
-
 set(ALL_MATRIX_TEST_RUNNERS "")
 
 foreach(CFG IN LISTS MATRIX_CONFIG_NAMES)
-    set(CFG_LIB verum_${CFG})
     set(CFG_RUNNER test_runner_${CFG})
-
-    add_library(${CFG_LIB} OBJECT ${SOURCES_C})
-    target_include_directories(${CFG_LIB} PUBLIC ${INCLUDE_DIR})
-    target_compile_options(${CFG_LIB} PRIVATE
-        ${PROJECT_BASE_FLAGS} ${PROJECT_WARNINGS}
-        $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>
-    )
-    target_compile_definitions(${CFG_LIB} PUBLIC
-        VERUM_CUSTOM_CONFIG
-        ${DEFS_${CFG}}
-        $<$<CONFIG:Debug>:DEBUG>
-    )
-    target_link_options(${CFG_LIB} INTERFACE $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>)
 
     add_executable(${CFG_RUNNER} ${TEST_SRCS_C})
     target_include_directories(${CFG_RUNNER} PRIVATE ${TEST_INCLUDE_DIRS})
     target_compile_options(${CFG_RUNNER} PRIVATE
         ${PROJECT_BASE_FLAGS} ${PROJECT_WARNINGS}
-        $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>
     )
     target_compile_definitions(${CFG_RUNNER} PRIVATE
-        VERUM_CUSTOM_CONFIG
         ${DEFS_${CFG}}
         $<$<CONFIG:Debug>:DEBUG>
     )
-    target_link_libraries(${CFG_RUNNER} PRIVATE ${CFG_LIB})
-    target_link_options(${CFG_RUNNER} PRIVATE $<$<CONFIG:Debug>:${SANITIZE_FLAGS}>)
+    target_link_libraries(${CFG_RUNNER} PRIVATE ${RELEASE_DIR}/verum/${CFG}/x86_64/libverum.a)
+    add_dependencies(${CFG_RUNNER} release_x86_64)
 
     add_test(NAME ascon_${CFG} COMMAND ${CFG_RUNNER})
     set_tests_properties(ascon_${CFG} PROPERTIES
@@ -273,13 +150,15 @@ add_custom_target(run_tests
     VERBATIM
 )
 
+add_subdirectory(benchmark)
+
 find_program(UNCRUSTIFY_EXE NAMES uncrustify)
 if(UNCRUSTIFY_EXE)
     add_custom_target(uncrustify
         COMMAND ${UNCRUSTIFY_EXE}
             -c ${CMAKE_SOURCE_DIR}/.uncrustify.cfg
             --replace --no-backup
-            ${SOURCES_C} ${HEADERS} ${TEST_SRCS_C}
+            ${SOURCES_C} ${HEADERS} ${TEST_SRCS_C} ${BENCH_SRCS}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         COMMENT "Formatting sources with uncrustify"
         VERBATIM
@@ -345,6 +224,9 @@ message(STATUS "")
 message(STATUS "Test:")
 message(STATUS "  cmake --build ${BUILD_REL} --target run_tests       # build + run all 12 configuration tests (CTest)")
 message(STATUS "  ctest --test-dir ${BUILD_REL} --output-on-failure   # run CTest suite directly")
+message(STATUS "")
+message(STATUS "Benchmark:")
+message(STATUS "  cmake --build ${BUILD_REL} --target qemu_benchmark  # run QEMU bare-metal benchmark matrix")
 message(STATUS "")
 message(STATUS "Other:")
 if(UNCRUSTIFY_EXE)

@@ -5,8 +5,9 @@ import importlib
 import sys
 from pathlib import Path
 
-_GENERATORS_DIR = Path(__file__).parent
-_TEST_DIR       = _GENERATORS_DIR.parent
+_GENERATORS_DIR = Path(__file__).resolve().parent
+_REPO_ROOT      = _GENERATORS_DIR.parents[2] if (_GENERATORS_DIR.parents[2] / 'test').is_dir() else _GENERATORS_DIR.parent
+_TEST_DIR       = _REPO_ROOT / 'test'
 _RUNNER_PATH    = _TEST_DIR / 'runner.c'
 
 sys.path.insert(0, str(_GENERATORS_DIR))
