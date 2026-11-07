@@ -20,6 +20,7 @@
 #ifndef VERUM_ASCON_CXOF_H_
 #define VERUM_ASCON_CXOF_H_
 
+#include "define.h"
 #include "standard/types.h"
 
 /**
@@ -28,6 +29,7 @@
  *             absorbs @p message_size bytes from @p message (or the empty string when
  *             @p message_size is zero), and squeezes @p digest_size bytes into @p digest.
  *
+ * @warning    @p digest must not be NULL.
  * @warning    @p message (when @p message_size >= 8), @p customization (when @p customization_size >= 8),
  *             and @p digest (when @p digest_size >= 8) must be 4-byte aligned; full 64-bit blocks
  *             are written as little-endian 32-bit word pairs.
@@ -58,5 +60,18 @@ void VERUM_ASCON_CXOF128_digest(const uint8_t  *message,
                                 uint32_t customization_size,
                                 uint8_t  *digest,
                                 uint32_t digest_size);
+
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+/**
+ * @brief      Execute FIPS 140-3 Known-Answer Test (KAT) for Ascon-CXOF128.
+ * @details    Runs pre-operational self-test (ISO/IEC 19790:2012 Section 7.9.5).
+ *             Validates customized squeeze against reference KAT digest.
+ *             On failure, transitions CXOF state to error and invokes @c VERUM_FAULT_HANDLER.
+ *
+ * @param      void This self-test takes no external parameters; test vectors are self-contained.
+ * @return     0 on success (identical digest), non-zero on error (accumulated bit difference).
+ */
+uint32_t VERUM_FIPS1403_ASCON_CXOF128_self_test(void);
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 
 #endif /* VERUM_ASCON_CXOF_H_ */

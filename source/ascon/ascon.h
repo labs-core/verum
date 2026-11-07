@@ -30,6 +30,7 @@
 
 #include "standard/types.h"
 #include "define.h"
+#include "macro.h"
 #include "verum/ascon/set.h"
 
 #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
@@ -152,9 +153,28 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
  *                p_L+p_C+p_S rounds, minimizing .text footprint and I-cache pressure.
  */
 void VERUM_ASCON_permute(uint32_t state[10U],
-                         uint32_t * holder,
+                         uint32_t *holder,
                          uint32_t round_index);
 
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+#ifndef VERUM_FAULT_HANDLER
+// cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 _Noreturn function attribute is required for safety-critical fault handlers.
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void);
+#endif /* VERUM_FAULT_HANDLER */
+
+/**
+ * @enum      VERUM_FIPS1403_state_t
+ * @brief     FIPS 140-3 module operational states (ISO/IEC 19790:2012 Section 7.4).
+ */
+typedef enum
+{
+    VERUM_FIPS1403_STATE_UNINITIALIZED = 0, /**< Module power-on / uninitialized state. */
+    VERUM_FIPS1403_STATE_INITIALIZING  = 1, /**< Pre-operational self-test (KAT) running. */
+    VERUM_FIPS1403_STATE_OPERATIONAL   = 2, /**< Self-tests passed, operational approved state. */
+    VERUM_FIPS1403_STATE_ERROR         = 3  /**< Error state: all data output interfaces inhibited. */
+} VERUM_FIPS1403_state_t;
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 
 #endif /* VERUM_ASCON_H_ */

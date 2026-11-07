@@ -130,7 +130,7 @@ void VERUM_ASCON_deinterleave(uint32_t word[2U])
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static inline
+VERUM_ATTR_INLINE static
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
@@ -163,7 +163,7 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static inline
+VERUM_ATTR_INLINE static
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
@@ -209,7 +209,7 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static inline
+VERUM_ATTR_INLINE static
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                 const uint32_t holder[10U])
@@ -231,7 +231,7 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static inline
+VERUM_ATTR_INLINE static
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                 const uint32_t holder[10U])
@@ -269,7 +269,7 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static inline
+VERUM_ATTR_INLINE static
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],
@@ -311,7 +311,7 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static inline
+VERUM_ATTR_INLINE static
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],

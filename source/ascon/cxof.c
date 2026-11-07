@@ -22,13 +22,21 @@
 #include "verum/ascon/cxof.h"
 #include "ascon.h"
 #include "define.h"
+#include "macro.h"
 
 /**
  * @internal
  * @ref        NIST SP 800-232 Section 5.3 Algorithm 7
  * @see        https://doi.org/10.6028/NIST.SP.800-232
- * @brief      Ascon-CXOF128(𝑀, 𝐿, 𝑍)
+ * @brief      Ascon-CXOF128 cryptographic customizable extendable-output leaf processing engine.
+ * @details    Executes the pure mathematical customizable extendable-output hash:
+ *             bit-interleaved state initialization, customization string absorption,
+ *             domain separation permutation, message absorption, padding, and
+ *             incremental squeeze. Separated as a leaf processing engine to eliminate
+ *             recursive call graph cycles (MISRA C:2012 Rule 17.2) between the public
+ *             digest API and FIPS 140-3 pre-operational self-tests.
  *
+ * @warning    @p digest must not be NULL.
  * @warning    @p message (when @p message_size >= 8), @p customization (when
  *             @p customization_size >= 8), and @p digest (when @p digest_size >= 8)
  *             must be aligned to @c uint32_t boundaries; full 64-bit blocks are
@@ -43,14 +51,21 @@
  * @param[out] digest             Output buffer for the extendable-output digest.
  * @param[in]  digest_size        Byte length of output @p digest (> 0).
  */
-// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
-// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
-void VERUM_ASCON_CXOF128_digest(const uint8_t *message,
-                                uint32_t message_size,
-                                const uint8_t *customization,
-                                uint32_t customization_size,
-                                uint8_t *digest,
-                                uint32_t digest_size)
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+VERUM_ATTR_NOINLINE static void VERUM_ASCON_CXOF128_digest_process(const uint8_t *message,
+                                                                   uint32_t message_size,
+                                                                   const uint8_t *customization,
+                                                                   uint32_t customization_size,
+                                                                   uint8_t *digest,
+                                                                   uint32_t digest_size)
+#else
+VERUM_ATTR_INLINE static void VERUM_ASCON_CXOF128_digest_process(const uint8_t *message,
+                                                                 uint32_t message_size,
+                                                                 const uint8_t *customization,
+                                                                 uint32_t customization_size,
+                                                                 uint8_t *digest,
+                                                                 uint32_t digest_size)
+#endif
 {
     /**
      * @internal
@@ -108,15 +123,15 @@ void VERUM_ASCON_CXOF128_digest(const uint8_t *message,
     VERUM_ASCON_permute(state, holder, 0U);
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
-    uint32_t custom_block_counter = customization_size >> 3U;
-    for (; 0U < custom_block_counter; --custom_block_counter)
+    /**
+     * @internal
+     * @ref          NIST SP 800-232 Section 5.3 Algorithm 7 Ascon-CXOF128(𝑀, 𝐿, 𝑍)
+     * @brief        S[0∶63] ← S[0∶63] ⊕ π(𝑍𝑖); S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S) (𝑖 = 1..𝑘)
+     * @optimization [OPT-A_12] holder stages π(𝑍𝑖); no extra stack.
+     */
+    uint32_t block_counter = customization_size >> 3U;
+    for (; 0U < block_counter; --block_counter)
     {
-        /**
-         * @internal
-         * @ref          NIST SP 800-232 Section 5.3 Algorithm 7 Ascon-CXOF128(𝑀, 𝐿, 𝑍)
-         * @brief        S[0∶63] ← S[0∶63] ⊕ π(𝑍𝑖)
-         * @optimization [OPT-A_12] holder stages π(𝑍𝑖); no extra stack.
-         */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         holder[0U] = ((const uint32_t *) __builtin_assume_aligned(customization, sizeof(uint32_t)))[0U];
@@ -160,18 +175,18 @@ void VERUM_ASCON_CXOF128_digest(const uint8_t *message,
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.3 Algorithm 7 Ascon-CXOF128(𝑀, 𝐿, 𝑍)
-     * @brief        𝑍𝑚 ← pad(̃𝑍𝑚, 64); S[0∶63] ← S[0∶63] ⊕ π(𝑍𝑚); S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
-     * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
+     * @brief        𝑍𝑘 ← pad(̃𝑍𝑘, 64); S[0∶63] ← S[0∶63] ⊕ π(𝑍𝑘); S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
+     * @optimization [OPT-A_12] π applied in place on aligned staging buffer.
      */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_custom[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
-    uint32_t last_block_custom_byte_index = customization_size & 0x7U;
-    last_block_custom[last_block_custom_byte_index] = 0x01U;
+    uint32_t last_block_byte_index = customization_size & 0x7U;
+    last_block_custom[last_block_byte_index] = 0x01U;
 
-    while (0U < last_block_custom_byte_index)
+    while (0U < last_block_byte_index)
     {
-        --last_block_custom_byte_index;
-        last_block_custom[last_block_custom_byte_index] = customization[last_block_custom_byte_index];
+        --last_block_byte_index;
+        last_block_custom[last_block_byte_index] = customization[last_block_byte_index];
     }
 
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
@@ -200,15 +215,15 @@ void VERUM_ASCON_CXOF128_digest(const uint8_t *message,
     VERUM_ASCON_permute(state, holder, 0U);
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
-    uint32_t block_counter = message_size >> 3U;
+    /**
+     * @internal
+     * @ref          NIST SP 800-232 Section 5.3 Algorithm 7 Ascon-CXOF128(𝑀, 𝐿, 𝑍)
+     * @brief        S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑖); S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S) (𝑖 = 1..𝑠)
+     * @optimization [OPT-A_12] holder stages π(𝑀𝑖); no extra stack.
+     */
+    block_counter = message_size >> 3U;
     for (; 0U < block_counter; --block_counter)
     {
-        /**
-         * @internal
-         * @ref          NIST SP 800-232 Section 5.3 Algorithm 7 Ascon-CXOF128(𝑀, 𝐿, 𝑍)
-         * @brief        S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑖)
-         * @optimization [OPT-A_12] holder (dead between permutations) stages π(𝑀𝑖); no extra stack.
-         */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
         holder[0U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
@@ -252,12 +267,12 @@ void VERUM_ASCON_CXOF128_digest(const uint8_t *message,
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.3 Algorithm 7 Ascon-CXOF128(𝑀, 𝐿, 𝑍)
-     * @brief        𝑀𝑚 ← pad(̃𝑀𝑚, 64); S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑚)
-     * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
+     * @brief        𝑀𝑠 ← pad(̃𝑀𝑠, 64); S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑠)
+     * @optimization [OPT-A_12] π applied in place on aligned staging buffer.
      */
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
-    uint32_t last_block_byte_index = message_size & 0x7U;
+    last_block_byte_index = message_size & 0x7U;
     last_block_message[last_block_byte_index] = 0x01U;
 
     while (0U < last_block_byte_index)
@@ -379,4 +394,177 @@ void VERUM_ASCON_CXOF128_digest(const uint8_t *message,
         while (0U < digest_byte_index);
     }
 
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+    /**
+     * @internal
+     * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+     * @ref   FIPS 140-3 IG
+     * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+     * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+     * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+     */
+    // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
+    state[0U] = 0U;
+    state[1U] = 0U;
+    state[2U] = 0U;
+    state[3U] = 0U;
+    state[4U] = 0U;
+    state[5U] = 0U;
+    state[6U] = 0U;
+    state[7U] = 0U;
+    state[8U] = 0U;
+    state[9U] = 0U;
+
+    holder[0U] = 0U;
+    holder[1U] = 0U;
+    holder[2U] = 0U;
+    holder[3U] = 0U;
+    // cppcheck-suppress-end unreadVariable
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
+}
+
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+static VERUM_FIPS1403_state_t VERUM_FIPS1403_ASCON_CXOF128_operational_state = VERUM_FIPS1403_STATE_UNINITIALIZED;
+
+/**
+ * @internal
+ * @ref        ISO/IEC 19790:2012 Section 7.9.5 Pre-operational self-tests
+ * @ref        FIPS 140-3 IG Section 9.5
+ * @see        https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+ * @see        https://doi.org/10.6028/NIST.FIPS.140-3
+ * @brief      Execute FIPS 140-3 Known-Answer Test (KAT) for Ascon-CXOF128.
+ * @details    Squeezes 32 bytes with empty message and empty customization string,
+ *             validating against NIST SP 800-232 reference vector.
+ *             Transitions state to OPERATIONAL on pass, or ERROR and traps on failure.
+ * @param      void This test takes no external inputs; standard KAT vectors are self-contained.
+ * @return     0 on success (identical digest), non-zero on error (accumulated bit difference).
+ */
+// cppcheck-suppress staticFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
+uint32_t VERUM_FIPS1403_ASCON_CXOF128_self_test(void)
+{
+    uint32_t difference = 0U;
+
+    if (VERUM_FIPS1403_ASCON_CXOF128_operational_state == VERUM_FIPS1403_STATE_ERROR)
+    {
+        difference = 1U;
+        VERUM_FAULT_HANDLER();
+    }
+    else if (VERUM_FIPS1403_ASCON_CXOF128_operational_state != VERUM_FIPS1403_STATE_OPERATIONAL)
+    {
+        VERUM_FIPS1403_ASCON_CXOF128_operational_state = VERUM_FIPS1403_STATE_INITIALIZING;
+
+        // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
+        _Alignas(uint32_t) uint8_t test_digest[32U] = {
+            0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U,
+            0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U,
+            0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U,
+            0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U
+        };
+        static const uint8_t VERUM_FIPS1403_ASCON_CXOF128_expected_digest[32U] = {
+            0x4FU, 0x50U, 0x15U, 0x9EU, 0xF7U, 0x0BU, 0xB3U, 0xDAU,
+            0xD8U, 0x80U, 0x7EU, 0x03U, 0x4EU, 0xAEU, 0xBDU, 0x44U,
+            0xC4U, 0xFAU, 0x2CU, 0xBBU, 0xC8U, 0xCFU, 0x1FU, 0x05U,
+            0x51U, 0x1AU, 0xB6U, 0x6CU, 0xDCU, 0xC5U, 0x29U, 0x90U
+        };
+
+        VERUM_ASCON_CXOF128_digest_process(NULL, 0U, NULL, 0U, test_digest, 32U);
+
+        uint32_t byte_index = 0U;
+        do
+        {
+            difference = difference | (uint32_t) (test_digest[byte_index] ^ VERUM_FIPS1403_ASCON_CXOF128_expected_digest[byte_index]);
+            ++byte_index;
+        }
+        while (byte_index < 32U);
+
+        /**
+         * @internal
+         * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+         * @ref   FIPS 140-3 IG
+         * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+         * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+         * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+         */
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+        VERUM_ATTR_VOLATILE uint32_t * const volatile_test_digest = (VERUM_ATTR_VOLATILE uint32_t *) __builtin_assume_aligned(test_digest, sizeof(uint32_t));
+        volatile_test_digest[0U] = 0U;
+        volatile_test_digest[1U] = 0U;
+        volatile_test_digest[2U] = 0U;
+        volatile_test_digest[3U] = 0U;
+        volatile_test_digest[4U] = 0U;
+        volatile_test_digest[5U] = 0U;
+        volatile_test_digest[6U] = 0U;
+        volatile_test_digest[7U] = 0U;
+        // cppcheck-suppress-end misra-c2012-11.3
+
+        if (difference != 0U)
+        {
+            VERUM_FIPS1403_ASCON_CXOF128_operational_state = VERUM_FIPS1403_STATE_ERROR;
+            VERUM_FAULT_HANDLER();
+        }
+        else
+        {
+            VERUM_FIPS1403_ASCON_CXOF128_operational_state = VERUM_FIPS1403_STATE_OPERATIONAL;
+        }
+    }
+    else
+    {
+        /* Already in operational state; difference remains 0U */
+    }
+
+    return difference;
+}
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
+
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
+void VERUM_ASCON_CXOF128_digest(const uint8_t *message,
+                                uint32_t message_size,
+                                const uint8_t *customization,
+                                uint32_t customization_size,
+                                uint8_t *digest,
+                                uint32_t digest_size)
+{
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+    if (VERUM_FIPS1403_ASCON_CXOF128_operational_state == VERUM_FIPS1403_STATE_ERROR)
+    {
+        /**
+         * @internal
+         * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+         * @ref   FIPS 140-3 IG
+         * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+         * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+         * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+         */
+        VERUM_ATTR_VOLATILE uint8_t * const volatile_digest = (VERUM_ATTR_VOLATILE uint8_t *) digest;
+        for (uint32_t byte_index = 0U; byte_index < digest_size; ++byte_index)
+        {
+            volatile_digest[byte_index] = 0U;
+        }
+        VERUM_FAULT_HANDLER();
+    }
+    if (VERUM_FIPS1403_ASCON_CXOF128_operational_state == VERUM_FIPS1403_STATE_UNINITIALIZED)
+    {
+        if (VERUM_FIPS1403_ASCON_CXOF128_self_test() != 0U)
+        {
+            /**
+             * @internal
+             * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+             * @ref   FIPS 140-3 IG
+             * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+             * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+             * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+             */
+            VERUM_ATTR_VOLATILE uint8_t * const volatile_digest = (VERUM_ATTR_VOLATILE uint8_t *) digest;
+            for (uint32_t byte_index = 0U; byte_index < digest_size; ++byte_index)
+            {
+                volatile_digest[byte_index] = 0U;
+            }
+            VERUM_FAULT_HANDLER();
+        }
+    }
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
+
+    VERUM_ASCON_CXOF128_digest_process(message, message_size, customization, customization_size, digest, digest_size);
 }

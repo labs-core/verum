@@ -28,7 +28,7 @@ def build_test_runner(cfg_name, defs, runner_bin_dir, force=False):
     lib_path = get_release_lib(cfg_name, "x86_64")
     
     # 1. Ensure release library exists and is up-to-date
-    if not os.path.exists(lib_path):
+    if force or not os.path.exists(lib_path):
         build_single_config("x86_64", cfg_name, defs, RELEASE_DIR, force=force)
     
     lib_sha = compute_sha256(lib_path)
@@ -81,6 +81,10 @@ def main():
     parser = argparse.ArgumentParser(description="Run unit test suite against release static archives.")
     parser.add_argument("--config", default="all",
                         help="Configuration name to test (default: all)")
+    parser.add_argument("--fips", action="store_true", default=False,
+                        help="Test only FIPS 140-3 configurations")
+    parser.add_argument("--no-fips", action="store_true", default=False,
+                        help="Test only non-FIPS configurations")
     parser.add_argument("--bin-dir", default=os.path.join(REPO_ROOT, "build", "test_bin"),
                         help="Directory to store compiled test runner executables")
     parser.add_argument("--force", action="store_true",
@@ -90,7 +94,16 @@ def main():
     bin_dir = os.path.abspath(args.bin_dir)
     os.makedirs(bin_dir, exist_ok=True)
 
-    selected_configs = [c for c in CONFIGS if (args.config == "all" or c[0] == args.config)]
+    selected_configs = []
+    for c in CONFIGS:
+        if args.config != "all" and c[0] != args.config:
+            continue
+        is_fips = c[0].startswith("fips_")
+        if args.fips and not args.no_fips and not is_fips:
+            continue
+        if args.no_fips and not args.fips and is_fips:
+            continue
+        selected_configs.append(c)
     
     results = {}
     for cfg_name, defs in selected_configs:

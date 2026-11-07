@@ -38,7 +38,17 @@ _RUNNER_HEADER = """\
 
 #include "unity.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include "define.h"
+#include "macro.h"
+
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void);
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void)
+{
+    fprintf(stderr, "\\n[FATAL] VERUM_FAULT_HANDLER invoked: FIPS 140-3 fault detected!\\n");
+    abort();
+}
 """
 
 _RUNNER_PUTCHAR = """
@@ -106,11 +116,21 @@ def _generate_runner(active: list[tuple[str, str, str, str]]) -> str:
         f'int {fn}(void);'
         for _name, _mod, _label, fn in active
     ]
+    forward_decls.extend([
+        '#ifdef VERUM_STANDARD_FIPS_140_3_DEF',
+        'int run_fips1403_tests(void);',
+        '#endif /* VERUM_STANDARD_FIPS_140_3_DEF */',
+    ])
 
     suite_calls = [
         f'    failures += run_suite("{label}", {fn});'
         for _name, _mod, label, fn in active
     ]
+    suite_calls.extend([
+        '#ifdef VERUM_STANDARD_FIPS_140_3_DEF',
+        '    failures += run_suite("ASCON FIPS 140-3 Self-Tests", run_fips1403_tests);',
+        '#endif /* VERUM_STANDARD_FIPS_140_3_DEF */',
+    ])
 
     lines = [
         _RUNNER_HEADER.rstrip(),

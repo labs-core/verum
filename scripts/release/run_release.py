@@ -112,9 +112,19 @@ def build_single_config(arch_key, cfg_name, defs, out_base_dir, force=False, opt
     print(f"    [+] Built: verum/{cfg_name}/{spec['folder']}/libverum.a ({v_sha[:16]}...) [{comp_summary}]")
     return verum_archive, v_sha
 
-def build_arch(arch_key, out_base_dir, cfg_filter=None, force=False, opt_flag=None):
+def build_arch(arch_key, out_base_dir, cfg_filter=None, fips_mode=None, force=False, opt_flag=None):
     print(f"[*] Checking/Building {arch_key} release libraries:")
-    selected_configs = [c for c in CONFIGS if (cfg_filter is None or cfg_filter == "all" or c[0] == cfg_filter)]
+    selected_configs = []
+    for c in CONFIGS:
+        if cfg_filter and cfg_filter != "all" and c[0] != cfg_filter:
+            continue
+        is_fips = c[0].startswith("fips_")
+        if fips_mode is True and not is_fips:
+            continue
+        if fips_mode is False and is_fips:
+            continue
+        selected_configs.append(c)
+
     for cfg_name, defs in selected_configs:
         build_single_config(arch_key, cfg_name, defs, out_base_dir, force=force, opt_flag=opt_flag)
     print(f"[✓] {arch_key} release check complete.\n")
@@ -125,6 +135,10 @@ def main():
                         help="Target architecture (default: all)")
     parser.add_argument("--config", default="all",
                         help="Configuration name to build (default: all)")
+    parser.add_argument("--fips", action="store_true", default=False,
+                        help="Build only FIPS 140-3 configurations")
+    parser.add_argument("--no-fips", action="store_true", default=False,
+                        help="Build only non-FIPS configurations")
     parser.add_argument("--out-dir", default=RELEASE_DIR,
                         help="Output release directory")
     parser.add_argument("--opt", default=None,
@@ -133,12 +147,18 @@ def main():
                         help="Force rebuild even if up to date")
     args = parser.parse_args()
 
+    fips_mode = None
+    if args.fips and not args.no_fips:
+        fips_mode = True
+    elif args.no_fips and not args.fips:
+        fips_mode = False
+
     out_dir = os.path.abspath(args.out_dir)
     os.makedirs(out_dir, exist_ok=True)
 
     targets = ["x86_64", "arm", "riscv"] if args.arch == "all" else [args.arch]
     for target in targets:
-        build_arch(target, out_dir, cfg_filter=args.config, force=args.force, opt_flag=args.opt)
+        build_arch(target, out_dir, cfg_filter=args.config, fips_mode=fips_mode, force=args.force, opt_flag=args.opt)
 
 if __name__ == "__main__":
     main()

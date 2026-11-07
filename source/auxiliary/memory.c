@@ -16,6 +16,7 @@
 
 #include "auxiliary/memory.h"
 #include "define.h"
+#include "macro.h"
 #include "standard/types.h"
 
 /**

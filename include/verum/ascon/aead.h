@@ -33,6 +33,7 @@
  *                is defined, @p associated_data. Overwrites @p plaintext with ciphertext
  *                of equal byte length.
  *
+ * @warning       @p key, @p nonce, @p plaintext, and @p authentication_tag must not be NULL.
  * @warning       Nonce reuse under the same key breaks confidentiality and leaks key
  *                material; uniqueness per (key, plaintext) is the caller's responsibility.
  * @warning       The produced @p authentication_tag must be verified in constant time
@@ -73,6 +74,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
  *                Overwrites @p ciphertext with plaintext of equal byte length and writes
  *                the recomputed tag to @p authentication_tag.
  *
+ * @warning       @p key, @p nonce, @p ciphertext, and @p authentication_tag must not be NULL.
  * @warning       Outputs the recomputed candidate @p authentication_tag without comparing
  *                it; the caller must verify @p authentication_tag against the received tag
  *                in constant time before releasing or acting upon decrypted @p ciphertext.
@@ -103,5 +105,18 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                                  uint32_t associated_size,
 #endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
                                  uint32_t authentication_tag[4U]);
+
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+/**
+ * @brief      Execute FIPS 140-3 Known-Answer Test (KAT) for Ascon-AEAD128.
+ * @details    Runs pre-operational self-test (ISO/IEC 19790:2012 Section 7.9.5).
+ *             Validates encrypt and decrypt operations against reference vectors.
+ *             On failure, transitions the AEAD state to error and invokes @c VERUM_FAULT_HANDLER.
+ *
+ * @param      void This self-test takes no external parameters; test vectors are self-contained.
+ * @return     0 on success (identical tags), non-zero on error (accumulated bit difference).
+ */
+uint32_t VERUM_FIPS1403_ASCON_AEAD128_self_test(void);
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 
 #endif /* VERUM_ASCON_AEAD_H_ */

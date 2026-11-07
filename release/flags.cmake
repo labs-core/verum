@@ -82,7 +82,7 @@ set(PROJECT_BASE_FLAGS
     -O0
 )
 
-# 12 Explicit Ascon Matrix Configurations
+# 24 Explicit Ascon Matrix Configurations (12 Standard + 12 FIPS 140-3)
 set(MATRIX_CONFIG_NAMES
     ad_direct_unrolled
     ad_direct_memory
@@ -96,6 +96,18 @@ set(MATRIX_CONFIG_NAMES
     noad_interleaved_memory
     noad_preinterleaved_unrolled
     noad_preinterleaved_memory
+    fips_ad_direct_unrolled
+    fips_ad_direct_memory
+    fips_ad_interleaved_unrolled
+    fips_ad_interleaved_memory
+    fips_ad_preinterleaved_unrolled
+    fips_ad_preinterleaved_memory
+    fips_noad_direct_unrolled
+    fips_noad_direct_memory
+    fips_noad_interleaved_unrolled
+    fips_noad_interleaved_memory
+    fips_noad_preinterleaved_unrolled
+    fips_noad_preinterleaved_memory
 )
 
 set(DEFS_ad_direct_unrolled
@@ -171,6 +183,100 @@ set(DEFS_noad_preinterleaved_unrolled
 
 set(DEFS_noad_preinterleaved_memory
     -DVERUM_CUSTOM_CONFIG
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    -DVERUM_OPTIMIZATION_MEMORY_DEF
+)
+
+# ------------------------------------------------------------------------------
+# 12 FIPS 140-3 Compliant Configurations (includes -DVERUM_STANDARD_FIPS_140_3_DEF)
+# ------------------------------------------------------------------------------
+
+set(DEFS_fips_ad_direct_unrolled
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    -DVERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+
+set(DEFS_fips_ad_direct_memory
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    -DVERUM_OPTIMIZATION_MEMORY_DEF
+)
+
+set(DEFS_fips_ad_interleaved_unrolled
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+
+set(DEFS_fips_ad_interleaved_memory
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_OPTIMIZATION_MEMORY_DEF
+)
+
+set(DEFS_fips_ad_preinterleaved_unrolled
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    -DVERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+
+set(DEFS_fips_ad_preinterleaved_memory
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    -DVERUM_OPTIMIZATION_MEMORY_DEF
+)
+
+set(DEFS_fips_noad_direct_unrolled
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+
+set(DEFS_fips_noad_direct_memory
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_OPTIMIZATION_MEMORY_DEF
+)
+
+set(DEFS_fips_noad_interleaved_unrolled
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+
+set(DEFS_fips_noad_interleaved_memory
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_OPTIMIZATION_MEMORY_DEF
+)
+
+set(DEFS_fips_noad_preinterleaved_unrolled
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
+    -DVERUM_ASCON_BIT_INTERLEAVING_DEF
+    -DVERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    -DVERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+)
+
+set(DEFS_fips_noad_preinterleaved_memory
+    -DVERUM_CUSTOM_CONFIG
+    -DVERUM_STANDARD_FIPS_140_3_DEF
     -DVERUM_ASCON_BIT_INTERLEAVING_DEF
     -DVERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
     -DVERUM_OPTIMIZATION_MEMORY_DEF

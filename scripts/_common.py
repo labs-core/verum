@@ -74,6 +74,7 @@ TEST_SOURCES = [
     os.path.join(REPO_ROOT, "test", "suite", "ascon", "hash.c"),
     os.path.join(REPO_ROOT, "test", "suite", "ascon", "xof.c"),
     os.path.join(REPO_ROOT, "test", "suite", "ascon", "cxof.c"),
+    os.path.join(REPO_ROOT, "test", "suite", "ascon", "fips.c"),
 ]
 
 TEST_INCLUDES = INCLUDES + [

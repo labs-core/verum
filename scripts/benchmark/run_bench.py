@@ -149,7 +149,7 @@ def parse_benchmark_output(output):
         }
     return ops
 
-def run_bench_arm(build_dir, cfg_filter=None, force=False, opt_flag=None):
+def run_bench_arm(build_dir, cfg_filter=None, fips_mode=None, force=False, opt_flag=None):
     os.makedirs(build_dir, exist_ok=True)
     link_ld = os.path.join(REPO_ROOT, "benchmark", "arch", "arm", "link.ld")
     startup_c = os.path.join(REPO_ROOT, "benchmark", "arch", "arm", "startup.c")
@@ -157,7 +157,16 @@ def run_bench_arm(build_dir, cfg_filter=None, force=False, opt_flag=None):
     insn_mixes = []
     shas = {}
 
-    selected_configs = [c for c in CONFIGS if (cfg_filter is None or cfg_filter == "all" or c[0] == cfg_filter)]
+    selected_configs = []
+    for c in CONFIGS:
+        if cfg_filter and cfg_filter != "all" and c[0] != cfg_filter:
+            continue
+        is_fips = c[0].startswith("fips_")
+        if fips_mode is True and not is_fips:
+            continue
+        if fips_mode is False and is_fips:
+            continue
+        selected_configs.append(c)
 
     print(f"[*] Benchmarking ARM Cortex-M4 across {len(selected_configs)} configurations...")
     for name, defs in selected_configs:
@@ -227,7 +236,7 @@ def run_bench_arm(build_dir, cfg_filter=None, force=False, opt_flag=None):
 
     return results, insn_mixes, shas
 
-def run_bench_riscv(build_dir, cfg_filter=None, force=False, opt_flag=None):
+def run_bench_riscv(build_dir, cfg_filter=None, fips_mode=None, force=False, opt_flag=None):
     os.makedirs(build_dir, exist_ok=True)
     link_ld = os.path.join(REPO_ROOT, "benchmark", "arch", "riscv", "link.ld")
     startup_c = os.path.join(REPO_ROOT, "benchmark", "arch", "riscv", "startup.c")
@@ -235,7 +244,16 @@ def run_bench_riscv(build_dir, cfg_filter=None, force=False, opt_flag=None):
     insn_mixes = []
     shas = {}
 
-    selected_configs = [c for c in CONFIGS if (cfg_filter is None or cfg_filter == "all" or c[0] == cfg_filter)]
+    selected_configs = []
+    for c in CONFIGS:
+        if cfg_filter and cfg_filter != "all" and c[0] != cfg_filter:
+            continue
+        is_fips = c[0].startswith("fips_")
+        if fips_mode is True and not is_fips:
+            continue
+        if fips_mode is False and is_fips:
+            continue
+        selected_configs.append(c)
 
     print(f"[*] Benchmarking RISC-V 32 RV32IMAC across {len(selected_configs)} configurations...")
     for name, defs in selected_configs:
@@ -350,6 +368,12 @@ OPERATIONS = [
         "fn": "VERUM_ASCON_CXOF128_digest",
         "unit": "byte"
     },
+    {
+        "id": "fips_post",
+        "title": "FIPS 140-3 Power-On Self-Tests (POST for All Primitives)",
+        "fn": "VERUM_FIPS1403_ASCON_AEAD128_self_test",
+        "unit": "call"
+    },
 ]
 
 def get_op_footprint(op_id, fn_sizes, fn_stacks):
@@ -366,31 +390,52 @@ def get_op_footprint(op_id, fn_sizes, fn_stacks):
                          fn_stacks.get("VERUM_ASCON_permute_linear_diffusion_layer", 0))
         return code_sz, stk_sz
     elif op_id == "aead_enc":
-        return fn_sizes.get("VERUM_ASCON_AEAD128_encrypt", 0), fn_stacks.get("VERUM_ASCON_AEAD128_encrypt", 0)
+        code_sz = fn_sizes.get("VERUM_ASCON_AEAD128_encrypt", 0) + fn_sizes.get("VERUM_ASCON_AEAD128_encrypt_process", 0)
+        stk_sz = max(fn_stacks.get("VERUM_ASCON_AEAD128_encrypt", 0), fn_stacks.get("VERUM_ASCON_AEAD128_encrypt_process", 0))
+        return code_sz, stk_sz
     elif op_id == "aead_dec":
-        return fn_sizes.get("VERUM_ASCON_AEAD128_decrypt", 0), fn_stacks.get("VERUM_ASCON_AEAD128_decrypt", 0)
+        code_sz = fn_sizes.get("VERUM_ASCON_AEAD128_decrypt", 0) + fn_sizes.get("VERUM_ASCON_AEAD128_decrypt_process", 0)
+        stk_sz = max(fn_stacks.get("VERUM_ASCON_AEAD128_decrypt", 0), fn_stacks.get("VERUM_ASCON_AEAD128_decrypt_process", 0))
+        return code_sz, stk_sz
     elif op_id == "hash256":
-        return fn_sizes.get("VERUM_ASCON_HASH256_digest", 0), fn_stacks.get("VERUM_ASCON_HASH256_digest", 0)
+        code_sz = fn_sizes.get("VERUM_ASCON_HASH256_digest", 0) + fn_sizes.get("VERUM_ASCON_HASH256_digest_process", 0)
+        stk_sz = max(fn_stacks.get("VERUM_ASCON_HASH256_digest", 0), fn_stacks.get("VERUM_ASCON_HASH256_digest_process", 0))
+        return code_sz, stk_sz
     elif op_id == "xof128":
-        return fn_sizes.get("VERUM_ASCON_XOF128_digest", 0), fn_stacks.get("VERUM_ASCON_XOF128_digest", 0)
+        code_sz = fn_sizes.get("VERUM_ASCON_XOF128_digest", 0) + fn_sizes.get("VERUM_ASCON_XOF128_digest_process", 0)
+        stk_sz = max(fn_stacks.get("VERUM_ASCON_XOF128_digest", 0), fn_stacks.get("VERUM_ASCON_XOF128_digest_process", 0))
+        return code_sz, stk_sz
     elif op_id == "cxof128":
-        return fn_sizes.get("VERUM_ASCON_CXOF128_digest", 0), fn_stacks.get("VERUM_ASCON_CXOF128_digest", 0)
+        code_sz = fn_sizes.get("VERUM_ASCON_CXOF128_digest", 0) + fn_sizes.get("VERUM_ASCON_CXOF128_digest_process", 0)
+        stk_sz = max(fn_stacks.get("VERUM_ASCON_CXOF128_digest", 0), fn_stacks.get("VERUM_ASCON_CXOF128_digest_process", 0))
+        return code_sz, stk_sz
+    elif op_id == "fips_post":
+        fips_fns = [
+            "VERUM_FIPS1403_ASCON_AEAD128_self_test",
+            "VERUM_FIPS1403_ASCON_AEAD128_conditional_key_test",
+            "VERUM_FIPS1403_ASCON_HASH256_self_test",
+            "VERUM_FIPS1403_ASCON_XOF128_self_test",
+            "VERUM_FIPS1403_ASCON_CXOF128_self_test",
+        ]
+        total_code = sum(fn_sizes.get(fn, 0) for fn in fips_fns)
+        max_stk = max((fn_stacks.get(fn, 0) for fn in fips_fns), default=0)
+        return total_code, max_stk
     return 0, 0
 
 def print_tables(title, results, insn_mixes, shas, fn_filter="all"):
-    print("=" * 135)
+    print("=" * 148)
     print(f"Target: {title}")
-    print("=" * 135)
+    print("=" * 148)
 
     print("\nCryptographic SHA-256 of Libraries Under Test:")
     for name, sha in shas.items():
-        print(f"  {name:<30} : {sha}")
-    print("-" * 135)
+        print(f"  {name:<35} : {sha}")
+    print("-" * 148)
 
     # 1. High-Level Configuration Matrix Summary
     print(f"\n[1] Overall Performance Matrix Summary:")
-    print(f"{'Configuration':<30} {'p[12](cyc)':>11} {'p[8](cyc)':>10} {'AEAD-E(c/B)':>12} {'AEAD-D(c/B)':>12} {'Hash(c/B)':>10} {'XOF(c/B)':>9} {'CXOF(c/B)':>10} {'Peak Stk':>9} {'.text (B)':>10} {'Status':>8}")
-    print("-" * 135)
+    print(f"{'Configuration':<35} {'p[12](cyc)':>11} {'p[8](cyc)':>10} {'AEAD-E(c/B)':>12} {'AEAD-D(c/B)':>12} {'Hash(c/B)':>10} {'XOF(c/B)':>9} {'CXOF(c/B)':>10} {'FIPS(cyc)':>10} {'Peak Stk':>9} {'.text (B)':>10} {'Status':>8}")
+    print("-" * 148)
     for name, ops, fn_sizes, fn_stacks, txt in results:
         p12_cyc = ops.get("p12", {}).get("cycles", 0)
         p8_cyc = ops.get("p8", {}).get("cycles", 0)
@@ -399,13 +444,15 @@ def print_tables(title, results, insn_mixes, shas, fn_filter="all"):
         hash_cb = ops.get("hash256", {}).get("cyc_byte", 0.0)
         xof_cb = ops.get("xof128", {}).get("cyc_byte", 0.0)
         cxof_cb = ops.get("cxof128", {}).get("cyc_byte", 0.0)
+        fips_cyc = ops.get("fips_post", {}).get("cycles", None)
+        fips_str = str(fips_cyc) if fips_cyc is not None else "-"
         
         peak_stk = max((v["peak_stack"] for v in ops.values()), default=0)
         all_passed = all(v.get("status") == "PASSED" for v in ops.values()) and len(ops) >= 7
         status_str = "PASSED" if all_passed else "FAILED"
 
-        print(f"{name:<30} {p12_cyc:>11} {p8_cyc:>10} {enc_cb:>12.1f} {dec_cb:>12.1f} {hash_cb:>10.1f} {xof_cb:>9.1f} {cxof_cb:>10.1f} {peak_stk:>9} {txt:>10} {status_str:>8}")
-    print("=" * 135)
+        print(f"{name:<35} {p12_cyc:>11} {p8_cyc:>10} {enc_cb:>12.1f} {dec_cb:>12.1f} {hash_cb:>10.1f} {xof_cb:>9.1f} {cxof_cb:>10.1f} {fips_str:>10} {peak_stk:>9} {txt:>10} {status_str:>8}")
+    print("=" * 148)
 
     # 2. Individual Per-Function / Per-Operation Footprint & Cost Breakdown
     selected_ops = [op for op in OPERATIONS if (fn_filter == "all" or fn_filter == op["id"] or fn_filter == op["fn"])]
@@ -413,13 +460,18 @@ def print_tables(title, results, insn_mixes, shas, fn_filter="all"):
         print(f"\n[2] Detailed Per-Function Footprint (Code Size & Static/Peak Stack) & Cost (Cycles & Insns):")
         for op in selected_ops:
             op_id = op["id"]
+            if not any(op_id in ops for _, ops, _, _, _ in results):
+                continue
+
             cost_col = "Cyc/Byte" if op["unit"] == "byte" else "Cyc/Call"
             insn_col = "Insn/Byte" if op["unit"] == "byte" else "Insn/Call"
 
             print(f"\n>>> Function / Operation: {op['title']}")
-            print(f"{'Configuration':<30} {'Code (B)':>10} {'Static Stk (B)':>15} {'Peak Stk (B)':>13} {'Cycles':>12} {'Insns':>12} {cost_col:>11} {insn_col:>11} {'Status':>10}")
-            print("-" * 135)
+            print(f"{'Configuration':<35} {'Code (B)':>10} {'Static Stk (B)':>15} {'Peak Stk (B)':>13} {'Cycles':>12} {'Insns':>12} {cost_col:>11} {insn_col:>11} {'Status':>10}")
+            print("-" * 148)
             for name, ops, fn_sizes, fn_stacks, txt in results:
+                if op_id not in ops:
+                    continue
                 op_data = ops.get(op_id, {})
                 cyc = op_data.get("cycles", 0)
                 insn = op_data.get("insns", 0)
@@ -437,17 +489,17 @@ def print_tables(title, results, insn_mixes, shas, fn_filter="all"):
                     cyc_rate_str = f"{cyc}"
                     insn_rate_str = f"{insn}"
 
-                print(f"{name:<30} {code_sz:>10} {stk_sz:>15} {peak_stk:>13} {cyc:>12} {insn:>12} {cyc_rate_str:>11} {insn_rate_str:>11} {stat:>10}")
-            print("-" * 135)
-        print("=" * 135)
+                print(f"{name:<35} {code_sz:>10} {stk_sz:>15} {peak_stk:>13} {cyc:>12} {insn:>12} {cyc_rate_str:>11} {insn_rate_str:>11} {stat:>10}")
+            print("-" * 148)
+        print("=" * 148)
 
     # 3. Instruction Mix Distribution Table
     print("\n[3] Instruction Mix Distribution (Ascon Core):")
-    print(f"{'Configuration':<30} {'ALU (%)':>10} {'Shift/Rotate (%)':>18} {'Load/Store (%)':>16} {'Branch (%)':>12} {'Other (%)':>11}")
-    print("-" * 135)
+    print(f"{'Configuration':<35} {'ALU (%)':>10} {'Shift/Rotate (%)':>18} {'Load/Store (%)':>16} {'Branch (%)':>12} {'Other (%)':>11}")
+    print("-" * 148)
     for name, mix in insn_mixes:
-        print(f"{name:<30} {mix['ALU']:>10.1f} {mix['Shift/Rotate']:>18.1f} {mix['Load/Store']:>16.1f} {mix['Branch']:>12.1f} {mix['Other']:>11.1f}")
-    print("=" * 135)
+        print(f"{name:<35} {mix['ALU']:>10.1f} {mix['Shift/Rotate']:>18.1f} {mix['Load/Store']:>16.1f} {mix['Branch']:>12.1f} {mix['Other']:>11.1f}")
+    print("=" * 148)
     print()
 
 def main():
@@ -456,8 +508,12 @@ def main():
                         help="Target architecture (default: all)")
     parser.add_argument("--config", default="all",
                         help="Configuration name to benchmark (default: all)")
+    parser.add_argument("--fips", action="store_true", default=False,
+                        help="Benchmark only FIPS 140-3 configurations")
+    parser.add_argument("--no-fips", action="store_true", default=False,
+                        help="Benchmark only non-FIPS configurations")
     parser.add_argument("--function", "--fn", default="all",
-                        help="Specific function/operation to report ('all', 'summary', 'p12', 'p8', 'aead_enc', 'aead_dec', 'hash256', 'xof128', 'cxof128')")
+                        help="Specific function/operation to report ('all', 'summary', 'p12', 'p8', 'aead_enc', 'aead_dec', 'hash256', 'xof128', 'cxof128', 'fips_post')")
     parser.add_argument("--opt", default=None,
                         help="Optional optimization flag override for libverum (default: None, uses -O0 from CMakeLists.txt)")
     parser.add_argument("--build-dir", default=os.path.join(REPO_ROOT, "build", "benchmark"),
@@ -466,17 +522,23 @@ def main():
                         help="Force rebuild of harness and binaries")
     args = parser.parse_args()
 
+    fips_mode = None
+    if args.fips and not args.no_fips:
+        fips_mode = True
+    elif args.no_fips and not args.fips:
+        fips_mode = False
+
     build_base = os.path.abspath(args.build_dir)
     os.makedirs(build_base, exist_ok=True)
 
     if args.arch in ("arm", "all"):
         arm_dir = os.path.join(build_base, "arm")
-        arm_res, arm_mix, arm_shas = run_bench_arm(arm_dir, cfg_filter=args.config, force=args.force, opt_flag=args.opt)
+        arm_res, arm_mix, arm_shas = run_bench_arm(arm_dir, cfg_filter=args.config, fips_mode=fips_mode, force=args.force, opt_flag=args.opt)
         print_tables("ARM Cortex-M4 (ARMv7E-M, QEMU mps2-an386)", arm_res, arm_mix, arm_shas, fn_filter=args.function)
 
     if args.arch in ("riscv", "all"):
         riscv_dir = os.path.join(build_base, "riscv")
-        rv_res, rv_mix, rv_shas = run_bench_riscv(riscv_dir, cfg_filter=args.config, force=args.force, opt_flag=args.opt)
+        rv_res, rv_mix, rv_shas = run_bench_riscv(riscv_dir, cfg_filter=args.config, fips_mode=fips_mode, force=args.force, opt_flag=args.opt)
         print_tables("RISC-V 32 RV32IMAC (QEMU virt sifive-e31)", rv_res, rv_mix, rv_shas, fn_filter=args.function)
 
 if __name__ == "__main__":

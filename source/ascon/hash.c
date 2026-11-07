@@ -21,13 +21,20 @@
 #include "verum/ascon/hash.h"
 #include "ascon.h"
 #include "define.h"
+#include "macro.h"
 
 /**
  * @internal
  * @ref        NIST SP 800-232 Section 5.1 Algorithm 5
  * @see        https://doi.org/10.6028/NIST.SP.800-232
- * @brief      Ascon-Hash256(𝑀)
+ * @brief      Ascon-Hash256 cryptographic digest leaf processing engine.
+ * @details    Executes the pure mathematical hash: bit-interleaved state initialization,
+ *             message absorption, padding, and final 256-bit squeeze.
+ *             Separated as a leaf processing engine to eliminate recursive
+ *             call graph cycles (MISRA C:2012 Rule 17.2) between the public
+ *             digest API and FIPS 140-3 pre-operational self-tests.
  *
+ * @warning    @p digest must not be NULL.
  * @warning    @p message (when @p message_size >= 8) and @p digest must be aligned to
  *             @c uint32_t boundaries; @p digest words are written in little-endian order.
  *
@@ -35,11 +42,15 @@
  * @param[in]  message_size Byte length of @p message (0 is valid).
  * @param[out] digest       256-bit message digest (eight 32-bit LE words).
  */
-// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
-// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
-void VERUM_ASCON_HASH256_digest(const uint8_t *message,
-                                const uint32_t message_size,
-                                uint32_t digest[8U])
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+VERUM_ATTR_NOINLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *message,
+                                                                   const uint32_t message_size,
+                                                                   uint32_t digest[8U])
+#else
+VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *message,
+                                                                 const uint32_t message_size,
+                                                                 uint32_t digest[8U])
+#endif
 {
     /**
      * @internal
@@ -263,4 +274,171 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+    /**
+     * @internal
+     * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+     * @ref   FIPS 140-3 IG
+     * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+     * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+     * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+     */
+    // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
+    state[0U] = 0U;
+    state[1U] = 0U;
+    state[2U] = 0U;
+    state[3U] = 0U;
+    state[4U] = 0U;
+    state[5U] = 0U;
+    state[6U] = 0U;
+    state[7U] = 0U;
+    state[8U] = 0U;
+    state[9U] = 0U;
+
+    holder[0U] = 0U;
+    holder[1U] = 0U;
+    holder[2U] = 0U;
+    holder[3U] = 0U;
+    // cppcheck-suppress-end unreadVariable
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
+}
+
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+static VERUM_FIPS1403_state_t VERUM_FIPS1403_ASCON_HASH256_operational_state = VERUM_FIPS1403_STATE_UNINITIALIZED;
+
+/**
+ * @internal
+ * @ref        ISO/IEC 19790:2012 Section 7.9.5 Pre-operational self-tests
+ * @ref        FIPS 140-3 IG Section 9.5
+ * @see        https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+ * @see        https://doi.org/10.6028/NIST.FIPS.140-3
+ * @brief      Execute FIPS 140-3 Known-Answer Test (KAT) for Ascon-Hash256.
+ * @details    Hashes empty message and validates digest against NIST SP 800-232 reference vector.
+ *             Transitions state to OPERATIONAL on pass, or ERROR and traps on failure.
+ * @param      void This test takes no external inputs; standard KAT vectors are self-contained.
+ * @return     0 on success (identical digest), non-zero on error (accumulated bit difference).
+ */
+// cppcheck-suppress staticFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
+uint32_t VERUM_FIPS1403_ASCON_HASH256_self_test(void)
+{
+    uint32_t difference = 0U;
+
+    if (VERUM_FIPS1403_ASCON_HASH256_operational_state == VERUM_FIPS1403_STATE_ERROR)
+    {
+        difference = 1U;
+        VERUM_FAULT_HANDLER();
+    }
+    else if (VERUM_FIPS1403_ASCON_HASH256_operational_state != VERUM_FIPS1403_STATE_OPERATIONAL)
+    {
+        VERUM_FIPS1403_ASCON_HASH256_operational_state = VERUM_FIPS1403_STATE_INITIALIZING;
+
+        uint32_t test_digest[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+        static const uint32_t VERUM_FIPS1403_ASCON_HASH256_expected_digest[8U] = {
+            0x85E53B0BUL, 0x986B2F0FUL, 0x8F9FF2CAUL, 0x649BA8DEUL,
+            0xAA70FAA1UL, 0x838F9B24UL, 0xAA3BD59BUL, 0xB2924D30UL
+        };
+
+        VERUM_ASCON_HASH256_digest_process(NULL, 0U, test_digest);
+
+        uint32_t word_index = 0U;
+        do
+        {
+            difference = difference | (test_digest[word_index] ^ VERUM_FIPS1403_ASCON_HASH256_expected_digest[word_index]);
+            ++word_index;
+        }
+        while (word_index < 8U);
+
+        /**
+         * @internal
+         * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+         * @ref   FIPS 140-3 IG
+         * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+         * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+         * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+         */
+        VERUM_ATTR_VOLATILE uint32_t * const volatile_test_digest = (VERUM_ATTR_VOLATILE uint32_t *) test_digest;
+        volatile_test_digest[0U] = 0U;
+        volatile_test_digest[1U] = 0U;
+        volatile_test_digest[2U] = 0U;
+        volatile_test_digest[3U] = 0U;
+        volatile_test_digest[4U] = 0U;
+        volatile_test_digest[5U] = 0U;
+        volatile_test_digest[6U] = 0U;
+        volatile_test_digest[7U] = 0U;
+
+        if (difference != 0U)
+        {
+            VERUM_FIPS1403_ASCON_HASH256_operational_state = VERUM_FIPS1403_STATE_ERROR;
+            VERUM_FAULT_HANDLER();
+        }
+        else
+        {
+            VERUM_FIPS1403_ASCON_HASH256_operational_state = VERUM_FIPS1403_STATE_OPERATIONAL;
+        }
+    }
+    else
+    {
+        /* Already in operational state; difference remains 0U */
+    }
+
+    return difference;
+}
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
+
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
+void VERUM_ASCON_HASH256_digest(const uint8_t *message,
+                                const uint32_t message_size,
+                                uint32_t digest[8U])
+{
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+    if (VERUM_FIPS1403_ASCON_HASH256_operational_state == VERUM_FIPS1403_STATE_ERROR)
+    {
+        /**
+         * @internal
+         * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+         * @ref   FIPS 140-3 IG
+         * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+         * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+         * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+         */
+        VERUM_ATTR_VOLATILE uint32_t * const volatile_digest = (VERUM_ATTR_VOLATILE uint32_t *) digest;
+        volatile_digest[0U] = 0U;
+        volatile_digest[1U] = 0U;
+        volatile_digest[2U] = 0U;
+        volatile_digest[3U] = 0U;
+        volatile_digest[4U] = 0U;
+        volatile_digest[5U] = 0U;
+        volatile_digest[6U] = 0U;
+        volatile_digest[7U] = 0U;
+        VERUM_FAULT_HANDLER();
+    }
+    if (VERUM_FIPS1403_ASCON_HASH256_operational_state == VERUM_FIPS1403_STATE_UNINITIALIZED)
+    {
+        if (VERUM_FIPS1403_ASCON_HASH256_self_test() != 0U)
+        {
+            /**
+             * @internal
+             * @ref   ISO/IEC 19790:2012 Section 7.9.7 Zeroization
+             * @ref   FIPS 140-3 IG
+             * @see   https://csrc.nist.gov/csrc/media/Projects/cryptographic-module-validation-program/documents/fips%20140-3/FIPS%20140-3%20IG.pdf
+             * @see   https://doi.org/10.6028/NIST.FIPS.140-3
+             * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
+             */
+            VERUM_ATTR_VOLATILE uint32_t * const volatile_digest = (VERUM_ATTR_VOLATILE uint32_t *) digest;
+            volatile_digest[0U] = 0U;
+            volatile_digest[1U] = 0U;
+            volatile_digest[2U] = 0U;
+            volatile_digest[3U] = 0U;
+            volatile_digest[4U] = 0U;
+            volatile_digest[5U] = 0U;
+            volatile_digest[6U] = 0U;
+            volatile_digest[7U] = 0U;
+            VERUM_FAULT_HANDLER();
+        }
+    }
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
+
+    VERUM_ASCON_HASH256_digest_process(message, message_size, digest);
 }

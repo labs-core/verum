@@ -16,7 +16,16 @@
 #ifndef VERUM_STD_TYPES_H_
 #define VERUM_STD_TYPES_H_
 
+
+#ifndef NULL
+    #define NULL ((void *) 0)
+#endif /* NULL */
+
 typedef unsigned char uint8_t;
+// cppcheck-suppress misra-c2012-2.3 ; DEV-010: Standard type definitions for library-wide usage.
+typedef signed char int8_t;
 typedef unsigned int uint32_t;
+// cppcheck-suppress misra-c2012-2.3 ; DEV-010: Standard type definitions for library-wide usage.
+typedef signed int int32_t;
 
 #endif // VERUM_STD_TYPES_H_

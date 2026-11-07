@@ -20,6 +20,7 @@
 #include "verum/ascon/hash.h"
 #include "verum/ascon/xof.h"
 #include "verum/ascon/cxof.h"
+#include "macro.h"
 #include "ascon.h"
 
 #define BENCH_DATA_SIZE 32U
@@ -58,8 +59,8 @@ static void emit_metric(const char *op,
     semihost_puts("\n");
 }
 
-__attribute__((noinline)) static void run_p12(uint32_t state[10U],
-                                              uint32_t holder[10U])
+VERUM_ATTR_NOINLINE static void run_p12(uint32_t state[10U],
+                                        uint32_t holder[10U])
 {
 #ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
@@ -80,8 +81,8 @@ __attribute__((noinline)) static void run_p12(uint32_t state[10U],
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 }
 
-__attribute__((noinline)) static void run_p8(uint32_t state[10U],
-                                             uint32_t holder[10U])
+VERUM_ATTR_NOINLINE static void run_p8(uint32_t state[10U],
+                                       uint32_t holder[10U])
 {
 #ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
     VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[4U]);
@@ -425,10 +426,42 @@ static int bench_cxof128(void)
     return match ? 0 : 1;
 }
 
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+/* --- 6. FIPS 140-3 Power-On Self-Test (POST) Benchmarks --- */
+static int bench_fips_self_test(void)
+{
+    perf_stack_paint();
+    uint32_t sp = perf_get_sp();
+    uint32_t t_start = perf_cycles_read();
+    uint32_t i_start = perf_insn_read();
+
+    int rc = 0;
+    rc |= (VERUM_FIPS1403_ASCON_AEAD128_self_test() != 0);
+    rc |= (VERUM_FIPS1403_ASCON_HASH256_self_test() != 0);
+    rc |= (VERUM_FIPS1403_ASCON_XOF128_self_test() != 0);
+    rc |= (VERUM_FIPS1403_ASCON_CXOF128_self_test() != 0);
+
+    uint32_t i_stop = perf_insn_read();
+    uint32_t t_stop = perf_cycles_read();
+    uint32_t peak = perf_stack_peak(sp);
+
+    uint32_t cyc = perf_cycles_diff(t_start, t_stop);
+    uint32_t insn = perf_insn_diff(i_start, i_stop);
+
+    const char *status = (rc == 0) ? "PASSED" : "FAILED";
+
+    emit_metric("fips_post", 0U, cyc, insn, peak, status);
+    return rc;
+}
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
+
 int bench_ascon_run(void)
 {
     int rc = 0;
 
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+    rc |= bench_fips_self_test();
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
     rc |= bench_permute_p12();
     rc |= bench_permute_p8();
     rc |= bench_aead128();

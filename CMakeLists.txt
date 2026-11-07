@@ -184,7 +184,6 @@ if(CPPCHECK_EXE)
             --suppress=misra-c2012-17.8
             --suppress=misra-c2012-18.4
             --suppress=misra-c2012-20.5
-            
             --checkers-report=cppcheck.log
             "-D__builtin_assume_aligned(p,a)=(p)"
             -I ${INCLUDE_DIR}
@@ -220,6 +219,10 @@ message(STATUS "")
 message(STATUS "Build:")
 message(STATUS "  cmake --build ${BUILD_REL}                  # build everything")
 message(STATUS "  cmake --build ${BUILD_REL} --target verum   # build the default library only")
+message(STATUS "  cmake --build ${BUILD_REL} --target release        # build stripped release libraries for all architectures")
+message(STATUS "  cmake --build ${BUILD_REL} --target release_x86_64 # build release libraries for x86_64 host")
+message(STATUS "  cmake --build ${BUILD_REL} --target release_arm    # build release libraries for ARM Cortex-M4")
+message(STATUS "  cmake --build ${BUILD_REL} --target release_riscv  # build release libraries for RISC-V 32")
 message(STATUS "")
 message(STATUS "Test:")
 message(STATUS "  cmake --build ${BUILD_REL} --target run_tests       # build + run all 12 configuration tests (CTest)")

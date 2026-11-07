@@ -19,6 +19,7 @@
 #ifndef VERUM_ASCON_HASH_H_
 #define VERUM_ASCON_HASH_H_
 
+#include "define.h"
 #include "standard/types.h"
 
 /**
@@ -27,6 +28,7 @@
  *             when @p message_size is zero) and writes the 256-bit digest as eight
  *             consecutive 32-bit words into @p digest.
  *
+ * @warning    @p digest must not be NULL.
  * @warning    @p message (when @p message_size >= 8) and @p digest must be 4-byte
  *             aligned; @p digest words are written in little-endian order.
  * @warning    @p message_size is in bytes rather than bits (@nonconformity NIST SP 800-232).
@@ -43,5 +45,18 @@
 void VERUM_ASCON_HASH256_digest(const uint8_t *message,
                                 uint32_t message_size,
                                 uint32_t digest[8U]);
+
+#ifdef VERUM_STANDARD_FIPS_140_3_DEF
+/**
+ * @brief      Execute FIPS 140-3 Known-Answer Test (KAT) for Ascon-Hash256.
+ * @details    Runs pre-operational self-test (ISO/IEC 19790:2012 Section 7.9.5).
+ *             Validates hashing against reference KAT digest.
+ *             On failure, transitions hash state to error and invokes @c VERUM_FAULT_HANDLER.
+ *
+ * @param      void This self-test takes no external parameters; test vectors are self-contained.
+ * @return     0 on success (identical digest), non-zero on error (accumulated bit difference).
+ */
+uint32_t VERUM_FIPS1403_ASCON_HASH256_self_test(void);
+#endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 
 #endif /* VERUM_ASCON_HASH_H_ */
