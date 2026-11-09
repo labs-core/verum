@@ -92,7 +92,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     register uint32_t state_9 = 0x1a5c4649U;
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     register uint32_t holder_0;
     register uint32_t holder_1;
     register uint32_t holder_2;
@@ -103,9 +103,9 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     register uint32_t holder_7;
     register uint32_t holder_8;
     register uint32_t holder_9;
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     uint32_t state[10U];
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 
     // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
     _Alignas(uint32_t) uint8_t last_block_message[8U];
@@ -173,7 +173,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     state_1 = state_1 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
     // cppcheck-suppress-end misra-c2012-11.3
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
@@ -240,7 +240,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_deinterleave(&digest[6U]);
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
@@ -264,7 +264,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
         block_counter += 2U;
     }
     while (block_counter <= 6U);
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
     /**
@@ -287,7 +287,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     state_8 = 0U;
     state_9 = 0U;
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     holder_0 = 0U;
     holder_1 = 0U;
     holder_2 = 0U;
@@ -299,7 +299,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     holder_8 = 0U;
     holder_9 = 0U;
     // cppcheck-suppress-end unreadVariable
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     // cppcheck-suppress-end unreadVariable
     VERUM_ATTR_VOLATILE uint32_t * const volatile_state = (VERUM_ATTR_VOLATILE uint32_t *) state;
     volatile_state[0U] = 0U;
@@ -312,7 +312,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     volatile_state[7U] = 0U;
     volatile_state[8U] = 0U;
     volatile_state[9U] = 0U;
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     VERUM_ATTR_VOLATILE uint32_t * const volatile_last_block = (VERUM_ATTR_VOLATILE uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t));
     volatile_last_block[0U] = 0U;
@@ -345,7 +345,7 @@ uint32_t VERUM_FIPS1403_ASCON_HASH256_self_test(void)
     if (VERUM_FIPS1403_ASCON_HASH256_operational_state == VERUM_FIPS1403_STATE_ERROR)
     {
         difference = 1U;
-        VERUM_FAULT_HANDLER();
+        VERUM_FAULT_HANDLER_DEF();
     }
     else if (VERUM_FIPS1403_ASCON_HASH256_operational_state != VERUM_FIPS1403_STATE_OPERATIONAL)
     {
@@ -388,7 +388,7 @@ uint32_t VERUM_FIPS1403_ASCON_HASH256_self_test(void)
         if (difference != 0U)
         {
             VERUM_FIPS1403_ASCON_HASH256_operational_state = VERUM_FIPS1403_STATE_ERROR;
-            VERUM_FAULT_HANDLER();
+            VERUM_FAULT_HANDLER_DEF();
         }
         else
         {
@@ -430,7 +430,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
         volatile_digest[5U] = 0U;
         volatile_digest[6U] = 0U;
         volatile_digest[7U] = 0U;
-        VERUM_FAULT_HANDLER();
+        VERUM_FAULT_HANDLER_DEF();
     }
     if (VERUM_FIPS1403_ASCON_HASH256_operational_state == VERUM_FIPS1403_STATE_UNINITIALIZED)
     {
@@ -453,7 +453,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
             volatile_digest[5U] = 0U;
             volatile_digest[6U] = 0U;
             volatile_digest[7U] = 0U;
-            VERUM_FAULT_HANDLER();
+            VERUM_FAULT_HANDLER_DEF();
         }
     }
 #endif /* VERUM_STANDARD_FIPS_140_3_DEF */

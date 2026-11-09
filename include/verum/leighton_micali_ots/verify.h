@@ -68,7 +68,7 @@
  * @pre        @p identifier, @p public_key_candidate, @p message, and @p signature
  *             are non-NULL.
  * @pre        @p signature_size matches the length implied by
- *             ::VERUM_LEIGHTON_MICALI_OTS_TYPE.
+ *             ::VERUM_LEIGHTON_MICALI_OTS_TYPE_DEF.
  *
  * @see       https://www.rfc-editor.org/rfc/rfc8554
  * @see       https://www.rfc-editor.org/rfc/rfc9858

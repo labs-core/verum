@@ -20,10 +20,10 @@
 #include "macro.h"
 #include "./suite/ascon/ascon.h"
 
-VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void);
-VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void)
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER_DEF(void);
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER_DEF(void)
 {
-    fprintf(stderr, "\n[FATAL] VERUM_FAULT_HANDLER invoked: FIPS 140-3 fault detected!\n");
+    fprintf(stderr, "\n[FATAL] VERUM_FAULT_HANDLER_DEF invoked: FIPS 140-3 fault detected!\n");
     abort();
 }
 

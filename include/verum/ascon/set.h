@@ -23,16 +23,16 @@
  * @{
  */
 
-#ifdef VERUM_CUSTOM_CONFIG
+#ifdef VERUM_CUSTOM_CONFIG_DEF
     #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         #undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
     #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
     #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+        #undef VERUM_ASCON_UNROLL_DEF
     #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
-#else /* VERUM_CUSTOM_CONFIG */
+#else /* VERUM_CUSTOM_CONFIG_DEF */
 /**
  * @def     VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
  * @brief   Enable associated-data authentication in Ascon-AEAD128.
@@ -84,7 +84,7 @@
     #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 /**
- * @def     VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+ * @def     VERUM_ASCON_UNROLL_DEF
  * @brief   Enable full loop unrolling with fused round layers for maximum throughput.
  * @details When defined, the Ascon-p[12] and Ascon-p[8] permutations (@c VERUM_ASCON_PERMUTE_P12
  *          and @c VERUM_ASCON_PERMUTE_P8) expand into an unrolled sequence of fused inline
@@ -95,11 +95,11 @@
  *          the permutation is executed via the compact, shared, non-inlined subroutine
  *          @c VERUM_ASCON_permute, drastically reducing code footprint.
  */
-    #define VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    #define VERUM_ASCON_UNROLL_DEF
     #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+        #undef VERUM_ASCON_UNROLL_DEF
     #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
-#endif /* VERUM_CUSTOM_CONFIG */
+#endif /* VERUM_CUSTOM_CONFIG_DEF */
 
 /** @} */
 

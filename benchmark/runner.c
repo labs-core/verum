@@ -18,10 +18,10 @@
 
 #include "suite/ascon/bench_ascon.h"
 
-VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void);
-VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void)
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER_DEF(void);
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER_DEF(void)
 {
-    semihost_puts("FATAL: VERUM_FAULT_HANDLER called\n");
+    semihost_puts("FATAL: VERUM_FAULT_HANDLER_DEF called\n");
     semihost_exit(1);
     while (1)
     {

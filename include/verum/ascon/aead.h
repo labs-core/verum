@@ -111,7 +111,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
  * @brief      Execute FIPS 140-3 Known-Answer Test (KAT) for Ascon-AEAD128.
  * @details    Runs pre-operational self-test (ISO/IEC 19790:2012 Section 7.9.5).
  *             Validates encrypt and decrypt operations against reference vectors.
- *             On failure, transitions the AEAD state to error and invokes @c VERUM_FAULT_HANDLER.
+ *             On failure, transitions the AEAD state to error and invokes @c VERUM_FAULT_HANDLER_DEF.
  *
  * @param      void This self-test takes no external parameters; test vectors are self-contained.
  * @return     0 on success (identical tags), non-zero on error (accumulated bit difference).

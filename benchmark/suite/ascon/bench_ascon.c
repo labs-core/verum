@@ -71,7 +71,7 @@ VERUM_ATTR_NOINLINE static void run_p12(uint32_t state[10U],
                                         uint32_t holder[10U])
 {
     (void) holder;
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     register uint32_t state_0 = state[0U];
     register uint32_t state_1 = state[1U];
     register uint32_t state_2 = state[2U];
@@ -106,16 +106,16 @@ VERUM_ATTR_NOINLINE static void run_p12(uint32_t state[10U],
     state[7U] = state_7;
     state[8U] = state_8;
     state[9U] = state_9;
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     VERUM_ASCON_permute(state, 0U);
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 }
 
 VERUM_ATTR_NOINLINE static void run_p8(uint32_t state[10U],
                                        uint32_t holder[10U])
 {
     (void) holder;
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     register uint32_t state_0 = state[0U];
     register uint32_t state_1 = state[1U];
     register uint32_t state_2 = state[2U];
@@ -150,9 +150,9 @@ VERUM_ATTR_NOINLINE static void run_p8(uint32_t state[10U],
     state[7U] = state_7;
     state[8U] = state_8;
     state[9U] = state_9;
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     VERUM_ASCON_permute(state, 4U);
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 }
 
 /* --- 1a. Ascon-p[12] Permutation Benchmark --- */
@@ -666,9 +666,13 @@ int bench_ascon_run(void)
     rc |= bench_permute_p12();
     rc |= bench_permute_p8();
     rc |= bench_aead128();
+#ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    /* Preinterleave only affects AEAD; hash, xof, and cxof do not support preinterleaving */
+#else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
     rc |= bench_hash256();
     rc |= bench_xof128();
     rc |= bench_cxof128();
+#endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
 
     return rc;
 }

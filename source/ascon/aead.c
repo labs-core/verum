@@ -154,7 +154,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_encrypt_process(const uint32_t
     register uint32_t state_9 = nonce[3U];
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     register uint32_t holder_0;
     register uint32_t holder_1;
     register uint32_t holder_2;
@@ -165,9 +165,9 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_encrypt_process(const uint32_t
     register uint32_t holder_7;
     register uint32_t holder_8;
     register uint32_t holder_9;
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     uint32_t state[10U];
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 
     /**
      * @internal
@@ -521,7 +521,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_encrypt_process(const uint32_t
     state_8 = 0U;
     state_9 = 0U;
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     holder_0 = 0U;
     holder_1 = 0U;
     holder_2 = 0U;
@@ -532,7 +532,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_encrypt_process(const uint32_t
     holder_7 = 0U;
     holder_8 = 0U;
     holder_9 = 0U;
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     state[0U] = 0U;
     state[1U] = 0U;
     state[2U] = 0U;
@@ -543,7 +543,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_encrypt_process(const uint32_t
     state[7U] = 0U;
     state[8U] = 0U;
     state[9U] = 0U;
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     ((uint32_t *) __builtin_assume_aligned(last_block_plaintext, sizeof(uint32_t)))[0U] = 0U;
@@ -667,7 +667,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_decrypt_process(const uint32_t
     register uint32_t state_9 = nonce[3U];
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     register uint32_t holder_0;
     register uint32_t holder_1;
     register uint32_t holder_2;
@@ -678,9 +678,9 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_decrypt_process(const uint32_t
     register uint32_t holder_7;
     register uint32_t holder_8;
     register uint32_t holder_9;
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     uint32_t state[10U];
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 
     /**
      * @internal
@@ -1050,7 +1050,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_decrypt_process(const uint32_t
     state_8 = 0U;
     state_9 = 0U;
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
     holder_0 = 0U;
     holder_1 = 0U;
     holder_2 = 0U;
@@ -1061,7 +1061,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_decrypt_process(const uint32_t
     holder_7 = 0U;
     holder_8 = 0U;
     holder_9 = 0U;
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
     state[0U] = 0U;
     state[1U] = 0U;
     state[2U] = 0U;
@@ -1072,7 +1072,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_decrypt_process(const uint32_t
     state[7U] = 0U;
     state[8U] = 0U;
     state[9U] = 0U;
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     ((uint32_t *) __builtin_assume_aligned(last_block_ciphertext, sizeof(uint32_t)))[0U] = 0U;
@@ -1193,7 +1193,7 @@ uint32_t VERUM_FIPS1403_ASCON_AEAD128_self_test(void)
     if (VERUM_FIPS1403_ASCON_AEAD128_operational_state == VERUM_FIPS1403_STATE_ERROR)
     {
         difference = 1U;
-        VERUM_FAULT_HANDLER();
+        VERUM_FAULT_HANDLER_DEF();
     }
     else if (VERUM_FIPS1403_ASCON_AEAD128_operational_state != VERUM_FIPS1403_STATE_OPERATIONAL)
     {
@@ -1267,7 +1267,7 @@ uint32_t VERUM_FIPS1403_ASCON_AEAD128_self_test(void)
         if (difference != 0U)
         {
             VERUM_FIPS1403_ASCON_AEAD128_operational_state = VERUM_FIPS1403_STATE_ERROR;
-            VERUM_FAULT_HANDLER();
+            VERUM_FAULT_HANDLER_DEF();
         }
         else
         {
@@ -1312,7 +1312,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
         volatile_authentication_tag[1U] = 0U;
         volatile_authentication_tag[2U] = 0U;
         volatile_authentication_tag[3U] = 0U;
-        VERUM_FAULT_HANDLER();
+        VERUM_FAULT_HANDLER_DEF();
     }
     if (VERUM_FIPS1403_ASCON_AEAD128_operational_state == VERUM_FIPS1403_STATE_UNINITIALIZED)
     {
@@ -1331,7 +1331,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
             volatile_authentication_tag[1U] = 0U;
             volatile_authentication_tag[2U] = 0U;
             volatile_authentication_tag[3U] = 0U;
-            VERUM_FAULT_HANDLER();
+            VERUM_FAULT_HANDLER_DEF();
         }
     }
     /* Conditional self-test (Section 9.6): Pair-wise consistency check on key prior to first use */
@@ -1359,7 +1359,7 @@ void VERUM_ASCON_AEAD128_encrypt(const uint32_t key[4U],
                 volatile_authentication_tag[1U] = 0U;
                 volatile_authentication_tag[2U] = 0U;
                 volatile_authentication_tag[3U] = 0U;
-                VERUM_FAULT_HANDLER();
+                VERUM_FAULT_HANDLER_DEF();
             }
             VERUM_FIPS1403_ASCON_AEAD128_verified_key[0U] = key[0U];
             VERUM_FIPS1403_ASCON_AEAD128_verified_key[1U] = key[1U];
@@ -1407,7 +1407,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
         volatile_authentication_tag[1U] = 0U;
         volatile_authentication_tag[2U] = 0U;
         volatile_authentication_tag[3U] = 0U;
-        VERUM_FAULT_HANDLER();
+        VERUM_FAULT_HANDLER_DEF();
     }
     if (VERUM_FIPS1403_ASCON_AEAD128_operational_state == VERUM_FIPS1403_STATE_UNINITIALIZED)
     {
@@ -1426,7 +1426,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
             volatile_authentication_tag[1U] = 0U;
             volatile_authentication_tag[2U] = 0U;
             volatile_authentication_tag[3U] = 0U;
-            VERUM_FAULT_HANDLER();
+            VERUM_FAULT_HANDLER_DEF();
         }
     }
     /* Conditional self-test (Section 9.6): Pair-wise consistency check on key prior to first use */
@@ -1454,7 +1454,7 @@ void VERUM_ASCON_AEAD128_decrypt(const uint32_t key[4U],
                 volatile_authentication_tag[1U] = 0U;
                 volatile_authentication_tag[2U] = 0U;
                 volatile_authentication_tag[3U] = 0U;
-                VERUM_FAULT_HANDLER();
+                VERUM_FAULT_HANDLER_DEF();
             }
             VERUM_FIPS1403_ASCON_AEAD128_verified_key[0U] = key[0U];
             VERUM_FIPS1403_ASCON_AEAD128_verified_key[1U] = key[1U];

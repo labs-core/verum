@@ -53,7 +53,7 @@ typedef enum
  */
 
 /**
- * @def        VERUM_LEIGHTON_MICALI_OTS_TYPE
+ * @def        VERUM_LEIGHTON_MICALI_OTS_TYPE_DEF
  * @brief      Compile-time LM-OTS parameter set.
  * @details    Identifies the LM-OTS parameter set used throughout the library.
  *             This value is fixed at compile time and determines the hash
@@ -65,12 +65,12 @@ typedef enum
  * @note       This implementation is statically configured for a single LM-OTS
  *             parameter set. All signatures, public keys, and private keys
  *             processed by the library shall use the parameter set identified
- *             by ::VERUM_LEIGHTON_MICALI_OTS_TYPE.
+ *             by ::VERUM_LEIGHTON_MICALI_OTS_TYPE_DEF.
  *
  * @see        https://www.rfc-editor.org/rfc/rfc8554
  * @see        https://www.rfc-editor.org/rfc/rfc9858
  */
-#define VERUM_LEIGHTON_MICALI_OTS_TYPE VERUM_LEIGHTON_MICALI_OTS_SHA256_N32_W8
+#define VERUM_LEIGHTON_MICALI_OTS_TYPE_DEF VERUM_LEIGHTON_MICALI_OTS_SHA256_N32_W8
 
 /** @} */
 

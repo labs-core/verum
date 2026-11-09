@@ -51,7 +51,7 @@ void VERUM_ASCON_HASH256_digest(const uint8_t *message,
  * @brief      Execute FIPS 140-3 Known-Answer Test (KAT) for Ascon-Hash256.
  * @details    Runs pre-operational self-test (ISO/IEC 19790:2012 Section 7.9.5).
  *             Validates hashing against reference KAT digest.
- *             On failure, transitions hash state to error and invokes @c VERUM_FAULT_HANDLER.
+ *             On failure, transitions hash state to error and invokes @c VERUM_FAULT_HANDLER_DEF.
  *
  * @param      void This self-test takes no external parameters; test vectors are self-contained.
  * @return     0 on success (identical digest), non-zero on error (accumulated bit difference).

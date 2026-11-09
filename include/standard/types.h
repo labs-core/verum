@@ -17,7 +17,8 @@
 #define VERUM_STD_TYPES_H_
 
 
-#ifndef NULL
+#ifdef NULL
+#else /* NULL */
     #define NULL ((void *) 0)
 #endif /* NULL */
 

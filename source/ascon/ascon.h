@@ -347,7 +347,7 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
 } while (0)
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_UNROLL_DEF
 
 /**
  * @internal
@@ -497,7 +497,7 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                                holder_5, holder_6, holder_7, holder_8, holder_9); \
 } while (0)
 
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#else /* VERUM_ASCON_UNROLL_DEF */
 
 /**
  * @internal
@@ -568,14 +568,14 @@ void VERUM_ASCON_permute(uint32_t state[10U],
     (state_9) = state[9U]; \
 } while (0)
 
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
-#ifdef VERUM_FAULT_HANDLER
-#else /* VERUM_FAULT_HANDLER */
+#ifdef VERUM_FAULT_HANDLER_DEF
+#else /* VERUM_FAULT_HANDLER_DEF */
 // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 _Noreturn function attribute is required for safety-critical fault handlers.
-VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER(void);
-#endif /* VERUM_FAULT_HANDLER */
+VERUM_ATTR_NORETURN void VERUM_FAULT_HANDLER_DEF(void);
+#endif /* VERUM_FAULT_HANDLER_DEF */
 
 /**
  * @enum      VERUM_FIPS1403_state_t

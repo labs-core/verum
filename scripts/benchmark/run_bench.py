@@ -296,6 +296,9 @@ def run_bench_arch(arch, build_dir, cfg_filter=None, fips_mode=None, force=False
     for c in CONFIGS:
         if cfg_filter and cfg_filter != "all" and c[0] != cfg_filter:
             continue
+        # Preinterleave and associated data only affect AEAD; do not compile preinterleaved configs in benchmark matrix
+        if cfg_filter == "all" and "preinterleaved" in c[0]:
+            continue
         is_fips = c[0].startswith("fips_")
         if fips_mode is True and not is_fips:
             continue
@@ -427,6 +430,9 @@ def format_verum_tables(arch, results, insn_mixes, shas, fn_filter="all"):
         out("-" * 164)
 
         for name, metrics, fn_sizes, fn_stacks, text_sz, elf in results:
+            # Preinterleave and associated data only affect AEAD; filter out redundant noad rows for non-AEAD ops
+            if op_id in ("hash256", "xof128", "cxof128") and "noad" in name:
+                continue
             data_list = metrics.get(op_id, [])
             if not data_list:
                 continue

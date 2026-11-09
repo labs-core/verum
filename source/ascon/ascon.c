@@ -342,8 +342,8 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
 }
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#ifdef VERUM_ASCON_UNROLL_DEF
+#else /* VERUM_ASCON_UNROLL_DEF */
 /**
  * @internal
  * @ref           NIST SP 800-232 Section 3
@@ -415,4 +415,4 @@ void VERUM_ASCON_permute(uint32_t state[10U],
     state[8U] = state_8;
     state[9U] = state_9;
 }
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+#endif /* VERUM_ASCON_UNROLL_DEF */
