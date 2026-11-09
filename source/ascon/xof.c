@@ -61,43 +61,80 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_XOF128_digest_process(const uint8_t *m
      * @ref          NIST SP 800-232 Section 5.2 Algorithm 6 and Appendix B
      * @brief        𝐼𝑉 ← 0x0000080000cc0003; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256])
      * @details      The initial state depends only on 𝐼𝑉 ‖ 0^[256] and is invariant across invocations.
-     *               Bit-interleaved state [OPT-A_0]: state[2w] = E_w (even bits of S_w),
-     *               state[2w+1] = O_w (odd bits of S_w).
+     *               Bit-interleaved state [OPT-A_0]: state_2w = E_w (even bits of S_w),
+     *               state_{2w+1} = O_w (odd bits of S_w).
      *               Little-endian (𝐿, 𝐻) source words: 0x8d9447eb, 0xda82ce76, 0x5f1ef969,
      *               0xcc7ce6c7, 0x80085631, 0xe7508fd7, 0x416b58cc, 0x0ee0ea53, 0xdb6f0bde,
      *               0xe0547524.
      * @optimization [OPT-A_8] Precomputes π(𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256])) or direct halves
      *               initial state at compile time, eliminating the IV, 12 permutation rounds,
      *               and runtime conversions per call.
+     *               [OPT-A_13] 320-bit state and 320-bit S-box scratch storage pinned to twenty
+     *               32-bit register variables (state_0..state_9, holder_0..holder_9).
      */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-    uint32_t state[10U] = { 0xC0AE36B9UL, 0xB9B5A81FUL, 0xAEABF6D9UL, 0xA6D933E6UL, 0xBC3F00E5UL, 0xD0B98214UL, 0x288D99CAUL, 0x3CF1072AUL, 0x8EF2DB1EUL, 0xC044B73BUL };
+    register uint32_t state_0 = 0xC0AE36B9UL;
+    register uint32_t state_1 = 0xB9B5A81FUL;
+    register uint32_t state_2 = 0xAEABF6D9UL;
+    register uint32_t state_3 = 0xA6D933E6UL;
+    register uint32_t state_4 = 0xBC3F00E5UL;
+    register uint32_t state_5 = 0xD0B98214UL;
+    register uint32_t state_6 = 0x288D99CAUL;
+    register uint32_t state_7 = 0x3CF1072AUL;
+    register uint32_t state_8 = 0x8EF2DB1EUL;
+    register uint32_t state_9 = 0xC044B73BUL;
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-    uint32_t state[10U] = { 0x8d9447ebU, 0xda82ce76U, 0x5f1ef969U, 0xcc7ce6c7U, 0x80085631U, 0xe7508fd7U, 0x416b58ccU, 0x0ee0ea53U, 0xdb6f0bdeU, 0xe0547524U };
+    register uint32_t state_0 = 0x8d9447ebU;
+    register uint32_t state_1 = 0xda82ce76U;
+    register uint32_t state_2 = 0x5f1ef969U;
+    register uint32_t state_3 = 0xcc7ce6c7U;
+    register uint32_t state_4 = 0x80085631U;
+    register uint32_t state_5 = 0xe7508fd7U;
+    register uint32_t state_6 = 0x416b58ccU;
+    register uint32_t state_7 = 0x0ee0ea53U;
+    register uint32_t state_8 = 0xdb6f0bdeU;
+    register uint32_t state_9 = 0xe0547524U;
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-    uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+
+#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    register uint32_t holder_0;
+    register uint32_t holder_1;
+    register uint32_t holder_2;
+    register uint32_t holder_3;
+    register uint32_t holder_4;
+    register uint32_t holder_5;
+    register uint32_t holder_6;
+    register uint32_t holder_7;
+    register uint32_t holder_8;
+    register uint32_t holder_9;
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+    uint32_t state[10U];
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+
+    // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
+    _Alignas(uint32_t) uint8_t last_block_message[8U];
 
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
      * @brief        S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑖)
-     * @optimization [OPT-A_12] holder (dead between permutations) stages π(𝑀𝑖); no extra stack.
+     * @optimization [OPT-A_12] Shared 8-byte aligned staging buffer stages π(𝑀𝑖), padding, and tail squeeze; no extra stack.
      */
     uint32_t block_counter = message_size >> 3U;
     for (; 0U < block_counter; --block_counter)
     {
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        holder[0U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
-        holder[1U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
+        ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        VERUM_ASCON_interleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
+        state_0 = state_0 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
+        state_1 = state_1 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
         // cppcheck-suppress-end misra-c2012-11.3
-        VERUM_ASCON_interleave(holder);
-        state[0U] = state[0U] ^ holder[0U];
-        state[1U] = state[1U] ^ holder[1U];
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        state_0 = state_0 ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
+        state_1 = state_1 ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
         // cppcheck-suppress-end misra-c2012-11.3
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         message += 8U;
@@ -107,23 +144,10 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_XOF128_digest_process(const uint8_t *m
          * @ref   NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
          */
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-        VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-        VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
-        VERUM_ASCON_permute(state, holder, 0U);
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+        VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                                state_5, state_6, state_7, state_8, state_9,
+                                holder_0, holder_1, holder_2, holder_3, holder_4,
+                                holder_5, holder_6, holder_7, holder_8, holder_9);
     }
 
     /**
@@ -132,8 +156,10 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_XOF128_digest_process(const uint8_t *m
      * @brief        𝑀𝑚 ← pad(̃𝑀𝑚, 64); S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑚)
      * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
      */
-    // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
-    _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
     uint32_t last_block_byte_index = message_size & 0x7U;
     last_block_message[last_block_byte_index] = 0x01U;
 
@@ -147,8 +173,8 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_XOF128_digest_process(const uint8_t *m
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-    state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
+    state_0 = state_0 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
+    state_1 = state_1 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
     // cppcheck-suppress-end misra-c2012-11.3
 
     /**
@@ -160,26 +186,13 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_XOF128_digest_process(const uint8_t *m
     block_counter = digest_size >> 3U;
     for (; 0U < block_counter; --block_counter)
     {
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-        VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-        VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
-        VERUM_ASCON_permute(state, holder, 0U);
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+        VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                                state_5, state_6, state_7, state_8, state_9,
+                                holder_0, holder_1, holder_2, holder_3, holder_4,
+                                holder_5, holder_6, holder_7, holder_8, holder_9);
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[0U] = state[0U];
-        ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[1U] = state[1U];
+        ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[0U] = state_0;
+        ((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)))[1U] = state_1;
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         VERUM_ASCON_deinterleave((uint32_t *) __builtin_assume_aligned(digest, sizeof(uint32_t)));
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
@@ -191,37 +204,27 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_XOF128_digest_process(const uint8_t *m
      * @internal
      * @ref          NIST SP 800-232 Section 5.2 Algorithm 6 Ascon-XOF128(𝑀, 𝐿)
      * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻𝑙 ← ⌊π⁻¹(S[0∶63])⌋_{𝐿 mod 64}
-     * @optimization [OPT-A_12] π⁻¹ applied in place on state_bytes staging buffer;
-     *               avoids unaligned writes to caller's digest buffer.
+     * @optimization [OPT-A_12] π⁻¹ applied in place on shared last_block_message staging buffer;
+     *               avoids unaligned writes to caller's digest buffer and extra stack arrays.
      */
     uint32_t digest_byte_index = digest_size & 0x7U;
     if (0U < digest_byte_index)
     {
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-        VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-        VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
-        VERUM_ASCON_permute(state, holder, 0U);
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+        VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                                state_5, state_6, state_7, state_8, state_9,
+                                holder_0, holder_1, holder_2, holder_3, holder_4,
+                                holder_5, holder_6, holder_7, holder_8, holder_9);
+        // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+        ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U] = state_0;
+        ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U] = state_1;
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-        VERUM_ASCON_deinterleave(state);
+        VERUM_ASCON_deinterleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-        const uint8_t * const state_bytes = (const uint8_t *) state;
+        // cppcheck-suppress-end misra-c2012-11.3
         do
         {
             --digest_byte_index;
-            digest[digest_byte_index] = state_bytes[digest_byte_index];
+            digest[digest_byte_index] = last_block_message[digest_byte_index];
         }
         while (0U < digest_byte_index);
     }
@@ -236,22 +239,48 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_XOF128_digest_process(const uint8_t *m
      * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
      */
     // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
-    state[0U] = 0U;
-    state[1U] = 0U;
-    state[2U] = 0U;
-    state[3U] = 0U;
-    state[4U] = 0U;
-    state[5U] = 0U;
-    state[6U] = 0U;
-    state[7U] = 0U;
-    state[8U] = 0U;
-    state[9U] = 0U;
+    state_0 = 0U;
+    state_1 = 0U;
+    state_2 = 0U;
+    state_3 = 0U;
+    state_4 = 0U;
+    state_5 = 0U;
+    state_6 = 0U;
+    state_7 = 0U;
+    state_8 = 0U;
+    state_9 = 0U;
 
-    holder[0U] = 0U;
-    holder[1U] = 0U;
-    holder[2U] = 0U;
-    holder[3U] = 0U;
+#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    holder_0 = 0U;
+    holder_1 = 0U;
+    holder_2 = 0U;
+    holder_3 = 0U;
+    holder_4 = 0U;
+    holder_5 = 0U;
+    holder_6 = 0U;
+    holder_7 = 0U;
+    holder_8 = 0U;
+    holder_9 = 0U;
     // cppcheck-suppress-end unreadVariable
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+    // cppcheck-suppress-end unreadVariable
+    VERUM_ATTR_VOLATILE uint32_t * const volatile_state = (VERUM_ATTR_VOLATILE uint32_t *) state;
+    volatile_state[0U] = 0U;
+    volatile_state[1U] = 0U;
+    volatile_state[2U] = 0U;
+    volatile_state[3U] = 0U;
+    volatile_state[4U] = 0U;
+    volatile_state[5U] = 0U;
+    volatile_state[6U] = 0U;
+    volatile_state[7U] = 0U;
+    volatile_state[8U] = 0U;
+    volatile_state[9U] = 0U;
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    VERUM_ATTR_VOLATILE uint32_t * const volatile_last_block = (VERUM_ATTR_VOLATILE uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t));
+    volatile_last_block[0U] = 0U;
+    volatile_last_block[1U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
 #endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 }
 

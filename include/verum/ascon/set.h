@@ -23,7 +23,16 @@
  * @{
  */
 
-#ifndef VERUM_CUSTOM_CONFIG
+#ifdef VERUM_CUSTOM_CONFIG
+    #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+    #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+        #undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
+    #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+
+    #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
+        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
+#else /* VERUM_CUSTOM_CONFIG */
 /**
  * @def     VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
  * @brief   Enable associated-data authentication in Ascon-AEAD128.
@@ -69,30 +78,24 @@
  *          ciphertext and authentication tags.
  */
     #define VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-    #ifndef VERUM_ASCON_BIT_INTERLEAVING_DEF
+    #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+    #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         #undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
     #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
 /**
  * @def     VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
  * @brief   Enable full loop unrolling with fused round layers for maximum throughput.
- * @details When defined, the Ascon-p[12] and Ascon-p[8] permutations are expanded into
- *          an unrolled sequence of fused inline functions (VERUM_ASCON_permute_substitution_layer,
- *          VERUM_ASCON_permute_merged, and VERUM_ASCON_permute_linear_diffusion_layer),
+ * @details When defined, the Ascon-p[12] and Ascon-p[8] permutations (@c VERUM_ASCON_PERMUTE_P12
+ *          and @c VERUM_ASCON_PERMUTE_P8) expand into an unrolled sequence of fused inline
+ *          register-pinned round macros (@c VERUM_ASCON_PERMUTE_SUBSTITUTION_LAYER,
+ *          @c VERUM_ASCON_PERMUTE_MERGED, and @c VERUM_ASCON_PERMUTE_LINEAR_DIFFUSION_LAYER),
  *          trading program size (.text) for maximum speed.
  *          When undefined (or when @c VERUM_OPTIMIZATION_MEMORY_DEF is defined in define.h),
  *          the permutation is executed via the compact, shared, non-inlined subroutine
  *          @c VERUM_ASCON_permute, drastically reducing code footprint.
  */
     #define VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-    #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
-        #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-    #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
-#else /* VERUM_CUSTOM_CONFIG */
-    #ifndef VERUM_ASCON_BIT_INTERLEAVING_DEF
-        #undef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-    #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-
     #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
     #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */

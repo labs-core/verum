@@ -30,13 +30,13 @@
  * @details    When defined, the implementation trades computational throughput
  *             for reduced static and stack memory usage and data footprint outweigh cycle count.
  */
-#ifndef VERUM_CUSTOM_CONFIG
-    #define VERUM_OPTIMIZATION_MEMORY_DEF
-
+#ifdef VERUM_CUSTOM_CONFIG
     #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
     #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
 #else /* VERUM_CUSTOM_CONFIG */
+    #define VERUM_OPTIMIZATION_MEMORY_DEF
+
     #ifdef VERUM_OPTIMIZATION_MEMORY_DEF
         #undef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
     #endif /* VERUM_OPTIMIZATION_MEMORY_DEF */
@@ -87,7 +87,8 @@
  *             Enabling this flag increases code size, startup latency, and
  *             per-call overhead. @c VERUM_FAULT_HANDLER is invoked on any fault.
  */
-#ifndef VERUM_CUSTOM_CONFIG
+#ifdef VERUM_CUSTOM_CONFIG
+#else /* VERUM_CUSTOM_CONFIG */
     #define VERUM_STANDARD_FIPS_140_3_DEF
 #endif /* VERUM_CUSTOM_CONFIG */
 

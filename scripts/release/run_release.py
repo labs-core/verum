@@ -127,7 +127,7 @@ def build_arch(arch_key, out_base_dir, cfg_filter=None, fips_mode=None, force=Fa
 
     for cfg_name, defs in selected_configs:
         build_single_config(arch_key, cfg_name, defs, out_base_dir, force=force, opt_flag=opt_flag)
-    print(f"[✓] {arch_key} release check complete.\n")
+    print(f"[+] {arch_key} release check complete.\n")
 
 def main():
     parser = argparse.ArgumentParser(description="Build and manage stripped release static archives.")

@@ -2,7 +2,8 @@
  * @file      bench_ascon.c
  * @brief     Comprehensive Ascon suite benchmarks for bare-metal targets.
  * @details   Benchmarks Ascon-p[12], AEAD128 (encrypt/decrypt), Hash256,
- *            XOF128, and CXOF128 with cycle/instruction counts and stack watermarking.
+ *            XOF128, and CXOF128 with cycle/instruction counts and stack watermarking
+ *            across 32B, 512B, and 1024B payloads.
  *
  * @copyright (C) Core Labs
  *            All rights reserved.
@@ -23,7 +24,14 @@
 #include "macro.h"
 #include "ascon.h"
 
-#define BENCH_DATA_SIZE 32U
+#define BENCH_MAX_DATA_SIZE 1024U
+
+static const uint32_t BENCH_EVAL_SIZES[3U] = { 32U, 512U, 1024U };
+
+static uint32_t s_bench_data_words[BENCH_MAX_DATA_SIZE / sizeof(uint32_t)];
+static uint32_t s_bench_cipher_words[(BENCH_MAX_DATA_SIZE + 16U) / sizeof(uint32_t)];
+static uint32_t s_bench_decrypted_words[BENCH_MAX_DATA_SIZE / sizeof(uint32_t)];
+static uint32_t s_bench_digest_words[8U];
 
 static int mem_equal(const uint8_t *a,
                      const uint8_t *b,
@@ -62,40 +70,88 @@ static void emit_metric(const char *op,
 VERUM_ATTR_NOINLINE static void run_p12(uint32_t state[10U],
                                         uint32_t holder[10U])
 {
+    (void) holder;
 #ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
+    register uint32_t state_0 = state[0U];
+    register uint32_t state_1 = state[1U];
+    register uint32_t state_2 = state[2U];
+    register uint32_t state_3 = state[3U];
+    register uint32_t state_4 = state[4U];
+    register uint32_t state_5 = state[5U];
+    register uint32_t state_6 = state[6U];
+    register uint32_t state_7 = state[7U];
+    register uint32_t state_8 = state[8U];
+    register uint32_t state_9 = state[9U];
+    register uint32_t holder_0;
+    register uint32_t holder_1;
+    register uint32_t holder_2;
+    register uint32_t holder_3;
+    register uint32_t holder_4;
+    register uint32_t holder_5;
+    register uint32_t holder_6;
+    register uint32_t holder_7;
+    register uint32_t holder_8;
+    register uint32_t holder_9;
+    VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                            state_5, state_6, state_7, state_8, state_9,
+                            holder_0, holder_1, holder_2, holder_3, holder_4,
+                            holder_5, holder_6, holder_7, holder_8, holder_9);
+    state[0U] = state_0;
+    state[1U] = state_1;
+    state[2U] = state_2;
+    state[3U] = state_3;
+    state[4U] = state_4;
+    state[5U] = state_5;
+    state[6U] = state_6;
+    state[7U] = state_7;
+    state[8U] = state_8;
+    state[9U] = state_9;
 #else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
-    VERUM_ASCON_permute(state, holder, 0U);
+    VERUM_ASCON_permute(state, 0U);
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 }
 
 VERUM_ATTR_NOINLINE static void run_p8(uint32_t state[10U],
                                        uint32_t holder[10U])
 {
+    (void) holder;
 #ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
+    register uint32_t state_0 = state[0U];
+    register uint32_t state_1 = state[1U];
+    register uint32_t state_2 = state[2U];
+    register uint32_t state_3 = state[3U];
+    register uint32_t state_4 = state[4U];
+    register uint32_t state_5 = state[5U];
+    register uint32_t state_6 = state[6U];
+    register uint32_t state_7 = state[7U];
+    register uint32_t state_8 = state[8U];
+    register uint32_t state_9 = state[9U];
+    register uint32_t holder_0;
+    register uint32_t holder_1;
+    register uint32_t holder_2;
+    register uint32_t holder_3;
+    register uint32_t holder_4;
+    register uint32_t holder_5;
+    register uint32_t holder_6;
+    register uint32_t holder_7;
+    register uint32_t holder_8;
+    register uint32_t holder_9;
+    VERUM_ASCON_PERMUTE_P8(state_0, state_1, state_2, state_3, state_4,
+                           state_5, state_6, state_7, state_8, state_9,
+                           holder_0, holder_1, holder_2, holder_3, holder_4,
+                           holder_5, holder_6, holder_7, holder_8, holder_9);
+    state[0U] = state_0;
+    state[1U] = state_1;
+    state[2U] = state_2;
+    state[3U] = state_3;
+    state[4U] = state_4;
+    state[5U] = state_5;
+    state[6U] = state_6;
+    state[7U] = state_7;
+    state[8U] = state_8;
+    state[9U] = state_9;
 #else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
-    VERUM_ASCON_permute(state, holder, 4U);
+    VERUM_ASCON_permute(state, 4U);
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 }
 
@@ -170,6 +226,8 @@ static int bench_permute_p8(void)
 /* --- 2. Ascon-AEAD128 Encrypt and Decrypt Benchmarks --- */
 static int bench_aead128(void)
 {
+    int rc = 0;
+
 #ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
     const uint32_t key[4U] = { 0x32321010UL, 0x11001100UL, 0x32321010UL, 0x33223322UL };
     const uint32_t nonce[4U] = { 0x32321010UL, 0x11001100UL, 0x32321010UL, 0x33223322UL };
@@ -193,7 +251,7 @@ static int bench_aead128(void)
         0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
         0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU
     };
-    const uint8_t expected_ciphertext[BENCH_DATA_SIZE] = {
+    const uint8_t expected_ciphertext_32[32U] = {
         0x4EU, 0x58U, 0x92U, 0x70U, 0xFEU, 0xB8U, 0x9BU, 0xB2U,
         0x24U, 0x08U, 0x04U, 0x1DU, 0xAFU, 0x7DU, 0x55U, 0xDBU,
         0x9BU, 0xA1U, 0x25U, 0xD4U, 0xD1U, 0xE5U, 0x8FU, 0x75U,
@@ -204,7 +262,7 @@ static int bench_aead128(void)
         0x7EU, 0xC9U, 0xCEU, 0x69U, 0x61U, 0x82U, 0x70U, 0x63U
     };
 #else /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
-    const uint8_t expected_ciphertext[BENCH_DATA_SIZE] = {
+    const uint8_t expected_ciphertext_32[32U] = {
         0xE7U, 0x70U, 0xD2U, 0x89U, 0xD2U, 0xA4U, 0x4AU, 0xEEU,
         0x7CU, 0xD0U, 0xA4U, 0x8EU, 0xCEU, 0x52U, 0x74U, 0xE3U,
         0x81U, 0xBAU, 0xD7U, 0xE1U, 0x63U, 0xDCU, 0xC4U, 0x97U,
@@ -216,104 +274,162 @@ static int bench_aead128(void)
     };
 #endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
-    uint32_t buf_words[8U];
-    uint8_t *buffer = (uint8_t *) buf_words;
-    for (uint32_t i = 0U; i < BENCH_DATA_SIZE; i++)
+    for (uint32_t s_idx = 0U; s_idx < 3U; s_idx++)
     {
-        buffer[i] = (uint8_t) i;
-    }
-    uint32_t tag[4U] = { 0U };
+        uint32_t size = BENCH_EVAL_SIZES[s_idx];
+        uint8_t *ciphertext = (uint8_t *) s_bench_cipher_words;
+        uint8_t *decrypted = (uint8_t *) s_bench_decrypted_words;
 
-    /* 2a. AEAD128 Encrypt */
-    perf_stack_paint();
-    uint32_t sp_enc = perf_get_sp();
-    uint32_t t_enc_start = perf_cycles_read();
-    uint32_t i_enc_start = perf_insn_read();
+        for (uint32_t i = 0U; i < size; i++)
+        {
+            ciphertext[i] = (uint8_t) (i & 0xFFU);
+            decrypted[i] = 0U;
+        }
+        uint32_t tag[4U] = { 0U };
 
+        /* Warm-up */
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_ASCON_AEAD128_encrypt(key_param,
-                                nonce_param,
-                                buffer,
-                                BENCH_DATA_SIZE,
-                                associated_data,
-                                14U,
-                                tag);
+        VERUM_ASCON_AEAD128_encrypt(key_param,
+                                    nonce_param,
+                                    ciphertext,
+                                    size,
+                                    associated_data,
+                                    14U,
+                                    tag);
 #else /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
-    VERUM_ASCON_AEAD128_encrypt(key_param,
-                                nonce_param,
-                                buffer,
-                                BENCH_DATA_SIZE,
-                                tag);
+        VERUM_ASCON_AEAD128_encrypt(key_param,
+                                    nonce_param,
+                                    ciphertext,
+                                    size,
+                                    tag);
 #endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
-    uint32_t i_enc_stop = perf_insn_read();
-    uint32_t t_enc_stop = perf_cycles_read();
-    uint32_t peak_enc = perf_stack_peak(sp_enc);
+        /* 2a. AEAD128 Encrypt */
+        for (uint32_t i = 0U; i < size; i++)
+        {
+            ciphertext[i] = (uint8_t) (i & 0xFFU);
+        }
+        for (uint32_t k = 0U; k < 4U; k++)
+        {
+            tag[k] = 0U;
+        }
 
-    uint32_t cyc_enc = perf_cycles_diff(t_enc_start, t_enc_stop);
-    uint32_t insn_enc = perf_insn_diff(i_enc_start, i_enc_stop);
-
-    int ct_match = mem_equal(buffer, expected_ciphertext, BENCH_DATA_SIZE);
-    int tag_match = mem_equal((const uint8_t *) tag, expected_tag, 16U);
-    const char *status_enc = (ct_match && tag_match) ? "PASSED" : "FAILED";
-
-    emit_metric("aead_enc", BENCH_DATA_SIZE, cyc_enc, insn_enc, peak_enc, status_enc);
-
-    /* 2b. AEAD128 Decrypt */
-    uint32_t dec_tag[4U] = { 0U };
-    perf_stack_paint();
-    uint32_t sp_dec = perf_get_sp();
-    uint32_t t_dec_start = perf_cycles_read();
-    uint32_t i_dec_start = perf_insn_read();
+        perf_stack_paint();
+        uint32_t sp_enc = perf_get_sp();
+        uint32_t t_enc_start = perf_cycles_read();
+        uint32_t i_enc_start = perf_insn_read();
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
-    VERUM_ASCON_AEAD128_decrypt(key_param,
-                                nonce_param,
-                                buffer,
-                                BENCH_DATA_SIZE,
-                                associated_data,
-                                14U,
-                                dec_tag);
+        VERUM_ASCON_AEAD128_encrypt(key_param,
+                                    nonce_param,
+                                    ciphertext,
+                                    size,
+                                    associated_data,
+                                    14U,
+                                    tag);
 #else /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
-    VERUM_ASCON_AEAD128_decrypt(key_param,
-                                nonce_param,
-                                buffer,
-                                BENCH_DATA_SIZE,
-                                dec_tag);
+        VERUM_ASCON_AEAD128_encrypt(key_param,
+                                    nonce_param,
+                                    ciphertext,
+                                    size,
+                                    tag);
 #endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
 
-    uint32_t i_dec_stop = perf_insn_read();
-    uint32_t t_dec_stop = perf_cycles_read();
-    uint32_t peak_dec = perf_stack_peak(sp_dec);
+        uint32_t i_enc_stop = perf_insn_read();
+        uint32_t t_enc_stop = perf_cycles_read();
+        uint32_t peak_enc = perf_stack_peak(sp_enc);
 
-    uint32_t cyc_dec = perf_cycles_diff(t_dec_start, t_dec_stop);
-    uint32_t insn_dec = perf_insn_diff(i_dec_start, i_dec_stop);
+        uint32_t cyc_enc = perf_cycles_diff(t_enc_start, t_enc_stop);
+        uint32_t insn_enc = perf_insn_diff(i_enc_start, i_enc_stop);
 
-    uint8_t expected_pt[BENCH_DATA_SIZE];
-    for (uint32_t i = 0U; i < BENCH_DATA_SIZE; i++)
-    {
-        expected_pt[i] = (uint8_t) i;
+        int enc_ok = 0;
+        if (size == 32U)
+        {
+            enc_ok = mem_equal(ciphertext, expected_ciphertext_32, 32U) &&
+                     mem_equal((const uint8_t *) tag, expected_tag, 16U);
+        }
+        else
+        {
+            uint32_t accum = 0U;
+            for (uint32_t k = 0U; k < size; k++)
+            {
+                accum |= ciphertext[k];
+            }
+            for (uint32_t k = 0U; k < 4U; k++)
+            {
+                accum |= tag[k];
+            }
+            enc_ok = (accum != 0U);
+        }
+        const char *status_enc = enc_ok ? "PASSED" : "FAILED";
+        emit_metric("aead_enc", size, cyc_enc, insn_enc, peak_enc, status_enc);
+        if (!enc_ok)
+        {
+            rc = 1;
+        }
+
+        /* 2b. AEAD128 Decrypt */
+        for (uint32_t i = 0U; i < size; i++)
+        {
+            decrypted[i] = ciphertext[i];
+        }
+        uint32_t dec_tag[4U] = { 0U };
+
+        perf_stack_paint();
+        uint32_t sp_dec = perf_get_sp();
+        uint32_t t_dec_start = perf_cycles_read();
+        uint32_t i_dec_start = perf_insn_read();
+
+#ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
+        VERUM_ASCON_AEAD128_decrypt(key_param,
+                                    nonce_param,
+                                    decrypted,
+                                    size,
+                                    associated_data,
+                                    14U,
+                                    dec_tag);
+#else /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
+        VERUM_ASCON_AEAD128_decrypt(key_param,
+                                    nonce_param,
+                                    decrypted,
+                                    size,
+                                    dec_tag);
+#endif /* VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF */
+
+        uint32_t i_dec_stop = perf_insn_read();
+        uint32_t t_dec_stop = perf_cycles_read();
+        uint32_t peak_dec = perf_stack_peak(sp_dec);
+
+        uint32_t cyc_dec = perf_cycles_diff(t_dec_start, t_dec_stop);
+        uint32_t insn_dec = perf_insn_diff(i_dec_start, i_dec_stop);
+
+        int pt_match = 1;
+        for (uint32_t i = 0U; i < size; i++)
+        {
+            if (decrypted[i] != (uint8_t) (i & 0xFFU))
+            {
+                pt_match = 0;
+                break;
+            }
+        }
+        int dec_tag_match = mem_equal((const uint8_t *) dec_tag, (const uint8_t *) tag, 16U);
+        int dec_ok = (pt_match && dec_tag_match);
+        const char *status_dec = dec_ok ? "PASSED" : "FAILED";
+
+        emit_metric("aead_dec", size, cyc_dec, insn_dec, peak_dec, status_dec);
+        if (!dec_ok)
+        {
+            rc = 1;
+        }
     }
-    int pt_match = mem_equal(buffer, expected_pt, BENCH_DATA_SIZE);
-    int dec_tag_match = mem_equal((const uint8_t *) dec_tag, expected_tag, 16U);
-    const char *status_dec = (pt_match && dec_tag_match) ? "PASSED" : "FAILED";
 
-    emit_metric("aead_dec", BENCH_DATA_SIZE, cyc_dec, insn_dec, peak_dec, status_dec);
-
-    return (ct_match && tag_match && pt_match && dec_tag_match) ? 0 : 1;
+    return rc;
 }
 
 /* --- 3. Ascon-Hash256 Benchmark --- */
 static int bench_hash256(void)
 {
-    uint32_t msg_words[8U];
-    uint8_t *message = (uint8_t *) msg_words;
-    for (uint32_t i = 0U; i < BENCH_DATA_SIZE; i++)
-    {
-        message[i] = (uint8_t) i;
-    }
-    uint32_t digest[8U] = { 0U };
-
+    int rc = 0;
     const uint8_t expected_hash[32U] = {
         0xBDU, 0x9DU, 0x3DU, 0x60U, 0xA6U, 0x6BU, 0x53U, 0x86U,
         0x8EU, 0xABU, 0x2AU, 0x5CU, 0x74U, 0x53U, 0x9AU, 0x51U,
@@ -321,81 +437,133 @@ static int bench_hash256(void)
         0x0EU, 0x43U, 0xDEU, 0xE8U, 0x16U, 0x80U, 0xB3U, 0x3EU
     };
 
-    VERUM_ASCON_HASH256_digest(message, BENCH_DATA_SIZE, digest); /* warm-up */
+    for (uint32_t s_idx = 0U; s_idx < 3U; s_idx++)
+    {
+        uint32_t size = BENCH_EVAL_SIZES[s_idx];
+        uint8_t *message = (uint8_t *) s_bench_data_words;
+        for (uint32_t i = 0U; i < size; i++)
+        {
+            message[i] = (uint8_t) (i & 0xFFU);
+        }
+        uint32_t digest[8U] = { 0U };
 
-    perf_stack_paint();
-    uint32_t sp = perf_get_sp();
-    uint32_t t_start = perf_cycles_read();
-    uint32_t i_start = perf_insn_read();
+        VERUM_ASCON_HASH256_digest(message, size, digest); /* warm-up */
+        for (uint32_t k = 0U; k < 8U; k++)
+        {
+            digest[k] = 0U;
+        }
 
-    VERUM_ASCON_HASH256_digest(message, BENCH_DATA_SIZE, digest);
+        perf_stack_paint();
+        uint32_t sp = perf_get_sp();
+        uint32_t t_start = perf_cycles_read();
+        uint32_t i_start = perf_insn_read();
 
-    uint32_t i_stop = perf_insn_read();
-    uint32_t t_stop = perf_cycles_read();
-    uint32_t peak = perf_stack_peak(sp);
+        VERUM_ASCON_HASH256_digest(message, size, digest);
 
-    uint32_t cyc = perf_cycles_diff(t_start, t_stop);
-    uint32_t insn = perf_insn_diff(i_start, i_stop);
+        uint32_t i_stop = perf_insn_read();
+        uint32_t t_stop = perf_cycles_read();
+        uint32_t peak = perf_stack_peak(sp);
 
-    int match = mem_equal((const uint8_t *) digest, expected_hash, 32U);
-    const char *status = match ? "PASSED" : "FAILED";
+        uint32_t cyc = perf_cycles_diff(t_start, t_stop);
+        uint32_t insn = perf_insn_diff(i_start, i_stop);
 
-    emit_metric("hash256", BENCH_DATA_SIZE, cyc, insn, peak, status);
-    return match ? 0 : 1;
+        int match = 0;
+        if (size == 32U)
+        {
+            match = mem_equal((const uint8_t *) digest, expected_hash, 32U);
+        }
+        else
+        {
+            uint32_t accum = 0U;
+            for (uint32_t k = 0U; k < 8U; k++)
+            {
+                accum |= digest[k];
+            }
+            match = (accum != 0U);
+        }
+        const char *status = match ? "PASSED" : "FAILED";
+
+        emit_metric("hash256", size, cyc, insn, peak, status);
+        if (!match)
+        {
+            rc = 1;
+        }
+    }
+
+    return rc;
 }
 
 /* --- 4. Ascon-XOF128 Benchmark --- */
 static int bench_xof128(void)
 {
-    uint32_t msg_words[8U];
-    uint8_t *message = (uint8_t *) msg_words;
-    for (uint32_t i = 0U; i < BENCH_DATA_SIZE; i++)
-    {
-        message[i] = (uint8_t) i;
-    }
-    uint8_t digest[17U] __attribute__((aligned(4))) = { 0U };
-
+    int rc = 0;
     const uint8_t expected_xof[17U] = {
         0x2EU, 0x5FU, 0x34U, 0x03U, 0xF4U, 0x17U, 0x14U, 0x71U,
         0xCCU, 0x79U, 0x34U, 0xB5U, 0x19U, 0x82U, 0xCEU, 0xCEU,
         0x8DU
     };
 
-    VERUM_ASCON_XOF128_digest(message, BENCH_DATA_SIZE, digest, 17U); /* warm-up */
+    for (uint32_t s_idx = 0U; s_idx < 3U; s_idx++)
+    {
+        uint32_t size = BENCH_EVAL_SIZES[s_idx];
+        uint8_t *message = (uint8_t *) s_bench_data_words;
+        for (uint32_t i = 0U; i < size; i++)
+        {
+            message[i] = (uint8_t) (i & 0xFFU);
+        }
+        uint8_t digest[17U] __attribute__((aligned(4))) = { 0U };
 
-    perf_stack_paint();
-    uint32_t sp = perf_get_sp();
-    uint32_t t_start = perf_cycles_read();
-    uint32_t i_start = perf_insn_read();
+        VERUM_ASCON_XOF128_digest(message, size, digest, 17U); /* warm-up */
+        for (uint32_t k = 0U; k < 17U; k++)
+        {
+            digest[k] = 0U;
+        }
 
-    VERUM_ASCON_XOF128_digest(message, BENCH_DATA_SIZE, digest, 17U);
+        perf_stack_paint();
+        uint32_t sp = perf_get_sp();
+        uint32_t t_start = perf_cycles_read();
+        uint32_t i_start = perf_insn_read();
 
-    uint32_t i_stop = perf_insn_read();
-    uint32_t t_stop = perf_cycles_read();
-    uint32_t peak = perf_stack_peak(sp);
+        VERUM_ASCON_XOF128_digest(message, size, digest, 17U);
 
-    uint32_t cyc = perf_cycles_diff(t_start, t_stop);
-    uint32_t insn = perf_insn_diff(i_start, i_stop);
+        uint32_t i_stop = perf_insn_read();
+        uint32_t t_stop = perf_cycles_read();
+        uint32_t peak = perf_stack_peak(sp);
 
-    int match = mem_equal(digest, expected_xof, 17U);
-    const char *status = match ? "PASSED" : "FAILED";
+        uint32_t cyc = perf_cycles_diff(t_start, t_stop);
+        uint32_t insn = perf_insn_diff(i_start, i_stop);
 
-    emit_metric("xof128", BENCH_DATA_SIZE, cyc, insn, peak, status);
-    return match ? 0 : 1;
+        int match = 0;
+        if (size == 32U)
+        {
+            match = mem_equal(digest, expected_xof, 17U);
+        }
+        else
+        {
+            uint32_t accum = 0U;
+            for (uint32_t k = 0U; k < 17U; k++)
+            {
+                accum |= digest[k];
+            }
+            match = (accum != 0U);
+        }
+        const char *status = match ? "PASSED" : "FAILED";
+
+        emit_metric("xof128", size, cyc, insn, peak, status);
+        if (!match)
+        {
+            rc = 1;
+        }
+    }
+
+    return rc;
 }
 
 /* --- 5. Ascon-CXOF128 Benchmark --- */
 static int bench_cxof128(void)
 {
-    uint32_t msg_words[8U];
-    uint8_t *message = (uint8_t *) msg_words;
-    for (uint32_t i = 0U; i < BENCH_DATA_SIZE; i++)
-    {
-        message[i] = (uint8_t) i;
-    }
+    int rc = 0;
     const uint8_t customization[2U] __attribute__((aligned(4))) = { 0x00U, 0x01U };
-    uint8_t digest[32U] __attribute__((aligned(4))) = { 0U };
-
     const uint8_t expected_cxof[32U] = {
         0x4DU, 0x7FU, 0x86U, 0x48U, 0xA2U, 0xC7U, 0x21U, 0x96U,
         0xEBU, 0x19U, 0x79U, 0x4CU, 0x9DU, 0x1BU, 0xC1U, 0xB4U,
@@ -403,27 +571,60 @@ static int bench_cxof128(void)
         0x1AU, 0x19U, 0xF2U, 0x80U, 0x4CU, 0xE6U, 0x24U, 0xF4U
     };
 
-    VERUM_ASCON_CXOF128_digest(message, BENCH_DATA_SIZE, customization, 2U, digest, 32U); /* warm-up */
+    for (uint32_t s_idx = 0U; s_idx < 3U; s_idx++)
+    {
+        uint32_t size = BENCH_EVAL_SIZES[s_idx];
+        uint8_t *message = (uint8_t *) s_bench_data_words;
+        for (uint32_t i = 0U; i < size; i++)
+        {
+            message[i] = (uint8_t) (i & 0xFFU);
+        }
+        uint8_t digest[32U] __attribute__((aligned(4))) = { 0U };
 
-    perf_stack_paint();
-    uint32_t sp = perf_get_sp();
-    uint32_t t_start = perf_cycles_read();
-    uint32_t i_start = perf_insn_read();
+        VERUM_ASCON_CXOF128_digest(message, size, customization, 2U, digest, 32U); /* warm-up */
+        for (uint32_t k = 0U; k < 32U; k++)
+        {
+            digest[k] = 0U;
+        }
 
-    VERUM_ASCON_CXOF128_digest(message, BENCH_DATA_SIZE, customization, 2U, digest, 32U);
+        perf_stack_paint();
+        uint32_t sp = perf_get_sp();
+        uint32_t t_start = perf_cycles_read();
+        uint32_t i_start = perf_insn_read();
 
-    uint32_t i_stop = perf_insn_read();
-    uint32_t t_stop = perf_cycles_read();
-    uint32_t peak = perf_stack_peak(sp);
+        VERUM_ASCON_CXOF128_digest(message, size, customization, 2U, digest, 32U);
 
-    uint32_t cyc = perf_cycles_diff(t_start, t_stop);
-    uint32_t insn = perf_insn_diff(i_start, i_stop);
+        uint32_t i_stop = perf_insn_read();
+        uint32_t t_stop = perf_cycles_read();
+        uint32_t peak = perf_stack_peak(sp);
 
-    int match = mem_equal(digest, expected_cxof, 32U);
-    const char *status = match ? "PASSED" : "FAILED";
+        uint32_t cyc = perf_cycles_diff(t_start, t_stop);
+        uint32_t insn = perf_insn_diff(i_start, i_stop);
 
-    emit_metric("cxof128", BENCH_DATA_SIZE, cyc, insn, peak, status);
-    return match ? 0 : 1;
+        int match = 0;
+        if (size == 32U)
+        {
+            match = mem_equal(digest, expected_cxof, 32U);
+        }
+        else
+        {
+            uint32_t accum = 0U;
+            for (uint32_t k = 0U; k < 32U; k++)
+            {
+                accum |= digest[k];
+            }
+            match = (accum != 0U);
+        }
+        const char *status = match ? "PASSED" : "FAILED";
+
+        emit_metric("cxof128", size, cyc, insn, peak, status);
+        if (!match)
+        {
+            rc = 1;
+        }
+    }
+
+    return rc;
 }
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF

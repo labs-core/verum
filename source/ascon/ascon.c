@@ -58,26 +58,28 @@ const uint32_t VERUM_ASCON_round_constants[12U] = {
  */
 void VERUM_ASCON_interleave(uint32_t word[2U])
 {
-    uint32_t delta = (word[0U] ^ (word[0U] >> 1U)) & 0x22222222UL;
-    word[0U] = word[0U] ^ delta ^ (delta << 1U);
-    delta = (word[0U] ^ (word[0U] >> 2U)) & 0x0C0C0C0CUL;
-    word[0U] = word[0U] ^ delta ^ (delta << 2U);
-    delta = (word[0U] ^ (word[0U] >> 4U)) & 0x00F000F0UL;
-    word[0U] = word[0U] ^ delta ^ (delta << 4U);
-    delta = (word[0U] ^ (word[0U] >> 8U)) & 0x0000FF00UL;
-    word[0U] = word[0U] ^ delta ^ (delta << 8U);
+    register uint32_t word_0 = word[0U];
+    register uint32_t word_1 = word[1U];
+    register uint32_t delta = (word_0 ^ (word_0 >> 1U)) & 0x22222222UL;
+    word_0 = word_0 ^ delta ^ (delta << 1U);
+    delta = (word_0 ^ (word_0 >> 2U)) & 0x0C0C0C0CUL;
+    word_0 = word_0 ^ delta ^ (delta << 2U);
+    delta = (word_0 ^ (word_0 >> 4U)) & 0x00F000F0UL;
+    word_0 = word_0 ^ delta ^ (delta << 4U);
+    delta = (word_0 ^ (word_0 >> 8U)) & 0x0000FF00UL;
+    word_0 = word_0 ^ delta ^ (delta << 8U);
 
-    delta = (word[1U] ^ (word[1U] >> 1U)) & 0x22222222UL;
-    word[1U] = word[1U] ^ delta ^ (delta << 1U);
-    delta = (word[1U] ^ (word[1U] >> 2U)) & 0x0C0C0C0CUL;
-    word[1U] = word[1U] ^ delta ^ (delta << 2U);
-    delta = (word[1U] ^ (word[1U] >> 4U)) & 0x00F000F0UL;
-    word[1U] = word[1U] ^ delta ^ (delta << 4U);
-    delta = (word[1U] ^ (word[1U] >> 8U)) & 0x0000FF00UL;
-    word[1U] = word[1U] ^ delta ^ (delta << 8U);
+    delta = (word_1 ^ (word_1 >> 1U)) & 0x22222222UL;
+    word_1 = word_1 ^ delta ^ (delta << 1U);
+    delta = (word_1 ^ (word_1 >> 2U)) & 0x0C0C0C0CUL;
+    word_1 = word_1 ^ delta ^ (delta << 2U);
+    delta = (word_1 ^ (word_1 >> 4U)) & 0x00F000F0UL;
+    word_1 = word_1 ^ delta ^ (delta << 4U);
+    delta = (word_1 ^ (word_1 >> 8U)) & 0x0000FF00UL;
+    word_1 = word_1 ^ delta ^ (delta << 8U);
 
-    delta = (word[0U] & 0x0000FFFFUL) | (word[1U] << 16U);
-    word[1U] = (word[0U] >> 16U) | (word[1U] & 0xFFFF0000UL);
+    delta = (word_0 & 0x0000FFFFUL) | (word_1 << 16U);
+    word[1U] = (word_0 >> 16U) | (word_1 & 0xFFFF0000UL);
     word[0U] = delta;
 }
 
@@ -90,27 +92,32 @@ void VERUM_ASCON_interleave(uint32_t word[2U])
  */
 void VERUM_ASCON_deinterleave(uint32_t word[2U])
 {
-    uint32_t delta = (word[0U] & 0x0000FFFFUL) | (word[1U] << 16U);
-    word[1U] = (word[0U] >> 16U) | (word[1U] & 0xFFFF0000UL);
-    word[0U] = delta;
+    register uint32_t word_0 = word[0U];
+    register uint32_t word_1 = word[1U];
+    register uint32_t delta = (word_0 & 0x0000FFFFUL) | (word_1 << 16U);
+    word_1 = (word_0 >> 16U) | (word_1 & 0xFFFF0000UL);
+    word_0 = delta;
 
-    delta = (word[0U] ^ (word[0U] >> 8U)) & 0x0000FF00UL;
-    word[0U] = word[0U] ^ delta ^ (delta << 8U);
-    delta = (word[0U] ^ (word[0U] >> 4U)) & 0x00F000F0UL;
-    word[0U] = word[0U] ^ delta ^ (delta << 4U);
-    delta = (word[0U] ^ (word[0U] >> 2U)) & 0x0C0C0C0CUL;
-    word[0U] = word[0U] ^ delta ^ (delta << 2U);
-    delta = (word[0U] ^ (word[0U] >> 1U)) & 0x22222222UL;
-    word[0U] = word[0U] ^ delta ^ (delta << 1U);
+    delta = (word_0 ^ (word_0 >> 8U)) & 0x0000FF00UL;
+    word_0 = word_0 ^ delta ^ (delta << 8U);
+    delta = (word_0 ^ (word_0 >> 4U)) & 0x00F000F0UL;
+    word_0 = word_0 ^ delta ^ (delta << 4U);
+    delta = (word_0 ^ (word_0 >> 2U)) & 0x0C0C0C0CUL;
+    word_0 = word_0 ^ delta ^ (delta << 2U);
+    delta = (word_0 ^ (word_0 >> 1U)) & 0x22222222UL;
+    word_0 = word_0 ^ delta ^ (delta << 1U);
 
-    delta = (word[1U] ^ (word[1U] >> 8U)) & 0x0000FF00UL;
-    word[1U] = word[1U] ^ delta ^ (delta << 8U);
-    delta = (word[1U] ^ (word[1U] >> 4U)) & 0x00F000F0UL;
-    word[1U] = word[1U] ^ delta ^ (delta << 4U);
-    delta = (word[1U] ^ (word[1U] >> 2U)) & 0x0C0C0C0CUL;
-    word[1U] = word[1U] ^ delta ^ (delta << 2U);
-    delta = (word[1U] ^ (word[1U] >> 1U)) & 0x22222222UL;
-    word[1U] = word[1U] ^ delta ^ (delta << 1U);
+    delta = (word_1 ^ (word_1 >> 8U)) & 0x0000FF00UL;
+    word_1 = word_1 ^ delta ^ (delta << 8U);
+    delta = (word_1 ^ (word_1 >> 4U)) & 0x00F000F0UL;
+    word_1 = word_1 ^ delta ^ (delta << 4U);
+    delta = (word_1 ^ (word_1 >> 2U)) & 0x0C0C0C0CUL;
+    word_1 = word_1 ^ delta ^ (delta << 2U);
+    delta = (word_1 ^ (word_1 >> 1U)) & 0x22222222UL;
+    word_1 = word_1 ^ delta ^ (delta << 1U);
+
+    word[0U] = word_0;
+    word[1U] = word_1;
 }
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
@@ -129,9 +136,6 @@ void VERUM_ASCON_deinterleave(uint32_t word[2U])
  *                12 immediate XORs per round.
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
                                             const uint8_t round_constant[2U])
@@ -162,9 +166,6 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
     holder[5U] = ~holder[5U];
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
                                             const uint32_t round_constant)
@@ -208,9 +209,6 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
  *               When direct halves: explicit 64-bit cross-register rotations.
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                 const uint32_t holder[10U])
 {
@@ -230,9 +228,6 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
     state[9U] = holder[9U] ^ ((holder[8U] >>  4U) | (holder[8U] << 28U)) ^ ((holder[8U] >> 21U) | (holder[8U] << 11U));
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                 const uint32_t holder[10U])
 {
@@ -268,9 +263,6 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
  *                [OPT-A_1] Interleaved or direct-halves p_L; [OPT-A_3] p_C fold; [OPT-A_4] NOT-AND S-box.
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],
                                 const uint8_t round_constant[2U])
@@ -310,9 +302,6 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
     holder[5U] = ~holder[5U];
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-VERUM_ATTR_INLINE static
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],
                                 const uint32_t round_constant)
@@ -353,32 +342,77 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
 }
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 /**
  * @internal
  * @ref           NIST SP 800-232 Section 3
  * @see           https://doi.org/10.6028/NIST.SP.800-232
  * @brief         Permutes the 320-bit ASCON state from @p round_index through round 11.
  * @param[in,out] state       320-bit state as ten 32-bit words.
- * @param[out]    holder      320-bit scratch buffer for intermediate post-S-box values.
  * @param[in]     round_index Starting round index (0 for Ascon-p[12], 4 for Ascon-p[8]).
  * @optimization  [OPT-A_6] Noinline and shared across p[12] and p[8]; peels the initial
  *                p_C+p_S and final p_L outside the loop so the body executes only fused
- *                p_L+p_C+p_S rounds, minimizing .text footprint and I-cache pressure.
+ *                p_L+p_C+p_S rounds in scalar registers, minimizing .text footprint and
+ *                stack usage.
+ *                [OPT-A_19] Pre-incremented do-while loop latch (++round_index < 11U) eliminates
+ *                the pre-loop index increment and redundant unconditional branch jumps.
  */
 VERUM_ATTR_NOINLINE
 void VERUM_ASCON_permute(uint32_t state[10U],
-                         uint32_t * const holder,
                          uint32_t round_index)
 {
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[round_index]);
-    ++round_index;
+    register uint32_t state_0 = state[0U];
+    register uint32_t state_1 = state[1U];
+    register uint32_t state_2 = state[2U];
+    register uint32_t state_3 = state[3U];
+    register uint32_t state_4 = state[4U];
+    register uint32_t state_5 = state[5U];
+    register uint32_t state_6 = state[6U];
+    register uint32_t state_7 = state[7U];
+    register uint32_t state_8 = state[8U];
+    register uint32_t state_9 = state[9U];
+
+    register uint32_t holder_0;
+    register uint32_t holder_1;
+    register uint32_t holder_2;
+    register uint32_t holder_3;
+    register uint32_t holder_4;
+    register uint32_t holder_5;
+    register uint32_t holder_6;
+    register uint32_t holder_7;
+    register uint32_t holder_8;
+    register uint32_t holder_9;
+
+    VERUM_ASCON_PERMUTE_SUBSTITUTION_LAYER(state_0, state_1, state_2, state_3, state_4,
+                                           state_5, state_6, state_7, state_8, state_9,
+                                           holder_0, holder_1, holder_2, holder_3, holder_4,
+                                           holder_5, holder_6, holder_7, holder_8, holder_9,
+                                           VERUM_ASCON_round_constants[round_index]);
     do
     {
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[round_index]);
         ++round_index;
+        VERUM_ASCON_PERMUTE_MERGED(state_0, state_1, state_2, state_3, state_4,
+                                   state_5, state_6, state_7, state_8, state_9,
+                                   holder_0, holder_1, holder_2, holder_3, holder_4,
+                                   holder_5, holder_6, holder_7, holder_8, holder_9,
+                                   VERUM_ASCON_round_constants[round_index]);
     }
-    while (round_index < 12U);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
+    while (round_index < 11U);
+    VERUM_ASCON_PERMUTE_LINEAR_DIFFUSION_LAYER(state_0, state_1, state_2, state_3, state_4,
+                                               state_5, state_6, state_7, state_8, state_9,
+                                               holder_0, holder_1, holder_2, holder_3, holder_4,
+                                               holder_5, holder_6, holder_7, holder_8, holder_9);
+
+    state[0U] = state_0;
+    state[1U] = state_1;
+    state[2U] = state_2;
+    state[3U] = state_3;
+    state[4U] = state_4;
+    state[5U] = state_5;
+    state[6U] = state_6;
+    state[7U] = state_7;
+    state[8U] = state_8;
+    state[9U] = state_9;
 }
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */

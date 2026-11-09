@@ -12,6 +12,10 @@ SECTIONS
     {
         KEEP(*(.vectors))
         *(.text*)
+    } > FLASH
+
+    .rodata :
+    {
         *(.rodata*)
     } > FLASH
 

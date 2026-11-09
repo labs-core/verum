@@ -11,6 +11,10 @@ SECTIONS
     {
         KEEP(*(.text.start))
         *(.text*)
+    } > RAM
+
+    .rodata :
+    {
         *(.rodata*)
         *(.srodata*)
     } > RAM

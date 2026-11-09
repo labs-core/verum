@@ -63,3 +63,5 @@ build
 
 .docs/*
 .vscode/
+scratch/
+

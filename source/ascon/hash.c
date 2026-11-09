@@ -57,43 +57,80 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 and Appendix B
      * @brief        𝐼𝑉 ← 0x0000080100cc0002; S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256])
      * @details      The initial state depends only on 𝐼𝑉 ‖ 0^[256] and is invariant across invocations.
-     *               Bit-interleaved state [OPT-A_0]: state[2w] = E_w (even bits of S_w),
-     *               state[2w+1] = O_w (odd bits of S_w).
+     *               Bit-interleaved state [OPT-A_0]: state_2w = E_w (even bits of S_w),
+     *               state_{2w+1} = O_w (odd bits of S_w).
      *               Little-endian (𝐿, 𝐻) source words: 0xe934d681, 0x9b1e5494, 0x333751d2,
      *               0x4bc3a01e, 0x6b34b81a, 0xae65396c, 0xd56a4db3, 0x3c7fd4a4, 0x06c5976d,
      *               0x1a5c4649.
      * @optimization [OPT-A_8] Precomputes π(𝐴𝑠𝑐𝑜𝑛-𝑝[12](𝐼𝑉 ‖ 0^[256])) or direct halves
      *               initial state at compile time, eliminating the IV, 12 permutation rounds,
      *               and runtime conversions per call.
+     *               [OPT-A_13] 320-bit state and 320-bit S-box scratch storage pinned to twenty
+     *               32-bit register variables (state_0..state_9, holder_0..holder_9).
      */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-    uint32_t state[10U] = { 0x56E696E1UL, 0xB308E498UL, 0x990657DCUL, 0x39C35509UL, 0x2B5A9644UL, 0xF46674E3UL, 0x6FE2F8B5UL, 0x678C872DUL, 0x4EA92B7BUL, 0x32121896UL };
+    register uint32_t state_0 = 0x56E696E1UL;
+    register uint32_t state_1 = 0xB308E498UL;
+    register uint32_t state_2 = 0x990657DCUL;
+    register uint32_t state_3 = 0x39C35509UL;
+    register uint32_t state_4 = 0x2B5A9644UL;
+    register uint32_t state_5 = 0xF46674E3UL;
+    register uint32_t state_6 = 0x6FE2F8B5UL;
+    register uint32_t state_7 = 0x678C872DUL;
+    register uint32_t state_8 = 0x4EA92B7BUL;
+    register uint32_t state_9 = 0x32121896UL;
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-    uint32_t state[10U] = { 0xe934d681U, 0x9b1e5494U, 0x333751d2U, 0x4bc3a01eU, 0x6b34b81aU, 0xae65396cU, 0xd56a4db3U, 0x3c7fd4a4U, 0x06c5976dU, 0x1a5c4649U };
+    register uint32_t state_0 = 0xe934d681U;
+    register uint32_t state_1 = 0x9b1e5494U;
+    register uint32_t state_2 = 0x333751d2U;
+    register uint32_t state_3 = 0x4bc3a01eU;
+    register uint32_t state_4 = 0x6b34b81aU;
+    register uint32_t state_5 = 0xae65396cU;
+    register uint32_t state_6 = 0xd56a4db3U;
+    register uint32_t state_7 = 0x3c7fd4a4U;
+    register uint32_t state_8 = 0x06c5976dU;
+    register uint32_t state_9 = 0x1a5c4649U;
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-    uint32_t holder[10U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+
+#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    register uint32_t holder_0;
+    register uint32_t holder_1;
+    register uint32_t holder_2;
+    register uint32_t holder_3;
+    register uint32_t holder_4;
+    register uint32_t holder_5;
+    register uint32_t holder_6;
+    register uint32_t holder_7;
+    register uint32_t holder_8;
+    register uint32_t holder_9;
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+    uint32_t state[10U];
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+
+    // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
+    _Alignas(uint32_t) uint8_t last_block_message[8U];
 
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
      * @brief        S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑖)
-     * @optimization [OPT-A_12] holder (dead between permutations) stages π(𝑀𝑖); no extra stack.
+     * @optimization [OPT-A_12] Shared 8-byte aligned staging buffer stages π(𝑀𝑖) and final padding; no extra stack.
      */
     uint32_t block_counter = message_size >> 3U;
     for (; 0U < block_counter; --block_counter)
     {
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        holder[0U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
-        holder[1U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
+        ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U] = ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        VERUM_ASCON_interleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
+        state_0 = state_0 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
+        state_1 = state_1 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
         // cppcheck-suppress-end misra-c2012-11.3
-        VERUM_ASCON_interleave(holder);
-        state[0U] = state[0U] ^ holder[0U];
-        state[1U] = state[1U] ^ holder[1U];
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-002: API precondition requires caller buffers to be 4-byte aligned for word access.
-        state[0U] = state[0U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
-        state[1U] = state[1U] ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
+        state_0 = state_0 ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[0U];
+        state_1 = state_1 ^ ((const uint32_t *) __builtin_assume_aligned(message, sizeof(uint32_t)))[1U];
         // cppcheck-suppress-end misra-c2012-11.3
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         message += 8U;
@@ -103,23 +140,10 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
          * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
          * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S)
          */
-#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
-        VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-        VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-        VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
-        VERUM_ASCON_permute(state, holder, 0U);
-#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+        VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                                state_5, state_6, state_7, state_8, state_9,
+                                holder_0, holder_1, holder_2, holder_3, holder_4,
+                                holder_5, holder_6, holder_7, holder_8, holder_9);
     }
 
     /**
@@ -128,8 +152,10 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
      * @brief        𝑀𝑚 ← pad(̃𝑀𝑚, 64); S[0∶63] ← S[0∶63] ⊕ π(𝑀𝑚)
      * @optimization [OPT-A_12] π applied in place on the aligned staging buffer.
      */
-    // cppcheck-suppress misra-c2012-1.4 ; DEV-004: C11 defines _Alignas behavior; explicit alignment is needed for these fixed-size staging buffers.
-    _Alignas(uint32_t) uint8_t last_block_message[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U] = 0U;
+    ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
     uint32_t last_block_byte_index = message_size & 0x7U;
     last_block_message[last_block_byte_index] = 0x01U;
 
@@ -143,11 +169,78 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
     VERUM_ASCON_interleave((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)));
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-    state[0U] = state[0U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
-    state[1U] = state[1U] ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
+    state_0 = state_0 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[0U];
+    state_1 = state_1 ^ ((uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t)))[1U];
     // cppcheck-suppress-end misra-c2012-11.3
 
-#ifndef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    /**
+     * @internal
+     * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻1 ← π⁻¹(S[0∶63])
+     * @optimization [OPT-A_10] Unrolls all four 64-bit squeeze blocks with constant digest
+     *               indices, eliminating loop-counter updates and branch overhead.
+     *               [OPT-A_12] π⁻¹ applied in place on the digest words; no staging copy.
+     */
+    VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                            state_5, state_6, state_7, state_8, state_9,
+                            holder_0, holder_1, holder_2, holder_3, holder_4,
+                            holder_5, holder_6, holder_7, holder_8, holder_9);
+
+    digest[0U] = state_0;
+    digest[1U] = state_1;
+#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_deinterleave(&digest[0U]);
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻2 ← π⁻¹(S[0∶63])
+     */
+    VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                            state_5, state_6, state_7, state_8, state_9,
+                            holder_0, holder_1, holder_2, holder_3, holder_4,
+                            holder_5, holder_6, holder_7, holder_8, holder_9);
+
+    digest[2U] = state_0;
+    digest[3U] = state_1;
+#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_deinterleave(&digest[2U]);
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻3 ← π⁻¹(S[0∶63])
+     */
+    VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                            state_5, state_6, state_7, state_8, state_9,
+                            holder_0, holder_1, holder_2, holder_3, holder_4,
+                            holder_5, holder_6, holder_7, holder_8, holder_9);
+
+    digest[4U] = state_0;
+    digest[5U] = state_1;
+#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_deinterleave(&digest[4U]);
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+
+    /**
+     * @internal
+     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
+     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻4 ← π⁻¹(S[0∶63])
+     */
+    VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                            state_5, state_6, state_7, state_8, state_9,
+                            holder_0, holder_1, holder_2, holder_3, holder_4,
+                            holder_5, holder_6, holder_7, holder_8, holder_9);
+
+    digest[6U] = state_0;
+    digest[7U] = state_1;
+#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+    VERUM_ASCON_deinterleave(&digest[6U]);
+#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
     /**
      * @internal
      * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
@@ -159,119 +252,18 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     block_counter = 0U;
     do
     {
-        VERUM_ASCON_permute(state, holder, 0U);
-        digest[block_counter] = state[0U];
-        digest[block_counter + 1U] = state[1U];
+        VERUM_ASCON_PERMUTE_P12(state_0, state_1, state_2, state_3, state_4,
+                                state_5, state_6, state_7, state_8, state_9,
+                                holder_0, holder_1, holder_2, holder_3, holder_4,
+                                holder_5, holder_6, holder_7, holder_8, holder_9);
+        digest[block_counter] = state_0;
+        digest[block_counter + 1U] = state_1;
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
         VERUM_ASCON_deinterleave(&digest[block_counter]);
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
         block_counter += 2U;
     }
     while (block_counter <= 6U);
-
-#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
-    /**
-     * @internal
-     * @ref          NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief        S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻1 ← π⁻¹(S[0∶63])
-     * @optimization [OPT-A_10] Unrolls all four 64-bit squeeze blocks with constant digest
-     *               indices, eliminating loop-counter updates and branch overhead.
-     *               [OPT-A_12] π⁻¹ applied in place on the digest words; no staging copy.
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[0U] = state[0U];
-    digest[1U] = state[1U];
-#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_deinterleave(&digest[0U]);
-#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-
-    /**
-     * @internal
-     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻2 ← π⁻¹(S[0∶63])
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[2U] = state[0U];
-    digest[3U] = state[1U];
-#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_deinterleave(&digest[2U]);
-#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-
-    /**
-     * @internal
-     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻3 ← π⁻¹(S[0∶63])
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[4U] = state[0U];
-    digest[5U] = state[1U];
-#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_deinterleave(&digest[4U]);
-#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
-
-    /**
-     * @internal
-     * @ref   NIST SP 800-232 Section 5.1 Algorithm 5 Ascon-Hash256(𝑀)
-     * @brief S ← 𝐴𝑠𝑐𝑜𝑛-𝑝[12](S); 𝐻4 ← π⁻¹(S[0∶63])
-     */
-    VERUM_ASCON_permute_substitution_layer(state, holder, VERUM_ASCON_round_constants[0U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[1U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[2U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[3U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[4U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[5U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[6U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[7U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[8U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[9U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[10U]);
-    VERUM_ASCON_permute_merged(state, holder, VERUM_ASCON_round_constants[11U]);
-    VERUM_ASCON_permute_linear_diffusion_layer(state, holder);
-
-    digest[6U] = state[0U];
-    digest[7U] = state[1U];
-#ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-    VERUM_ASCON_deinterleave(&digest[6U]);
-#endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 #endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
 
 #ifdef VERUM_STANDARD_FIPS_140_3_DEF
@@ -284,22 +276,48 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
      * @brief Zeroize permutation state and staging buffers to destroy residual SSP material.
      */
     // cppcheck-suppress-begin unreadVariable ; DEV-001: intentional SSP zeroization (ISO/IEC 19790 7.9.7)
-    state[0U] = 0U;
-    state[1U] = 0U;
-    state[2U] = 0U;
-    state[3U] = 0U;
-    state[4U] = 0U;
-    state[5U] = 0U;
-    state[6U] = 0U;
-    state[7U] = 0U;
-    state[8U] = 0U;
-    state[9U] = 0U;
+    state_0 = 0U;
+    state_1 = 0U;
+    state_2 = 0U;
+    state_3 = 0U;
+    state_4 = 0U;
+    state_5 = 0U;
+    state_6 = 0U;
+    state_7 = 0U;
+    state_8 = 0U;
+    state_9 = 0U;
 
-    holder[0U] = 0U;
-    holder[1U] = 0U;
-    holder[2U] = 0U;
-    holder[3U] = 0U;
+#ifdef VERUM_ASCON_LOOP_UNROLL_MERGED_DEF
+    holder_0 = 0U;
+    holder_1 = 0U;
+    holder_2 = 0U;
+    holder_3 = 0U;
+    holder_4 = 0U;
+    holder_5 = 0U;
+    holder_6 = 0U;
+    holder_7 = 0U;
+    holder_8 = 0U;
+    holder_9 = 0U;
     // cppcheck-suppress-end unreadVariable
+#else /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+    // cppcheck-suppress-end unreadVariable
+    VERUM_ATTR_VOLATILE uint32_t * const volatile_state = (VERUM_ATTR_VOLATILE uint32_t *) state;
+    volatile_state[0U] = 0U;
+    volatile_state[1U] = 0U;
+    volatile_state[2U] = 0U;
+    volatile_state[3U] = 0U;
+    volatile_state[4U] = 0U;
+    volatile_state[5U] = 0U;
+    volatile_state[6U] = 0U;
+    volatile_state[7U] = 0U;
+    volatile_state[8U] = 0U;
+    volatile_state[9U] = 0U;
+#endif /* VERUM_ASCON_LOOP_UNROLL_MERGED_DEF */
+    // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
+    VERUM_ATTR_VOLATILE uint32_t * const volatile_last_block = (VERUM_ATTR_VOLATILE uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t));
+    volatile_last_block[0U] = 0U;
+    volatile_last_block[1U] = 0U;
+    // cppcheck-suppress-end misra-c2012-11.3
 #endif /* VERUM_STANDARD_FIPS_140_3_DEF */
 }
 
