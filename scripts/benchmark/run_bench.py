@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bare-metal QEMU benchmark & evaluation driver for ARM Cortex-M4 and RISC-V 32 RV32IMAC.
+Bare-metal QEMU benchmark & evaluation driver for ARM, RISC-V, and TriCore.
 Measures transitive code size, static and dynamic stack footprint, cycle/instruction scaling
 across 32B, 512B, and 1024B, asymptotic rates, overhead, and instruction mix.
 Outputs clean diffable logs compatible with reference ascon-c evaluation.
@@ -22,6 +22,9 @@ from _common import (
     REPO_ROOT, RELEASE_DIR, BENCH_SOURCES, BENCH_INCLUDES, ALL_HEADERS,
     CONFIGS, ARCH_SPECS, compute_sha256, needs_rebuild, get_release_lib
 )
+
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
 
 from release.run_release import build_single_config
 
@@ -61,6 +64,9 @@ ARCH_INFO = {
             "-semihosting-config", "enable=on,target=native",
             "-icount", "shift=0"
         ]
+    },
+    "tricore": {
+        "title": "Infineon TriCore TC37x (TC1.6.2, GCC, QEMU tricore_testboard)"
     }
 }
 
@@ -282,6 +288,135 @@ def parse_benchmark_output(output):
                 })
     return metrics
 
+_TRICORE_FN = re.compile(r"^[0-9a-f]+ <([^>]+)>:")
+_TRICORE_CALL = re.compile(r"\b(?:call|fcall|calla|fcalla|j|ja)\s+[0-9a-fx]+\s+<([A-Za-z0-9_.$]+)")
+_TRICORE_MIX_SHIFT = ("sh", "sha", "dextr", "extr", "ins", "ror", "rol")
+_TRICORE_MIX_MEM = ("ld", "st", "swap", "cmpswap")
+_TRICORE_MIX_BRANCH = ("j", "call", "fcall", "ret", "rfe", "loop", "jeq", "jne", "jlt", "jge", "jz", "jnz")
+_TRICORE_MIX_ALU = (
+    "add", "sub", "and", "or", "nor", "xor", "not", "mov", "lea", "min", "max", "eq", "ne", "lt", "ge",
+    "mul", "madd", "msub", "abs", "neg", "sat", "cadd", "csub", "sel", "andn", "orn", "xnor", "rsub", "insn"
+)
+
+
+def _tricore_tool_output(tc, tool, *args):
+    return subprocess.check_output([tc.tool(tool)] + list(args), text=True)
+
+
+def get_tricore_text_size(tc, elf):
+    lines = _tricore_tool_output(tc, "size", tc.path(elf)).strip().splitlines()
+    return int(lines[1].split()[0]) if len(lines) >= 2 else 0
+
+
+def get_tricore_function_sizes(tc, elf):
+    sizes = {}
+    output = _tricore_tool_output(tc, "nm", "--print-size", "--numeric-sort", tc.path(elf))
+    for line in output.splitlines():
+        parts = line.split()
+        if len(parts) == 4 and parts[2] in ("T", "t", "R", "r", "D", "d", "W", "w"):
+            sizes[parts[3]] = int(parts[1], 16)
+    return sizes
+
+
+def get_tricore_call_graph(tc, elf):
+    graph, current = {}, None
+    output = _tricore_tool_output(tc, "objdump", "-d", tc.path(elf))
+    for line in output.splitlines():
+        function = _TRICORE_FN.match(line)
+        if function:
+            current = function.group(1)
+            graph[current] = set()
+            continue
+        if current:
+            call = _TRICORE_CALL.search(line)
+            if call and call.group(1) != current and not call.group(1).startswith(("semihost_", "perf_", "verum_bench_")):
+                graph[current].add(call.group(1))
+    return graph
+
+
+def get_tricore_instruction_mix(tc, elf):
+    counts = {"ALU": 0, "Shift/Rotate": 0, "Load/Store": 0, "Branch": 0, "Other": 0}
+    in_target = False
+    output = _tricore_tool_output(tc, "objdump", "-d", "--no-show-raw-insn", tc.path(elf))
+    for line in output.splitlines():
+        function = _TRICORE_FN.match(line)
+        if function:
+            in_target = function.group(1).startswith("VERUM_ASCON_")
+            continue
+        if not in_target:
+            continue
+        instruction = re.match(r"^\s*[0-9a-f]+:\s+([a-z0-9_.]+)", line)
+        if not instruction:
+            continue
+        opcode = instruction.group(1).split(".")[0]
+        if opcode in _TRICORE_MIX_SHIFT:
+            counts["Shift/Rotate"] += 1
+        elif opcode.startswith(_TRICORE_MIX_MEM):
+            counts["Load/Store"] += 1
+        elif opcode.startswith(_TRICORE_MIX_BRANCH):
+            counts["Branch"] += 1
+        elif opcode.startswith(_TRICORE_MIX_ALU):
+            counts["ALU"] += 1
+        else:
+            counts["Other"] += 1
+    total = sum(counts.values())
+    return {name: round(value * 100.0 / total, 1) if total else 0.0 for name, value in counts.items()}
+
+
+def _wsl_path(path):
+    resolved = os.path.abspath(path).replace("\\", "/")
+    return f"/mnt/{resolved[0].lower()}{resolved[2:]}" if len(resolved) > 1 and resolved[1] == ":" else resolved
+
+
+def run_tricore_qemu(elf, qemu=None):
+    from benchmark.arch.tricore.toolchain import BENCH_DIR
+
+    tracer = os.path.join(BENCH_DIR, "qemu_trace.py")
+    extra = ["--qemu", qemu] if qemu else []
+    if os.name == "nt":
+        command = ["wsl.exe", "python3", _wsl_path(tracer), _wsl_path(elf)] + extra
+    else:
+        command = [sys.executable, tracer, elf] + extra
+    proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=3600)
+    if proc.returncode != 0:
+        raise SystemExit(f"[!] qemu_trace failed:\n{proc.stderr}")
+    return proc.stdout
+
+
+def run_bench_tricore_arch(tc, build_dir, cfg_filter=None, fips_mode=None, force=False,
+                           opt_flag=None, qemu=None, no_run=False):
+    from benchmark.arch.tricore.build import build_bench, build_release_config, select_configs
+    from _common import BASE_OPT_FLAGS
+
+    selected = select_configs(cfg_filter, fips_mode)
+    opt = opt_flag or BASE_OPT_FLAGS[0]
+    if not opt.startswith("-"):
+        opt = "-" + opt
+    release_opt = None if opt in BASE_OPT_FLAGS else opt
+    results, mixes, shas = [], [], {}
+    print(f"[*] Benchmarking {ARCH_INFO['tricore']['title']} at {opt} across {len(selected)} configurations...")
+    for name, defs in selected:
+        lib, _ = build_release_config(tc, name, defs, RELEASE_DIR, force=force, opt_flag=release_opt)
+        elf = build_bench(tc, name, defs, opt, lib, force=force, build_root=build_dir)
+        metrics = parse_benchmark_output(run_tricore_qemu(elf, qemu)) if not no_run else {}
+        results.append((name, metrics, get_tricore_function_sizes(tc, elf),
+                        get_release_static_stack("tricore", name), get_tricore_text_size(tc, elf), elf))
+        mixes.append((name, get_tricore_instruction_mix(tc, elf)))
+        shas[name] = compute_sha256(lib)
+    return results, mixes, shas
+
+
+def _reach_call_graph(graph, root):
+    seen, queue = set(), [root]
+    while queue:
+        function = queue.pop(0)
+        if function in seen:
+            continue
+        seen.add(function)
+        queue.extend(callee for callee in graph.get(function, ()) if callee not in seen)
+    return seen, graph
+
+
 def run_bench_arch(arch, build_dir, cfg_filter=None, fips_mode=None, force=False, opt_flag=None):
     os.makedirs(build_dir, exist_ok=True)
     ainfo = ARCH_INFO[arch]
@@ -399,7 +534,7 @@ def run_bench_arch(arch, build_dir, cfg_filter=None, fips_mode=None, force=False
 
     return results, insn_mixes, shas
 
-def format_verum_tables(arch, results, insn_mixes, shas, fn_filter="all"):
+def format_verum_tables(arch, results, insn_mixes, shas, fn_filter="all", call_graph_fn=None):
     ainfo = ARCH_INFO[arch]
     title = ainfo["title"]
     lines = []
@@ -457,7 +592,7 @@ def format_verum_tables(arch, results, insn_mixes, shas, fn_filter="all"):
             fixed_overhead_c = c1024 - (asymp_c_per_b * 1024.0) if c1024 else 0
             fixed_overhead_i = i1024 - (asymp_i_per_b * 1024.0) if i1024 else 0
 
-            visited, cg = get_transitive_call_graph(elf, root_fn)
+            visited, cg = (call_graph_fn or get_transitive_call_graph)(elf, root_fn)
             code_size = sum(fn_sizes.get(fn, 0) for fn in visited)
             if any("permute" in f for f in visited):
                 code_size += fn_sizes.get("VERUM_ASCON_round_constants", 0)
@@ -486,7 +621,7 @@ def format_verum_tables(arch, results, insn_mixes, shas, fn_filter="all"):
 
 def main():
     parser = argparse.ArgumentParser(description="Run bare-metal QEMU benchmarks against release static archives.")
-    parser.add_argument("--arch", choices=["arm", "riscv", "all"], default="all",
+    parser.add_argument("--arch", choices=["arm", "riscv", "tricore", "all"], default="all",
                         help="Target architecture (default: all)")
     parser.add_argument("--config", default="all",
                         help="Configuration name to benchmark (default: all)")
@@ -504,43 +639,67 @@ def main():
                         help="Log file path to write results (default: build/verum_results_0.log)")
     parser.add_argument("--force", action="store_true",
                         help="Force rebuild of harness and binaries")
+    parser.add_argument("--toolchain", default=None, help="TriCore GCC installation directory (TriCore only)")
+    parser.add_argument("--cpu", default=None, help="TriCore GCC -mcpu family (TriCore only)")
+    parser.add_argument("--qemu", default=None, help="Override the TriCore QEMU command (TriCore only)")
+    parser.add_argument("--no-run", action="store_true",
+                        help="Build/report TriCore static metrics without running QEMU")
     args = parser.parse_args()
 
-    fips_mode = None
-    if args.fips and not args.no_fips:
-        fips_mode = True
-    elif args.no_fips and not args.fips:
-        fips_mode = False
+    if args.no_run and args.arch != "tricore":
+        parser.error("--no-run is only supported with --arch tricore")
 
+    fips_mode = True if args.fips and not args.no_fips else False if args.no_fips and not args.fips else None
     build_base = os.path.abspath(args.build_dir)
     os.makedirs(build_base, exist_ok=True)
 
-    log_path = args.log_file if args.log_file else os.path.join(REPO_ROOT, "build", "verum_results_0.log")
+    if args.log_file:
+        log_path = args.log_file
+    elif args.arch == "tricore":
+        opt_tag = (args.opt or "O0").lstrip("-")
+        log_path = os.path.join(build_base, "logs", f"verum_tricore_gcc_{opt_tag}.log")
+    else:
+        log_path = os.path.join(REPO_ROOT, "build", "verum_results_0.log")
     os.makedirs(os.path.dirname(os.path.abspath(log_path)), exist_ok=True)
 
     all_logs = []
-    archs = ["arm", "riscv"] if args.arch == "all" else [args.arch]
-
+    archs = ["arm", "riscv", "tricore"] if args.arch == "all" else [args.arch]
     for arch in archs:
-        arch_dir = os.path.join(build_base, arch)
-        res, mix, shas = run_bench_arch(arch, arch_dir, cfg_filter=args.config, fips_mode=fips_mode, force=args.force, opt_flag=args.opt)
-        log_text = format_verum_tables(arch, res, mix, shas, fn_filter=args.function)
+        if arch == "tricore":
+            from benchmark.arch.tricore.toolchain import DEFAULT_CPU, Toolchain
+
+            tc = Toolchain(home=args.toolchain, cpu=args.cpu or DEFAULT_CPU)
+            print(f"[*] {tc.version}  (-mcpu={tc.cpu})")
+            opt = args.opt or "-O0"
+            arch_dir = os.path.join(build_base, "tricore")
+            res, mix, shas = run_bench_tricore_arch(
+                tc, arch_dir, cfg_filter=args.config, fips_mode=fips_mode,
+                force=args.force, opt_flag=opt, qemu=args.qemu, no_run=args.no_run)
+            ARCH_INFO["tricore"]["title"] = f"Infineon TriCore TC37x (TC1.6.2, GCC, QEMU tricore_testboard), {opt}"
+            call_graph_fn = lambda elf, root, _tc=tc: _reach_call_graph(get_tricore_call_graph(_tc, elf), root)
+            log_text = format_verum_tables(arch, res, mix, shas, fn_filter=args.function,
+                                           call_graph_fn=call_graph_fn)
+        else:
+            arch_dir = os.path.join(build_base, arch)
+            res, mix, shas = run_bench_arch(arch, arch_dir, cfg_filter=args.config, fips_mode=fips_mode,
+                                            force=args.force, opt_flag=args.opt)
+            log_text = format_verum_tables(arch, res, mix, shas, fn_filter=args.function)
         all_logs.append(log_text)
 
     full_output = "\n\n".join(all_logs) + "\n"
-    with open(log_path, "w", encoding="utf-8") as f:
-        f.write(full_output)
+    with open(log_path, "w", encoding="utf-8") as output_file:
+        output_file.write(full_output)
 
-    # Also mirror to build/benchmark/verum_results_0.log
     mirror_path = os.path.join(build_base, "verum_results_0.log")
-    if os.path.abspath(mirror_path) != os.path.abspath(log_path):
+    if args.arch != "tricore" and os.path.abspath(mirror_path) != os.path.abspath(log_path):
         try:
-            with open(mirror_path, "w", encoding="utf-8") as f:
-                f.write(full_output)
+            with open(mirror_path, "w", encoding="utf-8") as output_file:
+                output_file.write(full_output)
         except IOError:
             pass
 
     print(f"[*] Benchmark output successfully written to: {log_path}")
+
 
 if __name__ == "__main__":
     main()

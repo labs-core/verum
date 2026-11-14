@@ -23,9 +23,11 @@
  *             compile-time error if the function cannot be inlined (e.g.
  *             its address is taken or recursion is detected). Use for
  *             performance-critical and side-channel-sensitive paths where
- *             a function-call boundary is not acceptable.
+ *             a function-call boundary is not acceptable. The @c inline specifier
+ *             is part of the macro because GCC rejects @c always_inline on a
+ *             function that is not also declared @c inline.
  */
-#define VERUM_ATTR_INLINE __attribute__((always_inline))
+#define VERUM_ATTR_INLINE inline __attribute__((always_inline))
 
 /**
  * @brief      Prevent the compiler from inlining the decorated function.

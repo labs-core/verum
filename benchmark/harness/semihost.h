@@ -16,6 +16,7 @@
 #define VERUM_BENCH_SEMIHOST_H_
 
 #include "standard/types.h"
+#include "macro.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,7 +46,7 @@ void semihost_put_fixed2(uint32_t num,
  * @brief  Exit the QEMU emulator session with a status code.
  * @param  code Exit code (0 for success).
  */
-void semihost_exit(uint32_t code);
+VERUM_ATTR_NORETURN void semihost_exit(uint32_t code);
 
 #ifdef __cplusplus
 }

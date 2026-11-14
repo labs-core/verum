@@ -66,7 +66,7 @@ endif()
 find_package(Python3 COMPONENTS Interpreter REQUIRED)
 
 # -----------------------------------------------------------------------------
-# Release Artifact Generation (x86_64, ARM Cortex-M4, RISC-V 32 RV32IMAC)
+# Release Artifact Generation (x86_64, ARM Cortex-M4, RISC-V 32, TriCore TC37x)
 # -----------------------------------------------------------------------------
 set(RELEASE_DIR ${CMAKE_SOURCE_DIR}/release)
 
@@ -91,9 +91,16 @@ add_custom_target(release_riscv
     VERBATIM
 )
 
+add_custom_target(release_tricore
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/release/run_release.py --arch tricore --out-dir ${RELEASE_DIR}
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Building stripped release static archives for Infineon TriCore TC37x with GCC"
+    VERBATIM
+)
+
 add_custom_target(release
-    DEPENDS release_x86_64 release_arm release_riscv
-    COMMENT "Building complete stripped release libraries for x86_64, ARM, and RISC-V"
+    DEPENDS release_x86_64 release_arm release_riscv release_tricore
+    COMMENT "Building complete stripped release libraries for x86_64, ARM, RISC-V, and TriCore"
 )
 
 add_library(verum OBJECT ${SOURCES_C})
@@ -223,6 +230,7 @@ message(STATUS "  cmake --build ${BUILD_REL} --target release        # build str
 message(STATUS "  cmake --build ${BUILD_REL} --target release_x86_64 # build release libraries for x86_64 host")
 message(STATUS "  cmake --build ${BUILD_REL} --target release_arm    # build release libraries for ARM Cortex-M4")
 message(STATUS "  cmake --build ${BUILD_REL} --target release_riscv  # build release libraries for RISC-V 32")
+message(STATUS "  cmake --build ${BUILD_REL} --target release_tricore # build release libraries for TriCore TC37x (GCC)")
 message(STATUS "")
 message(STATUS "Test:")
 message(STATUS "  cmake --build ${BUILD_REL} --target run_tests       # build + run all 12 configuration tests (CTest)")

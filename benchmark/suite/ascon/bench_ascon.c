@@ -31,7 +31,6 @@ static const uint32_t BENCH_EVAL_SIZES[3U] = { 32U, 512U, 1024U };
 static uint32_t s_bench_data_words[BENCH_MAX_DATA_SIZE / sizeof(uint32_t)];
 static uint32_t s_bench_cipher_words[(BENCH_MAX_DATA_SIZE + 16U) / sizeof(uint32_t)];
 static uint32_t s_bench_decrypted_words[BENCH_MAX_DATA_SIZE / sizeof(uint32_t)];
-static uint32_t s_bench_digest_words[8U];
 
 static int mem_equal(const uint8_t *a,
                      const uint8_t *b,
@@ -234,16 +233,14 @@ static int bench_aead128(void)
     const uint32_t *key_param = key;
     const uint32_t *nonce_param = nonce;
 #else /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
-    const uint8_t key[16U] = {
-        0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
+    const uint32_t key[4U] = {
+        0x03020100UL, 0x07060504UL, 0x0B0A0908UL, 0x0F0E0D0CUL
     };
-    const uint8_t nonce[16U] = {
-        0x00U, 0x01U, 0x02U, 0x03U, 0x04U, 0x05U, 0x06U, 0x07U,
-        0x08U, 0x09U, 0x0AU, 0x0BU, 0x0CU, 0x0DU, 0x0EU, 0x0FU
+    const uint32_t nonce[4U] = {
+        0x03020100UL, 0x07060504UL, 0x0B0A0908UL, 0x0F0E0D0CUL
     };
-    const uint32_t *key_param = (const uint32_t *) key;
-    const uint32_t *nonce_param = (const uint32_t *) nonce;
+    const uint32_t *key_param = key;
+    const uint32_t *nonce_param = nonce;
 #endif /* VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF */
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF

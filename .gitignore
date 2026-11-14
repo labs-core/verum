@@ -64,4 +64,4 @@ build
 .docs/*
 .vscode/
 scratch/
-
+*.pyc

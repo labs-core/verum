@@ -27,6 +27,12 @@ from _common import (
     CONFIGS, ARCH_SPECS, compute_sha256, needs_rebuild, get_verum_lib, get_compound_lib
 )
 
+if REPO_ROOT not in sys.path:
+    sys.path.insert(0, REPO_ROOT)
+
+from benchmark.arch.tricore.build import build_release_config
+from benchmark.arch.tricore.toolchain import Toolchain
+
 def build_single_config(arch_key, cfg_name, defs, out_base_dir, force=False, opt_flag=None):
     spec = ARCH_SPECS[arch_key]
     
@@ -125,13 +131,17 @@ def build_arch(arch_key, out_base_dir, cfg_filter=None, fips_mode=None, force=Fa
             continue
         selected_configs.append(c)
 
+    tc = Toolchain() if arch_key == "tricore" else None
     for cfg_name, defs in selected_configs:
-        build_single_config(arch_key, cfg_name, defs, out_base_dir, force=force, opt_flag=opt_flag)
+        if tc:
+            build_release_config(tc, cfg_name, defs, out_base_dir, force=force, opt_flag=opt_flag)
+        else:
+            build_single_config(arch_key, cfg_name, defs, out_base_dir, force=force, opt_flag=opt_flag)
     print(f"[+] {arch_key} release check complete.\n")
 
 def main():
     parser = argparse.ArgumentParser(description="Build and manage stripped release static archives.")
-    parser.add_argument("--arch", choices=["x86_64", "arm", "riscv", "all"], default="all",
+    parser.add_argument("--arch", choices=["x86_64", "arm", "riscv", "tricore", "all"], default="all",
                         help="Target architecture (default: all)")
     parser.add_argument("--config", default="all",
                         help="Configuration name to build (default: all)")
@@ -156,7 +166,7 @@ def main():
     out_dir = os.path.abspath(args.out_dir)
     os.makedirs(out_dir, exist_ok=True)
 
-    targets = ["x86_64", "arm", "riscv"] if args.arch == "all" else [args.arch]
+    targets = ["x86_64", "arm", "riscv", "tricore"] if args.arch == "all" else [args.arch]
     for target in targets:
         build_arch(target, out_dir, cfg_filter=args.config, fips_mode=fips_mode, force=args.force, opt_flag=args.opt)
 

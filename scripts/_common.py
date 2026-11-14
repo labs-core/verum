@@ -144,6 +144,10 @@ ARCH_SPECS = {
             "-ffunction-sections",
             "-fstack-usage"
         ]
+    },
+    "tricore": {
+        "folder": "tricore",
+        "flags": []
     }
 }
 
