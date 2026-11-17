@@ -36,8 +36,8 @@
  */
 VERUM_ATTR_NOINLINE
 // cppcheck-suppress-begin misra-c2012-8.14 ; DEV-005: API precondition requires source and destination 16-byte regions not to overlap.
-// cppcheck-suppress unusedFunction ; DEV-X
-// cppcheck-suppress misra-c2012-8.7 ; DEV-X
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_AUX_MEMORY_16B_copy(void * restrict destination,
                                const void * restrict source)
 {

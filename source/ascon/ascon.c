@@ -40,9 +40,9 @@ const uint8_t VERUM_ASCON_round_constants[12U][2U] = {
 };
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 const uint32_t VERUM_ASCON_round_constants[12U] = {
-    0x000000F0UL, 0x000000E1UL, 0x000000D2UL, 0x000000C3UL,
-    0x000000B4UL, 0x000000A5UL, 0x00000096UL, 0x00000087UL,
-    0x00000078UL, 0x00000069UL, 0x0000005AUL, 0x0000004BUL
+    0x000000F0U, 0x000000E1U, 0x000000D2U, 0x000000C3U,
+    0x000000B4U, 0x000000A5U, 0x00000096U, 0x00000087U,
+    0x00000078U, 0x00000069U, 0x0000005AU, 0x0000004BU
 };
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
@@ -60,26 +60,26 @@ void VERUM_ASCON_interleave(uint32_t word[2U])
 {
     register uint32_t word_0 = word[0U];
     register uint32_t word_1 = word[1U];
-    register uint32_t delta = (word_0 ^ (word_0 >> 1U)) & 0x22222222UL;
+    register uint32_t delta = (word_0 ^ (word_0 >> 1U)) & 0x22222222U;
     word_0 = word_0 ^ delta ^ (delta << 1U);
-    delta = (word_0 ^ (word_0 >> 2U)) & 0x0C0C0C0CUL;
+    delta = (word_0 ^ (word_0 >> 2U)) & 0x0C0C0C0CU;
     word_0 = word_0 ^ delta ^ (delta << 2U);
-    delta = (word_0 ^ (word_0 >> 4U)) & 0x00F000F0UL;
+    delta = (word_0 ^ (word_0 >> 4U)) & 0x00F000F0U;
     word_0 = word_0 ^ delta ^ (delta << 4U);
-    delta = (word_0 ^ (word_0 >> 8U)) & 0x0000FF00UL;
+    delta = (word_0 ^ (word_0 >> 8U)) & 0x0000FF00U;
     word_0 = word_0 ^ delta ^ (delta << 8U);
 
-    delta = (word_1 ^ (word_1 >> 1U)) & 0x22222222UL;
+    delta = (word_1 ^ (word_1 >> 1U)) & 0x22222222U;
     word_1 = word_1 ^ delta ^ (delta << 1U);
-    delta = (word_1 ^ (word_1 >> 2U)) & 0x0C0C0C0CUL;
+    delta = (word_1 ^ (word_1 >> 2U)) & 0x0C0C0C0CU;
     word_1 = word_1 ^ delta ^ (delta << 2U);
-    delta = (word_1 ^ (word_1 >> 4U)) & 0x00F000F0UL;
+    delta = (word_1 ^ (word_1 >> 4U)) & 0x00F000F0U;
     word_1 = word_1 ^ delta ^ (delta << 4U);
-    delta = (word_1 ^ (word_1 >> 8U)) & 0x0000FF00UL;
+    delta = (word_1 ^ (word_1 >> 8U)) & 0x0000FF00U;
     word_1 = word_1 ^ delta ^ (delta << 8U);
 
-    delta = (word_0 & 0x0000FFFFUL) | (word_1 << 16U);
-    word[1U] = (word_0 >> 16U) | (word_1 & 0xFFFF0000UL);
+    delta = (word_0 & 0x0000FFFFU) | (word_1 << 16U);
+    word[1U] = (word_0 >> 16U) | (word_1 & 0xFFFF0000U);
     word[0U] = delta;
 }
 
@@ -94,26 +94,26 @@ void VERUM_ASCON_deinterleave(uint32_t word[2U])
 {
     register uint32_t word_0 = word[0U];
     register uint32_t word_1 = word[1U];
-    register uint32_t delta = (word_0 & 0x0000FFFFUL) | (word_1 << 16U);
-    word_1 = (word_0 >> 16U) | (word_1 & 0xFFFF0000UL);
+    register uint32_t delta = (word_0 & 0x0000FFFFU) | (word_1 << 16U);
+    word_1 = (word_0 >> 16U) | (word_1 & 0xFFFF0000U);
     word_0 = delta;
 
-    delta = (word_0 ^ (word_0 >> 8U)) & 0x0000FF00UL;
+    delta = (word_0 ^ (word_0 >> 8U)) & 0x0000FF00U;
     word_0 = word_0 ^ delta ^ (delta << 8U);
-    delta = (word_0 ^ (word_0 >> 4U)) & 0x00F000F0UL;
+    delta = (word_0 ^ (word_0 >> 4U)) & 0x00F000F0U;
     word_0 = word_0 ^ delta ^ (delta << 4U);
-    delta = (word_0 ^ (word_0 >> 2U)) & 0x0C0C0C0CUL;
+    delta = (word_0 ^ (word_0 >> 2U)) & 0x0C0C0C0CU;
     word_0 = word_0 ^ delta ^ (delta << 2U);
-    delta = (word_0 ^ (word_0 >> 1U)) & 0x22222222UL;
+    delta = (word_0 ^ (word_0 >> 1U)) & 0x22222222U;
     word_0 = word_0 ^ delta ^ (delta << 1U);
 
-    delta = (word_1 ^ (word_1 >> 8U)) & 0x0000FF00UL;
+    delta = (word_1 ^ (word_1 >> 8U)) & 0x0000FF00U;
     word_1 = word_1 ^ delta ^ (delta << 8U);
-    delta = (word_1 ^ (word_1 >> 4U)) & 0x00F000F0UL;
+    delta = (word_1 ^ (word_1 >> 4U)) & 0x00F000F0U;
     word_1 = word_1 ^ delta ^ (delta << 4U);
-    delta = (word_1 ^ (word_1 >> 2U)) & 0x0C0C0C0CUL;
+    delta = (word_1 ^ (word_1 >> 2U)) & 0x0C0C0C0CU;
     word_1 = word_1 ^ delta ^ (delta << 2U);
-    delta = (word_1 ^ (word_1 >> 1U)) & 0x22222222UL;
+    delta = (word_1 ^ (word_1 >> 1U)) & 0x22222222U;
     word_1 = word_1 ^ delta ^ (delta << 1U);
 
     word[0U] = word_0;
@@ -136,6 +136,8 @@ void VERUM_ASCON_deinterleave(uint32_t word[2U])
  *                12 immediate XORs per round.
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
                                             const uint8_t round_constant[2U])
@@ -166,6 +168,7 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
     holder[5U] = ~holder[5U];
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
                                             uint32_t holder[10U],
                                             const uint32_t round_constant)
@@ -209,6 +212,8 @@ void VERUM_ASCON_permute_substitution_layer(uint32_t state[10U],
  *               When direct halves: explicit 64-bit cross-register rotations.
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                 const uint32_t holder[10U])
 {
@@ -228,6 +233,7 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
     state[9U] = holder[9U] ^ ((holder[8U] >>  4U) | (holder[8U] << 28U)) ^ ((holder[8U] >> 21U) | (holder[8U] << 11U));
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
                                                 const uint32_t holder[10U])
 {
@@ -263,6 +269,8 @@ void VERUM_ASCON_permute_linear_diffusion_layer(uint32_t state[10U],
  *                [OPT-A_1] Interleaved or direct-halves p_L; [OPT-A_3] p_C fold; [OPT-A_4] NOT-AND S-box.
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
+// cppcheck-suppress unusedFunction ; DEV-006: Public library API is called by downstream applications; no in-repository caller is required.
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],
                                 const uint8_t round_constant[2U])
@@ -302,6 +310,7 @@ void VERUM_ASCON_permute_merged(uint32_t state[10U],
     holder[5U] = ~holder[5U];
 }
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
+// cppcheck-suppress misra-c2012-8.7 ; DEV-007: External linkage is required so downstream applications can link this public API.
 void VERUM_ASCON_permute_merged(uint32_t state[10U],
                                 uint32_t holder[10U],
                                 const uint32_t round_constant)

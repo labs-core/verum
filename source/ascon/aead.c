@@ -33,13 +33,13 @@
  */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
-    0x00400201UL,
-    0x00008A00UL
+    0x00400201U,
+    0x00008A00U
 };
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 static const uint32_t VERUM_ASCON_AEAD128_initialization_vector[2U] = {
-    0x00001000UL,
-    0x808C0001UL
+    0x00001000U,
+    0x808C0001U
 };
 #endif /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
 
@@ -315,7 +315,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_encrypt_process(const uint32_t
      * @brief   S ← S ⊕ (0^[319] ‖ 1)
      * @details Bit 63 of S4 is odd (2·31 + 1), so it maps to bit 31 of O_4 (state[9U]).
      */
-    state_9 = state_9 ^ 0x80000000UL;
+    state_9 = state_9 ^ 0x80000000U;
 
     block_counter = plaintext_size >> 4U;
 
@@ -827,7 +827,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_AEAD128_decrypt_process(const uint32_t
      * @brief   S ← S ⊕ (0^[319] ‖ 1)
      * @details Bit 63 of S4 is odd (2·31 + 1), so it maps to bit 31 of O_4 (state_9).
      */
-    state_9 = state_9 ^ 0x80000000UL;
+    state_9 = state_9 ^ 0x80000000U;
 
     block_counter = ciphertext_size >> 4U;
 
@@ -1113,9 +1113,9 @@ static uint32_t VERUM_FIPS1403_ASCON_AEAD128_conditional_key_test(const uint32_t
     uint32_t authentication_tag_decrypted[4U] = { 0U, 0U, 0U, 0U };
     uint8_t dummy_buffer[1U] = { 0U };
 #ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-    static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_conditional_test_nonce[4U] = { 0x32321010UL, 0x11001100UL, 0x32321010UL, 0x33223322UL };
+    static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_conditional_test_nonce[4U] = { 0x32321010U, 0x11001100U, 0x32321010U, 0x33223322U };
 #else
-    static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_conditional_test_nonce[4U] = { 0x03020100UL, 0x07060504UL, 0x0B0A0908UL, 0x0F0E0D0CUL };
+    static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_conditional_test_nonce[4U] = { 0x03020100U, 0x07060504U, 0x0B0A0908U, 0x0F0E0D0CU };
 #endif
 
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
@@ -1200,17 +1200,17 @@ uint32_t VERUM_FIPS1403_ASCON_AEAD128_self_test(void)
         VERUM_FIPS1403_ASCON_AEAD128_operational_state = VERUM_FIPS1403_STATE_INITIALIZING;
 
 #ifdef VERUM_ASCON_AEAD128_PREINTERLEAVED_DEF
-        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_key[4U] = { 0x32321010UL, 0x11001100UL, 0x32321010UL, 0x33223322UL };
-        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_test_nonce[4U] = { 0x32321010UL, 0x11001100UL, 0x32321010UL, 0x33223322UL };
+        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_key[4U] = { 0x32321010U, 0x11001100U, 0x32321010U, 0x33223322U };
+        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_test_nonce[4U] = { 0x32321010U, 0x11001100U, 0x32321010U, 0x33223322U };
 #else
-        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_key[4U] = { 0x03020100UL, 0x07060504UL, 0x0B0A0908UL, 0x0F0E0D0CUL };
-        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_test_nonce[4U] = { 0x03020100UL, 0x07060504UL, 0x0B0A0908UL, 0x0F0E0D0CUL };
+        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_key[4U] = { 0x03020100U, 0x07060504U, 0x0B0A0908U, 0x0F0E0D0CU };
+        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_test_nonce[4U] = { 0x03020100U, 0x07060504U, 0x0B0A0908U, 0x0F0E0D0CU };
 #endif
 #ifdef VERUM_ASCON_AEAD128_ASSOCIATED_DATA_DEF
         static const uint8_t VERUM_FIPS1403_ASCON_AEAD128_test_associated_data[1U] = { 0x00U };
-        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_authentication_tag[4U] = { 0x9DB73A10UL, 0x21033A91UL, 0xA9157728UL, 0x8585BB79UL };
+        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_authentication_tag[4U] = { 0x9DB73A10U, 0x21033A91U, 0xA9157728U, 0x8585BB79U };
 #else
-        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_authentication_tag[4U] = { 0x4BD62744UL, 0x51141E8EUL, 0x605944FCUL, 0xB09B83F0UL };
+        static const uint32_t VERUM_FIPS1403_ASCON_AEAD128_expected_authentication_tag[4U] = { 0x4BD62744U, 0x51141E8EU, 0x605944FCU, 0xB09B83F0U };
 #endif
         uint8_t dummy_buffer[1U] = { 0U };
         uint32_t test_authentication_tag[4U] = { 0U, 0U, 0U, 0U };

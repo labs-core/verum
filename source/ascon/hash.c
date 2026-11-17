@@ -69,16 +69,16 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
      *               32-bit register variables (state_0..state_9, holder_0..holder_9).
      */
 #ifdef VERUM_ASCON_BIT_INTERLEAVING_DEF
-    register uint32_t state_0 = 0x56E696E1UL;
-    register uint32_t state_1 = 0xB308E498UL;
-    register uint32_t state_2 = 0x990657DCUL;
-    register uint32_t state_3 = 0x39C35509UL;
-    register uint32_t state_4 = 0x2B5A9644UL;
-    register uint32_t state_5 = 0xF46674E3UL;
-    register uint32_t state_6 = 0x6FE2F8B5UL;
-    register uint32_t state_7 = 0x678C872DUL;
-    register uint32_t state_8 = 0x4EA92B7BUL;
-    register uint32_t state_9 = 0x32121896UL;
+    register uint32_t state_0 = 0x56E696E1U;
+    register uint32_t state_1 = 0xB308E498U;
+    register uint32_t state_2 = 0x990657DCU;
+    register uint32_t state_3 = 0x39C35509U;
+    register uint32_t state_4 = 0x2B5A9644U;
+    register uint32_t state_5 = 0xF46674E3U;
+    register uint32_t state_6 = 0x6FE2F8B5U;
+    register uint32_t state_7 = 0x678C872DU;
+    register uint32_t state_8 = 0x4EA92B7BU;
+    register uint32_t state_9 = 0x32121896U;
 #else /* VERUM_ASCON_BIT_INTERLEAVING_DEF */
     register uint32_t state_0 = 0xe934d681U;
     register uint32_t state_1 = 0x9b1e5494U;
@@ -298,9 +298,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     holder_7 = 0U;
     holder_8 = 0U;
     holder_9 = 0U;
-    // cppcheck-suppress-end unreadVariable
 #else /* VERUM_ASCON_UNROLL_DEF */
-    // cppcheck-suppress-end unreadVariable
     VERUM_ATTR_VOLATILE uint32_t * const volatile_state = (VERUM_ATTR_VOLATILE uint32_t *) state;
     volatile_state[0U] = 0U;
     volatile_state[1U] = 0U;
@@ -313,6 +311,7 @@ VERUM_ATTR_INLINE static void VERUM_ASCON_HASH256_digest_process(const uint8_t *
     volatile_state[8U] = 0U;
     volatile_state[9U] = 0U;
 #endif /* VERUM_ASCON_UNROLL_DEF */
+    // cppcheck-suppress-end unreadVariable
     // cppcheck-suppress-begin misra-c2012-11.3 ; DEV-003: local staging array is declared _Alignas(uint32_t) for word access.
     VERUM_ATTR_VOLATILE uint32_t * const volatile_last_block = (VERUM_ATTR_VOLATILE uint32_t *) __builtin_assume_aligned(last_block_message, sizeof(uint32_t));
     volatile_last_block[0U] = 0U;
@@ -353,8 +352,8 @@ uint32_t VERUM_FIPS1403_ASCON_HASH256_self_test(void)
 
         uint32_t test_digest[8U] = { 0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U };
         static const uint32_t VERUM_FIPS1403_ASCON_HASH256_expected_digest[8U] = {
-            0x85E53B0BUL, 0x986B2F0FUL, 0x8F9FF2CAUL, 0x649BA8DEUL,
-            0xAA70FAA1UL, 0x838F9B24UL, 0xAA3BD59BUL, 0xB2924D30UL
+            0x85E53B0BU, 0x986B2F0FU, 0x8F9FF2CAU, 0x649BA8DEU,
+            0xAA70FAA1U, 0x838F9B24U, 0xAA3BD59BU, 0xB2924D30U
         };
 
         VERUM_ASCON_HASH256_digest_process(NULL, 0U, test_digest);
